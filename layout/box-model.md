@@ -117,3 +117,4 @@ Understanding an elements box-model is essential to positioning elements in more
 ### Additional Resources
 - [DevTools Documentation](https://developers.google.com/web/tools/chrome-devtools/iterate/inspect-styles/?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3)
 - [Opening the Box Model Lesson](http://learn.shayhowe.com/html-css/opening-the-box-model/)
+# Box Model
