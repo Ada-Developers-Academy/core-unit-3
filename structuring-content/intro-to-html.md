@@ -89,16 +89,21 @@ HTML elements can have _attributes_. **Attributes** are additional pieces of inf
 
 Attributes come in attribute-value pairs. Observe this example:
 
+<!-- prettier-ignore-start -->
 ```html
-<example attribute-1="string value" attribute-2="a different string value"
-  >Content Details</example
->
+<example attribute-1="string value" attribute-2="a different string value">Content Details<example>
 ```
+<!-- prettier-ignore-end -->
 
 | Attribute Name | Value                        |
 | -------------- | ---------------------------- |
 | `attribute-1`  | `"string value"`             |
 | `attribute-2`  | `"a different string value"` |
+
+- An element can have zero, one, or many attributes
+- Multiple attributes are separated by a space
+
+There are many attributes that exist. Many attributes are specific to certain HTML elements.
 
 ### Examples
 
