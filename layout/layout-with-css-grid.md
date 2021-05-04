@@ -1,4 +1,4 @@
-# Intro to Layout with CSS Grid
+# Layout with CSS Grid
 
 ## Learning Goals
 
