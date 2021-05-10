@@ -1,0 +1,117 @@
+# Semicolons
+
+## Introduction: To Use or Not Use
+
+In JavaScript, semicolons are used to mark the end of a statement:
+
+```js
+console.log('Do I need to put a semicolon at the end of this to work?');
+```
+
+Officially, JavaScript expects semicolons to end the following kinds of statements:
+
+- variable assignment
+- expressions (such as `1 + 2;`)
+- do-while blocks
+- `continue` statements
+- `break` statements
+- `return` statements
+- `throw` statements to throw errors
+
+Additionally, JavaScript expects semicolons at the end of variable declarations (covered later), `import`s, and `export`s.
+
+However, if we take out the semicolon of our original code, our JavaScript code runs just fine!
+
+```js
+console.log('Do I need to put a semicolon at the end of this to work?')
+```
+
+Semicolons are optional. If semicolons are excluded, then JavaScript's Automatic Semicolon Insertion will... automatically insert semicolons into our code.
+
+### !callout-info
+
+## Developer Conversations in Real-Time
+
+This is one of many topics that the developer community talks about all the time!
+
+### !end-callout
+
+## JavaScript's Automatic Semicolon Insertion
+
+Automatic Semicolon Insertion (ASI) is a subprogram in JavaScript. It executes at the beginning of running our code, and it inserts any missing semicolons.
+
+For example, consider this code, which is missing expected semicolons:
+
+```js
+const favoriteGame = 'Night in the Woods'
+const currentAge = 35 + 1
+const shoeCollection = ['Fancy Windsor Shoes', 'TALL boots', 'The Chunkiest Sneakers']
+```
+
+ASI would automatically place the semicolons:
+
+```js
+const favoriteGame = 'Night in the Woods';
+const currentAge = 35 + 1;
+const shoeCollection = ['Fancy Windsor Shoes', 'TALL boots', 'The Chunkiest Sneakers'];
+```
+
+## A Case for the Semicolon: Clearly Prevent Bugs
+
+The strongest case for always including semicolons in our code is because the ASI is sometimes _wrong_.
+
+Consider [the following code snippet](https://replit.com/@adacore/ASI-Bug-Example#index.js). This example may not feel realistic, but hopefully illustrates the bug.
+
+```js
+let red
+let blue = 20
+let yellow
+
+red = blue + 2
+(yellow) = 42
+```
+
+This code _declares_ three `let` variables: `red`, `blue`, and `yellow`. Let's assume that we have a good reason why `yellow` should be in parentheses (which is valid in JavaScript).
+
+This code raises `SyntaxError: Invalid left-hand side in assignment`. Why?
+
+ASI will insert semicolons like so:
+
+```js
+let red;
+let blue = 20;
+let yellow;
+
+red = blue + 2(yellow) = 42;
+```
+
+When we look at the variable assignments, ASI did _not_ correctly put a semicolon after `red = blue + 2`.
+
+Now [let's write this code with correct semicolon usage](https://replit.com/@adacore/ASI-Bug-Example#index.js):
+
+```js
+let red;
+let blue = 20;
+let yellow;
+
+red = blue + 2;
+(yellow) = 42;
+```
+
+Our code runs as expected!
+
+## A Case for No Semicolons: Style
+
+Sometimes, semicolons are a visual distraction to our code, and takeaway from readability.
+
+### !callout-info
+
+## This Curriculum Prefers Semicolons
+
+The text in this curriculum will use semicolons, in order to make our code clearer and less prone to bugs!
+
+### !end-callout
+
+## Stay Consistent and Understand ASI
+
+The ultimate takeaway is to stay consistent in your code and conform to your team's code style. If we decide to not use semicolons, we should understand the risks that ASI presents.
