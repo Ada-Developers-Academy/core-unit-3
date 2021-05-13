@@ -184,7 +184,7 @@ console.log('cookieCount after calling onCookieButtonClick', cookieButton.cookie
 
 Our output shows us that our `cookieCount` value changed, just by calling `onCookieButtonClick` and using `this.cookieCount`!
 
-## Arrow Function
+## Methods as Arrow Functions
 
 We can add a method to our object with an arrow function.
 

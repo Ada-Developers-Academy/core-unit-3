@@ -2,6 +2,10 @@
 
 ## Introduction
 
+Yet another permutation of the function in the JavaScript language!
+
+Anonymous functions are a useful way to define functions in the context they're used. This usage can be more readable sometimes, especially when it's more convenient to read a function's definition immediately over chase its definition, which may be in a different file.
+
 ## Syntax
 
 An anonymous function is a function created with any valid syntax, but it is not referenced by a variable.
