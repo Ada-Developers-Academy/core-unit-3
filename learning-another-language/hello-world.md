@@ -6,17 +6,44 @@ A well-known exercise to accomplish when learning another programming language i
 
 ## Running Code in the REPL
 
-https://replit.com/@adacore/hello-world#index.js
+To run JavaScript code, we need to consider its _runtime environment_. A **runtime environment** is a set of technologies that determine _how_ to execute the code.
+
+Some examples of runtime environments that can run JavaScript:
+
+- The runtime environment of a web browser like Mozilla Firefox and Google Chrome
+- [Node.js](https://nodejs.org/en/)
+- REPLs like [replit.com](https://replit.com/)
+
+For this portion of the curriculum, we will use [replit.com](https://replit.com/).
+
+The following steps will let us create and run JavaScript programs with ease:
+
+1. Create an account on [replit.com](https://replit.com/) and log-in
+1. Visit [the Hello, World! REPL](https://replit.com/@adacore/hello-world#index.js)
+
+On the right side, we see the _console_. We can use this console to execute small, quick JavaScript snippets, such as `2 + 3`, `4 * 5`, or any other valid code.
+
+![JavaScript REPL. In the console on the right-side, the line "2 + 3" is executed, and shows a result of "5." The line "4 * 5" is executed, and shows a result of "20."](../assets/learning-a-new-language_hello-world_repl-console-demo.png)
+
+On the left side, we see a file explorer, and `index.js`. We can write JavaScript code within this file.
+
+Then, we can run this code using the green "Run" button on the top.
+
+![JavaScript REPL. The green "Run" button on the top is highlighted.](../assets/learning-a-new-language_hello-world_repl-run-demo.png)
+
+There are more features in replit.com that are worth exploring! For now, let's begin working on our Hello, World program.
 
 ## Implementation
 
-To print `Hello, World!` in JavaScript, we can write:
+To print `Hello, World!` in JavaScript, [we can write](https://replit.com/@adacore/hello-world#index.js):
 
+<!-- prettier-ignore-start -->
 ```js
-console.log("Hello, World!");
+console.log('Hello, World!');
 ```
+<!-- prettier-ignore-end -->
 
-When we run our code, we should see `Hello, World!` in the console.
+[When we run our code](https://replit.com/@adacore/hello-world#index.js), we should see `Hello, World!` in the console.
 
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                             |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
