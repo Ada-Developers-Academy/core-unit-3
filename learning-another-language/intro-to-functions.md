@@ -87,3 +87,30 @@ This curriculum text will prefer functional expressions. Functional expressions:
 - Setup patterns and habits needed for future, more advanced JavaScript syntax
 
 ## Check for Understanding
+
+<!-- Question 1 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: ordering
+* id: 72f9c062
+* title: Intro to Functions
+##### !question
+
+Arrange the options below so that they match these terms in this order:
+
+1. Functional Expression
+1. Function Declaration
+1. A function named `clearCanvas`
+1. Calling a function named `clearCanvas`
+
+##### !end-question
+##### !answer
+
+1. `const clearCanvas = function(){ ... }`
+1. `function clearCanvas(){ ... }`
+1. `clearCanvas`
+1. `clearCanvas()`
+
+##### !end-answer
+### !end-challenge
+<!-- prettier-ignore-end -->
