@@ -2,9 +2,28 @@
 
 ## Introduction
 
+When learning another language, implementing FizzBuzz is a great way to jump into it. This program allows us to explore how to:
+
+- use variables
+- use conditionals
+- use equality-checking and comparison
+- define functions
+- use parameters
+- use `return`
+- call functions
+
+The requirements of the FizzBuzz program is as follows:
+
+Create a function named `fizzBuzz`. It takes in one parameter, `num`.
+
+- If `num` is a multiple of 3, then return `'Fizz'`.
+- If `num` is a multiple of 5, then return `'Buzz'`.
+- If `num` is a multiple of 3 _and_ 5, then return `FizzBuzz`.
+- If `num` is not a multiple of 3 or 5, then return the number itself.
+
 ## Implementation
 
-https://replit.com/@adacore/FizzBuzz
+[To implement FizzBuzz, we can write](https://replit.com/@adacore/FizzBuzz):
 
 <!-- prettier-ignore-start -->
 ```js
@@ -27,7 +46,7 @@ console.log(fizzBuzz(15));
 ```
 <!-- prettier-ignore-end -->
 
-When we run our code, we should see this output:
+[When we run our code](https://replit.com/@adacore/FizzBuzz), we should see this output:
 
 ```
 1
