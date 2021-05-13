@@ -2,6 +2,12 @@
 
 ## Introduction
 
+Objects are a data type that contain key-value pairs, and they're foundational to organizing data and solving problems in JavaScript.
+
+Object keys can be strings or numbers.
+
+Object values can be any data type, including strings, numbers, booleans, arrays, other objects, and functions.
+
 ## Object Literals
 
 An object literal is made by placing comma-separated key-value pairs in curly braces `{}`.
@@ -11,7 +17,7 @@ An object literal is made by placing comma-separated key-value pairs in curly br
 {
   breakfast: 'Cereal',
   lunch: 'Sandwich',
-  dinner: 'Sujebi'
+  dinner: 'Japchae'
 }
 ```
 <!-- prettier-ignore-end -->
@@ -50,7 +56,7 @@ We can describe the object `testObj` with this table:
 
 ### Dot Notation
 
-To get `'this is a test string'` from this object, we use the key `someStr` using dot notation:
+To get `'this is a test string'` from this object, we use the key `someStr` [using dot notation](https://replit.com/@adacore/Objects-Demo#index.js):
 
 <!-- prettier-ignore-start -->
 ```js
@@ -114,7 +120,7 @@ testObj['someStr'];
 ```
 <!-- prettier-ignore-end -->
 
-Note that square bracket notation allows us to pass in a _variable_ for our key. This is because we can put in expressions in our square brackets. Observe below:
+Note that square bracket notation allows us to pass in a _variable_ for our key. This is because we can put in expressions in our square brackets. [Observe this code](https://replit.com/@adacore/Objects-Demo#index.js):
 
 <!-- prettier-ignore-start -->
 ```js
@@ -144,7 +150,7 @@ We can infinitely nest objects!
 
 In order to access nested objects, we continue to _chain_ our syntax.
 
-To get `4` from accessing `testObj`, we can use any of the following syntax:
+To get `4` from accessing `testObj`, we can use [any of the following syntax](https://replit.com/@adacore/Objects-Demo#index.js):
 
 <!-- prettier-ignore-start -->
 ```js
@@ -177,7 +183,7 @@ Here are some example properties that all functions have:
 
 We won't normally use these properties, but they illustrate a powerful point: we can access these properties using dot notation or square bracket notation, just like any other object.
 
-[Observe the following code](https://replit.com/@adacore/Objects-Demo#index.js):
+[Observe this code](https://replit.com/@adacore/Objects-Demo#index.js):
 
 <!-- prettier-ignore-start -->
 ```js
@@ -206,7 +212,7 @@ This additional topic can illustrate one way that we can treat functions as obje
 
 When we make objects, we make key-value pairs, where the value can be any object. Values can be numbers, strings, booleans, `null`, arrays, other objects, and _functions_.
 
-Consider this code:
+Consider [this code](https://replit.com/@adacore/Objects-Demo#index.js):
 
 <!-- prettier-ignore-start -->
 ```js
