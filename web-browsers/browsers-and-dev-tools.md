@@ -153,3 +153,68 @@ We can change the arrangement of our tools and how it docks into our browser. Th
 ![Dev tools with a focus on the pop-up menu. The pop-up menu comes from a three-dots icon. The pop-up menu lists these options: "Dock to Bottom," "Dock to Right," "Dock to Left," "Separate Window."](../assets/web-browsers_browsers-and-dev-tools_dev-tools-position.png)
 
 We can make individual panes bigger or smaller by dragging their edges to the desired size.
+
+## Check for Understanding
+
+<!-- Question 1 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: multiple-choice
+* id: 58ee6425
+* title: Browsers and Dev Tools
+##### !question
+
+Which of the following is the most accurate definition of "default styling"?
+
+##### !end-question
+##### !options
+
+* Default styling is the base set of styles that a webpage owns.
+* Default styling is the set of principles of the bare minimum amount of styling we need to do in order to have a usable website.
+* Default styling is an outdated set of principles used in older web development, where styles used to come from the browser only.
+* Default styling describes a browser's set of styles. The browser applies these styles to every web page by default.
+
+##### !end-options
+##### !answer
+
+* Default styling describes a browser's set of styles. The browser applies these styles to every web page by default.
+
+##### !end-answer
+##### !explanation
+
+Browsers apply styles on the elements in a web page by default.
+
+##### !end-explanation
+### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question 2 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: checkbox
+* id: 4982f066
+* title: Browsers and Dev Tools
+##### !question
+
+Check the main separate responsibilities to consider when developing a website.
+
+##### !end-question
+##### !options
+
+* Syntax
+* Environment
+* HTML/CSS
+* Content
+* Presentation
+* Behavior
+
+##### !end-options
+##### !answer
+
+* Content
+* Presentation
+* Behavior
+
+##### !end-answer
+### !end-challenge
+<!-- prettier-ignore-end -->
