@@ -93,3 +93,108 @@ Constants, like `let` variables, are also block-scoped.
 ### Avoid `var`
 
 `var` variables are globally-scoped re-assignable variables. `var` was the best type of variable to declare in older versions of JavaScript. It may make sense to use `var` if we are working with an older version of the JavaScript interpreter. We may also see `var` when looking at old JavaScript resources.
+
+## Check for Understanding
+
+<!-- Question 1 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: ordering
+* id: cc598973
+* title: Variables
+##### !question
+
+Arrange the following syntax.
+
+Assume that each line would be indented correctly.
+
+##### !end-question
+##### !answer
+
+1. `const`
+1. `recordCount`
+1. `=`
+1. `613`
+1. `;`
+
+##### !end-answer
+### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question 2 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: ordering
+* id: 52480b95
+* title: Variables
+##### !question
+
+Arrange the following syntax.
+
+Assume that each line would be indented correctly.
+
+##### !end-question
+##### !answer
+
+1. `let`
+1. `recordCount;`
+1. `recordCount`
+1. `=`
+1. `875`
+1. `;`
+
+##### !end-answer
+##### !explanation
+
+`recordCount` is a `let` variable. Here, we declare `recordCount` in one line. Then, we assign it to `875`.
+
+##### !end-explanation
+### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question 3 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: ordering
+* id: 60796a14
+* title: Variables
+##### !question
+
+Arrange the following syntax.
+
+Assume that each line would be indented correctly.
+
+The correct answer for the first line is `const initialCount = 613;`.
+
+##### !end-question
+##### !answer
+
+1. `const initialCount = 613;`
+1. `let`
+1. `currentCount;`
+1. `currentCount`
+1. `=`
+1. `initialCount + 1;`
+
+##### !end-answer
+##### !explanation
+
+`initialCount` is a `const` variable, which cannot be re-assigned.
+
+<br/>
+
+`currentCount` is a `let` variable. Here, we declare `currentCount` in one line. Then, we assign it to `initialCount + 1`.
+
+<br/>
+
+The entire block of code looks like this when assembled:
+
+```js
+const initialCount = 613;
+let currentCount;
+currentCount = initialCount + 1;
+```
+
+##### !end-explanation
+### !end-challenge
+<!-- prettier-ignore-end -->
