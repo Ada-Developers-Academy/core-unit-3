@@ -5,7 +5,7 @@
 HTML elements can usually be categorized in one of two ways:
 
 - Content element, whose responsibility is to describe literal website content
-- Sectioning element, whose responsibility is to contain and group other HTML elements
+- Sectioning element, whose responsibility is to contain and group other HTML elements together
 
 Familiarizing ourselves with content elements can help us decide which HTML element is best suited for the content we want to show!
 
@@ -22,10 +22,10 @@ Here are examples of HTML elements that describe different types of website cont
 | Tags                               | Name               | Notes                                                      |
 | ---------------------------------- | ------------------ | ---------------------------------------------------------- |
 | `<p>Content</p>`                   | Paragraph          |
-| `<h1>Content</h1>`                 | Header 1           | The most important header on the page                      |
-| `<h2>Content</h2>`                 | Header 2           | The second-most important header                           |
-| `<h3>Content</h3>`                 | Header 3           | The third-most important header                            |
-| `<h4>Content</h4>`                 | Header 4           |
+| `<h1>Content</h1>`                 | Heading 1           | The most important heading on the page                      |
+| `<h2>Content</h2>`                 | Heading 2           | The second-most important heading                           |
+| `<h3>Content</h3>`                 | Heading 3           | The third-most important heading                            |
+| `<h4>Content</h4>`                 | Heading 4           |
 | `<a href="">Content</a>`           | Link (Anchor)      | Uses the `href` attribute to define the link's destination |
 | `<blockquote>Content</blockquote>` | Blockquote         |
 | `<code>Content</code>`             | Code               | Displays computer code, like Python or HTML!               |
@@ -57,7 +57,7 @@ By default, browsers style the list items inside ordered lists with numbers.
 
 | Tags                            | Name         | Notes |
 | ------------------------------- | ------------ | ----- |
-| `<ul> List items here... </ul>` | Ordered List |
+| `<ol> List items here... </ol>` | Ordered List |
 | `<li>Content</li>`              | List Item    |
 
 ### Unordered Lists

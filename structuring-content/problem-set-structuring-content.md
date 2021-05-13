@@ -182,7 +182,7 @@ Assume that each line would be indented correctly.
 * title: Structuring Content
 ##### !question
 
-Arrange the following syntax so that the header element is siblings with the paragraph element.
+Arrange the following syntax so that the heading element is siblings with the paragraph element.
 
 Assume that each line would be indented correctly.
 

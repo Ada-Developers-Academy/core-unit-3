@@ -76,7 +76,7 @@ Let's add some more content. We're building the recipe for chicken noodle soup.
 
 Replace the content in the `<body>` tag with:
 
-- A header that says "Chicken Noodle Soup"
+- A heading that says "Chicken Noodle Soup"
 - A description of the dish with this text:
 
 > Chicken soup is a soup made from chicken, simmered in water, usually with various other ingredients. The classic chicken soup consists of a clear chicken broth, often with pieces of chicken or vegetables; common additions are pasta, noodles, dumplings, or grains such as rice and barley. Chicken soup has acquired the reputation of a folk remedy for colds and influenza, and in many countries is considered a comfort food.
