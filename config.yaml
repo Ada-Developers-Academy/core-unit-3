@@ -2,7 +2,7 @@
 Standards:
   -
     Title: Learning Another Language
-    Description: "Our Path; Hello, World!; FizzBuzz; Summary, Resources, and Next Steps; Semicolons; Variables; Objects; Intro to Functions; Additional Topics"
+    Description: "Our Path; Hello, World!; FizzBuzz; Summary, Resources, and Next Steps; Semicolons; Variables; Objects; Intro to Functions; Additional Topics; Problem Set: Intro to JavaScript"
     UID: 9199ff6adef8940bbdbaa1cc4649bd9b
     SuccessCriteria:
       - success criteria
@@ -43,3 +43,7 @@ Standards:
         Type: Lesson
         UID: cfd5f597d9a76eaf406cb4125063e0fb
         Path: /learning-another-language/additional-topics.md
+      -
+        Type: Lesson
+        UID: 36e4d945
+        Path: /learning-another-language/problem-set-intro-to-javascript.md
