@@ -74,11 +74,19 @@ Our fictional recipe blog might have the following behavior:
 
 A web browser keeps track of many things beyond rendering our websites. For example, browsers know where the mouse is positioned on the screen and they keep track of any [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies).
 
-## Developer Tools
+## Introduction to Developer Tools
 
 Modern browsers provide a set of tools called Developer Tools, or Dev Tools.
 
 Dev tools are a set of web authoring and debugging tools. They can show us details as to how a specific website is _rendered_. With these tools, we'll be able to see the content and presentation of the site, and possibly the behavior.
+
+### !callout-info
+
+## Foreshadowing: Dev Tools Are for HTML and CSS development
+
+Dev Tools are useful when we dive into the details of HTML and CSS. But we haven't learned any concrete HTML or CSS problems! For now, the best thing we can do is get familiar with what the tools look like and anticipate what it can do for us in the future.
+
+### !end-callout
 
 ### Accessing Dev Tools
 
@@ -90,20 +98,58 @@ When we want to inspect the details of a website, we can open our Dev Tools usin
   - In Mozilla Firefox, we use Tools > Browser Tools > Web Developer Tools
   - In Google Chrome, we use View > Developer > Developer Tools
 
-![Elements Tab in Dev Tools](imgs/dev_tools_elements_tab.png)
-To start, click on the _Elements_ tab. You should get something that looks like this:
-![dev tools](imgs/dev_tools.png)
+Once we do that, the Dev Tools show us details about the current page we're on.
+
+![Dev Tools opened on a web page. The web page is a lesson on the Learn platform.](../assets/web-browsers_browsers-and-dev-tools_dev-tools-intro.png)
 
 ### Anatomy of the Dev Tools Window
 
-| Tab Name    | Description                                                                         |
-| ----------- | ----------------------------------------------------------------------------------- |
-| Elements    | Contains details on the rendered HTML elements                                      |
-| Console     | Has a JavaScript console that the current page has access to                        |
-| Sources     | Contains details on static resources (HTML, CSS, and JS) loaded by the current page |
-| Network     | Contains details on HTTP requests and responses that occur, in real-time            |
-| Performance | Contains tools for recording and testing the performance of rendering               |
-| Memory      | Contains details on memory usage and allocation, and tracking memory leaks          |
-| Application | Contains details on things like local storage, cookies, cache, etc.                 |
+There are two main sections to navigating the Dev Tools window to focus on right now:
 
-When developing HTML and CSS, the most relevant tab is the Elements tab.
+1. The tabs, where each tab contains a different set of tools, all useful in different situations
+1. The content area, which shows the details of whatever tab is selected
+
+![Detailed, cropped view of the Dev Tools on the Inspector tab, showing the tabs and the content](../assets/web-browsers_browsers-and-dev-tools_dev-tools-window.png)
+
+| Tab Name               | Description                                                                         |
+| ---------------------- | ----------------------------------------------------------------------------------- |
+| Inspector or Elements  | Contains details on the rendered HTML elements                                      |
+| Console                | Has a JavaScript console that the current page has access to                        |
+| Sources (Chrome)       | Contains details on static resources (HTML, CSS, and JS) loaded by the current page |
+| Network                | Contains details on HTTP requests and responses that occur, in real-time            |
+| Performance            | Contains tools for recording and testing the performance of rendering               |
+| Memory                 | Contains details on memory usage and allocation, and tracking memory leaks          |
+| Storage or Application | Contains details on things like local storage, cookies, cache, etc.                 |
+
+When developing HTML and CSS, the most relevant tab is the Inspector/Elements tab.
+
+Over time, we should explore our Dev Tools. We should open and use Dev Tools whenever we ask ourselves:
+
+- What does the rendered HTML of this website look like?
+  - What kind of HTML tags exist?
+  - What are their attributes?
+  - How are the HTML elements organized? For any given HTML element, what's nested inside it? What element contains it?
+- What does the rendered styling of this website look like?
+  - What are the CSS rules that are applied to our elements?
+  - What is the position of our HTML element?
+  - Why does our element look a certain way?
+
+These questions will be more relevant to us as we dive deeper into front-end development.
+
+### Inspecting Elements
+
+This tool will become more relevant with HTML development, but we can inspect each element in our web page using Dev Tools.
+
+We can use our cursor to select an element, or right-click and select "Inspect" to see its details.
+
+![A web page with Dev Tools opened, and a heading titled "Accessing Dev Tools" is highlighted from the Dev Tools inspector tool](../assets/web-browsers_browsers-and-dev-tools_dev-tools-inspect.png)
+
+### Positioning the Dev Tools
+
+Dev Tools obstruct our view of the web page. We can make ourselves more comfortable by positioning our tools intentionally.
+
+We can change the arrangement of our tools and how it docks into our browser. The three dots on the top right of the Dev Tools gives us options to dock the tools to the bottom, left, or right of our browser, or open it in a new window.
+
+![Dev tools with a focus on the pop-up menu. The pop-up menu comes from a three-dots icon. The pop-up menu lists these options: "Dock to Bottom," "Dock to Right," "Dock to Left," "Separate Window."](../assets/web-browsers_browsers-and-dev-tools_dev-tools-position.png)
+
+We can make individual panes bigger or smaller by dragging their edges to the desired size.
