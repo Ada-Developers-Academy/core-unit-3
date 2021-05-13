@@ -12,7 +12,7 @@ The _browser_ is the platform that runs web apps in front of an end user.
 
 When we develop the front-end layer for our web apps in code, the _browser_ is the platform that _renders_ it for the user. **Rendering** is the process of displaying it to the user.
 
-As web developers, familiarity with the browser will help us understand its abilities and limitations. Understanding what the browser can and can't do will help us make usable, exciting, consistent web apps!
+As web developers, familiarity with the browser will help us understand its abilities and limitations. Understanding what the browser can and can't do will help us make usable, exciting, and consistent web apps!
 
 ## Developing for Web
 
@@ -32,7 +32,7 @@ Imagine a recipe blog. The contents of a recipe blog include:
 
 - The paragraphs of story before the recipe
 - The list of ingredients
-- The directions and steps to talk
+- The directions and steps to take
 - All images and photos related to the recipe
 - Navigational links
 - The logo of the recipe website and a link to go home
@@ -54,7 +54,7 @@ In our fictional recipe blog, the presentation of the blog determines:
 
 It's part of our job to decide how content is presented.
 
-However, all browsers have _default styles_ which will affect our web app presentation. Over time, we'll become familiar with which styles are browser defaults.
+However, all browsers have _default styling_ which will affect our web app presentation. Over time, we'll become familiar with which styling comes from browser defaults.
 
 ### Behavior
 
@@ -72,7 +72,7 @@ Our fictional recipe blog might have the following behavior:
 
 #### Possible Behaviors and the Web API
 
-A web browser keeps track of many things beyond rendering our websites. Browsers know where the mouse position is, keep track of any [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+A web browser keeps track of many things beyond rendering our websites. For example, browsers know where the mouse is positioned on the screen and they keep track of any [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies).
 
 ## Developer Tools
 
