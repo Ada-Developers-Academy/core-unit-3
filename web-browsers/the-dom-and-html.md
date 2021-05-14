@@ -59,7 +59,7 @@ When two elements share a parent node, they are considered to be _sibling elemen
 
 Consider the following example DOM. Each node is an HTML element with a name.
 
-![Diagram of a DOM that has a root node that is an `html` element. The following elements are present: html, head, title, meta, meta, body, h1, p, a, ul, li, li, li.](../assets/web-browsers_the-dom-and-html_dom-example.gif)
+![Diagram of a DOM that has a root node that is an `html` element. The following elements are present: html, head, title, meta, meta, body, h1, p, a, ul, li, li, li.](../assets/web-browsers_the-dom-and-html_dom-example.png)
 
 In this diagram, the `html` element is the root element.
 
@@ -90,7 +90,7 @@ The `title`, `meta`, and `meta` elements are siblings with each other.
 
 Consider this diagram that shows an example DOM.
 
-![Diagram of a DOM that has a root node that is an `html` element. The following elements are present: html, head, title, meta, meta, body, h1, p, a, ul, li, li, li.](../assets/web-browsers_the-dom-and-html_dom-example.gif)
+![Diagram of a DOM that has a root node that is an `html` element. The following elements are present: html, head, title, meta, meta, body, h1, p, a, ul, li, li, li.](../assets/web-browsers_the-dom-and-html_dom-example.png)
 
 Check each option that is true.
 
