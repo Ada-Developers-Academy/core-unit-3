@@ -12,7 +12,7 @@ The _browser_ is the platform that runs web apps in front of an end user.
 
 When we develop the front-end layer for our web apps in code, the _browser_ is the platform that _renders_ it for the user. **Rendering** is the process of displaying it to the user.
 
-As web developers, familiarity with the browser will help us understand its abilities and limitations. Understanding what the browser can and can't do will help us make usable, exciting, and consistent web apps!
+As web developers, familiarity with the browser will help us understand its abilities and limitations. Understanding what the browser can and can't do will help us make usable, exciting, and reliable web apps!
 
 ## Developing for Web
 
@@ -45,10 +45,10 @@ The _presentation_ of a website is how the content looks on the page. This inclu
 In our fictional recipe blog, the presentation of the blog determines:
 
 - The typeface, font size, and text color of the recipe
-- If the list of ingredients is displayed vertically or horizontally
+- Whether the list of ingredients is displayed vertically or horizontally
 - The border and sizing of all images and photos
-- If the navigational links are on the side of the website, on top, or on bottom
-- If the logo changes colors when the cursor moves over it
+- Whether the navigational links are on the side of the website, on top, or on bottom
+- Whether the logo changes colors when the cursor moves over it
 
 #### Browser Default Styles
 
@@ -60,7 +60,7 @@ However, all browsers have _default styling_ which will affect our web app prese
 
 The _behavior_ of a website is how the website acts, usually as a result of user interaction.
 
-This includes what to do when forms are submitted, how to present and close any pop-up modals, moving or re-arranging content, changing presentation, and more.
+This includes what to do when forms are submitted, how to present and close any pop-up UI prompts (often referred to as modals), moving or re-arranging content, changing presentation, and more.
 
 It also includes making API calls!
 
@@ -84,7 +84,7 @@ Dev tools are a set of web authoring and debugging tools. They can show us detai
 
 ## Foreshadowing: Dev Tools Are for HTML and CSS development
 
-Dev Tools are useful when we dive into the details of HTML and CSS. But we haven't learned any concrete HTML or CSS problems! For now, the best thing we can do is get familiar with what the tools look like and anticipate what it can do for us in the future.
+Dev Tools are useful when we dive into the details of HTML and CSS. But we haven't learned any concrete HTML or CSS problems! For now, the best thing we can do is get familiar with what the tools look like and anticipate what they can do for us in the future.
 
 ### !end-callout
 
@@ -93,33 +93,35 @@ Dev Tools are useful when we dive into the details of HTML and CSS. But we haven
 When we want to inspect the details of a website, we can open our Dev Tools using any of the following methods:
 
 - Right-click on a page and click on "Inspect" from the menu
-- Use the keyboard shortcut `cmd + opt + i`
+- Use the keyboard shortcut `cmd + opt + i` (⌥⌘`I`)
 - Using the browser menu
   - In Mozilla Firefox, we use Tools > Browser Tools > Web Developer Tools
   - In Google Chrome, we use View > Developer > Developer Tools
 
 Once we do that, the Dev Tools show us details about the current page we're on.
 
-![Dev Tools opened on a web page. The web page is a lesson on the Learn platform.](../assets/web-browsers_browsers-and-dev-tools_dev-tools-intro.png)
+![Dev Tools opened on a web page. The web page is a lesson on the Learn platform.](../assets/web-browsers_browsers-and-dev-tools_dev-tools-intro.png)  
+_Fig. Using Dev Tools to view details of a Learn lesson_
 
 ### Anatomy of the Dev Tools Window
 
 There are two main sections to navigating the Dev Tools window to focus on right now:
 
-1. The tabs, where each tab contains a different set of tools, all useful in different situations
-1. The content area, which shows the details of whatever tab is selected
+1. The tabs. Each tab contains a different set of tools, which are useful in different situations.
+1. The content area, which shows the details of whatever tab is selected.
 
-![Detailed, cropped view of the Dev Tools on the Inspector tab, showing the tabs and the content](../assets/web-browsers_browsers-and-dev-tools_dev-tools-window.png)
+![Detailed, cropped view of the Dev Tools on the Inspector tab, showing the tabs and the content](../assets/web-browsers_browsers-and-dev-tools_dev-tools-window.png)  
+_Fig. A closer look at the Dev Tools window. Notice the variety of tabs available, including Inspector, Console, Debugger, and many more!_
 
 | Tab Name               | Description                                                                         |
 | ---------------------- | ----------------------------------------------------------------------------------- |
 | Inspector or Elements  | Contains details on the rendered HTML elements                                      |
-| Console                | Has a JavaScript console that the current page has access to                        |
-| Sources (Chrome)       | Contains details on static resources (HTML, CSS, and JS) loaded by the current page |
-| Network                | Contains details on HTTP requests and responses that occur, in real-time            |
+| Console                | Has a JavaScript console using which we can interact with the current page                                  |
+| Sources (Chrome)       | Contains details about static resources (HTML, CSS, and JS) loaded by the current page |
+| Network                | Contains details about HTTP requests and responses that occur, in real-time            |
 | Performance            | Contains tools for recording and testing the performance of rendering               |
-| Memory                 | Contains details on memory usage and allocation, and tracking memory leaks          |
-| Storage or Application | Contains details on things like local storage, cookies, cache, etc.                 |
+| Memory                 | Contains details about memory usage and allocation, and tracking memory leaks          |
+| Storage or Application | Contains details about things like local storage, cookies, cache, etc.                 |
 
 When developing HTML and CSS, the most relevant tab is the Inspector/Elements tab.
 
@@ -138,19 +140,21 @@ These questions will be more relevant to us as we dive deeper into front-end dev
 
 ### Inspecting Elements
 
-This tool will become more relevant with HTML development, but we can inspect each element in our web page using Dev Tools.
+We can inspect each element in our web page using Dev Tools. The Inspect tool will become more relevant as we explore HTML development.
 
 We can use our cursor to select an element, or right-click and select "Inspect" to see its details.
 
-![A web page with Dev Tools opened, and a heading titled "Accessing Dev Tools" is highlighted from the Dev Tools inspector tool](../assets/web-browsers_browsers-and-dev-tools_dev-tools-inspect.png)
+![A web page with Dev Tools opened, and a heading titled "Accessing Dev Tools" is highlighted from the Dev Tools inspector tool](../assets/web-browsers_browsers-and-dev-tools_dev-tools-inspect.png)  
+_Fig. Using the Inspect tool (circled) to investigate a page_
 
 ### Positioning the Dev Tools
 
 Dev Tools obstruct our view of the web page. We can make ourselves more comfortable by positioning our tools intentionally.
 
-We can change the arrangement of our tools and how it docks into our browser. The three dots on the top right of the Dev Tools gives us options to dock the tools to the bottom, left, or right of our browser, or open it in a new window.
+We can change the arrangement of our tools and how it docks into our browser. The three dots on the top right of the Dev Tools give us options to dock the tools to the bottom, left, or right of our browser, or open it in a new window.
 
-![Dev tools with a focus on the pop-up menu. The pop-up menu comes from a three-dots icon. The pop-up menu lists these options: "Dock to Bottom," "Dock to Right," "Dock to Left," "Separate Window."](../assets/web-browsers_browsers-and-dev-tools_dev-tools-position.png)
+![Dev tools with a focus on the pop-up menu. The pop-up menu comes from a three-dots icon. The pop-up menu lists these options: "Dock to Bottom," "Dock to Right," "Dock to Left," "Separate Window."](../assets/web-browsers_browsers-and-dev-tools_dev-tools-position.png)  
+_Fig. Accessing the dock controls for the Dev Tools_
 
 We can make individual panes bigger or smaller by dragging their edges to the desired size.
 
@@ -196,7 +200,7 @@ Browsers apply styles on the elements in a web page by default.
 * title: Browsers and Dev Tools
 ##### !question
 
-Check the main separate responsibilities to consider when developing a website.
+Check the main, separate responsibilities to consider when developing a website.
 
 ##### !end-question
 ##### !options
