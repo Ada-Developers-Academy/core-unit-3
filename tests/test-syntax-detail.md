@@ -100,20 +100,6 @@ Ultimately, to get deeper into Jest syntax, we should dive into the documentatio
 
 Some Jest resources will be centered around the context that the tests are in. For example, Jest tests in Replit.com will be configured differently compared to Jest tests in React.
 
-### !callout-danger
-
-## This Curriculum Uses Mocha, Not Jest
-
-This curriculum teaches Jest, a testing framework that has wide adoption in the JavaScript community. This curriculum's projects will use Jest. However, **the code challenges within this curriculum will use Mocha,** a different testing framework. This is due to a limitation in the curriculum tools.
-
----
-
-Working with Mocha, rather than Jest, will have some differences in syntax. However, conceptually, they are the exact same; the structure, error output, error messages, passed test messages, etc. will all be extremely alike.
-
-This curriculum believes in a learner's ability to smoothly work with these differences.
-
-### !end-callout
-
 ## Check for Understanding
 
 <!-- Question 1 -->
