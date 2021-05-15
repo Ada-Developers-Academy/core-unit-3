@@ -1,0 +1,13 @@
+# Ignore files/directories not required to build
+# Can greatly speed up the build and reduce the size of the image
+#
+# https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context
+
+node_modules/
+
+Dockerfile
+
+.dockerignore
+.gitignore
+
+returnStr.js
