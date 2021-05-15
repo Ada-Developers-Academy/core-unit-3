@@ -1,5 +1,0 @@
-// use ./test.sh bad-submission.txt to verify test failure
-
-function returnStr(str) {
-  return `BAD ${str}`
-}
