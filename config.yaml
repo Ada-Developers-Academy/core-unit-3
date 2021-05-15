@@ -1,12 +1,16 @@
 Standards:
   -
-    Title: Tests
-    Description: "Problem Set: Tests"
-    UID: 2d8092a5
+    Title: "Problem Set: Tool Library"
+    Description: "Practice with Functions"
+    UID: 46d7ee8a
     SuccessCriteria:
       - success criteria
     ContentFiles:
       -
+        Type: Instructor
+        UID: bbd59159
+        Path: /problem-set-tool-library/tool-library.instructor.md
+      -
         Type: Lesson
-        UID: 1d5ceb96
-        Path: /tests/problem-set-tests.md
+        UID: 80f0a0cd
+        Path: /problem-set-tool-library/problem-set-tool-library.md
