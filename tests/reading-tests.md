@@ -288,21 +288,21 @@ The tests in [this REPL](https://replit.com/@adacore/FizzBuzz-With-Tests#index.j
 
 Navigate to the "Unit Tests" section, listed on the left-hand navigation menu.
 
-![](../assets/tests_tests_replit-highlight-test-nav.png)
+![Replit UI that highlights the "Unit Tests" tab on the left-hand navigation bar](../assets/tests_tests_replit-highlight-test-nav.png)
 
 The left pane now shows details about the existing test suite, with a list of existing tests.
 
-![](../assets/tests_tests_replit-test-list.png)
+![Replit UI that highlights a list of four unit tests relating to FizzBuzz](../assets/tests_tests_replit-test-list.png)
 
 We can click into one of these tests and observe the contents of the test.
 
-![](../assets/tests_tests_replit-test-detail.png)
+![Modal that shows the details of the unit test titled `multiples-of-three`, including its test contents](../assets/tests_tests_replit-test-detail.png)
 
 We can run the tests using the "Run tests" button.
 
 Hopefully we see one failing test.
 
-![](../assets/tests_tests_replit-test-failure.png)
+![Replit UI featuring test failure messages in the right-hand console](../assets/tests_tests_replit-test-failure.png)
 
 We can use the error messages to change our code and get the test to pass!
 
