@@ -6,8 +6,9 @@
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | DOM     | A representation of the content of a webpage in the form of a tree data structure. The root node is an object that represents the document, or the entire web page. | Document Object Model     | "The DOM shows us how content on a web page has nested relationships with each other."                                                                            |
 | Tree    | A data structure that resembles an upside down tree. Each piece of data is represented by a node, beginning with a root node.                                       | -                         | "The DOM is in a tree structure because it describes content nodes that point to other content nodes," "Tree data structures are used in some search algorithms." |
-| Node    | A unit of data in a tree, which contains the data itself and a list of other nodes it points to. Each node can only have one parent node.                           | Branch or Leaf            | "A node can point to other nodes, which make them children nodes," "All nodes have a parent node except for the root node."                                       |
+| Node    | A unit of data in a tree, which contains the data itself and a list of other nodes it points to. Each node can only have one parent node.                           | Branch or Leaf            | "A node can point to other nodes, which make them child nodes," "All nodes have a parent node except for the root node."                                       |
 | HTML    | A markup language used to structure the content of a web page.                                                                                                      | Hypertext Markup Language |
+| Markup Language | Syntax rules for adding structural or other information to a data file in a way that is visually distinct from the data itself.                             | -                         | "HTML and XML are the two most popular markup languages, which add information to documents using distinctive tags." |
 | Element | A unit of content in an HTML document. These are represented as nodes in the DOM.                                                                                   | HTML Element              |
 | Sibling | In a tree structure, a sibling node is a node that shares a parent with another node                                                                                |
 
@@ -23,21 +24,22 @@ Some contexts may refer to a web page as a document.
 
 The Document Object Model, also known as **the DOM**, is a representation of the structured content on a web page.
 
-The DOM is a _tree structure_. Each part of the document (or web page) is represented as a node in the tree.
+The DOM is a _tree structure_. Each part of the document (or web page) is represented as a node in the tree that itself represents the entire document.
 
 ### Trees
 
 Trees are data structures which organize data through nodes and branches.
 
-There is one root node. The root node has children nodes.
+There is one root node. The root node has zero or more child nodes, but has no parent.
 
-Those children nodes can also have their own child nodes! However, each node can either have exactly zero or one parent node.
+Those child nodes can themselves have their own child nodes! Additionally, each child node has exactly one parent node.
 
-![A tree structure with grey, unlabeled nodes. The root node has two children. Each node has either 0, 1, or 2 children. The tree is four layers deep.](../assets/web-browsers_the-dom-and-html_generic-tree.png)
+![A tree structure with blue, unlabeled nodes. The root node has two children. Each node has either 0, 1, or 2 children. The tree is four layers deep.](../assets/web-browsers_the-dom-and-html_generic-tree.png)  
+_Fig. A representation of a tree structure. It has a single root node, with varying numbers of child nodes for each of its descendants._
 
-When a web page is represented in the DOM structure, the root node of the tree is always a document object that represents the document itself.
+When a web page is represented in the DOM structure, the root node of the tree is a special `html` element.
 
-Elements and pieces of content become children nodes to the document.
+Page elements and pieces of content are represented as descendants of the root node.
 
 ## HTML Elements Define Document Structure
 
@@ -70,7 +72,7 @@ It has two children:
 
 The `head` and `body` elements are siblings with each other.
 
-The `head` element is contained inside the `html` element. It's a child of the `html` element. This `head` element itself, though, has three nested children elements:
+The `head` element is contained inside the `html` element. It's a child of the `html` element. Additionally, the `head` element itself has three nested child elements:
 
 1. A `title` element
 1. A `meta` element
@@ -103,7 +105,7 @@ Check each option that is true.
 * The `a`, `li`, `li`, and `li` elements are siblings
 * The parent of the `a` element is the `p` element
 * The `h1` element's parent is the `body` element
-* The `body` element has three children elements
+* The `body` element has three child elements
 * The `title`, `meta`, `meta`, `h1`, `p`, and `ul` elements are all siblings
 
 ##### !end-options
@@ -113,7 +115,7 @@ Check each option that is true.
 * The `h1`, `p`, and `ul` elements are siblings
 * The parent of the `a` element is the `p` element
 * The `h1` element's parent is the `body` element
-* The `body` element has three children elements
+* The `body` element has three child elements
 
 ##### !end-answer
 ### !end-challenge

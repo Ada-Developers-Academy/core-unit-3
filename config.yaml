@@ -1,7 +1,7 @@
 Standards:
   -
     Title: Web Browsers
-    Description: "Browsers and Dev Tools; The DOM and HTML"
+    Description: "Browsers and Dev Tools, The DOM and HTML"
     UID: 1d2da6520164121263e592310e0f6f48
     SuccessCriteria:
       - success criteria
