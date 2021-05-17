@@ -40,7 +40,7 @@ Standards:
         Path: /structuring-content/problem-set-structuring-content.md
   -
     Title: Styles And Presentation
-    Description: "Intro to CSS, CSS Walk-through, Classes and IDs, Units, Problem Set: Book Review Site"
+    Description: "Intro to CSS, CSS Walk-through, Classes and IDs, Problem Set: Book Review Site"
     UID: b977acaff4fff984306b10fc63996e2a
     SuccessCriteria:
       - success criteria
@@ -57,10 +57,6 @@ Standards:
         Type: Lesson
         UID: f7def17150f588c4f73cc5c32f0f4ac9
         Path: /styles-and-presentation/classes-and-ids.md
-      -
-        Type: Lesson
-        UID: ff546c87e0d9d5c85219f847e689a996
-        Path: /styles-and-presentation/units.md
       -
         Type: Lesson
         UID: 8d9e7bed804601f09191517e81507275
@@ -94,7 +90,7 @@ Standards:
         Path: /more-neat-css-things/activity-group-selector-fun.md
   -
     Title: Layout
-    Description: "Box Model, The Display Property, Intro to Flexbox, Layout with CSS Grid, Problem Set: Layout"
+    Description: "Box Model, Units, The Display Property, Intro to Flexbox, Layout with CSS Grid, Problem Set: Layout"
     UID: ebd9bec4d70abc789d439c1f136b0538
     SuccessCriteria:
       - success criteria
@@ -103,6 +99,10 @@ Standards:
         Type: Lesson
         UID: a5c8dbda7a59bd89f8f9cbae03965144
         Path: /layout/box-model.md
+      -
+        Type: Lesson
+        UID: ff546c87e0d9d5c85219f847e689a996
+        Path: /layout/units.md
       -
         Type: Lesson
         UID: 875feea801032ad55884c0062a1b52cc

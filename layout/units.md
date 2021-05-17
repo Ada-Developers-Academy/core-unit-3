@@ -2,7 +2,7 @@
 
 ## Introduction
 
-You site may be viewed on a wide range of devices, from mobile phones to 50" smart TVs. Creating appropriate measurements are one way that we can ensure that our websites will be viewed in a visually pleasing way on many different devices.
+Our site may be viewed on a wide range of devices, from mobile phones to 50" smart TVs. Creating appropriate measurements is one way to ensure that our websites will be usable on many different devices.
 
 ## Format
 
