@@ -119,7 +119,7 @@ If we apply knowledge about cascading, a future topic, we could probably be extr
 
 ## Multiple Selectors
 
-The same CSS rule-set can be applied to two different selectors by putting a comma in between selectors. Doing so can help keep our CSS stay DRY.
+The same CSS rule-set can be applied to two different selectors by putting a comma in between selectors. Doing so can help keep our CSS DRY.
 
 Examples:
 
