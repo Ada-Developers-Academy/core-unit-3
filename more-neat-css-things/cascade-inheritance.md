@@ -2,8 +2,8 @@
 
 ## Goals
 
-- See how styles can cascade based on nested and related elements
-- See how CSS prioritizes style choices based on the specificity of the selector
+- Describe how styles cascade based on nesting within the DOM
+- Describe the specificity hierarchy of selectors
 
 ## Introduction
 
@@ -48,28 +48,29 @@ How does this get determined? Do styles override one another? Do styles get igno
 
 In CSS, the combination of **cascading**, **inheritance**, and **specificity** determines the _final_ answer of what styles get applied.
 
-## What is Cascading?
+## Cascading
 
-Other than being the C in the acronym CSS, the fact that style sheets are described as “cascading” is an important, if complex, part of the way styles are applied to the elements in a document. It’s called the CSS cascade, because style declarations cascade down to elements from many origins.
+Other than being the C in the acronym CSS, the fact that style sheets are described as "cascading" is important! "Cascading" describes the way that styles are applied to the elements in a document. It's called the CSS cascade, because style declarations cascade down to elements from many origins.
 
-This is especially important as our stylesheets become longer and more complex and split between many stylesheets/files.
+This is especially important as our stylesheets become longer and more complex and split between multiple stylesheets.
 
 The general rule is that **styles and rule-sets that are defined "later" in the cascade _override_ styles and rule-sets that are defined "earlier" in the cascade.**
 
 ## Sources of Cascading
 
-**Three main sources** of style information form a cascade. They are, and in this order:
+There are three main sources of style information form a cascade. These are the following sources, ordered in the same order of "cascade":
 
-1. The **browser's default styles** for the markup language.
-   - This means that Google Chrome, the browser, has an opinion for how plain HTML should look like. This is often similar, but may not be the same as what Firefox thinks plain HTML should look like.
-2. The styles **linked** to the document, like the `style.css` files we've been working in so far. We (developers) have the most control here, so we will focus on this section the most. These styles can be specified in three places:
+1. The **browser's default styles** for the HTML elements.
+2. The styles **linked** to the document, like the `style.css` file we've been working in so far. We have the most control here, so we will focus on this section the most. These styles can be specified in three places:
    - In an external file: our primary method of associating styles.
    - In a definition at the beginning of the document: we generally try not to do this.
    - On a specific element in the body of the document: we generally try not to do this.
 3. Styles specified by a **user** who is reading the document.
    - This can come in a variety of ways, like browser extensions, or system-wide preferences on a user's machine or device.
 
-[Consider this example on Cascading in Codepen.](https://codepen.io/adadev/pen/mdbKNPy?editors=1100)
+### Observing Cascading
+
+[Consider this example on Cascading in Codepen](https://codepen.io/adadev/pen/mdbKNPy?editors=1100).
 
 Observe:
 
@@ -84,7 +85,7 @@ The strong elements also **inherit** much of the `p` element's style, because th
 
 Some styles applied on elements will also apply to their nested child elements. We say that nested elements **inherit** their parent's styles.
 
-Not every property gets inherited. For example, border styles don't get inherited. To find out if a CSS property gets inherited, you'll have to check the CSS documentation for that property. [Read more on MDN on inheritance.](https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance)
+Not every property gets inherited. For example, border styles don't get inherited. To find out if a CSS property gets inherited, we'll need to check the CSS documentation for that property, and [read more on MDN on inheritance.](https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance)
 
 ## Specificity
 
@@ -98,24 +99,34 @@ Some selectors are more specific than others. For example, the class and ID sele
 
 Every selector has its place in the specificity hierarchy. There are four distinct categories which define the specificity level of a given selector:
 
-1. **Inline styles** (Presence of style in document). An inline style lives within your HTML document. It is attached directly to the element to be styled. We have seen that we generally do not do this. This has the highest specificity.
-1. **IDs** (# of ID selectors). ID is a unique identifier for HTML elements, such as `#home-section`. This has the second highest specificity.
-1. **Classes, attributes and pseudo-classes** (# of class selectors). This group includes .classes, [attributes] and pseudo-classes such as `:hover`, `:focus` etc.
-1. **Elements and pseudo-elements** (# of Element selectors).
-   Including for instance `::before` and `::after`.
+1. **Inline styles**. An inline style lives within the HTML document. It is attached directly to the element to be styled. We have seen that we generally do not do this. This has the highest specificity.
+1. **IDs**. ID is a unique identifier for HTML elements, such as `#home-section`. This has the second highest specificity.
+1. **Classes, attributes and pseudo-classes**. This group includes classes, attributes, and pseudo-classes such as `:hover`, `:focus` etc.
+1. **Elements and pseudo-elements**. This includes selecting by HTML tag and pseudo-elements like `::before` and `::after`.
 
-There _is_ a specificity calculator which evaluates the "points of specificity" given a set of selectors. The selectors with the higher number of specificity wins over others. In practicality, developers rarely remember the actual point values, and instead focus their knowledge on remembering the general order of specificity (like the numbered list above). However, the specificity point system is good knowledge to reference and practice while we grow that skill.
+There _is_ a specificity calculator which evaluates the "points of specificity" given a set of selectors. The selectors with the higher number of specificity wins over others. In practicality, it is less valuable to remember the actual point values. Instead, it's more valuable to focus our knowledge on remembering the general order of specificity. However, the specificity point system is good knowledge to reference and practice while we grow that skill.
 
 ## Continue Learning
 
-Understanding CSS selector's specificity can be one of the most difficult parts of utilizing CSS. It is something that will take practice! Fortunately for us, there are great articles that breakdown this complex topic, such as Smashing Magazine's [_CSS Specificity: Things You Should Know_](https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/) Article.
+Understanding CSS selector's specificity can be one of the most difficult parts of utilizing CSS. It is something that will take practice! Fortunately for us, there are great articles that break down this complex topic, such as Smashing Magazine's [_CSS Specificity: Things You Should Know_](https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/) Article.
 
-## Inline Styling
+## Check for Understanding
 
-We now have even more motivation to prefer stylesheets to inline styling. It ranks high on the specificity scale and overrides everything in our stylesheets. Since it's mixed in with HTML, it is more difficult to maintain.
+<!-- Question Takeaway -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: paragraph
+* id: c2ba24f4
+* title: Cascade & Inheritance
+##### !question
 
-### Additional Resources
+What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
 
-- [MDN Cascade and Inheritance](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Cascading_and_inheritance)
-- [Specificity Practice](exercises/specificity-practice.md)
-- [Specificity Calculator](https://specificity.keegan.st/)
+##### !end-question
+##### !placeholder
+
+My biggest takeaway from this lesson is...
+
+##### !end-placeholder
+### !end-challenge
+<!-- prettier-ignore-end -->

@@ -29,7 +29,7 @@ Over this lesson, we should also cover:
 
 We can write CSS selectors that select elements based on their relationship to other elements in HTML.
 
-For example, we can write a CSS selector that says, "Please select and apply these styles to every `li` element that is nested inside a `ul` element. These styles should _not_ be applied if the `li` element is _not_ inside of a `ul` element."
+For example, we can write a CSS selector that says, "Please select and apply these styles to every `li` element that is nested inside a `ul` element. These styles should _not_ be applied if the `li` element is _not_ inside a `ul` element."
 
 The syntax for writing this is:
 
@@ -95,7 +95,7 @@ Given this HTML, write a CSS rule-set that will give an orange highlight to the 
 </article>
 ```
 
-<details>
+<details style="max-width: 700px; margin: auto;">
 
 <summary>Check your answer here</summary>
 
@@ -113,7 +113,7 @@ p em {
 }
 ```
 
-If we apply knowledge about cascading, a future topic, we could probably be extra and do even more variations.
+If we apply knowledge about cascading, we could probably be extra and do even more variations.
 
 </details>
 
@@ -217,3 +217,24 @@ We can summarize some of our knowledge of CSS selectors:
 - [MDN CSS Introduction Selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors)
 - [MDN Selectors](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors) _(more in depth)_
 - [Smashing Magazine's Ultimate Guide to CSS Pseudo-Classes And Pseudo-Elements](https://www.smashingmagazine.com/2016/05/an-ultimate-guide-to-css-pseudo-classes-and-pseudo-elements/)
+
+## Check for Understanding
+
+<!-- Question Takeaway -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: paragraph
+* id: cc8aff1d
+* title: More Selectors
+##### !question
+
+What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
+
+##### !end-question
+##### !placeholder
+
+My biggest takeaway from this lesson is...
+
+##### !end-placeholder
+### !end-challenge
+<!-- prettier-ignore-end -->
