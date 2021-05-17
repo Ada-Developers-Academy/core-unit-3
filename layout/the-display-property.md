@@ -1,4 +1,4 @@
-# The `display` Property
+# The Display Property
 
 ## Introduction
 

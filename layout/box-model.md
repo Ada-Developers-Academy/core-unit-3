@@ -21,7 +21,7 @@ All elements have four parts:
 | Border  | The space between padding and the margin, and typically the most outer visible portion of the element.                                                                                                   |
 | Margin  | The most outer portion of the element, and the space between this element and the surrounding elements. Depending on context, margins between elements may overlap (and the larger margin is preserved). |
 
-![Box Model Diagram](imgs/css-box-model.jpg)
+![Box Model Diagram](../assets/layout_box-model_box-model.jpg)
 [Image source](http://www.slideshare.net/niciuzza/css-box-model-25142045)
 
 ### Observe the Box Model
