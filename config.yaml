@@ -1,5 +1,20 @@
 Standards:
   -
+    Title: Web Browsers
+    Description: "Browsers and Dev Tools, The DOM and HTML"
+    UID: 1d2da6520164121263e592310e0f6f48
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 8d9d10ea9f5528b4727c59d30d59ff5f
+        Path: /web-browsers/browsers-and-dev-tools.md
+      -
+        Type: Lesson
+        UID: 4c26c8d2188464039fb99418a156376d
+        Path: /web-browsers/the-dom-and-html.md
+  -
     Title: Structuring Content
     Description: "Intro to HTML, Content Elements, Sectioning Elements, Problem Set: Structuring Content"
     UID: 088327313237aac6e3715078d3f979a0
@@ -22,3 +37,14 @@ Standards:
         Type: Lesson
         UID: dce3c31202fea299477ce39769337328
         Path: /structuring-content/problem-set-structuring-content.md
+  -
+    Title: Tests
+    Description: "Problem Set: Tests"
+    UID: 2d8092a5
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 1d5ceb96
+        Path: /tests/problem-set-tests.md
