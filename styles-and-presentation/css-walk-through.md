@@ -28,6 +28,7 @@ If you don't already have a similar project, create a folder named `recipe-blog`
 
 
 ```html
+<!DOCTYPE html>
 <html>
 
 <head>
