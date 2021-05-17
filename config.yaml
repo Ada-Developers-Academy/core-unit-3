@@ -20,6 +20,10 @@ Standards:
         UID: 4c7e71500b7afe53862df291daf6255c
         Path: /more-neat-css-things/problem-set-more-neat-css-things.md
       -
+        Type: Instructor
+        UID: 77a387f9
+        Path: /more-neat-css-things/activity-group-selector-fun.instructor.md
+      -
         Type: Lesson
         UID: c4ad833159bae79a445d1f742822b1f2
         Path: /more-neat-css-things/activity-group-selector-fun.md
