@@ -13,7 +13,11 @@ We can practice the patterns of web development using this walk-through.
 
 ## Introduction
 
-Our team is building a recipe blog. We're assigned the task to structure a recipe into HTML. We'll focus on rapid development, managing our HTML code and the browser at the same time, and experimenting with different HTML tags.
+Our team is building a recipe blog! Our task is to structure a chicken noodle soup recipe into HTML. We'll focus on
+
+1. Managing our HTML code and the browser at the same time
+1. Considering how to organize our content thoughtfully
+1. Experimenting with different HTML tags
 
 ## Create the Project Directory
 
@@ -58,7 +62,7 @@ We can do this by either:
 1. Using Finder or any file explorer, find the file and clicking it
 1. Using the command `$ open index.html`
 
-![](../assets/structuring-content_html-walk-through_scaffold-render.png)
+![Web page with this visible text: "Hello, HTML World! All HTML elements that have content and should be displayed to the user should go here, inside the body tag."](../assets/structuring-content_html-walk-through_scaffold-render.png)
 
 It's our rendered HTML!
 
@@ -66,7 +70,7 @@ It's our rendered HTML!
 
 We could even take this moment to open Dev Tools and inspect the rendered HTML.
 
-![](../assets/structuring-content_html-walk-through_scaffold-dev-tools.png)
+![Web page with browser Dev Tools opened](../assets/structuring-content_html-walk-through_scaffold-dev-tools.png)
 
 We can adjust our windows so we can focus on the HTML. The HTML should look familiar!
 
