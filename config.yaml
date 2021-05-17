@@ -15,6 +15,29 @@ Standards:
         UID: 4c26c8d2188464039fb99418a156376d
         Path: /web-browsers/the-dom-and-html.md
   -
+    Title: Structuring Content
+    Description: "Intro to HTML, Content Elements, Sectioning Elements, Problem Set: Structuring Content"
+    UID: 088327313237aac6e3715078d3f979a0
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 3e59f2f7f1a3569bfe9098bddede7105
+        Path: /structuring-content/intro-to-html.md
+      -
+        Type: Lesson
+        UID: 417921f9b31aff200457e4dcd409671f
+        Path: /structuring-content/content-elements.md
+      -
+        Type: Lesson
+        UID: 6704a2ab7992bfb7baa303d21a81c448
+        Path: /structuring-content/sectioning-elements.md
+      -
+        Type: Lesson
+        UID: dce3c31202fea299477ce39769337328
+        Path: /structuring-content/problem-set-structuring-content.md
+  -
     Title: Tests
     Description: "Problem Set: Tests"
     UID: 2d8092a5
