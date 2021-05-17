@@ -10,7 +10,7 @@ This lesson is an introduction and reference guide to some units of measurement 
 
 ### Absolute Measurements
 
-One way to specify measurements is by using the screen pixels. This is done by adding `px` to the end of the value.
+One way to specify measurements is by using the screen pixels. This is done by adding `px` to the end of the value.  In CSS a 'pixel' is about the minimum size a single dot that can be seen with the human eye comfortably.  In practice a pixel is _approximately_ 1/96th of an inch or 0.22 mm.
 
 ### Relative Measurements
 
@@ -18,7 +18,7 @@ One way to specify measurements is by using the screen pixels. This is done by a
 
 Percentages can be used in measurements that will be a percentage relative to another value. This is done by adding `%` to the end of the value.
 
-What `100%` means depends on the given HTML and context.
+What `100%` means depends on the given HTML and context.  For example the width and height are used to scale content relative to an element's container.
 
 #### `em` or `rem`
 
