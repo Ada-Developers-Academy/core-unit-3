@@ -2,6 +2,15 @@
 
 <!-- TODO: Learning goals -->
 
+## Vocabulary and Synonyms
+
+| Vocab         | Definition                                                                                          | Synonyms | How to Use in a Sentence                                                                                                                                                                             |
+| ------------- | --------------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML Element  | A unit of content on an HTML page. One element is represented as one node in the DOM.               | Element  | "When I want to add paragraph text into my website, I put each paragraph in a separate paragraph HTML element," "That `<section>` element contains three other HTML elements."                       |
+| HTML Tag      | A piece of syntax that defines an HTML element. Most HTML elements have an opening and closing tag. | Tag      | "I forgot to put the closing tag to my `<ul>` element, so the list kept going and my site was broken."                                                                                               |
+| Semantic HTML | The practice of intentionally using HTML tags that are descriptive to the content itself            | -        | "The `<section>` tag follows semantic HTML principles, because the tag describes the content. The `<div>` tag doesn't follow semantic HTML principles, because `div` does not describe the content." |
+| Attributes    | Additional pieces of information attached to an HTML element. Comes in attribute-value pairs.       | Property | All `<img>` tags should have an `alt` attribute an a `src` attribute."                                                                                                                               |
+
 ## Introduction
 
 In order to create a web app full of content, we'll need to write that content in HTML!
@@ -55,13 +64,13 @@ By default, browsers can only successfully render elements that are [defined by 
 
 Here are some example HTML elements and their tags that can be used to describe different content.
 
-| Element    | Opening Tag | Closing Tag  | Description                                                               |
-| ---------- | ----------- | ------------ | ------------------------------------------------------------------------- |
+| Element    | Opening Tag | Closing Tag  | Description                                                       |
+| ---------- | ----------- | ------------ | ----------------------------------------------------------------- |
 | Paragraph  | `<p>`       | `</p>`       | Content is a paragraph of text.                                   |
 | Link       | `<a>`       | `</a>`       | Content is the text of a link, such as "Click here to read more." |
-| Section    | `<section>` | `</section>` | Content is usually other HTML elements.                                   |
-| Navigation | `<nav>`     | `</nav>`     | Content is usually other HTML elements relevant to navigation.            |
-Header 1 | `<h1>` | `</h1>` | Content is text that is the most important header on the page.
+| Section    | `<section>` | `</section>` | Content is usually other HTML elements.                           |
+| Navigation | `<nav>`     | `</nav>`     | Content is usually other HTML elements relevant to navigation.    |
+| Header 1   | `<h1>`      | `</h1>`      | Content is text that is the most important header on the page.    |
 
 [Here is a list of all valid HTML Elements.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
@@ -308,3 +317,49 @@ Our best strategies for debugging HTML at this moment are:
 - Check the spelling of tags
 - Using Developer Tools and the "Elements" tab to inspect the rendered HTML
   - Compare the rendered HTML that the browser displays to your own HTML code
+
+## Check for Understanding
+
+<!-- Question 1 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: tasklist
+* id: 17371044
+* title: CSS Walk-through
+##### !question
+
+Check off all the topics that we've briefly touched on so far.
+
+##### !end-question
+##### !options
+
+* Defining an HTML element
+* Defining attributes for an HTML element
+* A standard HTML document contains `<html>`, `<head>`, and `<body>` elements
+* Nesting elements
+* Sibling elements
+* Comments in HTML
+* "Debugging" HTML
+
+##### !end-options
+### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question Takeaway -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: paragraph
+* id: 7875475a
+* title: Intro to HTML
+##### !question
+
+What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
+
+##### !end-question
+##### !placeholder
+
+My biggest takeaway from this lesson is...
+
+##### !end-placeholder
+### !end-challenge
+<!-- prettier-ignore-end -->
