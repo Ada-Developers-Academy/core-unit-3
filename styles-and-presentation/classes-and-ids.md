@@ -59,7 +59,7 @@ If Liberty wants to give midnight blue text to her introduction paragraph, her p
 
 ### Assigning Classes to HTML Elements
 
-We can give classes to an HTML element by assigning it to their `class` attribute.
+We can give classes to an HTML element by assigning it to their `class` attribute:
 
 ```html
 <h1 class="page-title">Hello World!</h1>
@@ -69,17 +69,17 @@ This specific `<h1>` element has a class named `page-title`.
 
 ### More Class Examples
 
-This `<h1>` element has a class named `highlight`.
-
 ```html
 <h1 class="highlight">Hello World!</h1>
 ```
 
-This `<h1>` element has a class named `front-page`.
+This `<h1>` element has a class named `highlight`.
 
 ```html
 <h1 class="front-page">Hello World!</h1>
 ```
+
+This `<h1>` element has a class named `front-page`.
 
 ### Assigning Multiple Classes
 
@@ -155,7 +155,7 @@ p {
 
 The `.` is a visually small character, and sometimes we can forget it in our class selectors.
 
-<details>
+<details style="max-width: 700px; margin: auto;">
   <summary>
     What are the consequences of forgetting the <code>.</code> in our selector?
   </summary>
@@ -219,15 +219,27 @@ This CSS rule-set selects the one element that has the `id` of the value `home-p
 
 A single HTML element can have multiple classes and an ID.
 
-At the same time, CSS rule-sets can possibly target the same HTML element using element, class, and ID selectors.
+At the same time, CSS rule-sets can possibly target the same HTML element using element, class, and ID selectors!
 
-Observe the following HTML and CSS code.
+In these situations, all rule-sets apply to the element.
+
+<!-- Question 1 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: checkbox
+* id: 9a5da088
+* title: Classes and IDs
+##### !question
+
+Consider this single HTML element:
 
 ```html
 <p id="feature-text" class="recipe-description special-promotion">
   Lorem ipsum ...
 </p>
 ```
+
+Which of the following CSS rule-sets apply to this HTML element?
 
 ```css
 /* This selects all paragraph tags */
@@ -251,26 +263,40 @@ p {
 }
 ```
 
-<details>
-  <summary>
-    Which CSS rule-sets apply to the HTML element defined above?
-  </summary>
+##### !end-question
+##### !options
 
-All of them!
+* The rule-set that selects `p` elements
+* The rule-set that selects elements with the ID `feature-text`
+* The rule-set that selects elements with the class `feature-text`
+* The rule-set that selects elements with the ID `recipe-description`
+* The rule-set that selects elements with the class `recipe-description`
+* The rule-set that selects elements with the ID `special-promotion`
+* The rule-set that selects elements with the class `special-promotion`
 
-</details>
+##### !end-options
+##### !answer
+
+* The rule-set that selects `p` elements
+* The rule-set that selects elements with the ID `feature-text`
+* The rule-set that selects elements with the class `recipe-description`
+* The rule-set that selects elements with the class `special-promotion`
+
+##### !end-answer
+### !end-challenge
+<!-- prettier-ignore-end -->
 
 ## Check for Understanding
 
-<!-- Question 1 -->
+<!-- Question 2 -->
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: short-answer
-* id: 
+* id: 0a1963d8
 * title: Classes and IDs
 ##### !question
 
-Read the CSS below and create the HTML tag that will have all styles applied to it.
+Read the CSS below and create the _opening_ HTML tag that will have all styles applied to it.
 
 - List HTML attributes in alphabetical order
 - If there are multiple classes, list the classes in alphabetical order
@@ -296,7 +322,7 @@ a {
 ##### !end-question
 ##### !answer
 
-/<a class="email-link info" href="mailto:admin@whoknows.com" id="admin-email">Some Link Text<\/a>/
+/<a class="email-link info" id="admin-email">/
 
 ##### !end-answer
 ### !end-challenge

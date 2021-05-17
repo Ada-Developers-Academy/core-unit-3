@@ -124,7 +124,7 @@ p {
 }
 ```
 
-<details>
+<details style="max-width: 700px; margin: auto;">
 
 <summary>
   What does the above CSS example do?
@@ -176,7 +176,7 @@ However, we can take these approaches to debug CSS:
 
 1. Check syntax. Does each declaration end in `;`? Does each rule-set end in `}`?
 1. Check our selectors. Does our selector match the HTML elements we're targeting?
-1. Use Dev Tools to see what CSS declarations are applied to each HTML element
+1. Use Dev Tools to see what CSS declarations are applied to each HTML element.
 
 ### !callout-info
 
@@ -185,3 +185,150 @@ However, we can take these approaches to debug CSS:
 CSS has _a lot_ of properties, and even more values! It is not practical to memorize them all. Instead, looking up a kind of style you want to achieve will yield some code examples with properties and values to try. For example, if we need to learn how to make our text bigger, we could use a search engine to look up "css change font size."
 
 ### !end-callout
+
+## Check for Understanding
+
+<!-- Question 1 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: ordering
+* id: 296e6c29
+* title: Intro to CSS
+##### !question
+
+Arrange the following syntax.
+
+We want a CSS rule-set that selects all `<li>` elements and sets the font-family to `Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif`.
+
+Assume that each line would be indented correctly.
+
+##### !end-question
+##### !answer
+
+1. `li`
+1. `{`
+1. `font-family`
+1. `:`
+1. `Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif`
+1. `;`
+1. `}`
+
+##### !end-answer
+### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question 2 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: ordering
+* id: f40bbb3d
+* title: Intro to CSS
+##### !question
+
+Arrange the following syntax.
+
+We want a CSS rule-set that gives all `<section>`s a background color of `rgb(201, 76, 76)`.
+
+Assume that each line would be indented correctly.
+
+##### !end-question
+##### !answer
+
+1. `section`
+1. `{`
+1. `background-color`
+1. `:`
+1. `rgb(201, 76, 76)`
+1. `;`
+1. `}`
+
+##### !end-answer
+### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question 3 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: ordering
+* id: ecd41e2b
+* title: Intro to CSS
+##### !question
+
+Arrange the following syntax.
+
+We want a CSS rule-set that gives all `<header>`s a background image of `url("assets/bg.png")`.
+
+Assume that each line would be indented correctly.
+
+##### !end-question
+##### !answer
+
+1. `header`
+1. `{`
+1. `background-image`
+1. `:`
+1. `url("assets/bg.png")`
+1. `;`
+1. `}`
+
+##### !end-answer
+### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question 4 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: ordering
+* id: fc70e8bd
+* title: Intro to CSS
+##### !question
+
+Arrange the following syntax.
+
+We want a CSS rule-set that gives the `<body>` a background gradient of `linear-gradient(90deg, rgba(148,187,233,1) 0%, rgba(255,255,255,1) 50%, rgba(238,174,202,1) 100%)`.
+
+Assume that each line would be indented correctly.
+
+##### !end-question
+##### !answer
+
+1. `body`
+1. `{`
+1. `background`
+1. `:`
+1. `linear-gradient(90deg, rgba(148,187,233,1) 0%, rgba(255,255,255,1) 50%, rgba(238,174,202,1) 100%)`
+1. `;`
+1. `}`
+
+##### !end-answer
+### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question 5 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: ordering
+* id: fa2e0741
+* title: Intro to CSS
+##### !question
+
+Arrange the following syntax.
+
+We want a CSS rule-set that makes the text in all `<span>`s italic.
+
+Assume that each line would be indented correctly.
+
+##### !end-question
+##### !answer
+
+1. `span`
+1. `{`
+1. `font-style`
+1. `:`
+1. `italic`
+1. `;`
+1. `}`
+
+##### !end-answer
+### !end-challenge
+<!-- prettier-ignore-end -->
