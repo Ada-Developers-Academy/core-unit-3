@@ -14,3 +14,14 @@ Standards:
         Type: Lesson
         UID: 4c26c8d2188464039fb99418a156376d
         Path: /web-browsers/the-dom-and-html.md
+  -
+    Title: Tests
+    Description: "Problem Set: Tests"
+    UID: 2d8092a5
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 1d5ceb96
+        Path: /tests/problem-set-tests.md
