@@ -93,6 +93,33 @@ Standards:
         UID: c4ad833159bae79a445d1f742822b1f2
         Path: /more-neat-css-things/activity-group-selector-fun.md
   -
+    Title: Layout
+    Description: "Box Model, The Display Property, Intro to Flexbox, Layout with CSS Grid, Problem Set: Layout"
+    UID: ebd9bec4d70abc789d439c1f136b0538
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: a5c8dbda7a59bd89f8f9cbae03965144
+        Path: /layout/box-model.md
+      -
+        Type: Lesson
+        UID: 875feea801032ad55884c0062a1b52cc
+        Path: /layout/the-display-property.md
+      -
+        Type: Lesson
+        UID: 34be75e924e8b69bf9044bd465bcffa3
+        Path: /layout/intro-to-flexbox.md
+      -
+        Type: Lesson
+        UID: 048145c61152e1c3754129f2ef24dd95
+        Path: /layout/layout-with-css-grid.md
+      -
+        Type: Lesson
+        UID: e3e0334d5b0354d5be0af200c4893a85
+        Path: /layout/problem-set-layout.md
+  -
     Title: Tests
     Description: "Problem Set: Tests"
     UID: 2d8092a5

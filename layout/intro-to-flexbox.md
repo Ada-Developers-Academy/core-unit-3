@@ -1,15 +1,16 @@
-# Intro to Alignment and Positioning with Flexbox
+# Intro to Flexbox
 
 ## Learning Goals
+
 - Understand the historical context of flexbox compared to other methods of aligning and positioning with CSS
 - Review how the browser uses _flow_ to place elements on the page
 - Change how elements flow on the page using CSS's `display: flex` property
 - Change how elements align on the page using CSS's `display: flex` property
 - Know browser compatibility for flexbox
 
-## Before We Begin: Review Display
+## Reviewing Display
 
-[Refer to our Display lecture that we read for homework.](archived/layout-display.md) When rendering, the browser _flows_ from left to right, placing things in a single line. The line is as tall as the tallest element, and all the things are lined up with its bottom. If a thing would go off the edge of the screen, the browser wraps around and starts a new line, completely below the current one.
+When rendering, the browser _flows_ from left to right, placing things in a single line. The line is as tall as the tallest element, and all the things are lined up with its bottom. If an element flows off the edge of the screen, the browser wraps this element around and starts a new line, completely below the current one.
 
 By default, every HTML tag comes with a `display` property value of `inline` or `block`. The `display` property determines how elements flow on the page. As a general rule, flow has only be left to right, and top to bottom.
 
@@ -26,17 +27,19 @@ Historically, _aligning_ items while working with page flow using CSS has been d
 In comes _flexbox_ (stylistically lowercase, sometimes "flex-box", short for Flexible Box Module)!
 
 Flexbox has the following advantages:
+
 1. More intuitive attributes for aligning compared to older CSS solutions (like vertical alignment or evenly spacing elements inside of a container)
 1. More relevant solutions to modern web layouts
 1. Built for responsive design
 1. Promotes thinking about alignment on websites agnostic of language direction
 
-If you choose to not use flexbox as your main way of aligning elements along one dimension, Ada has archived lectures on other ways to do layouts in CSS:
-1. [Layouts using Display](archived/layout-display.md)
-1. [Layouts using Floats](archived/layout-floats.md)
-1. [Layouts using Positioning](archived/layout-positioning.md)
+### !callout-info
 
-**Note:** Flexbox is fairly new, and adoption for using flexbox isn't widespread. A lot of information and advice on the Internet uses CSS that does not use flexbox, even if flexbox may be a better solution for that problem.
+## Flexbox Adoption
+
+Flexbox is fairly new. A lot of older resources use CSS that does not use flexbox, even if flexbox may be a better solution for that problem.
+
+### !end-callout
 
 ## Rules for Setting Up Flexbox
 
@@ -44,7 +47,7 @@ Flexbox solves the following problem: **How do I define rules for aligning many 
 
 1. The "one larger container element" is called **the flex container**. We designate it as the flex container by giving it the CSS rule `display: flex;`
 1. The "many small elements" that we are trying to align are called the flex items. The flex items **must** be and will only be the **direct children** of the flex container
-    - these flex items may have children inside of them. Note: the rules of a flex container do not apply to the children of flex items
+   - these flex items may have children inside of them. Note: the rules of a flex container do not apply to the children of flex items
 1. The "rules" we want to define for aligning the flex items will be additional properties on the flex container
 
 Note: The flex items of a specific flex container do not have to be all the same kind of element.
@@ -53,9 +56,10 @@ Note: The flex items of a specific flex container do not have to be all the same
 
 Let's say we've received this wireframe for a website to create.
 
-![Flexbox Example](./imgs/flexbox-example.png)
+![Flexbox Example](../assets/layout_intro-to-flexbox/flexbox-example.png)
 
 Take some time to answer the following questions about that wireframe:
+
 - What is the flex container?
 - What are the flex items?
 - The elements are ordered alphabetically in the HTML. How are they ordered by appearance?
@@ -68,22 +72,22 @@ This is the HTML for the above image:
 <body>
   <h1>Title</h1>
   <div class="container">
-    <div> a </div>
-    <div> b </div>
-    <div> c </div>
-    <div> d </div>
-    <div> e </div>
-    <div> f </div>
-    <div> g </div>
-    <div> h </div>
-    <div> i </div>
-    <div> j </div>
-    <div> k </div>
-    <div> l </div>
-    <div> m </div>
-    <div> n </div>
-    <div> o </div>
-    <div> p </div>
+    <div>a</div>
+    <div>b</div>
+    <div>c</div>
+    <div>d</div>
+    <div>e</div>
+    <div>f</div>
+    <div>g</div>
+    <div>h</div>
+    <div>i</div>
+    <div>j</div>
+    <div>k</div>
+    <div>l</div>
+    <div>m</div>
+    <div>n</div>
+    <div>o</div>
+    <div>p</div>
   </div>
 </body>
 <!-- ... -->
@@ -105,6 +109,7 @@ Take a moment to read through [this example on Codepen](https://codepen.io/adade
 What's in there? What is it currently doing? Why are the elements that size?
 
 Now add the `display: flex;` rule to the `.container` rule:
+
 ```css
 .container {
   display: flex;
@@ -119,25 +124,26 @@ Flexbox defines some specific vocabulary that applies to flow.
 
 In flexbox, there is a **main axis**. This axis runs **along** the direction that inline items flow.
 
-![Main Axis: row](./imgs/flexbox-axis-main-row.png)
+![Main Axis: row](../assets/layout_intro-to-flexbox/flexbox-axis-main-row.png)
 
-![Main Axis: column](./imgs/flexbox-axis-main-column.png)
+![Main Axis: column](../assets/layout_intro-to-flexbox/flexbox-axis-main-column.png)
 
 There is also the **cross axis**. This axis runs **perpendicular** to the main axis.
 
-![Cross Axis: row](./imgs/flexbox-axis-cross-row.png)
+![Cross Axis: row](../assets/layout_intro-to-flexbox/flexbox-axis-cross-row.png)
 
-![Cross Axis: column](./imgs/flexbox-axis-cross-column.png)
+![Cross Axis: column](../assets/layout_intro-to-flexbox/flexbox-axis-cross-column.png)
 
-You can determine the direction of the main axis with the property `flex-direction`.
+We can determine the direction of the main axis with the property `flex-direction`.
 
 `flex-direction` has the following properties:
+
 - `row` (default)
 - `row-reverse`
 - `column`
 - `column-reverse`
 
-**Practice:** Pair up with someone around you and make a prediction for what each of these will do. Then, add the property `flex-direction` to [the Codepen](https://codepen.io/adadev/pen/jzNQmV?editors=1100) and change the values and observe the differences.
+**Practice:** Pair up with someone around you and make a prediction for what each of these properties will do. Then, add the property `flex-direction` to [the Codepen](https://codepen.io/adadev/pen/jzNQmV?editors=1100) and change the values and observe the differences.
 
 ## Determining Wrapping Behavior
 
@@ -151,6 +157,7 @@ We can see in our example right now that our flex items extend beyond the flex c
 ```
 
 The available values for `flex-wrap` are:
+
 - `nowrap`
 - `wrap`
 - `wrap-reverse`
@@ -161,9 +168,10 @@ The available values for `flex-wrap` are:
 
 Let's look at a modification of the example we've been following. [Look at this Codepen](https://codepen.io/adadev/pen/ZxzVLq?editors=1100); it's nearly identical, but we've added some stuff that essentially shows a more realistic case where every flex item is not identical in width or height. This will help us see empty space between flex items better.
 
-![Varied Width and Height Items, unaligned](./imgs/flexbox-alignment-example-1.png)
+![Varied Width and Height Items, unaligned](../assets/layout_intro-to-flexbox/flexbox-alignment-example-1.png)
 
 **Questions:**
+
 - How are the flex items currently aligned?
 - Where is there empty space / negative space?
   - Where did the negative space come from?
@@ -172,6 +180,7 @@ Let's look at a modification of the example we've been following. [Look at this 
 To control alignment of flex items within the flex container, we have two main properties: `justify-content` and `align-items`.
 
 `justify-content` determines alignment along the main axis. Its possible values are:
+
 - `stretch`
 - `flex-start`
 - `flex-end`
@@ -181,6 +190,7 @@ To control alignment of flex items within the flex container, we have two main p
 - `space-evenly`
 
 `align-items` determines alignment along the cross axis. Its possible values are:
+
 - `stretch`
 - `flex-start`
 - `flex-end`
@@ -190,8 +200,7 @@ Take the time to see each value of both properties in action.
 
 **Practice:** What properties work best to achieve the following look?
 
-![Varied Width and Height Items, aligned](./imgs/flexbox-alignment-example-2.png)
-
+![Varied Width and Height Items, aligned](../assets/layout_intro-to-flexbox/flexbox-alignment-example-2.png)
 
 ### Experiment: Check for Responsive Design
 
@@ -220,7 +229,7 @@ Flexbox has a lot of depth, and you're free to continue your research into it!
 
 ## About Browser Compatibility
 
-Flexbox was introduced only in the past few years. *Every modern browser supports flexbox*, but that didn't happen until 2015.
+Flexbox was introduced only in the past few years. _Every modern browser supports flexbox_, but that didn't happen until 2015.
 
 Internet Explorer 10 requires specifying the browser prefix `-ms-display: flex;`.
 
@@ -233,6 +242,7 @@ However, flexbox provides deep solutions for flow and alignment in a way that pr
 To use flexbox, you will determine a flex container whose direct children are the flex items. From there, you can use properties to determine the main axis and cross axis with `flex-direction`, and so much more from there!
 
 ## Resources
+
 - [MDN with Basic Overview on flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
 - [MDN on Techniques for Aligning in flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container)
 - [MDN on Browser Compatibility for flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Backwards_Compatibility_of_Flexbox)

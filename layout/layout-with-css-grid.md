@@ -1,4 +1,4 @@
-# Intro to Layout with CSS Grid
+# Layout with CSS Grid
 
 ## Learning Goals
 
@@ -26,9 +26,9 @@ Other solutions to layout include:
   - Bootstrap
   - Foundation
 - Using combinations of other CSS properties
-  - [Layouts using Display](archived/layout-display.md)
-  - [Layouts using Floats](archived/layout-floats.md)
-  - [Layouts using Positioning](archived/layout-positioning.md)
+  - `display`
+  - `float`
+  - `position`
 
 ## Rules for Setting Up CSS Grid
 
@@ -47,13 +47,13 @@ Other solutions to layout include:
 
 CSS Grid does not begin with index 0, and instead counts starting at 1.
 
-![Grid Image](./imgs/grid_lines.png)
+![Grid Image](../assets/layout_layout-with-css-grid/grid_lines.png)
 
 ### Practice
 
 Let's look at a slightly abstract example to practice counting columns and rows and thinking in a grid.
 
-![Abstract CSS Grid Layout](./imgs/css-grid-abstract-example.png)
+![Abstract CSS Grid Layout](../assets/layout_layout-with-css-grid/css-grid-abstract-example.png)
 
 Each rectangular block of color represents one grid item. Answer the following questions:
 
@@ -79,7 +79,7 @@ Let's look at a more realistic example. Let's say we've received this wireframe 
 - Are all rows equally sized?
 - What is each grid item, and how many rows and columns does each one span?
 
-![Realistic CSS Grid Layout](./imgs/css-grid-realistic-example.png)
+![Realistic CSS Grid Layout](../assets/layout_layout-with-css-grid/css-grid-realistic-example.png)
 
 Let's take a look at one way we'd likely write this HTML, and its accompanying CSS to set it up to use CSS Grid.
 
@@ -289,7 +289,7 @@ Instead of giving an integer for the line number an item ends at, you can give `
 
 Now that we have all of these tools at our disposal, let us return to our realistic example from above. Remember, we're referencing this wireframe:
 
-![Realistic CSS Grid Layout](./imgs/css-grid-realistic-example.png)
+![Realistic CSS Grid Layout](../assets/layout_layout-with-css-grid/css-grid-realistic-example.png)
 
 **Practice:** recreate this wireframe with the HTML we provided above.
 
@@ -320,7 +320,7 @@ After you've tried this out on your own, let's look at one solution to this:
 ```
 
 The result should look something like this:
-![Realistic Example Implementation](./imgs/css-grid-realistic-impl.png)
+![Realistic Example Implementation](../assets/layout_layout-with-css-grid/css-grid-realistic-impl.png)
 
 And here it is on a [Codepen.](https://codepen.io/adadev/pen/zWOaNB)
 
@@ -342,7 +342,7 @@ A lot of information and advice on the Internet uses CSS that does not use CSS G
 
 ## Conclusion
 
-To use CSS Grid as a built in solution for making a 2-dimensional layout, you need to define a *grid container* with `display: grid;`. The grid container's `grid-template` property will only affect its direct children, or the *grid items*.
+To use CSS Grid as a built-in solution for making a 2-dimensional layout, you need to define a *grid container* with `display: grid;`. The grid container's `grid-template` property will only affect its direct children, or the *grid items*.
 
 ## Resources
 - [W3 Schools (source of the grid image)](https://www.w3schools.com/css/css_grid.asp)
