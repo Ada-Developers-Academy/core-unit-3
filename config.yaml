@@ -66,6 +66,33 @@ Standards:
         UID: 8d9e7bed804601f09191517e81507275
         Path: /styles-and-presentation/problem-set-book-review-site.md
   -
+    Title: More Neat CSS Things
+    Description: "Cascade & Inheritance, More Selectors, Problem Set: More Neat CSS Things, Activity: Group Selector Fun"
+    UID: ae429788a99c039bd77d9d2cf648e352
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: adcdf467194e0b8312fdce1bd8862f54
+        Path: /more-neat-css-things/cascade-inheritance.md
+      -
+        Type: Lesson
+        UID: 703080637d3b387dc87ef3e98065d105
+        Path: /more-neat-css-things/more-selectors.md
+      -
+        Type: Lesson
+        UID: 4c7e71500b7afe53862df291daf6255c
+        Path: /more-neat-css-things/problem-set-more-neat-css-things.md
+      -
+        Type: Instructor
+        UID: 77a387f9
+        Path: /more-neat-css-things/activity-group-selector-fun.instructor.md
+      -
+        Type: Lesson
+        UID: c4ad833159bae79a445d1f742822b1f2
+        Path: /more-neat-css-things/activity-group-selector-fun.md
+  -
     Title: Tests
     Description: "Problem Set: Tests"
     UID: 2d8092a5
