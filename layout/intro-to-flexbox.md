@@ -1,5 +1,7 @@
 # Intro to Flexbox
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=a6f57d10-2ea2-4946-ab4e-ad2d014903f0&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Learning Goals
 
 - Understand the historical context of flexbox compared to other methods of aligning and positioning with CSS
