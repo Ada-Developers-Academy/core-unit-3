@@ -36,4 +36,4 @@ This is distinct but similar to the device screen or browser window, as both aff
 
 One `vw` (`1vw`) is equal to 1% of the viewport width, and `100vw` is 100% of the viewport width.
 
-`vh` is relative to the viewport's height. `1vw` is 1% of the viewport height, and `100vh` is 100%.
+`vh` is relative to the viewport's height. `1vh` is 1% of the viewport height, and `100vh` is 100%.
