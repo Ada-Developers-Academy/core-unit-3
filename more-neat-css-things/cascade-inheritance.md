@@ -1,5 +1,7 @@
 # Cascade & Inheritance
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=1ffa8c8f-6c15-45b4-b68d-ad2e003e2723&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Goals
 
 - Describe how styles cascade based on nesting within the DOM
