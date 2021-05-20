@@ -1,25 +1,37 @@
 ---
 Standards:
   -
-    Title: Event Handling
-    Description: "Intro to Event Handling, Adding onclick Handling, Foreshadowing: State, Problem Set: Event Handling"
-    UID: b7a2c117790fd3d9347e2dc80519e151
+    Title: Calling APIs
+    Description: "Intro to Asynchronous Programming, GET Requests With axios, POST Requests With axios, Managing Asynchronous Calls, Problem Set: Requests With JS"
+    UID: ea98d11e0ad2c8fb97cba4671894b5be
     SuccessCriteria:
       - success criteria
     ContentFiles:
       -
-        Type: Lesson
-        UID: 361b4130f4c5ab73de1043e514a8ee48
-        Path: /event-handling/intro-to-event-handling.md
+        Type: Instructor
+        UID: df9579446a05c089f2c4925072f798e5
+        Path: /calling-apis/calling-apis.instructor.md
       -
         Type: Lesson
-        UID: 4662421b1d590d31cd374fbdb3d14244
-        Path: /event-handling/adding-onclick-handling.md
+        UID: 56ec483c4a41f36b614af17f1860c5ed
+        Path: /calling-apis/intro-to-asynchronous-programming.md
       -
         Type: Lesson
-        UID: 97a3ad9ab680dbbe2254f61c3964e07d
-        Path: /event-handling/foreshadowing-state.md
+        UID: d3a9923ac36a2dcc00b6a38839a9b361
+        Path: /calling-apis/get-requests-with-axios.md
       -
         Type: Lesson
-        UID: 1c7326a3cfb0353b88713902f959584b
-        Path: /event-handling/problem-set-event-handling.md
+        UID: f66ca97c89f806852275a887be52e2e3
+        Path: /calling-apis/post-requests-with-axios.md
+      -
+        Type: Lesson
+        UID: 74275257eea05874614158a544388760
+        Path: /calling-apis/managing-asynchronous-calls.md
+      -
+        Type: Instructor
+        UID: 877cdfdd
+        Path: /calling-apis/problem-set-requests-with-js.instructor.md
+      -
+        Type: Lesson
+        UID: af9932f5
+        Path: /calling-apis/problem-set-requests-with-js.md
