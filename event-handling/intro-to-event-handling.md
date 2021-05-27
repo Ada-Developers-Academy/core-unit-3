@@ -2,7 +2,7 @@
 
 ## Goals
 
-Our goal for this lesson is to introduce the concepts of event handling, so we can write event-handling code later.
+Our goal for this lesson is to introduce concepts related to event handling, so we can write event-handling code later.
 
 ## Introduction
 
@@ -28,23 +28,23 @@ As part of the Web API, browsers allow JavaScript to interact with **events** th
 
 **Events** are named actions within a browser. Events are:
 
-- "fired," "triggered," or "sent" when the event occurs
-- "listened to," "handled," or "received" when JavaScript code anticipates these events and defines a next step
+- "fired," "triggered," or "sent" when the event occurs. We will hear these terms used interchangeably.
+- "listened to," "handled," or "received" when we write JavaScript code to watch for these events and define what happens next. We will hear these terms used interchangeably.
 
 Whenever _anything_ happens in the browser, the browser can recognize it, and react to it.
 
 Plenty of events are handled by the browser by default. Here are a few example events, and how the browser might handle them:
 
-| When a user...                  | Then...                                                          |
+| <div style="min-width:270px;">When a user...</div>                  | Then...                                                          |
 | ------------------------------- | ---------------------------------------------------------------- |
-| clicks on a button              | the user goes to the button's destination, such as the home page |
+| clicks a link              | the user goes to the link's destination, such as the home page |
 | submits a form                  | the form data is sent somewhere, possibly to complete a purchase |
 | types the letter `V`            | the character `V` displays, and the blinking text cursor moves   |
 | hovers the cursor over an image | the alt text displays                                            |
 
 ### Event-Driven Programming
 
-We can write JavaScript to more specifically handle events. Our JavaScript event handling code will always anticipate a certain event, and then define what happens next.
+We can write JavaScript to more specifically handle events. We write JavaScript event handling code to watch for a certain event, and then define what happens next.
 
 Here are some specific examples we could write:
 
@@ -61,26 +61,26 @@ In JavaScript:
 1. Events need a way to be fired/triggered/activated at the time of the event
 1. Events need a way to be listened to
 
-With those facts in mind, when we write event-handling code, we keep these questions in mind:
+With those points in mind, when we write event-handling code, we should consider the following questions:
 
 - When does a specific element (`<button>`, `<form>`, `<section>`, etc.) fire a specific event?
   - What is the element? What is the event name?
-- How is the event handled? We need a function that is listening for a specific event name on a specific element.
+- How is the event handled? How do we write a function that can listen for a specific event on a specific element.
 
 ## Default Events in the Browser
 
-This is a list of some events that the browser fires, and therefore any event we can name and handle. We can learn more [from MDN](https://developer.mozilla.org/en-US/docs/Web/Events).
+This is a list of some events that the browser fires. We can watch for and handle any of these, and many others. We can learn more [from MDN](https://developer.mozilla.org/en-US/docs/Web/Events).
 
-| Event Name   | Fired When                                                                                                        |
+| <div style="min-width:150px">Event Name</div>   | Fired When                                                                                                        |
 | ------------ | ----------------------------------------------------------------------------------------------------------------- |
 | `keydown`    | any key is pressed                                                                                                |
 | `keyup`      | any key is released                                                                                               |
-| `click`      | A pointing device button (ANY button; soon to be primary button only) has been pressed and released on an element |
+| `click`      | A pointing device button (such as left, right, or middle button; soon to be primary button only) has been pressed and released on an element |
 | `dblclick`   | A pointing device button is clicked twice on an element                                                           |
 | `mousemove`  | A pointing device is moved over an element. (Fired continuously as the mouse moves.)                              |
 | `mouseenter` | A pointing device is moved onto the element that has the listener attached                                        |
 | `mouseleave` | A pointing device is moved off the element that has the listener attached                                         |
-| `focus`      | An element has received focus (does not bubble)                                                                   |
+| `focus`      | An element has received focus                                                                   |
 | `offline`    | The browser has lost access to the network                                                                        |
 | `online`     | The browser has gained access to the network                                                                      |
 
