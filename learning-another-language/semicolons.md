@@ -16,11 +16,11 @@ Officially, JavaScript expects semicolons to end the following kinds of statemen
 - `continue` statements
 - `break` statements
 - `return` statements
-- `throw` statements to throw errors
+- `throw` statements (used to throw, or raise, errors)
 
 Additionally, JavaScript expects semicolons at the end of variable declarations (covered later), `import`s, and `export`s.
 
-However, if we take out the semicolon of our original code, our JavaScript code runs just fine!
+However, if we take out the semicolon from our original line, our JavaScript code runs just fine!
 
 ```js
 console.log('Do I need to put a semicolon at the end of this to work?')
@@ -38,7 +38,7 @@ This is one of many topics that the developer community talks about all the time
 
 ## JavaScript's Automatic Semicolon Insertion
 
-Automatic Semicolon Insertion (ASI) is a subprogram in JavaScript. It executes at the beginning of running our code, and it inserts any missing semicolons.
+Automatic Semicolon Insertion (ASI) is a subsystem in JavaScript. It executes as the JavaScript runtime inspects our code, and it attempts to insert any missing semicolons.
 
 For example, consider this code, which is missing expected semicolons:
 
@@ -114,4 +114,4 @@ The text in this curriculum will use semicolons, in order to make our code clear
 
 ## Stay Consistent and Understand ASI
 
-The ultimate takeaway is to stay consistent in your code and conform to your team's code style. If we decide to not use semicolons, we should understand the risks that ASI presents.
+The ultimate takeaway is to stay consistent in our code and conform to our team's code style. If we decide to not use semicolons, we should understand the risks that ASI presents.
