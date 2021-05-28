@@ -85,7 +85,15 @@ We may make guesses that:
 
 The string literal `'Hello, World!'` is surrounded by single-quotes, instead of double-quotes.
 
-If we experiment and replace it with double-quotes (`console.log("Hello, World!");`), we'll see that our code still runs as expected!
+If we experiment and replace it with double-quotes
+
+<!-- prettier-ignore-start -->
+```js
+console.log("Hello, World!");
+```
+<!-- prettier-ignore-end -->
+
+we'll see that our code still runs as expected!
 
 In JavaScript, we can create string literals with either syntax.
 
