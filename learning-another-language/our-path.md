@@ -4,7 +4,7 @@
 
 Jing has been working on a Python project with their team for the last few months. They've had ups and downs, but the project is getting deployed. They feel very proud of their work.
 
-However, Jing's manager just called them into a meeting. There's a new opportunity and the manager is recommending Jing to join this new team! It's a great opportunity for them. However, there's one huge concern: Jing's new team will build software in JavaScript.
+Excitingly, Jing's manager just called them into a meeting. There's a new opportunity and the manager is recommending Jing to join this new team! It's a great opportunity for them. However, there's one huge concern: Jing's new team will build software in JavaScript.
 
 Jing has never seen JavaScript code before, much less written it!
 
@@ -19,11 +19,11 @@ This curriculum will take the following approach to learning JavaScript:
 1. Write Hello, World!
 1. Write FizzBuzz
 1. Summarize what we've learned so far
-1. Establish resources
+1. Establish trustworthy resources
 
 From there, we will make a list of a few major concepts that are unique to JavaScript.
 
-At the end of these steps, we should have enough knowledge of JavaScript that lets us feel comfortable playing around with the language.
+At the end of these steps, we should have enough knowledge of JavaScript to let us feel comfortable playing around with the language.
 
 ### Write Hello, World!
 
@@ -36,7 +36,7 @@ Hello, World! is a great exercise to start with because it forces us to learn ho
 
 ### Write FizzBuzz
 
-FizzBuzz will force us how to:
+FizzBuzz will force us to learn how to:
 
 - use variables
 - use conditionals
@@ -50,7 +50,7 @@ FizzBuzz will force us how to:
 
 After jumping into the code and picking up a lot of syntax, we'll need to pause, reflect, and summarize our learning so far.
 
-### Establish Resources
+### Establish Trustworthy Resources
 
 The next step is deciding which resources are on our side. What does a "good," trustworthy resource look like?
 
@@ -75,7 +75,7 @@ This moment comes before we feel ready. 😅🙂
 
 When learning another programming language, we should allow ourselves to be more exploratory.
 
-At many times, we will _choose_ to:
+At various times, we will _choose_ to:
 
 - Learn a bit about something, and then move on
 - Focus on syntax and muscle memory
@@ -83,7 +83,7 @@ At many times, we will _choose_ to:
 
 This requires trust in ourselves!
 
-In the moment of coding, there may be something we get stuck on, and we need to trust that if we keep pushing, it will come together.
+In the moment of coding, there may be something we get stuck on. We need to trust that if we keep pushing, it will come together.
 
 Also, we need to trust in our ability to take notes and follow-through with research and deeper understanding later or over time.
 
