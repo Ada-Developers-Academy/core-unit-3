@@ -12,7 +12,7 @@ When learning another language, implementing FizzBuzz is a great way to jump int
 - use `return`
 - call functions
 
-The requirements of the FizzBuzz program is as follows:
+The requirements of the FizzBuzz program are as follows:
 
 Create a function named `fizzBuzz`. It takes in one parameter, `num`.
 
@@ -28,11 +28,11 @@ Create a function named `fizzBuzz`. It takes in one parameter, `num`.
 <!-- prettier-ignore-start -->
 ```js
 const fizzBuzz = function(num) {
-  if (num % 15 == 0) {
+  if (num % 15 === 0) {
     return 'FizzBuzz';
-  } else if (num % 3 == 0) {
+  } else if (num % 3 === 0) {
     return 'Fizz';
-  } else if (num % 5 == 0) {
+  } else if (num % 5 === 0) {
     return 'Buzz';
   } else {
     return num;
@@ -67,7 +67,7 @@ const fizzBuzz = function(num) {
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | `const fizzBuzz`                                    | This _declares_ a variable named `fizzBuzz`. This specific type of variable is a `const` variable. The variable's name is in camelCase. |
 | `=`                                                 | This is the assignment operator. This will assign whatever value is on the right-side to the variable on the left side, `fizzBuzz`.     |
-| `function`                                          | The keyword to begin the definition of a function                                                                                       |
+| `function`                                          | The keyword to begin the definition of a function expression                                                                                      |
 | `(num)`                                             | This section defines the function parameters. This function has one parameter, named `num`.                                             |
 | `{`                                                 | This opening curly brace (`{`) begins the function body.                                                                                |
 
@@ -77,9 +77,9 @@ Now, let's dive into this fragment of code inside the function body:
 
 <!-- prettier-ignore-start -->
 ```js
-if (num % 15 == 0) {
+if (num % 15 === 0) {
   return 'FizzBuzz';
-} else if (num % 3 == 0) {
+} else if (num % 3 === 0) {
   return 'Fizz';
 }
 ```
@@ -89,13 +89,13 @@ if (num % 15 == 0) {
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `if`                                                | The keyword to begin an if-statement.                                                                                                                                 |
 | `(...)`                                             | We put the conditional expression in parentheses `()`. If the expression evaluates to `true`, then the if-statement will execute the block of code.                   |
-| `num % 15 == 0`                                     | The conditional expression. It reads the parameter `num` and uses the mod operator `%`. It checks if `num % 15` is equal to `0` using equality comparison, with `==`. |
-| `{`                                                 | We begin the block of code to execute with an open curly brace `{`. **Everything inside the code block is indented one level**.                                       |
+| `num % 15 === 0`                                     | The conditional expression. It reads the parameter `num` and uses the mod operator `%`. It checks if `num % 15` is equal to `0` using equality comparison, with `===`. This checks whether a number is divisible by 15, or in other words, whether a number is divisible by both 3 and 5 (since 3 * 5 = 15). |
+| `{`                                                 | We begin the block of code to execute with an open curly brace `{`. **Everything inside the code block is indented one level**. In JavaScript, the indentation has no semantic meaning, but it still helps us understand the code intent.                                      |
 | `return 'FizzBuzz';`                                | A return statement. This returns the string literal `'FizzBuzz'`. The return statement ends in a semicolon `;`.                                                       |
 | `}`                                                 | The block of code to execute for the if-statement ends with a closing curly brace `}`. **The end of this code block is indented to match the opening `if`**.          |
 | `else if`                                           | This begins an else-if-statement. If the first conditional didn't return `true`, we will check if this next conditional will.                                         |
 | `(...)`                                             | Identical to before, this holds the conditional expression to check.                                                                                                  |
-| `num % 3 == 0`                                      | This conditional expression checks if `num` is divisible by `3`, as according to the problem statement.                                                               |
+| `num % 3 === 0`                                      | This conditional expression checks if `num` is divisible by `3`, as required by the problem statement.                                                               |
 | `{`                                                 | We open another block of code, which executes if _this_ conditional was `true`. Again, note that **everything inside the code block is indented one level**.          |
 | `return 'Fizz';`                                    | We return `'Fizz'` if `num` is divisible by `3`. This ends in a semicolon.                                                                                            |
 | `}`                                                 | This ends our else-if-statement. Again, **the indentation of this `}` matches the opening `else-if`**.                                                                |
@@ -136,7 +136,7 @@ console.log(fizzBuzz(3));
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                                                                                     |
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `console.log(...)`                                  | This invokes the function that prints output to the console. More specifically, it invokes the `log` function that is part of the `console` object. _It prints the value that is the passed-in argument_. |
-| `fizzBuzz(1)`                                       | This invokes the function `fizzBuzz` with the argument `1`. We can expect it to return the number `1`.                                                                                                    |
+| `fizzBuzz(1)`                                       | This invokes the function `fizzBuzz` with the argument `1`. From the problem statement, we can expect it to return the number `1`.                                                                                                    |
 | `;`                                                 | The `console.log()` statement ends in a semicolon.                                                                                                                                                        |
 | `console.log(...);`                                 | Again, this function call will print out whatever value is passed into it.                                                                                                                                |
 | `fizzBuzz(3)`                                       | This invokes the function `fizzBuzz`, passing in `3`. Its eventual return value is `'Fizz'`.                                                                                                              |
@@ -166,11 +166,11 @@ Consider the FizzBuzz implementation again:
 
 ```js
 const fizzBuzz = function(num) {
-  if (num % 15 == 0) {
+  if (num % 15 === 0) {
     return 'FizzBuzz';
-  } else if (num % 3 == 0) {
+  } else if (num % 3 === 0) {
     return 'Fizz';
-  } else if (num % 5 == 0) {
+  } else if (num % 5 === 0) {
     return 'Buzz';
   } else {
     return num;
