@@ -4,16 +4,16 @@
 
 There are _many_ ways to define functions. For now, we will dive into two ways:
 
-- Functional expressions
+- Function expressions
 - Function declarations
 
 Both of these methods have the same result: defining a function.
 
-The most important difference between them is the context that we typically use them in. There are technical differences between them, but these are not relevant on the introductory level.
+The most important difference between them is the context that we typically use them in. There are technical differences between them, but these are not relevant at an introductory level.
 
-## Functional Expressions
+## Function Expressions
 
-The name "functional expression" refers to the function acting as an expression that a variable references.
+The name "function expression" refers to using the `function` keyword in an expression to create a new function reference. We often store the reference in a `const` variable for later use.
 
 Let's look at this code, which defines a function named `increaseQuantity`:
 
@@ -27,8 +27,8 @@ const increaseQuantity = function(initial_qty) {
 
 Let's break down the details of this `increaseQuantity` function:
 
-- We create a `const` variable named our function name, `increaseQuantity`.
-- We assign `increaseQuantity` to the right-hand value.
+- We create a `const` variable with the name we want our function to have, `increaseQuantity`.
+- We assign `increaseQuantity` the right-hand value.
 - The right-hand value starts with the `function` keyword.
 - We create the parameter list using parentheses `()`. If there are zero parameters, we must include the parentheses and leave it empty.
 - The function opens and closes with curly braces `{}`.
@@ -55,9 +55,9 @@ If we invoked `increaseQuantity` with zero arguments, like `increaseQuantity()`,
 
 ## Function Declarations
 
-Function declarations may feel similar to declaring variables, where we stated the type of variable and its name.
+To define `increaseQuantity` as a function declaration, we leave off the variable assignment part and place the desired name after `function`, rather than making a separate variable. (Note that even in function expressions, an optional name can be supplied.)
 
-To define `increaseQuantity` as a function declaration, we can write this code:
+We can write this code:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -77,14 +77,14 @@ increaseQuantity(31);
 ```
 <!-- prettier-ignore-end -->
 
-## Foreshadowing: We Prefer Functional Expressions
+## Foreshadowing: We Prefer Function Expressions
 
 We may see the function declaration style in different contexts, and especially in older JavaScript code online.
 
-This curriculum text will prefer functional expressions. Functional expressions:
+This curriculum text will prefer function expressions. Function expressions:
 
-- Proactively guard against bugs with scope and hoisting, topics not covered in this curriculum
-- Setup patterns and habits needed for future, more advanced JavaScript syntax
+- Proactively guard against bugs with scope and _hoisting_, topics not covered in this curriculum
+- Set up patterns and habits needed for future, more advanced JavaScript syntax
 
 ## Check for Understanding
 
@@ -98,7 +98,7 @@ This curriculum text will prefer functional expressions. Functional expressions:
 
 Arrange the options below so that they match these terms in this order:
 
-1. Functional Expression
+1. Function Expression
 1. Function Declaration
 1. A function named `clearCanvas`
 1. Calling a function named `clearCanvas`
