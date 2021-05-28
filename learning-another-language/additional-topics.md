@@ -16,7 +16,7 @@ What is the syntax for...
 Other questions to consider:
 
 - What is considered truthy?
-- What is considered falsey?
+- What is considered falsy?
 - What does `null` mean?
 - How do we do string interpolation?
 
@@ -24,7 +24,7 @@ Other questions to consider:
 
 ## Checking Equality in JavaScript
 
-Checking for object equality in JavaScript is interesting. JavaScript has two equality comparators: `==` and `===`. They are similar to Python's own equality comparators, `==` and `is`. It's worth looking up!
+Checking for object equality in JavaScript is interesting. JavaScript has two equality comparators: `==` and `===`. We may be inclined to use `==` for comparisons from our experience with other languages, but we will prefer to use `===`. We should feel comfortable looking up the difference between these two ways of comparing objects.
 
 ### !end-callout
 
@@ -75,9 +75,9 @@ const loginUser = function(user, isAuthorized) {
 }
 ```
 
-What values can `isAuthorized` be in order to be considered falsey?
+What values can `isAuthorized` be in order to be considered falsy?
 
-Do independent research. Check all the options below that are considered falsey values in JavaScript.
+Do independent research. Check all the options below that are considered falsy values in JavaScript.
 
 ##### !end-question
 ##### !options
@@ -143,4 +143,3 @@ String interpolation must be done inside a string surrounded by backticks ``(`)`
 ##### !end-explanation
 ### !end-challenge
 <!-- prettier-ignore-end -->
-
