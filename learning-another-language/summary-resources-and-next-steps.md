@@ -14,11 +14,12 @@ For now, we can run JavaScript programs using a REPL. Eventually, we will have m
 ### FizzBuzz
 
 - We declare a variable using `const <nameOfVariable>`, where `<nameOfVariable>` is the name of a variable, usually in camelCase
-- We can use the assignment operator, the equal sign `=`, to assign a variable to a value on the right side
+- We can use the assignment operator, the equal sign `=`, to assign a variable a value on the right side
 - We define a function starting with the `function` keyword, followed by a list of parameters in parentheses `()`, followed by the function body in curly braces `{}`
 - If-statements are made with `if`, followed by a conditional expression in `()`, followed by a block of code in curly braces `{}`
 - We indent inner blocks of code
-- JavaScript shares the following things in common with Python: the mod operator, checking equality with `==`, and `return` statements
+- JavaScript shares the use of the mod operator `%` and `return` statements with a number of other languages
+- The preferred comparison operator `===` still strongly resembles the `==` we are used to
 
 ## Resources
 
@@ -63,7 +64,7 @@ For any given resource, we can evaluate based on:
 
 ## ECMAScript 2015, aka ES6
 
-The JavaScript language went through a major revision in 2015. It introduced _dozens_ of new syntaxes, features, and patterns. There is usually a large difference in code style patterns between JavaScript before 2015 and after 2015.
+The JavaScript language went through a major revision in 2015. It introduced _dozens_ of new syntax elements, features, and patterns. There is usually a large difference in code style patterns between JavaScript before 2015 and after 2015.
 
 <br/>
 
