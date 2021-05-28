@@ -12,37 +12,35 @@ We might have been in situations before where we thought, "Ugh! This logic is re
 
 For example, let's imagine this problem and pseudocode:
 
-We need to build one calculator function that can add, subtract, multiply, and divide two numbers.
+We need to build a `calculate` function that can add, subtract, multiply, and divide two numbers.
 
 In order to accomplish that goal, we need three arguments:
 
 1. The first number
 2. The second number
-3. Something that represents to operation we need, to help us determine if we're adding, subtracting, multiplying, or dividing
+3. Something that represents the operation we need, to help us determine whether we're adding, subtracting, multiplying, or dividing
 
-We could approach the third argument by expecting a string, such as `'add'`, `'+'`, `'multiply'`, or `'*'`.
+We could decide that the third argument will expect a string, such as `'add'`, `'+'`, `'multiply'`, or `'*'`. Our `calculate` function could inspect the string and decide which behavior to apply.
 
 <!-- prettier-ignore-start -->
 ```js
-const calculator = function(a, b, operation){
-  // if (operation === 'add') {
-  //  return a + b;
-  // }
+const calculate = function(a, b, operation){
+  if (operation === 'add') {
+   return a + b;
+  } else if ...  // additional checks
 }
 ```
 <!-- prettier-ignore-end -->
 
-However, wouldn't it be grand if we could _pass in_ the actual operation, whether it's addition or subtraction, and execute it?
+However, wouldn't it be grand if we could _pass in_ the actual operation, whether it's addition, subtraction, or even some operation we haven't yet planned to support, and then execute it?
 
 ## Callback Functions
 
 In order to pass around behavior, we pass around functions.
 
-More specifically, a function can _take in a function_ as an _argument_, and then call that function.
+More specifically, a function can _take in a reference to a function_ as an _argument_, and then call that function.
 
-To help us talk about functions, we can use specific vocabulary around these functions. A **callback function** is a nickname for a function that is _passed into_ another function.
-
-We can reverse that definition and imagine a function that _takes in another function as an argument_. The function passed in as an argument can be labeled as a _callback function_.
+A **callback function** is a term for a function that is _passed into_ another function.
 
 ### Passing Around Cleaning Up Behavior
 
@@ -63,7 +61,7 @@ bakeCake();
 ```
 <!-- prettier-ignore-end -->
 
-The variable `cleanCountertop` references a function that prints details about cleaning a kitchen.
+The variable `cleanCountertop` references a function that prints details about cleaning our countertop.
 
 The variable `bakeCake` references a different function that prints details about baking a cake.
 
@@ -81,7 +79,17 @@ const bakeCake = function (cleanupBehavior) {
 ```
 <!-- prettier-ignore-end -->
 
-We can refer to `cleanupBehavior` as a _callback function_ inside our `bakeCake` function. After we look at the big picture, we can think about the phrase "callback."
+We can refer to `cleanupBehavior` as a _callback function_ inside our `bakeCake` function.
+
+### !callout-info
+
+## Use Good Parameter Names
+
+Like any other parameter, JavaScript doesn't know what we expect to do with that parameter, and so it won't force the value passed in for `cleanupBehavior` to be a function reference. Good naming should be used to inform anyone using our function what we expect to be passed in, and to remind us of how we intend to use that parameter within our function.
+
+### !end-callout
+
+We might call `bakeCake` as follows:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -121,7 +129,7 @@ const bakeCake = function (cleanupBehavior) {
 ```
 <!-- prettier-ignore-end -->
 
-We call `cleanupBehavior` a _callback function_ inside `bakeCake`. It refers to the expectation that `bakeCake` should _call back_ a function... the function that was passed in, when `bakeCake` was invoked in the first place.
+We call `cleanupBehavior` a _callback function_ inside `bakeCake`. It refers to the expectation that `bakeCake` should _call back_ to some other function... the function that was passed in when `bakeCake` was invoked in the first place.
 
 ## Revisiting Calculator
 
@@ -158,21 +166,21 @@ Our final result from calculate is: 42
 
 Let's practice tracing code, going through it and following the flow of execution. The first several lines of this snippet define functions. Our first moment of action is the line `const result = calculate(7, 6, multiply);`.
 
-We invoke our `calculate` function when we call it with parentheses `()`, in the expression `calculate(7, 6, multiply)`. Here, we're passing in the `multiply` function, without invoking it.
+We invoke our `calculate` function by calling it with parentheses `()`, in the expression `calculate(7, 6, multiply)`. Here, we're passing in the `multiply` function, without invoking it.
 
 When we enter our `calculate` function, we have these values:
 
-| Local variable | Value      |
+| Local variable | <div style="min-width:130px;">Value</div>      |
 | -------------- | ---------- |
 | `a`            | `7`        |
 | `b`            | `6`        |
 | `operate`      | `multiply` |
 
-Our `calculate` function eventually invokes `operate` with the expression `operate(a, b)`. When we run `operate(a, b)`, we're invoking the `multiply` function with those arguments.
+Our `calculate` function eventually invokes `operate` with the expression `operate(a, b)`. When we run `operate(a, b)`, we're invoking the `multiply` function with those arguments. `operate` is a variable that currently holds the same function reference as `multiply`, so when we invoke `operate`, it's the same as invoking `multiply`.
 
 Inside the `multiply` function, we have these values:
 
-| Local variable | Value |
+| Local variable | <div style="min-width:130px;">Value</div>      |
 | -------------- | ----- |
 | `factor_a`     | `7`   |
 | `factor_b`     | `6`   |
@@ -207,8 +215,8 @@ We finally get a value for our variable `result`, which is `42`.
 
 ### !callout-info
 
-## Compare to Python
+## Let's Trace the Second Call on Our Own
 
-Python actually supports passing around functions, too! Python uses _lambdas_ as a popular pattern for passing around functions.
+Our example goes on to call `calculate` with the `add` function. We should trace through this call as well to practice thinking about callbacks!
 
 ### !end-callout
