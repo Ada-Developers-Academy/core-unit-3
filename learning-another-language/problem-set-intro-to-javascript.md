@@ -413,7 +413,7 @@ Create a function named `compareAlphabetically`. It has two parameters, `wordA` 
 - Assume all characters in both words use the English alphabet
 - Order uppercase letters before lowercase letters
 
-Return `wordA` if `wordB` comes first alphabetically. Return `wordB` if `wordB` comes first. Return either `wordA` or `wordB` if they are identical strings.
+Return `wordA` if `wordA` comes first alphabetically. Return `wordB` if `wordB` comes first. Return either `wordA` or `wordB` if they are identical strings.
 
 | Example `wordA` | Example `wordB` | Example return value |
 | ---------------- | ---------------- | -------------------- |
@@ -503,4 +503,3 @@ const compareValues = function(a, b) {
 ### !end-explanation
 ### !end-challenge
 <!-- prettier-ignore-end -->
-
