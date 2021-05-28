@@ -376,15 +376,18 @@ apples
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-## Part 4: Recreate This Resume
+## Part 4: Recreate One of These Resumes
 
-Your goal is to recreate [this resume](https://adagold.github.io/structuring-content/assets/problem-set_resume.pdf) in HTML, focusing on structuring the content.
+Your goal is to recreate a resume in HTML, focusing on structuring the content.
+
+Choose one of the following two resumes to recreate:
+
+- [Avery S. Persons](https://adagold.github.io/structuring-content/assets/resume-avery.pdf)
+- [Eugene H. Krabs](https://adagold.github.io/structuring-content/assets/resume-eugene.pdf)
 
 Do this work in a new `index.html` file on your computer, then reflect and answer the questions below.
 
 Do not spend more than three hours on this. At three hours, consider it done! There is no submission for this. Be prepared to share your thought process with others.
-
-For your convenience, [here is the content of this resume in raw text](https://adagold.github.io/structuring-content/assets/problem-set_resume-raw.txt).
 
 ### !callout-success
 
