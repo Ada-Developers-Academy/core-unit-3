@@ -1,8 +1,8 @@
 # Test Syntax Detail
 
-Now, we've read through some Jest tests, run them, and made them pass!
+We've read through some Jest tests, run them, and maybe even made them pass!
 
-These steps have made it easier for us to now step back, and formally consider the syntax.
+These steps make it easier for us to take a step back, and formally consider the syntax.
 
 ## `describe` Blocks
 
@@ -12,7 +12,7 @@ Describe blocks often group tests by a common object they're testing, or a commo
 
 Describe blocks:
 
-- Can contain unit tests (described below), other describe blocks, and helper functions.
+- Can contain unit tests (details below), other describe blocks, and helper functions.
 - Are optional! A test suite doesn't require a `describe` block to exist.
 
 Let's dive into `describe` blocks in detail.
@@ -43,7 +43,7 @@ describe('fizzBuzz', () => {
 ```
 <!-- prettier-ignore-end -->
 
-`test` blocks should define one distinct test.
+`test` blocks define one distinct test.
 
 The first argument to `test` is a description string. This string should describe the specific scenario that we're targeting and testing.
 
@@ -51,7 +51,7 @@ The second argument is a function that ultimately contains the assertion lines.
 
 ## `expect` and Matchers
 
-In order to define the conditions in which a test passes or fails, we combine an `expect` call and a matcher.
+In order to define the conditions under which a test passes or fails, we combine an `expect` call and a matcher.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -71,7 +71,7 @@ The Jest library provides more _matchers_.
 
 `toEqual(expected)` is a matcher that says that the received value should _equal_ the expected value.
 
-Here are some example matchers and their descriptions. However, to learn about them all in detail, we should visit the [Jest documentation](https://jestjs.io/docs/expect).
+Here are some example matchers and their descriptions. To learn about them all in detail, we should visit the [Jest documentation](https://jestjs.io/docs/expect).
 
 | <div style="min-width:300px;"> Matcher </div> | Description                                                                                                                          |
 | :-------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
@@ -84,7 +84,7 @@ Here are some example matchers and their descriptions. However, to learn about t
 | `expect(x).toBeLessThan(y);`                  | Passes if `x` is less than `y`                                                                                                       |
 | `expect(x).toBeGreaterThan(y);`               | Passes if `x` is greater than `y`                                                                                                    |
 | `expect(x).toBe(y);`                          | Compares objects `x` and `y` and passes if they are the same object, do **not** use this to test two objects or arrays for equality. |
-| `expect(x).toMatch(pattern);`                 | Compares `x` to string or regular expression pattern and passes if they match                                                        |
+| `expect(x).toMatch(pattern);`                 | Compares `x` to the string or regular expression in `pattern` and passes if they match                                                        |
 | `expect(fn).toThrow(e);`                      | Passes if a function, `fn`, throws exception `e` when executed                                                                       |
 
 Often, more than one matcher is appropriate for our test.
