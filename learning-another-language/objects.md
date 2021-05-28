@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Objects are a data type that contain key-value pairs, and they're foundational to organizing data and solving problems in JavaScript.
+Objects are instances of a data type that contains key-value pairs. They're foundational to organizing data and solving problems in JavaScript.
 
 Object keys can be strings or numbers.
 
@@ -32,7 +32,7 @@ Key-value pairs inside of objects are separated by commas! This might feel trick
 
 ## Accessing Objects
 
-We can access the values in objects by using keys. Let's learn different ways of accessing values by using this object:
+We can access the values in objects by using keys. Let's examine a few different ways of accessing values while using this example object:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -56,7 +56,7 @@ We can describe the object `testObj` with this table:
 
 ### Dot Notation
 
-To get `'this is a test string'` from this object, we use the key `someStr` [using dot notation](https://replit.com/@adacore/Objects-Demo#index.js):
+To get `'this is a test string'` from this object, we access the key `someStr` [using dot notation](https://replit.com/@adacore/Objects-Demo#index.js):
 
 <!-- prettier-ignore-start -->
 ```js
@@ -92,13 +92,13 @@ testObj.someStr;
 
 ## `undefined` for Missing Keys
 
-If we try to access a value using a key that _doesn't_ exist in the object, JavaScript will give us `undefined`. `undefined` is a type of value to describe things without value, such as variables that have never been assigned to something. This is _different_ from `null`, which describes an **_intentional_** lack of value.
+If we try to access a value using a key that _doesn't_ exist in the object, JavaScript will give us `undefined`. `undefined` typically represents some sort of uninitialized or missing value. This is _different_ from `null`, which describes an **_intentional_** lack of value.
 
 ### !end-callout
 
 ### Square Bracket Notation
 
-We can also use square bracket notation. Consider again this object:
+We can also use square bracket notation to access the values of keys in an object. Again, consider:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -120,7 +120,7 @@ testObj['someStr'];
 ```
 <!-- prettier-ignore-end -->
 
-Note that square bracket notation allows us to pass in a _variable_ for our key. This is because we can put in expressions in our square brackets. [Observe this code](https://replit.com/@adacore/Objects-Demo#index.js):
+Note that square bracket notation allows us to pass in a _variable_ for our key. This is because we can put expressions within our square brackets. [Observe this code](https://replit.com/@adacore/Objects-Demo#index.js):
 
 <!-- prettier-ignore-start -->
 ```js
@@ -130,7 +130,7 @@ testObj[keyToGetSomeValue];
 ```
 <!-- prettier-ignore-end -->
 
-We declared a `const` variable named `keyToGetSomeValue`, and assigned it to `'someStr'`. When we use `keyToGetSomeValue` in square brackets while accessing `testObj`, this variable evaluates to `someStr`.
+We declared a `const` variable named `keyToGetSomeValue`, and assigned it the value `'someStr'`. When we use `keyToGetSomeValue` in square brackets while accessing `testObj`, this variable evaluates to `'someStr'`.
 
 ### Nested Objects
 
@@ -146,11 +146,11 @@ const testObj = {
 ```
 <!-- prettier-ignore-end -->
 
-We can infinitely nest objects!
+We can nest objects as deep as we like!
 
-In order to access nested objects, we continue to _chain_ our syntax.
+In order to access nested objects, we _chain_ our syntax.
 
-To get `4` from accessing `testObj`, we can use [any of the following syntax](https://replit.com/@adacore/Objects-Demo#index.js):
+To get `4` from within `testObj`, we can use [any of the following approaches](https://replit.com/@adacore/Objects-Demo#index.js):
 
 <!-- prettier-ignore-start -->
 ```js
@@ -166,9 +166,9 @@ testObj['someNestedObj'].someOtherNum;
 
 We evaluate these lines from left to right.
 1. First, `testObj.someNestedObj` or `testObj['someNestedObj']` accesses the inner object
-1. Then, we use the syntax with `.someOtherNum` or `['someOtherNum']` on the inner object to access its own key-value pairs.
+1. Then, we use `.someOtherNum` or `['someOtherNum']` on the inner object to access its own key-value pairs.
 
-Note that we _can_ mix syntaxes in one line. This might be useful in _very_ specific cases, though the rest of the time we should strive for consistency.
+Note that we _can_ mix styles in one line. This might be useful in _very_ specific cases, though the rest of the time we should strive for consistency.
 
 ## Functions Are Objects
 
@@ -196,7 +196,7 @@ console.log(sayHelloWorld['name']);
 ```
 <!-- prettier-ignore-end -->
 
-This may also clarify why we create functions with such long syntax. In the above code, we can now read it as the variable `sayHelloWorld` is assigned to an object. This object is the function `sayHelloWorld`.
+This may also clarify why we create functions with such long syntax. In the above code, we can now read it as the variable `sayHelloWorld` is assigned an object. This object is the function `sayHelloWorld`.
 
 ### !callout-info
 
