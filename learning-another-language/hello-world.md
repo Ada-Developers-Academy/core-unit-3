@@ -21,7 +21,13 @@ The following steps will let us create and run JavaScript programs with ease:
 1. Create an account on [replit.com](https://replit.com/) and log-in
 1. Visit [the Hello, World! REPL](https://replit.com/@adacore/hello-world#index.js)
 
-On the right side, we see the _console_. We can use this console to execute small, quick JavaScript snippets, such as `2 + 3`, `4 * 5`, or any other valid code.
+When we open a REPL that we don't own, we will see a page with the project name, and a play button to run the project. We can toggle the view to show the code. We can also make a copy of the project in our own account by clicking Fork.
+
+![JavaScript readonly REPL. The browser displays the name of the project, hello-world, and a large green button to run the project. A toggle labelled Code and button labelled Fork are also visible.](../assets/learning-a-new-language_hello-world_repl-unowned.png)
+
+Let's Fork this project and see what that lets us do!
+
+Now, on the right side, we see the _console_. We can use this console to execute small, quick JavaScript snippets, such as `2 + 3`, `4 * 5`, or any other valid code.
 
 ![JavaScript REPL. In the console on the right-side, the line "2 + 3" is executed, and shows a result of "5." The line "4 * 5" is executed, and shows a result of "20."](../assets/learning-a-new-language_hello-world_repl-console-demo.png)
 
@@ -60,20 +66,20 @@ Let's debrief in slightly more detail.
 
 `console` is a variable that references a specific object: the console! This console object gives us access to wherever the program prints out output.
 
-It seems that `console` is within scope of our JavaScript file by default.
+Since we were able to use it without any setup, we might guess that `console` is in scope in our JavaScript file by default.
 
 At this moment, at the beginning of our JavaScript journey, we won't go deeper into this.
 
 ### Calling a Function
 
-`console.log()` is calling a function. We might not know all the details about this function, but we know that it's responsible for printing objects to the console.
+`console.log()` is calling a function. We might not know all the details about this function, but we're pretty sure that it's responsible for logging (printing) objects to the console.
 
 We may make guesses that:
 
 1. The function being called here is named `log`
-1. The function `log` is a member of `console` (hence the dot-operator)
+1. The function `log` is a member of `console` (hence the dot-operator to access it)
 1. We use the dot-operator to access members of objects
-1. The parens `()` is how we call and invoke the function
+1. The parens `()` are how we call and invoke the function
 
 ### Single Quotes for Strings
 
@@ -101,7 +107,7 @@ In JavaScript, semicolons are used to conclude statements.
 
 ## Statements
 
-In programming, a statement is a unit of code that contains an action to execute. We use statements mainly to _perform an action with side effects_. The following are examples of statements:
+In programming, a statement is a unit of code that contains an action to execute. We use statements mainly in the forms of expressions that update values, or control statements that affect the flow of the program. The following are examples of statements:
 
 - `foo = 'A value for foo';`
 - `return foo;`
@@ -109,7 +115,7 @@ In programming, a statement is a unit of code that contains an action to execute
 
 ### !end-callout
 
-Many modern JavaScript flavors, standards, and teams are beginning to prefer _excluding_ semicolons, relying on "Automatic Semicolon Insertion."
+Many modern JavaScript flavors, standards, and teams are beginning to prefer _excluding_ semicolons, relying on "Automatic Semicolon Insertion." But there are still many teams who prefer to _include_ semicolons due to the sometimes surprising effects of Automatic Semicolon Insertion.
 
 We can get deeper into JavaScript's semicolon and Automatic Semicolon Insertion later!
 
