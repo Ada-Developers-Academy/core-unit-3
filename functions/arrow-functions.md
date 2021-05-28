@@ -178,7 +178,17 @@ const makePerson = function(id, name) {
 };
 ```
 
-When we refactor it to a one-line arrow function, _because it specifically returns an object_, we need to wrap our object in parentheses.
+To rewrite it as a one-line arrow function, we might try the following:
+
+```javascript
+const makePerson = (id, name) => { id: id, name: name };  // does NOT work!
+```
+
+But this will not work as expected!
+
+To JavaScript, the opening brace `{` of the object is indistinguishable from the opening brace we would write at the start of a function body.
+
+Fortunately, we can resolve this ambiguity by wrapping the object literal in parentheses!
 
 ```javascript
 const makePerson = (id, name) => ({ id: id, name: name });
