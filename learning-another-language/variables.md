@@ -74,7 +74,32 @@ var jingsFavColor = 'green';
 
 ### We Prefer `const` for All Other Variables
 
-JavaScript programs tend to emphasize _mutating_ values over time. Therefore, since we expect to be re-assigning and changing a lot and frequently, it's important to know _what values **don't** change_.
+It's entirely possible in JavaScript to initialize a variable with a numeric value, reassign the value by performing some calculations, then turn around and assign a string to that same variable.
+
+Consider the following code.
+
+<!-- prettier-ignore-start -->
+```js
+let aNumber = 15;  // holds a Number
+aNumber = aNumber / 2;  // holds a different Number
+aNumber = 'or am I?';  // now holds a String!!!
+```
+
+It's possible, but that doesn't mean we should do it!
+
+Once we assign a value to a variable, it can be helpful to know the next time we see it, that the variable is referring to the same value. We don't want to worry that a stray typo caused us to assign a new value to the wrong variable.
+
+Consider this version of the same code. This time we give a distinct name to each value we create.
+
+<!-- prettier-ignore-start -->
+```js
+const aNumber = 15;  // holds a Number
+const anotherNumber = aNumber / 2;  // holds a different Number in a different variable
+const definitelyNotANumber = 'or am I?';  // no confusion here!
+```
+<!-- prettier-ignore-end -->
+
+JavaScript helps us prevent re-assignment by providing the concept of constant variables.
 
 Constants (`const` variables) cannot change their value through reassignment. If we try to re-assign constants, whether intentional or by accident, we'll run into a `TypeError`. Consider [this code](https://replit.com/@adacore/Variable-Type-Demonstration#index.js):
 
