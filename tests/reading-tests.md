@@ -2,19 +2,19 @@
 
 ## Goal
 
-The concepts about unit testing apply across programming languages! Everything we've learned about unit testing continues to hold true.
+Unit testing concepts apply across programming languages! Everything we've learned about unit testing principles continues to hold true.
 
 - Unit tests are responsible for verifying the correctness of our code, usually on a detailed level such as how a function behaves
 - We regularly run unit tests as we code
-- We use failing test messages to determine how to move forward and pass the test
+- When using tests to guide our development work, we use failing test messages to determine how to move forward and pass the test
 - The steps in a test can be described as:
   - Arrange
   - Act
   - Assert
 
-So, luckily, when it comes to learning about testing in another programming language, we won't have a lot of new concepts!
+When it comes to learning about testing in another programming language, we won't have a lot of new concepts!
 
-What we _can_ focus on, then, is how we manage our transition into learning the syntax of another testing framework. Our goal for this lesson is to:
+This lets us focus on how we manage our transition into learning the syntax of another testing framework. Our goal for this lesson is to:
 
 - Apply our understanding about unit tests in other languages to testing in JavaScript
 - Practice reading code, such that we can jump into a new library
@@ -56,7 +56,7 @@ For this portion of the curriculum, we will run tests using:
 - Replit.com
 - Learn code challenges on this curriculum platform
 
-When we have bigger projects with different environments, such as React JS projects, we will run tests on our local machines. For now, we can focus on reading tests and building our skills to pass them.
+When we have bigger projects with different environments, such as React JS projects, we will run tests on our local machines. As we get increasingly comfortable with Jest, we may even start writing our own tests. For now, we can focus on reading tests and building our skills to pass them.
 
 ## Reading Tests Without Learning Syntax
 
@@ -98,17 +98,21 @@ From this evidence, they can at least hypothesize this:
 
 ## Confidently Make Hypotheses
 
-As Leila works through this, they will need to make a lot of assumptions. Leila can take the time to fact-check all of her assumptions, which is a completely valid thing to do (and typically a good strategy for life). However, in this situation, Leila can _also_ confidently rely on their skills, intuition, context, and help from others to make theories about what's going on.
+As Leila works through this, they will need to make a lot of assumptions. Leila can take the time to fact-check all of their assumptions, which is a completely valid thing to do (and typically a good strategy for life). However, in this situation, Leila can _also_ confidently rely on their skills, intuition, context, and help from others to make theories about what's going on.
 
 <br/>
 
-"Maybe the `test` folder only holds test files, and we have a `.test.js` file for each function." Making theories like this will help Leila move forward in their learning. It will also help them correct themself and their working knowledge more easily!
+"Maybe the `test` folder only holds test files, and we have a `.test.js` file for each function."
+
+<br/>
+
+Making theories like this will help Leila move forward in their learning. It will also help them correct themself and their working knowledge more easily!
 
 ### !end-callout
 
 ### Hypothesizing About `describe`
 
-Let's look at block of code that begins on the first line, and closes on the last line.
+Let's look at the block of code that begins on the first line, and closes on the last line.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -127,11 +131,13 @@ describe( ..., ...
 ```
 <!-- prettier-ignore-end -->
 
-We can also see that the first argument is the string literal `'fizzBuzz'`. When Leila sees this, Leila questions, "What is this string literal used for?"
+We can also see that the first argument is the string literal `'fizzBuzz'`.
 
-When scanning through the rest of this code, we don't see this string literal being used anywhere obviously, so they will pause on that question for now.
+When Leila sees this, Leila questions, "What is this string literal used for?"
 
-The second argument seems to be a large, anonymous arrow function with zero parameters, that contains even more unfamiliar syntax.
+After scanning through the rest of the test code, they don't see any obvious place where this string literal is being used, so they set that question aside for the moment.
+
+The second argument seems to be a large, anonymous arrow function with zero parameters, which contains even more unfamiliar syntax.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -172,7 +178,7 @@ Inside the next anonymous arrow function, we see the following code:
 
 It's a comment indicating an "Arrange" step and a `const` variable `num` assigned to the number `9`.
 
-Leila is an overthinker, and they could dig deeper into what this line means. However, this time, they will choose to make only one theory: the variable `num` will be used later in the test.
+Leila usually likes to deeply investigate any new concepts they encounter, and they could dig deeper into what this line means. However, this time, they decide to move on with the following hypothesis: the variable `num` will be used later in the test.
 
 ### Act
 
@@ -208,19 +214,31 @@ Reading the line from left-to-right, it seems like `expect(result)` is also a fu
 
 However, the line doesn't stop there. Leila sees `.toEqual('Fizz')`. Recalling other JavaScript syntax, Leila suspects that this is a function call, where the function is named `toEqual` and the argument is `'Fizz'`.
 
-It looks like this function call operates from an object. That object must be `expect(result)`.
+It looks like this function call operates on an object. That object must be whatever is returned from the call to `expect(result)`. Leila doesn't know exactly what this object is, but they can tell that it must have a method called `toEqual`!
 
-### Reading it Out Loud
+### Reading It Out Loud
 
-Leila can now take a step back and read this line overall. They notice a sentence that the code forms: "Expect the value of `result` to equal `'Fizz'`."
+Leila can now take a step back and read this line overall. They notice a sentence formed by the code: "Expect the value of `result` to equal `'Fizz'`."
 
 The test will pass if `result`'s value is `'Fizz'`, and fail if it isn't.
 
+### !callout-info
+
+## Is It Safe to Jump to this Conclusion?
+
+It may seem reckless to try reading this code as a sentence rather than code. After all, JavaScript doesn't know what any of these words mean, and it definitely doesn't know what a sentence is!
+
+<br />
+
+But we should remember that this test library was written by _people_ for other _people_ to use. They want their code to be understandable, and so they wrote it so that it makes intuitive sense, even before we have a deep technical understanding. We should attempt to write our own code in such an understandable style too!
+
+### !end-callout
+
 ## Multiple Tests in One Describe Block
 
-Leila just can't catch a break! After reading through the first test, Nadia is prompting Leila to continue reading.
+Leila really wants to get coding, but they just can't catch a break! After reading through the first test, Nadia presses Leila to continue with the next test.
 
-However, Leila can use this opportunity to possibly validate or disprove some of their theories.
+Leila is disappointed, but then they realize they might be able to use this opportunity to validate or disprove some of their theories.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -245,9 +263,8 @@ describe('fizzBuzz', () => {
 
 The first thing Leila notices is that the next test is a second `test` block, located in the same `describe` block.
 
-There aren't commas between the tests, because these tests are not in an object with comma-separated key-value pairs, nor are they in a comma-separated array.
 
-The `test` block continues to be, ultimately, a function call: `test(..., ...);`
+This `test` block seems to be, ultimately, a function call: `test(..., ...);`
 
 ### First Argument of `test`
 
@@ -270,8 +287,8 @@ Now, what's left for Leila to consider is the anonymous function.
 Drawing also from the first unit test, Leila concludes:
 
 1. This assert step begins with calling `expect(...)` and passing in a value.
-   - In the first test, the value was `result`, which was ultimately `fizzBuzz(9)`
-   - In this second test, the value is `fizzBuzz(25)`
+   - In the first test, the value was `result`, which was assigned the result of `fizzBuzz(9)`
+   - In this second test, the value is the result of calling `fizzBuzz(25)`
 1. The line continues, chaining on `.toEqual(...)`
    - In the first test, the argument was `'Fizz'`
    - In this second test, the argument is `'Buzz'`
@@ -300,7 +317,7 @@ We can click into one of these tests and observe the contents of the test.
 
 We can run the tests using the "Run tests" button.
 
-Hopefully we see one failing test.
+We should see one failing test.
 
 ![Replit UI featuring test failure messages in the right-hand console](../assets/tests_tests_replit-test-failure.png)
 
