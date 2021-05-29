@@ -42,16 +42,16 @@ For example, given this array of tool data:
 ```js
 [
     {
-    name: "Hammer",
-    quantity: 35
+        name: "Hammer",
+        quantity: 35
     },
     {
-    name: "Axe",
-    quantity: 18
+        name: "Axe",
+        quantity: 18
     },
     {
-    name: "Bow",
-    quantity: 17
+        name: "Bow",
+        quantity: 17
     }
 ];
 ```
@@ -77,14 +77,14 @@ Donate Tool!
 ---
 ```
 
-The tests are visible in the first hint. (Moved into hints to prevent this text from becoming unusably long.)
+The tests are available in the first hint. (Moved into hints to prevent this text from becoming unusably long.)
 
 ##### !end-question
 ##### !placeholder
 ```js
 const formatToolList = (toolsData) => {
 
-}
+};
 ```
 ##### !end-placeholder
 ### !hint
@@ -170,7 +170,7 @@ For example, this string:
 `Tool List:\nTool: Hammer\nQuantity: 35\nReserve Now!\nDonate Tool!\n---`
 ```
 
-would print out to be:
+would print out as:
 
 ```
 Tool List:
@@ -221,8 +221,8 @@ This function takes in one object. The object has this shape:
             returnDate: "June 01"
         },
         {
-          username: "Wyndguyxx",
-          returnDate: "June 11"
+            username: "Wyndguyxx",
+            returnDate: "June 11"
         }
     ]
 }
@@ -245,8 +245,8 @@ For example, given this object of tool data that includes reservations:
             returnDate: "June 01"
         },
         {
-          username: "Wyndguyxx",
-          returnDate: "June 11"
+            username: "Wyndguyxx",
+            returnDate: "June 11"
         }
     ]
 }
@@ -260,7 +260,7 @@ Reservations for Band Saw:
 - Return Date: June 11
 ```
 
-The tests are visible in the first hint. (Moved into hints to prevent this text from becoming unusably long.)
+The tests are available in the first hint. (Moved into hints to prevent this text from becoming unusably long.)
 
 ##### !end-question
 ### !hint
@@ -386,36 +386,36 @@ The function should return a string. This string begins with the line `Tool Libr
 For example, given this array:
 
 ```js
-
-      {
+[
+    {
         name: "Band Saw",
         totalQuantity: 35,
         reservations: [
-          {
-            username: "Hoppleypawz",
-            returnDate: "June 01"
-          },
-          {
-            username: "Wyndguyxx",
-            returnDate: "June 11"
-          },
-          {
-            username: "Laverbean2001",
-            returnDate: "June 13"
-          }
+            {
+                username: "Hoppleypawz",
+                returnDate: "June 01"
+            },
+            {
+                username: "Wyndguyxx",
+                returnDate: "June 11"
+            },
+            {
+                username: "Laverbean2001",
+                returnDate: "June 13"
+            }
         ]
-      },
-      {
+    },
+    {
         name: "Bow",
         totalQuantity: 18,
         reservations: [
-          {
-            username: "Guttersnipe23",
-            returnDate: "June 02"
-          }
+            {
+                username: "Guttersnipe23",
+                returnDate: "June 02"
+            }
         ]
-      }
-    ]
+    }
+]
 ```
 
 the function should return a string that looks like this:
@@ -426,7 +426,7 @@ Tool Library:
 2. Bow (Available: 17)
 ```
 
-The tests are visible in the first hint. (Moved into hints to prevent this text from becoming unusably long.)
+The tests are available in the first hint. (Moved into hints to prevent this text from becoming unusably long.)
 
 ##### !end-question
 ### !hint
@@ -553,4 +553,3 @@ const formatLibrary = (libraryData) => {
 ### !end-explanation
 ### !end-challenge
 <!-- prettier-ignore-end -->
-
