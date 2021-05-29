@@ -54,7 +54,7 @@ Variables are declared as one of three kinds:
 | ------- | -------------------------------------------------------------------------------------------------- |
 | `let`   | A block-scoped variable. Actively encouraged.                                                      |
 | `const` | A block-scoped variable that is read-only. Reassignment raises a `TypeError`. Actively encouraged. |
-| `var`   | A globally-scoped variable. Actively discouraged.                                                  |
+| `var`   | A variable without block scoping. If defined within a function, it will have scope throughout the _entire_ function. If defined outside a function it will have global scope. Actively discouraged.                                                  |
 
 Observe [variable declaration and assignment](https://replit.com/@adacore/Variable-Type-Demonstration#index.js) below:
 
