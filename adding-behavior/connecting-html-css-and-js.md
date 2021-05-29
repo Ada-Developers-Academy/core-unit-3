@@ -2,13 +2,15 @@
 
 ## Goals and Introduction
 
-JavaScript is special because browsers can run it without a server. It's become the default programming language to use when adding behavior to websites.
+JavaScript is special. It's a language that can run directly within web browsers, letting it access and modify the structure of any HTML being displayed! It is able to do this even for web pages that aren't served by a web server.
+
+Over the years, other languages have tried to fulfill this function, but JavaScript has consistently remained the most popular browser-embedded language! This makes it our default programming language to use when adding behavior to websites.
 
 Even though we won't need to start and run a server, we still need to connect our HTML, CSS, and JS files together before our JavaScript will run!
 
 ## Project Folder Structure
 
-In our web projects, generally-speaking, we can arrange our HTML, CSS, and JS files however we'd like. However, the following is a great structure to mimic:
+In our web projects, generally speaking, we can arrange our HTML, CSS, and JS files however we'd like. However, the following is a great structure to mimic:
 
 ```
 .
@@ -25,7 +27,7 @@ In our web projects, generally-speaking, we can arrange our HTML, CSS, and JS fi
   - `style.css` is a great name for a generic CSS file.
   - If we made a CSS file for each HTML file, they files could share names (such as `index.css` to correspond to `index.html`).
 - We keep our JS files inside a folder named `scripts`.
-  - We can name our JS files based on its content, such as a `changeCursor.js` file to hold code that changes the mouse cursor, or a `scrollToTop.js` file to define scrolling behavior.
+  - We can name our JS files based on their content, such as a `changeCursor.js` file to hold code that changes the mouse cursor, or a `scrollToTop.js` file to define scrolling behavior.
   - We can make a JS file for each HTML file, where the files could share names (such as `index.js` to correspond to `index.html`).
 
 ## Adding the Script Tag
@@ -60,11 +62,15 @@ Just like CSS links, we can include multiple `<script>`s in one page, and the sc
 
 Where should the script tag go? Believe it or not, people have a lot of opinions on this topic. 
 
+<br />
+
 <details>
 
 <summary>If you'd like to learn more, click here to expand and see our thoughts.</summary>
 
-When the browser encounters a `<script>` tag, it stops loading the HTML document. Instead, the browser pauses to download the _entire_ script, which might take a long time to load. The browser only continues rendering the page only after the script has finished downloading.
+<br />
+
+When the browser encounters a `<script>` tag, it stops loading the HTML document. Instead, the browser pauses to download the _entire_ script, which might take a long time to load. The browser continues rendering the page only after the script has finished downloading.
 
 <br/>
 
@@ -124,13 +130,14 @@ We can look at the console by:
 - Using the provided console, if the website is being built on Replit.com
 - Using the browser Dev Tools, in the tab labeled "Console."
 
-![Browser Dev Tools console opened, with the string Hello, World! printed to the console](../assets/adding-behavior_connecting-html-css-js_hello-world.png)
+![Browser Dev Tools console opened, with the string Hello, World! printed to the console](../assets/adding-behavior_connecting-html-css-js_hello-world.png)  
+_Fig. Inspecting the browser console using the browser Dev Tools._
 
 This experiment proves the following things to us:
 
 1. We can connect our HTML, CSS, and JS files successfully
 1. JS files run immediately after our HTML file loads them using the `<script>` tag
-1. We can access the console through Dev Tools
+1. We can access the console through the browser Dev Tools
 
 ### !callout-info
 
@@ -142,20 +149,20 @@ If we cannot see the print statement in the console, try refreshing the page whi
 
 ## Example: Random Number
 
-We can put in any valid JavaScript code we want, as long as our browser can run it. This includes making functions, calling them, creating objects, and so on.
+We can put any valid JavaScript code we want in the script file, as long as our browser can run it. This includes making functions, calling them, creating objects, and so on.
 
 For example, we can add in the following code to our `scripts/index.js` file:
 
 ```js
 const getRandomNumber = (max) => {
-    return Math.floor((Math.random() * max) + 1);
+    return Math.floor(Math.random() * (max + 1));
 }
 
-console.log( getRandomNumber(10) );
-console.log( getRandomNumber(100) );
+console.log(getRandomNumber(10));
+console.log(getRandomNumber(100));
 ```
 
-The above code creates a function `getRandomNumber`, which takes in a number `max`, and returns a random integer between 0 and `max`.
+The above code creates a function `getRandomNumber`, which takes in a number `max`, and returns a random integer between 0 and `max` (inclusive).
 
 Then, it calls that function, and prints out the result to the console. First, it calls the function after passing in `10`, and then again with the argument `100`.
 
@@ -171,18 +178,19 @@ We can add the following code to `scripts/index.js`:
 
 ```js
 const getCurrentTime = () => {
-    let currentDate = new Date();
+    const currentDate = new Date();
     return currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
 }
 
 console.log(`The current time is ${getCurrentTime()}.`);
 ```
 
-This code creates a function `getCurrentTime`, and returns the value of the current time when that code is run. Then, we call that function and print it to the console.
+This code creates a function `getCurrentTime`, which will return a formatted string of the current time when the function is called. Then, we call that function and print it to the console.
 
-![Browser Dev Tools console opened, with the result of getCurrentTime printed to the console: 22:24:53](../assets/adding-behavior_connecting-html-css-js_current-time.png)
+![Browser Dev Tools console opened, with the result of getCurrentTime printed to the console: 22:24:53](../assets/adding-behavior_connecting-html-css-js_current-time.png)  
+_Fig. The result of printing the current time in the console_
 
-Our current time was only printed once: when the script executed.
+As we would expect, we see the time when the script executed printed to the console. As we refresh the page, we will see the updated time printed.
 
 ## Check for Understanding
 
