@@ -68,7 +68,7 @@ testObj.someStr;
 
 <details style="max-width: 700px; margin: auto;">
     <summary>
-        What do <code>testObj.someNum</code>, <code>testObj.someNestedObj</code>, and <code>testObj.keyDoesNotExist</code> evaluate to?
+        [Observe this code](https://replit.com/@adacore/Objects-Demo#index.js). What do <code>testObj.someNum</code>, <code>testObj.someNestedObj</code>, and <code>testObj.keyDoesNotExist</code> evaluate to?
     </summary>
 
 1. `testObj.someNum` evaluates to `5`
