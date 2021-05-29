@@ -10,13 +10,13 @@ There is no submission for this assignment.
 
 ## Practice
 
-1. Recreate the Crab Fan Site, but for one of your own interests. This fan site should include:
+1. Recreate the Crab Fan Site, but with one of your own interests. This fan site should include:
 
    - An appropriate title and top-level heading
    - A thematically-appropriate background and text colors
    - An "Add Thing" feature:
-     - A button that is titled "Add Thing," where "Thing" is relevant to the interest
-     - When the button is clicked, an element is added to the DOM and it's visible
+     - A button that is titled "Add Thing," where "Thing" is relevant to your interest
+     - When the button is clicked, an element is added to the DOM and becomes visible
    - A "Thing Counter" feature:
      - An element whose text displays the number of "Thing"s there are
      - This text updates every time the "Add Thing" button is clicked
