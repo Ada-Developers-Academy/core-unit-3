@@ -69,11 +69,11 @@ say_oranges()
 
 ```js
 const sayApples = () => {
-  console.log("apples");
+  console.log('apples');
 };
 
 const sayOranges = () => {
-  console.log("oranges");
+  console.log('oranges');
 };
 
 sayApples();
