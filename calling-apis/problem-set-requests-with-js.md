@@ -4,7 +4,7 @@
 
 Read the problem prompt, which will ask you to write JavaScript code to find certain answers.
 
-Once you found the answers, input them into the answers prompt below.
+Once you have found the answers, enter them into the answer prompts below.
 
 ## Preparation: LocationIQ Forward Geocoding API
 
@@ -24,16 +24,18 @@ Create a JavaScript program that finds the latitude and longitude coordinates fo
 | Wonder              |
 | ------------------- |
 | Great Wall of China |
-| Petra               |
+| Petra, Jordan       |
 | Colosseum           |
 | Chichen Itza        |
 | Machu Picchu        |
 | Taj Mahal           |
 | Christ the Redeemer |
 
+Remember that many API providers will deactivate an API key if they detect too many requests within a short span of time. Since adding pauses or timeouts to JavaScript code can be tricky, it may be worth starting with a program that retrieves the data for a single location, and attempt the Extra Challenges after that is working.
+
 ### Extra Challenges
 
-See if you can accomplish these extra challenges. These challenges are tricky and interesting! One solution required extra research around the following subjects: `setTimeout`, "JavaScript sleep," `async` and `await`, and (traditional) `for` loops.
+See if you can accomplish these extra challenges. These challenges are tricky and interesting! Implementing these extensions may require extra research around the following subjects: `setTimeout`, "JavaScript sleep," `async` and `await`, and (traditional) `for` loops.
 
 1. Organize your code into functions and helper functions
 1. Use a loop
@@ -45,7 +47,7 @@ See if you can accomplish these extra challenges. These challenges are tricky an
         latitude: "...",
         longitude: "..."
     },
-    "Petra": {
+    "Petra, Jordan": {
         latitude: "...",
         longitude: "..."
     },
@@ -79,7 +81,7 @@ See if you can accomplish these extra challenges. These challenges are tricky an
 Rapidly making several HTTP requests to the same endpoint may exceed our API rate limit. There are many ways to work with the rate limit. As a suggestion, one strategy is to consider the following:
 
 1. How can we make requests more slowly?
-1. Research the `setTimeout` function, or how to implement a "sleep" function. We recommend making the program wait for 500 milliseconds to begin your experiment.
+1. Research the `setTimeout` function, or how to implement a "sleep" function. We recommend trying to make a program wait for 500 milliseconds as a starting point. This is also a good pause to use between API calls!
 
 ### !end-callout
 
@@ -122,7 +124,7 @@ What is the longitude of the first result of "Great Wall of China"?
 * id: 5d5b6f83
 * title: Requests with JS
 ##### !question
-What is the latitude of the first result of "Petra"?
+What is the latitude of the first result of "Petra, Jordan"?
 ##### !end-question
 ##### !answer
 30.3273975
@@ -137,7 +139,7 @@ What is the latitude of the first result of "Petra"?
 * id: 7bd1170a
 * title: Requests with JS
 ##### !question
-What is the longitude of the first result of "Petra"?
+What is the longitude of the first result of "Petra, Jordan"?
 ##### !end-question
 ##### !answer
 35.4464006
@@ -155,7 +157,7 @@ What is the longitude of the first result of "Petra"?
 What is the latitude of the first result of "Colosseum"?
 ##### !end-question
 ##### !answer
-41.8910091
+41.8902614
 ##### !end-answer
 ### !end-challenge
 <!-- prettier-ignore-end -->
@@ -170,7 +172,7 @@ What is the latitude of the first result of "Colosseum"?
 What is the longitude of the first result of "Colosseum"?
 ##### !end-question
 ##### !answer
-12.4920748
+12.4930871035955
 ##### !end-answer
 ### !end-challenge
 <!-- prettier-ignore-end -->
