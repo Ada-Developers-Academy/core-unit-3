@@ -67,6 +67,7 @@ say_apples()
 say_oranges()
 ```
 
+<!-- prettier-ignore-start -->
 ```js
 const sayApples = () => {
   console.log('apples');
@@ -79,6 +80,7 @@ const sayOranges = () => {
 sayApples();
 sayOranges();
 ```
+<!-- prettier-ignore-end -->
 
 Both code snippets print out `apples` first, and then `oranges` second, because we call the function that prints `apples` first, and _then_ we call the function that prints `oranges` second. If we need to change the order of how these print, we need to change the order of the lines of code.
 

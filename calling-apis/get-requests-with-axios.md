@@ -40,6 +40,7 @@ Jamel can read through the [`axios` documentation](https://github.com/axios/axio
 
 Let's see what answers we can get when we observe [the following code that makes a `GET` request](https://replit.com/@adacore/GET-Requests-With-axios-Demo#index.js):
 
+<!-- prettier-ignore-start -->
 ```js
 const axios = require('axios');
 
@@ -52,6 +53,7 @@ axios
     // Code that executes with an unsuccessful response goes here
   });
 ```
+<!-- prettier-ignore-end -->
 
 | <div style="min-width:170px;"> Piece of Code </div> | Notes                                                                                                                                                                                                                              |
 | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -104,6 +106,7 @@ First, before Jamel implements his full API call, he wants to prove that he can 
 
 We can apply the above pattern to write [this code](https://replit.com/@adacore/GET-Requests-With-axios-Demo#index.js):
 
+<!-- prettier-ignore-start -->
 ```js
 const axios = require('axios');
 
@@ -116,6 +119,7 @@ axios
     console.log('error!');
   });
 ```
+<!-- prettier-ignore-end -->
 
 Assuming that the web API is currently working, we should get the following output from this code:
 
@@ -171,6 +175,7 @@ Similarly, the function we pass into `catch()` is responsible for handling unsuc
 
 We can provide anonymous functions:
 
+<!-- prettier-ignore-start -->
 ```js
 axios
   .get('https://dog.ceo/api/breeds/list/all')
@@ -181,9 +186,11 @@ axios
     // ...
   });
 ```
+<!-- prettier-ignore-end -->
 
 Or named functions:
 
+<!-- prettier-ignore-start -->
 ```js
 const axios = require('axios');
 
@@ -199,6 +206,7 @@ axios
   .then(printSuccess)
   .catch(printError);
 ```
+<!-- prettier-ignore-end -->
 
 ### The `response` and `error` Objects
 
@@ -214,6 +222,7 @@ The `response` and `error` objects in the callback functions contain a lot of gr
 
 We can use these print statements to understand the shape of the `response` and `error` objects without the documentation.
 
+<!-- prettier-ignore-start -->
 ```js
 const axios = require('axios');
 
@@ -245,6 +254,7 @@ axios
     );
   });
 ```
+<!-- prettier-ignore-end -->
 
 <!-- Question 1 -->
 <!-- prettier-ignore-start -->
@@ -313,6 +323,7 @@ The `finally` clause does not receive any parameters, so we should only use `fin
 
 Using the `finally` clause looks like this:
 
+<!-- prettier-ignore-start -->
 ```js
 const axios = require('axios');
 
@@ -328,6 +339,7 @@ axios
     console.log('this is always executed, no matter what!');
   });
 ```
+<!-- prettier-ignore-end -->
 
 ## Query Params
 
@@ -374,6 +386,7 @@ This `params` object should contain the key-value pairs we want to send as query
 
 Jamel's code eventually looks [like this](https://replit.com/@adacore/GET-Requests-With-axios-Demo#index.js):
 
+<!-- prettier-ignore-start -->
 ```js
 const axios = require('axios');
 
@@ -392,6 +405,7 @@ axios
     console.log('error!', error.response.data);
   });
 ```
+<!-- prettier-ignore-end -->
 
 Before trying to run this code ourselves, we should examine how Jamel configured his LocationIQ API key.
 
@@ -419,6 +433,7 @@ This API call is made _asynchronously_. This asynchronous behavior will affect h
 
 Let's run this code, which appears to make an API call and then prints some lyrics:
 
+<!-- prettier-ignore-start -->
 ```js
 const axios = require('axios');
 
@@ -435,6 +450,7 @@ console.log('I put the pedal to the floor');
 console.log('Headed north on Mills Avenue');
 console.log('And listened to the engine roar');
 ```
+<!-- prettier-ignore-end -->
 
 When we run this code, we should see this output:
 
@@ -456,6 +472,7 @@ Because this is asynchronous, we sometimes need to tailor our code to anticipate
 
 Observe this bug:
 
+<!-- prettier-ignore-start -->
 ```js
 const axios = require('axios');
 
@@ -474,6 +491,7 @@ axios
 console.log(`My favorite dog greeting is ${dogGreeting}`);
 console.log(`A random dog image URL is ${dogImageURL}`);
 ```
+<!-- prettier-ignore-end -->
 
 Reading through this code from top-to-bottom, without understanding asynchronicity, would lead us to believe that:
 
