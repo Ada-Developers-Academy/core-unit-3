@@ -24,7 +24,7 @@ Create a JavaScript program that finds the latitude and longitude coordinates fo
 | Wonder              |
 | ------------------- |
 | Great Wall of China |
-| Petra, Jordan       |
+| Petra               |
 | Colosseum           |
 | Chichen Itza        |
 | Machu Picchu        |
@@ -47,7 +47,7 @@ See if you can accomplish these extra challenges. These challenges are tricky an
         latitude: "...",
         longitude: "..."
     },
-    "Petra, Jordan": {
+    "Petra: {
         latitude: "...",
         longitude: "..."
     },
@@ -124,7 +124,7 @@ What is the longitude of the first result of "Great Wall of China"?
 * id: 5d5b6f83
 * title: Requests with JS
 ##### !question
-What is the latitude of the first result of "Petra, Jordan"?
+What is the latitude of the first result of "Petra"?
 ##### !end-question
 ##### !answer
 30.3273975
@@ -139,7 +139,7 @@ What is the latitude of the first result of "Petra, Jordan"?
 * id: 7bd1170a
 * title: Requests with JS
 ##### !question
-What is the longitude of the first result of "Petra, Jordan"?
+What is the longitude of the first result of "Petra"?
 ##### !end-question
 ##### !answer
 35.4464006
