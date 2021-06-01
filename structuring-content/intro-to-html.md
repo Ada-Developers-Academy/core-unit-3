@@ -1,252 +1,365 @@
-# ❮ Intro to HTML ❯
+# Intro to HTML
 
-## Learning Goals
-- Understand HTML syntax & vocabulary
-- Can identify what tags are most appropriate for specific content
-- Can view document in a browser
+<!-- TODO: Learning goals -->
 
-## HTML Structures Content on Webpages
+## Vocabulary and Synonyms
 
-HTML structures the content of a webpage. Its purpose is to organize content. **In web, the contents of a webpage are all of its text, essays, paragraphs, blogs, headers, images, videos, and other information and media that the website is delivering.**
+| Vocab         | Definition                                                                                          | Synonyms | How to Use in a Sentence                                                                                                                                                                             |
+| ------------- | --------------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML Element  | A unit of content on an HTML page. One element is represented as one node in the DOM.               | Element  | "When I want to add paragraph text into my website, I put each paragraph in a separate paragraph HTML element," "That `<section>` element contains three other HTML elements."                       |
+| HTML Tag      | A piece of syntax that defines an HTML element. Most HTML elements have an opening and closing tag. | Tag      | "I forgot to put the closing tag to my `<ul>` element, so the list kept going and my site was broken."                                                                                               |
+| Semantic HTML | The practice of intentionally using HTML tags that are descriptive to the content itself            | -        | "The `<section>` tag follows semantic HTML principles, because the tag describes the content. The `<div>` tag doesn't follow semantic HTML principles, because `div` does not describe the content." |
+| Attributes    | Additional pieces of information attached to an HTML element. Comes in attribute-value pairs.       | Property | All `<img>` tags should have an `alt` attribute an a `src` attribute."                                                                                                                               |
 
-HTML stands for Hypertext Markup Language. We use HTML to describe and organize the content of a document (website) within the context of the document content itself.
+## Introduction
 
-HTML is not concerned about how the content *looks*. That job is left to CSS, which is a totally different language we will be learning later. HTML is concerned with the structure of *content*.
+In order to create a web app full of content, we'll need to write that content in HTML!
 
-### Websites Still Have Content Structure without CSS
-
-Let's prove to ourselves that developers still organize and structure content, and it is separate from appearance.
-
-**Experiment:** Add the [Web Developer](https://chrome.google.com/webstore/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm?hl=en-US) extension to chrome to see how sites look without any CSS!
-
-![Web Developer Chrome Extension](imgs/web_developer.png)
-After you add it, click on the extension's icon (it looks like a gear). A box will popup, click on the CSS tab towards the top left. Then click 'Disable All Styles' to disable CSS on any site your heart desires 💛. Have fun!
-
-Browsers apply default styles even for plain HTML with no definition for appearance. Select 'Disable Browser Default Styles' to disable that as well to get a real view of what HTML by itself looks like.
-
-The best HTML creates a logical and readable document without any styles.
-
-## HTML Syntax
-
-About our files:
-
-- We write HTML in files that have a `.html` extension
-- HTML files don't have a required or even standard naming convention, [but they have a few rules](https://www.lifewire.com/naming-html-files-3466503), and we will recommend sticking with kebab-case
-- At the moment, we don't have a recommended folder structure (no `lib` folder or anything)
+For each _document_ (web page), we will likely have an HTML file.
 
 What goes inside the HTML files?
 
-- HTML files will have HTML **elements** that define the structure of the website content
+- HTML files will have _HTML elements_ that define the structure of the website content
 - HTML elements typically (though not always) do one of the following:
-    - Contain the details of a single piece of website content
-    - Contain other HTML elements to organize and group those elements
+  - Contain the details of a single piece of content
+  - Contain other HTML elements to organize and group those elements
 
-### Syntax for Defining an Element
+## HTML Files
 
-Every HTML Element is opened and closed using tags. For every given HTML Element, the syntax will typically look like this:
+Before we write HTML, let's get on the same page about the files we'll use!
+
+We write HTML in files with a `.html` extension.
+
+HTML files don't have a required or standard naming convention! This curriculum recommends using kebab-case.
+
+### !callout-info
+
+## `index.html`
+
+The conventional file name for a website's main page is `index.html`!
+
+### !end-callout
+
+## Syntax to Define an Element
+
+Elements are defined using **tags**.
+
+To define an element, observe the following syntax:
+
+<!-- prettier-ignore-start -->
+```html
+<example>Content Details</example>
+```
+<!-- prettier-ignore-end -->
+
+| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                                |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<example>`                                         | This is an _opening_ tag, which begins to define an HTML element of type `example`. This opening tag declares that this element is beginning.        |
+| `Content Details`                                   | **Replace this** with text, other HTML elements, or some other form of content. Everything here is considered as part of the `example` HTML element. |
+| `</example>`                                        | This is a _closing_ tag, which concludes the `example` HTML element. Anything after the closing tag is not part of this `example` element.           |
+
+### Valid HTML Elements
+
+By default, browsers can only successfully render elements that are [defined by W3C](https://www.w3.org/standards/).
+
+Here are some example HTML elements and their tags that can be used to describe different content.
+
+| Element    | Opening Tag | Closing Tag  | Description                                                       |
+| ---------- | ----------- | ------------ | ----------------------------------------------------------------- |
+| Paragraph  | `<p>`       | `</p>`       | Content is a paragraph of text.                                   |
+| Link       | `<a>`       | `</a>`       | Content is the text of a link, such as "Click here to read more." |
+| Section    | `<section>` | `</section>` | Content is usually other HTML elements.                           |
+| Navigation | `<nav>`     | `</nav>`     | Content is usually other HTML elements relevant to navigation.    |
+| Header 1   | `<h1>`      | `</h1>`      | Content is text that is the most important header on the page.    |
+
+[Here is a list of all valid HTML Elements.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+
+### !callout-info
+
+## Self-Closing Tags
+
+Some tags are "self-closing," and do not require a separate closing tag. For example, the image tag which displays images is self-closing: `<img />`. These tags are less common, and there isn't any harm from using a full closing tag (such as `<img></img>`). While doing research on different HTML tags, it will be wise to determine if it's self-closing or not!
+
+### !end-callout
+
+## Use Meaningful HTML Elements
+
+What happens if we put a paragraph inside a `<nav>` tag? What happens if we put text inside a `<section>` tag?
+
+Our browsers will still do their best to render the content. Browsers don't throw runtime errors, nor do they validate HTML for correct use or syntax.
+
+However, we should be using the most appropriate HTML tags for each piece of content. Using appropriate HTML tags helps users, developers, and browsers navigate your website better.
+
+The practice of intentionally using descriptive HTML tags is called **semantic HTML**.
+
+## Attributes
+
+HTML elements can have _attributes_. **Attributes** are additional pieces of information used to describe the element itself.
+
+Attributes come in attribute-value pairs. Observe this example:
+
+<!-- prettier-ignore-start -->
+```html
+<example attribute-1="string value" attribute-2="a different string value">Content Details<example>
+```
+<!-- prettier-ignore-end -->
+
+| Attribute Name | Value                        |
+| -------------- | ---------------------------- |
+| `attribute-1`  | `"string value"`             |
+| `attribute-2`  | `"a different string value"` |
+
+- An element can have zero, one, or many attributes
+- Multiple attributes are separated by a space
+
+There are many attributes that exist. Many attributes are specific to certain HTML elements.
+
+### Examples
+
+The `<a>` tag (used for links) uses an attribute to determine the link destination.
+
+<!-- prettier-ignore-start -->
+```html
+<a href="https://adadevelopersacademy.org/">Click here to visit Ada's website!</a>
+```
+<!-- prettier-ignore-end -->
+
+| Attribute Name | Value                                 |
+| -------------- | ------------------------------------- |
+| `href`         | `"https://adadevelopersacademy.org/"` |
+
+The `<img>` tag (used for images) uses attributes to determine the alternative text of the image and where the image resource is located.
+
+<!-- prettier-ignore-start -->
+```html
+<img alt="Grey kitten with large blue eyes and sorrowful look" src="http://placekitten.com/200/300"/>
+```
+<!-- prettier-ignore-end -->
+
+| Attribute Name | Value                                                   |
+| -------------- | ------------------------------------------------------- |
+| `alt`          | `"Grey kitten with large blue eyes and sorrowful look"` |
+| `src`          | `"http://placekitten.com/200/300"`                      |
+
+## Standard HTML Document Setup
+
+In order to render our websites, browsers get our HTML, parse through it, and create the DOM from it.
+
+As the browser parses through our HTML, it can get a lot of interesting information besides the web page content! It can get information like:
+
+- What is the title of this website, that gets displayed at the top of the browser or in bookmarks?
+- What character encoding should this web page use?
+- What is the icon of this website that appears at the top of the browser?
+
+Therefore, most web pages begin development with an HTML skeleton that looks like this:
 
 ```html
-<element>Content Details</element>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Title of This Website Shown in Browsers</title>
+  </head>
+  <body>
+    Hello, HTML World! All HTML elements that have content and should be
+    displayed to the user should go here, inside the body tag.
+  </body>
+</html>
 ```
 
-- The text `element` should be the name of the HTML element (details below)
-- Every element has an _opening tag_, which is angle brackets surrounding the element name (here: `<element>`)
-- Every element has a _closing tag_, which is an opening angle bracket, a `/`, the element name, and then a closing angle bracket
-- Every element may have content details between the opening and closing tags. This will typically be text if the HTML element describes text content.
+We encourage using this skeleton to create standard web pages that our browser can render more easily.
 
-In most cases, HTML doesn't care about whitespace, so sometimes we will see our HTML elements like this:
+### The `<html>` Tag
 
-```html
-<element>
-  Content Details
-</element>
-```
+The `<html>` tag describes an HTML document! It is the opening tag for an HTML document, and all other HTML elements should be nested within it.
 
-Note that we indent inner content in HTML.
+The `<html>` tag is _technically_ optional. If we didn't put the `<html>` tag in, our browsers would add the tag automatically.
 
-Many HTML elements will require that **attributes** are set with the HTML tag. For those cases, the syntax looks like this for every attribute/value pair:
+Adding this tag helps us visualize the root node of the DOM.
 
-```html
-<element attribute-1="string value" attribute-2="a different string value">Content Details</element>
-```
+### The `<head>` Tag
 
-## Possible Elements
+The `<head>` tag is a tag that holds all the metadata of that page.
 
-Unless you have fancy code that will do otherwise, the only valid HTML elements that will show up on a webpage are [defined by W3C](https://www.w3.org/standards/).
+We usually nest HTML elements in `<head>` that describe this metadata, including:
 
-[Here is a list of all of the valid HTML Elements.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+- `<meta>`
+- `<title>`
+- `<script>`
 
-### Examples of Content Elements
+`<head>` tags may have few zero nested tags, or a lot, depending on the situation and context! Details on these tags is lower priority for this curriculum, so follow your curiosity!
 
-Here are examples of HTML elements that will describe literal website content:
+### The `<body>` Tag
 
-- Paragraphs of text are described with `<p>Content Details</p>` tags
-- Headers and headlines:
-  - The most important header on the website is `<h1>Content Details</h1>`
-  - The second most important header is `<h2>Content Details</h2>`
-  - The third most important header is `<h3>Content Details</h3>`
-- Making text that is clickable and links to another website: `<a href="http://google.com">This is the text that appears as the link.</a>`
+The HTML `<body>` element represents the content of an HTML document. There can be only one `<body>` element in a document.
 
-### Examples of Sectioning Elements
+As a general rule, we nest all website content within the `<body>` element.
 
-Here are examples of HTML elements that will describe sectioning/organizing/grouping website content:
+Most of our HTML will be written here!
 
-- A standalone section of content is `<section></section>`
-- Introductory content, that may contain some heading elements but also a logo, a search form, an author name, and other elements is `<header></header>`
-- A section of a page whose purpose is to provide navigation links to other documents is `<nav></nav>`. Common examples of navigation sections are menus, tables of contents, and indexes.
-- A footer that typically contains information about the author of the section, copyright data or links to related documents is `<footer></footer>`
-- A self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable is `<article></article>`
+## Nesting Elements
 
-### Exercise
+We've seen the syntax for defining elements, and we've alluded to nesting elements. How do we write HTML with nested elements?
 
-Take time with your neighbor to explore [MDN's HTML elements reference page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) and answer the following:
+Here is an example of the syntax of nesting an `<h1>` element inside a `<nav>` element.
 
-- How is this page structured?
-- What are two other examples of sectioning elements that this document lists? What do each represent?
-- What are five other examples of content elements that this document lists? What do each represent?
-
-## Other Interesting HTML Syntax Details
-
-### Nested Elements
-
-Often times, we will nest elements inside of each other. Usually, we put inside of sectioning elements either content elements or other sectioning elements.
-
-Here is an example of the syntax of nesting an `<h1>` element inside of a `<nav>` element.
-
+<!-- prettier-ignore-start -->
 ```html
 <nav>
-  <h1>Bookface</h1>
+  <h1>Ada's Recipe Blog</h1>
 </nav>
 ```
+<!-- prettier-ignore-end -->
 
-Start to be mindful of the relationship between nested elements. It will become important as we progress in the week.
+In this situation, the `<nav>` element contains the `<h1>` element. The `<nav>` element is a parent element.
 
-Common HTML elements we will nest are lists.
+The `<h1>` element is a child element to the `<nav>` element, because it's nested inside it!
 
-In HTML, unordered lists are grouped by a `<ul>` tag. Items of the list (list-items) are defined inside this tag. Ordered lists are grouped by an `<ol>` tag.
+The DOM would represent this HTML like this:
 
+<!-- TODO -->
+
+We can nest HTML elements several layers deep!
+
+<!-- prettier-ignore-start -->
 ```html
-<!-- An Unordered List with List Items -->
-<ul>
-  <li>Content Details</li>
-  <li>Content Details</li>
-  <li>Content Details</li>
-</ul>
-
-<!-- An Ordered List with List Items -->
-<ol>
-  <li>Content Details</li>
-  <li>Content Details</li>
-  <li>Content Details</li>
-</ol>
+<section>
+  <nav>
+    <h1>Ada's Recipe Blog</h1>
+  </nav>
+</section>
 ```
+<!-- prettier-ignore-end -->
 
-Tip: **Valid HTML always closes tags in order.** Your HTML will break if you forget to close your elements properly. For example, this code is **not** valid:
+Here, the `<section>` element has one direct child element: `<nav>`. The `<nav>` element has one direct child itself: the `<h1>` element.
 
+### Close Tags in Order
+
+Valid HTML always closes tags in order. Our HTML will break if we forget to close our elements properly. For example, this code is not valid, and would eventually cause problems:
+
+<!-- prettier-ignore-start -->
 ```html
 <nav>
-  <h1>Bookface
+  <h1>Ada's Recipe Blog
 </nav>
 </h1>
 ```
+<!-- prettier-ignore-end -->
 
-**Utilize indentation to help.**
+### !callout-info
 
-### Self-Closing Tags
+## Indentation Helps Readability
 
-Some tags are self-closing. These elements do not 'wrap' around any content.
+We can indent a level every time we have another layer of nested elements! Indenting our HTML consistently will:
 
-The syntax for self-closing tags is the same as normal HTML syntax, but:
+- Help developers read and write it better
+- Help visualize the DOM structure
+- Remind us visually when to close a tag
+- And way more benefits!
 
-1. end the _opening tag_ with a `/>`
-2. omit the closing tag
+<br/>
 
-For example, to display an image, use the self-closing `img` tag. It uses the `src` attribute to determine the image's source. It uses the `alt` attribute to determine the image's alternative text to show up in cases when the image is unavailable.
+As a side note: Some VS Code extensions will recommend not indenting the `<head>` and `<body>` tags. This is for the convenience of the developer and it's intentional!
 
+### !end-callout
+
+## Sibling Elements
+
+Elements can nest multiple elements within itself, and have multiple children elements.
+
+HTML elements who share a parent element are siblings. For example:
+
+<!-- prettier-ignore-start -->
 ```html
-<img src="/imgs/kittens_in_a_basket.jpg" alt="Four kittens with orange fur and white paws in a wicker basket on a gingham blanket" />
+<nav>
+  <a href="https://adadevelopersacademy.org/">Visit Ada's Homepage</a>
+</nav>
+<section>
+  <h1>Ada's Recipe Blog</h1>
+  <p>
+    Coffee, that, froth a wings dark whipped. Grounds, beans whipped, coffee carajillo french press so, half and half robusta siphon and robust.
+  </p>
+  <p>
+    Decaffeinated, sweet, con panna lungo, instant siphon at ut espresso sweet trifecta doppio. Doppio crema, white trifecta redeye aroma single shot grounds saucer. 
+  </p>
+</section>
 ```
+<!-- prettier-ignore-end -->
 
-### Commenting in an HTML Document
+In this case:
+
+- The `<h1>`, `<p>`, and second `<p>` elements are siblings. They share the parent element `<section>`.
+- The `<nav>` and `<section>` elements are siblings, whose shared parent is the implied `<html>` element.
+
+The DOM would likely represent this HTML like this:
+
+<!-- TODO -->
+
+## Comments in HTML
 
 To comment within HTML, use `<!-- -->`.
 
 ```html
 <!-- Your comment here -->
-<h1>Bookface</h1>
+<h1>Ada's Recipe Blog</h1>
 ```
 
-## Setup an HTML Document
+The browser will not render anything inside an HTML comment.
 
-Before we can start to organize our content into HTML elements, we must setup our HTML documents so that our code can be properly interpreted by browsers.
+## "Debugging" HTML
 
-```html
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>This site should have a title!</title>
- </head>
-  <body>
-    <!-- Your code goes here! -->
-    Hello, HTML World!
- </body>
-</html>
-```
-What do all these HTML tags mean?
+Browsers and HTML documents have no way of raising errors.
 
-- [DocType](http://stackoverflow.com/questions/414891/what-is-doctype)
-- [HTML](http://stackoverflow.com/questions/3270615/why-we-use-html-tag-although-my-website-runs-perfect-without-html-tag)
-- [`head`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head) is a tag that holds all of the meta data of that page: things that the browser should know
-  - [charset](http://stackoverflow.com/questions/2241348/what-is-unicode-utf-8-utf-16)
-  - [title](https://www.w3schools.com/html/html_head.asp)
-- [`body`](http://htmldog.com/references/html/tags/body/) is a container tag that will hold all of that page's content. If there is content that you expect to be shown on the page, it should be nested within the `body` tag.
+Instead of raising errors, the browser will instead attempt to render everything. This usually leaves the web page looking broken, without many clues as to why.
 
-### We Organize Content in `<body>`
+Our best strategies for debugging HTML at this moment are:
 
-As a general rule, we will organize website content all nested within the `<body>` element.
+- Check the nesting of tags, ensuring that there are appropriate opening and closing tags
+- Check the spelling of tags
+- Using Developer Tools and the "Elements" tab to inspect the rendered HTML
+  - Compare the rendered HTML that the browser displays to your own HTML code
 
-### `index.html` is Special
+## Check for Understanding
 
-It is convention that every website's main page is named `index.html`
+<!-- Question 1 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: tasklist
+* id: 17371044
+* title: CSS Walk-through
+##### !question
 
-## Exercise
+Check off all the topics that we've briefly touched on so far.
 
-1. Create an empty project folder
-1. Inside of that folder, create the file `index.html`
-1. Copy/paste the above code into `index.html` and save
-1. Open this file in a browser. Do this by either finding this file in Finder and clicking on it, or running in the command line `$ open index.html`
+##### !end-question
+##### !options
 
-What do you see? Check to see that you see "Hello, HTML World!" on your and your neighbor's screen.
+* Defining an HTML element
+* Defining attributes for an HTML element
+* A standard HTML document contains `<html>`, `<head>`, and `<body>` elements
+* Nesting elements
+* Sibling elements
+* Comments in HTML
+* "Debugging" HTML
 
-1. Next, modify the text "Hello, HTML World!" to different text. Save the file.
-1. Go back to the browser. Nothing changed!
-1. Refresh your page (using cmd+r). Every time you save and you want to see updated changes, you will either need to refresh the browser page, or re-open the file.
+##### !end-options
+### !end-challenge
+<!-- prettier-ignore-end -->
 
-Challenges:
+<!-- Question Takeaway -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: paragraph
+* id: 7875475a
+* title: Intro to HTML
+##### !question
 
-1. Create 3 imaginary blog snippets on `index.html`. Each blog snippet should have a header and a paragraph below it. Each blog snippet should use Lorem Ipsum for its paragraph text. [(What is lorem ipsum?)](https://www.lipsum.com/)
-1. Add 3 images to `index.html`. Use any placeholder image resource, such as:
-    - https://placekitten.com
-    - https://loremflickr.com
-    - https://www.placecage.com
-    - https://placebear.com
+What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
 
-## Validate your HTML
+##### !end-question
+##### !placeholder
 
-HTML and browsers that run HTML with broken HTML will not throw exceptions or errors like Ruby will. We can write broken HTML code and nothing will stop us from rendering it-- the browser will do its best to interpret any given HTML.
+My biggest takeaway from this lesson is...
 
-Validating web documents is an important step which can help improve and ensure their quality. Use this link to see if your HTML is following proper HTML syntax: [Markup Validation Service](https://validator.w3.org/nu/#textarea).
-
-## Best Practices
-
-- Use HTML to accurately describe the structure of content of a page, not presentation
-- Use proper indentation
-- All content should be wrapped by an element
-
-## Key Takeaway
-HTML is concerned about structuring content. HTML does not have the responsibility to determine page style/appearance.
-
-### Additional Resources
-- [Learn to Code: HTML & CSS](http://learn.shayhowe.com/html-css/building-your-first-web-page/) ( Will be a good resource to reference throughout week.)
+##### !end-placeholder
+### !end-challenge
+<!-- prettier-ignore-end -->
