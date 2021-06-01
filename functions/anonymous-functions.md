@@ -150,7 +150,7 @@ This is a great example of an anonymous function because:
 
 ### !callout-info
 
-## The Curious Case of `sum`
+## JavaScript Details: `sum` and Closure Binding
 
 Was it surprising that we could access `sum` from within our anonymous function? Here, we can explain our ability to see `sum` because `sum` has global scope. However, due to a language feature called _closure binding_, even if `sum` had been a local variable in some local scope, it would _still_ have been accessible in our anonymous function!
 
