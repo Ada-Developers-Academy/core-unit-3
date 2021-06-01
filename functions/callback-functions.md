@@ -124,6 +124,16 @@ bakeCake(cleanCountertop);
 ```
 <!-- prettier-ignore-end -->
 
+This would produce the following output:
+
+```
+Make the batter...
+Put it in the oven...
+I'm cleanin' my counters now! Scrubba scrub scrub.
+Take it out...
+Om nom nom!!!
+```
+
 We passed in the value of `cleanCountertop`, the variable that refers to our cleaning function. We specifically _did not_ invoke the function, so we left off any parentheses `()`.
 
 If we had used `cleanCountertop()`, this would execute the function, and be evaluated to its return value. This return value is what would get passed into the call to `bakeCake`, rather than the function reference stored in `cleanCountertop`.
