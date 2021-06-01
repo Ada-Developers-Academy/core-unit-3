@@ -2,7 +2,7 @@
 Standards:
   -
     Title: Functions
-    Description: "Arrow Functions, Methods in Objects, Callback Functions, Anonymous Functions"
+    Description: "Arrow Functions, Callback Functions, Anonymous Functions"
     UID: e93acb146e114b5dfa6ce2d12dcb96e4
     SuccessCriteria:
       - success criteria
@@ -11,10 +11,6 @@ Standards:
         Type: Lesson
         UID: 0ce48336e54c50096561ef112a43998b
         Path: /functions/arrow-functions.md
-      -
-        Type: Lesson
-        UID: 63b1eb91ba4497e6db7586527b198735
-        Path: /functions/methods-in-objects.md
       -
         Type: Lesson
         UID: 0bcb2dc513467f0ef65a6bba6635c1ea
