@@ -120,6 +120,21 @@ Standards:
         UID: e3e0334d5b0354d5be0af200c4893a85
         Path: /layout/problem-set-layout.md
   -
+    Title: Functions
+    Description: "Problem Set: Functions"
+    UID: e5e27f86
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Instructor
+        UID: ca55dc98
+        Path: /functions/problem-set-functions.instructor.md
+      -
+        Type: Lesson
+        UID: 22bfb1a1
+        Path: /functions/problem-set-functions.md
+  -
     Title: Tests
     Description: "Problem Set: Tests"
     UID: 2d8092a5
