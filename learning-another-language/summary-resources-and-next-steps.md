@@ -72,6 +72,16 @@ To acknowledge this shift, many developers explicitly call out using "ES6" JavaS
 
 ### !end-callout
 
+### Practice: Evaluate Resources
+
+We can practice evaluating JavaScript resources with these links:
+
+- [MDN's documentation on JavaScript](https://developer.mozilla.org/en-US/docs/Web/javascript)
+- [Chapter 1 of "You Don't Know JS" (1st Edition)](https://github.com/getify/You-Dont-Know-JS/tree/1st-ed/up%20%26%20going)
+- [Wes Bos's JavaScript Notes & References](https://wesbos.com/javascript)
+- [Fun Fun Function's YouTube Channel](https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q)
+- [Codecademy's Learn JavaScript Course](https://www.codecademy.com/learn/introduction-to-javascript)
+
 ## Next Steps
 
 When learning another language, after taking these notes, it might be wise to pause and consider what subjects of JavaScript are worth diving into.

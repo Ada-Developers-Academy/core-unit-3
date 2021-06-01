@@ -20,7 +20,7 @@ Standards:
         UID: bf20e1a2d48ddf361ead9e1c8c1b7b57
         Path: /learning-another-language/fizzbuzz.md
       -
-        Type: Resource
+        Type: Lesson
         UID: 474d0d30c7e2b733185f146af5802eaa
         Path: /learning-another-language/summary-resources-and-next-steps.md
       -
