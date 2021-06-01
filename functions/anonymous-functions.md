@@ -148,6 +148,18 @@ This is a great example of an anonymous function because:
 - The logic of this function isn't reused anywhere
 - The function is more readable in the context of the `forEach` loop than outside it
 
+### !callout-info
+
+## The Curious Case of `sum`
+
+Was it surprising that we could access `sum` from within our anonymous function? Here, we can explain our ability to see `sum` because `sum` has global scope. However, due to a language feature called _closure binding_, even if `sum` had been a local variable in some local scope, it would _still_ have been accessible in our anonymous function!
+
+<br />
+
+This is another benefit of using an anonymous function defined here rather than a named function defined elsewhere. A function defined elsewhere wouldn't have access to the variables in the local scope around the `forEach` call. But our anonymous function does!
+
+### !end-callout
+
 ## Uses for Anonymous Functions: `map`
 
 Another great use of anonymous functions is with the `map` function.
