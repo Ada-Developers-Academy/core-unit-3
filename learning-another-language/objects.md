@@ -206,7 +206,7 @@ JavaScript is not the only language where functions are treated as objects. Howe
 
 ### !end-callout
 
-## Objects Can Hold Functions
+## Demonstration: Objects Can Hold Functions
 
 This additional topic can illustrate one way that we can treat functions as objects.
 
@@ -247,6 +247,8 @@ employee.greeting();
 <!-- prettier-ignore-end -->
 
 This code will shout our `employee`'s name!
+
+In conclusion, we can pass around a function just like how we can pass around any other object.
 
 ## Check for Understanding
 
@@ -370,42 +372,6 @@ What do we get back with `fabricBolt.texture`?
 ##### !answer
 
 * `undefined`
-
-##### !end-answer
-### !end-challenge
-<!-- prettier-ignore-end -->
-
-<!-- Question 4 -->
-<!-- prettier-ignore-start -->
-### !challenge
-* type: multiple-choice
-* id: d0a134f1
-* title: Objects
-##### !question
-
-Which of the following options best describes this code?
-
-```js
-const airFive = function(){
-  console.log('Air Five! Please don\'t touch me!');
-}
-
-const stranger = {
-  greeting: airFive
-}
-```
-
-##### !end-question
-##### !options
-
-* `stranger` is an object with the function `greeting`. The value of `greeting` is the line `console.log('Air Five! Please don\'t touch me!')`.
-* `stranger` is an object with the property `greeting`. The value of `greeting` is the function `airFive`. We can invoke the function `airFive` by calling `stranger.greeting()`.
-* `stranger` is an object with the property `airFive`. The value of `greeting` is a property. We can invoke the function `airFive` by calling `stranger.airFive()`.
-
-##### !end-options
-##### !answer
-
-* `stranger` is an object with the property `greeting`. The value of `greeting` is the function `airFive`. We can invoke the function `airFive` by calling `stranger.greeting()`.
 
 ##### !end-answer
 ### !end-challenge
