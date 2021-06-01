@@ -88,7 +88,7 @@ myArray.forEach(item => {
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                    |
 | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | `const myArray = [...];`                            | Here we create an array, `myArray`.                                                                                                      |
-| `myArray.forEach(...);`                             | To iterate over each element in `myArray`, we call the `forEach` function of `myArray`.                                                 |
+| `myArray.forEach(...);`                             | To iterate over each element in `myArray`, we call the `forEach` function of `myArray`.                                                  |
 | `item => { ... }`                                   | The `forEach` function takes in one argument: another function! This anonymous function is using arrow function syntax.                  |
 | `item`                                              | The anonymous function we pass into `forEach` should take in one argument itself. This argument will always represent the iterated item. |
 | `console.log(..., item);`                           | In the function body, we can access the value of `item` and read it!                                                                     |
@@ -174,12 +174,12 @@ Our output shows that `parsedUserIds` is indeed an array of numbers:
 [ 401, 403, 404, 500, 518 ]
 ```
 
-| <div style="min-width:220px;"> Piece of Code </div> | Notes                                                                                                                                                                      |
-| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `const parsedUserIds =`                             | The `map` function on the right-hand side of the `=` will eventually evaluate to an array. We want to store that array in a `const` variable named `parsedUserIds`. |
-| `userIds.map( ... );`                               | Just like `forEach`, we want to call the `map` function on our array, `userIds`.                                                                                           |
-| `userId => { ... }`                                 | `map` takes in a function. Here is an anonymous arrow function with one parameter, `userId`. `userId` will refer to each item in `userIds` as `map` goes through it.       |
-| `return`                                            | **Unlike** the `forEach` loop, **this function must `return` the value that we want** in our new array.                                                                    |
+| <div style="min-width:220px;"> Piece of Code </div> | Notes                                                                                                                                                                |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `const parsedUserIds =`                             | The `map` function on the right-hand side of the `=` will eventually evaluate to an array. We want to store that array in a `const` variable named `parsedUserIds`.  |
+| `userIds.map( ... );`                               | Just like `forEach`, we want to call the `map` function on our array, `userIds`.                                                                                     |
+| `userId => { ... }`                                 | `map` takes in a function. Here is an anonymous arrow function with one parameter, `userId`. `userId` will refer to each item in `userIds` as `map` goes through it. |
+| `return`                                            | **Unlike** the `forEach` loop, **this function must `return` the value that we want** in our new array.                                                              |
 
 ### `forEach` vs. `map`
 
@@ -225,14 +225,14 @@ const sum = cashTips.reduce((total, tip) => {
 ```
 <!-- prettier-ignore-end -->
 
-| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                                    |
-| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `const sum =`                             | The `reduce` function on the right-hand side of the `=` will evaluate to one value. Let's keep that single value in a `const` variable named `sum`. |
-| `cashTips.reduce( ... );`                           | Just like `forEach`, we want to call the `reduce` function on our array, `cashTips`.                                                                     |
-| `((...) => { ... });`                               | `reduce` takes in a function. Here we pass in an anonymous arrow function!                                                                               |
-| `total`                                             | The first parameter for this function, `total`, will hold the running value that carries over between the iterated `tip`s.                               |
-| `tip`                                               | The second parameter that will reference an item in `cashTips` one at a time.                                                                            |
-| `return total + tip;`                               | **Unlike** the `forEach` loop, **this function must `return` the running value that we want to accumulate** for our `sum`.                     |
+| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                               |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `const sum =`                                       | The `reduce` function on the right-hand side of the `=` will evaluate to one value. Let's keep that single value in a `const` variable named `sum`. |
+| `cashTips.reduce( ... );`                           | Just like `forEach`, we want to call the `reduce` function on our array, `cashTips`.                                                                |
+| `((...) => { ... });`                               | `reduce` takes in a function. Here we pass in an anonymous arrow function!                                                                          |
+| `total`                                             | The first parameter for this function, `total`, will hold the running value that carries over between the iterated `tip`s.                          |
+| `tip`                                               | The second parameter that will reference an item in `cashTips` one at a time.                                                                       |
+| `return total + tip;`                               | **Unlike** the `forEach` loop, **this function must `return` the running value that we want to accumulate** for our `sum`.                          |
 
 In the context of our greater problem, finding the average, our code will look like this:
 
