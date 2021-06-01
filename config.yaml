@@ -120,6 +120,53 @@ Standards:
         UID: e3e0334d5b0354d5be0af200c4893a85
         Path: /layout/problem-set-layout.md
   -
+    Title: Learning Another Language
+    Description: "Our Path; Hello, World!; FizzBuzz; Summary, Resources, and Next Steps; Semicolons; Variables; Objects; Intro to Functions; Additional Topics; Problem Set: Intro to JavaScript"
+    UID: 9199ff6adef8940bbdbaa1cc4649bd9b
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: b64f715461d8ea07a5090b0e6c6fe4bd
+        Path: /learning-another-language/our-path.md
+      -
+        Type: Lesson
+        UID: 347e2fc9fd53b23e7ec4e9f298559a3b
+        Path: /learning-another-language/hello-world.md
+      -
+        Type: Lesson
+        UID: bf20e1a2d48ddf361ead9e1c8c1b7b57
+        Path: /learning-another-language/fizzbuzz.md
+      -
+        Type: Lesson
+        UID: 474d0d30c7e2b733185f146af5802eaa
+        Path: /learning-another-language/summary-resources-and-next-steps.md
+      -
+        Type: Lesson
+        UID: 913f60b4dd20c2aa0b1115227ad4d405
+        Path: /learning-another-language/semicolons.md
+      -
+        Type: Lesson
+        UID: a1aeec36cd644da97ab126357e012e1f
+        Path: /learning-another-language/variables.md
+      -
+        Type: Lesson
+        UID: eeab53fc59a3dc582cd8580253fb9827
+        Path: /learning-another-language/objects.md
+      -
+        Type: Lesson
+        UID: 659c7240cc40695d5e429e5c36386fa3
+        Path: /learning-another-language/intro-to-functions.md
+      -
+        Type: Lesson
+        UID: cfd5f597d9a76eaf406cb4125063e0fb
+        Path: /learning-another-language/additional-topics.md
+      -
+        Type: Lesson
+        UID: 36e4d945
+        Path: /learning-another-language/problem-set-intro-to-javascript.md
+  -
     Title: Tests
     Description: "Problem Set: Tests"
     UID: 2d8092a5
