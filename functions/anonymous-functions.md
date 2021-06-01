@@ -6,29 +6,66 @@ Yet another permutation of the function in the JavaScript language!
 
 Anonymous functions are a useful way to define functions in the context they're used. This usage can be more readable sometimes, especially when it's more convenient to read a function's definition immediately over chase its definition, which may be in a different file.
 
-## Syntax
+## Anonymous Functions
 
-An anonymous function is a function created with any valid syntax, but it is not referenced by a variable.
+An **anonymous function** is a function created with any valid syntax, defined in the one place that it's used.
 
-Instead, an **anonymous function** is a function defined in the one place that it's used.
+### Demonstration
 
-Technically, many of the methods in objects we created are anonymous functions!
+Let's demonstrate the difference between a named function and an anonymous function.
 
-<!-- prettier-ignore-start -->
+Every function has a property named `name`, which holds the name of the function. We can access it through dot notation. For example, we can create a function named `helloWorldFn`:
+
 ```js
-const myTedTalk = {
-  title: 'Inspiration From Inspiring Things',
-  summary: 'A story about where inspiration comes from.',
-  summarize: function() {
-    return `${this.title}: ${this.summary}`;
-  }
-}
-
-myTedTalk.summarize();
+const helloWorldFn = function () {
+  console.log("hello world!");
+};
 ```
-<!-- prettier-ignore-end -->
 
-We never _named_ the value of the `summarize` property, or referenced it in a variable. We defined the function in the one place where it's needed, anonymously!
+When we print this function's `name`, we'll get `helloWorldFn` back.
+
+```js
+console.log("the name of the function helloWorldFn is:", helloWorldFn.name);
+```
+
+Output:
+
+```
+the name of the function helloWorldFn is: helloWorldFn
+```
+
+An anonymous function is defined in the one place that it's used. These functions do not have a defined `name` property.
+
+For example, let's:
+
+1. Create an anonymous function that returns `0` (to make it small!)
+1. Print the `name` of this anonymous function
+
+```js
+console.log("The name of this anonymous function is blank!:", (() => 0).name);
+```
+
+Our anonymous function is `() => 0`. It's defined inside the `console.log()` statement, which is the only place that this function is used.
+
+We wrapped it with parentheses `()` and then accessed its `name` property. When we run this code, we get this output:
+
+```
+The name of this anonymous function is blank!:
+```
+
+Each function was created exactly where it was intended to be used, and afterwards it effectively disappears!
+
+### !callout-info
+
+## A Function Is a Function Is a Function
+
+Whether or not a function has a name, or gets stored in a variable for later use, a function is still a function. There's nothing special about passing an anonymous function as a callback. Anywhere that we pass an anonymous function that we create right when we need, we could pass a named function that we created elsewhere.
+
+<br />
+
+As we will see, using an anonymous function, a function we created right where we needed it, can simply be more convenient.
+
+### !end-callout
 
 ## Uses for Anonymous Functions: `forEach` Loops
 
