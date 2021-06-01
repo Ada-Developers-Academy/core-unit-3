@@ -44,7 +44,7 @@ A **callback function** is a term for a function that is _passed into_ another f
 
 ### Passing Around Cleaning Up Behavior
 
-Let's dive into an example! Let's define these two functions, `cleanKitchen` and `bakeCake`.
+Let's dive into an example! Let's define these two functions, `cleanCountertop` and `bakeCake`.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -55,6 +55,9 @@ const cleanCountertop = function () {
 const bakeCake = function () {
   console.log('Make the batter...');
   console.log('Put it in the oven...');
+  // waiting for the cake to bake
+  console.log('Take it out...');
+  console.log('Om nom nom!!!');
 }
 
 bakeCake();
@@ -65,7 +68,9 @@ The variable `cleanCountertop` references a function that prints details about c
 
 The variable `bakeCake` references a different function that prints details about baking a cake.
 
-When we bake a cake, maybe there's always cleanup behavior that we want to call, whether it's cleaning our counters, sink, or stove-top.
+As part of baking a cake, we need to wait while the cake is in the oven. Let's assume we always want to perform some kind of cleanup behavior while we're waiting, whether it's cleaning our counters, sink, or stove-top.
+
+We can't just call our `cleanCountertop` before we start baking the cake, or after we're done baking the cake. We want to do it in the middle, while the cake is in the oven!
 
 We can _change the function signature_ of `bakeCake` to accept an argument, `cleanupBehavior`. Inside our `bakeCake` function, we can take that argument and _invoke_ whatever function it references, by attaching `()` to it.
 
@@ -75,6 +80,8 @@ const bakeCake = function (cleanupBehavior) {
   console.log('Make the batter...');
   console.log('Put it in the oven...');
   cleanupBehavior();
+  console.log('Take it out...');
+  console.log('Om nom nom!!!');
 }
 ```
 <!-- prettier-ignore-end -->
@@ -101,6 +108,8 @@ const bakeCake = function (cleanupBehavior) {
   console.log('Make the batter...');
   console.log('Put it in the oven...');
   cleanupBehavior();
+  console.log('Take it out...');
+  console.log('Om nom nom!!!');
 }
 
 bakeCake(cleanCountertop);
@@ -115,9 +124,11 @@ bakeCake(cleanCountertop);
 ```
 <!-- prettier-ignore-end -->
 
-We're passing in `cleanCountertop`, the variable that refers to our cleaning function. We're specifically _not_ invoking the function. If we were _invoking_ it, we would use `cleanCountertop()`.
+We passed in the value of `cleanCountertop`, the variable that refers to our cleaning function. We specifically _did not_ invoke the function, so we left off any parentheses `()`.
 
-Reviewing our `bakeCake` function, we can see that we invoke our `cleanupBehavior` function with `cleanupBehavior()`, without knowing if it's cleaning the countertop, cleaning the sink, cleaning the stove-top, or cleaning the bathroom!
+If we had used `cleanCountertop()`, this would execute the function, and be evaluated to its return value. This return value is what would get passed into the call to `bakeCake`, rather than the function reference stored in `cleanCountertop`.
+
+Reviewing our `bakeCake` function, we can see that we invoke our `cleanupBehavior` function with `cleanupBehavior()`, without needing to know whether it's cleaning the countertop, cleaning the sink, cleaning the stove-top, or even cleaning the bathroom!
 
 <!-- prettier-ignore-start -->
 ```js
@@ -125,6 +136,8 @@ const bakeCake = function (cleanupBehavior) {
   console.log('Make the batter...');
   console.log('Put it in the oven...');
   cleanupBehavior();
+  console.log('Take it out...');
+  console.log('Om nom nom!!!');
 }
 ```
 <!-- prettier-ignore-end -->
