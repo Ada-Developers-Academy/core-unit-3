@@ -1,6 +1,172 @@
 ---
 Standards:
   -
+    Title: Web Browsers
+    Description: "Browsers and Dev Tools, The DOM and HTML"
+    UID: 1d2da6520164121263e592310e0f6f48
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 8d9d10ea9f5528b4727c59d30d59ff5f
+        Path: /web-browsers/browsers-and-dev-tools.md
+      -
+        Type: Lesson
+        UID: 4c26c8d2188464039fb99418a156376d
+        Path: /web-browsers/the-dom-and-html.md
+  -
+    Title: Structuring Content
+    Description: "Intro to HTML, Content Elements, Sectioning Elements, Problem Set: Structuring Content"
+    UID: 088327313237aac6e3715078d3f979a0
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 3e59f2f7f1a3569bfe9098bddede7105
+        Path: /structuring-content/intro-to-html.md
+      -
+        Type: Lesson
+        UID: 417921f9b31aff200457e4dcd409671f
+        Path: /structuring-content/content-elements.md
+      -
+        Type: Lesson
+        UID: 6704a2ab7992bfb7baa303d21a81c448
+        Path: /structuring-content/sectioning-elements.md
+      -
+        Type: Lesson
+        UID: dce3c31202fea299477ce39769337328
+        Path: /structuring-content/problem-set-structuring-content.md
+  -
+    Title: Styles And Presentation
+    Description: "Intro to CSS, CSS Walk-through, Classes and IDs, Problem Set: Book Review Site"
+    UID: b977acaff4fff984306b10fc63996e2a
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: f04438de0c2a14673944635779a90a66
+        Path: /styles-and-presentation/intro-to-css.md
+      -
+        Type: Lesson
+        UID: 948309edcd1bd5a21b41aaa1624e4f56
+        Path: /styles-and-presentation/css-walk-through.md
+      -
+        Type: Lesson
+        UID: f7def17150f588c4f73cc5c32f0f4ac9
+        Path: /styles-and-presentation/classes-and-ids.md
+      -
+        Type: Lesson
+        UID: 8d9e7bed804601f09191517e81507275
+        Path: /styles-and-presentation/problem-set-book-review-site.md
+  -
+    Title: More Neat CSS Things
+    Description: "Cascade & Inheritance, More Selectors, Problem Set: More Neat CSS Things, Activity: Group Selector Fun"
+    UID: ae429788a99c039bd77d9d2cf648e352
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: adcdf467194e0b8312fdce1bd8862f54
+        Path: /more-neat-css-things/cascade-inheritance.md
+      -
+        Type: Lesson
+        UID: 703080637d3b387dc87ef3e98065d105
+        Path: /more-neat-css-things/more-selectors.md
+      -
+        Type: Lesson
+        UID: 4c7e71500b7afe53862df291daf6255c
+        Path: /more-neat-css-things/problem-set-more-neat-css-things.md
+      -
+        Type: Instructor
+        UID: 77a387f9
+        Path: /more-neat-css-things/activity-group-selector-fun.instructor.md
+      -
+        Type: Lesson
+        UID: c4ad833159bae79a445d1f742822b1f2
+        Path: /more-neat-css-things/activity-group-selector-fun.md
+  -
+    Title: Layout
+    Description: "Box Model, Units, The Display Property, Intro to Flexbox, Layout with CSS Grid, Problem Set: Layout"
+    UID: ebd9bec4d70abc789d439c1f136b0538
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: a5c8dbda7a59bd89f8f9cbae03965144
+        Path: /layout/box-model.md
+      -
+        Type: Lesson
+        UID: ff546c87e0d9d5c85219f847e689a996
+        Path: /layout/units.md
+      -
+        Type: Lesson
+        UID: 875feea801032ad55884c0062a1b52cc
+        Path: /layout/the-display-property.md
+      -
+        Type: Lesson
+        UID: 34be75e924e8b69bf9044bd465bcffa3
+        Path: /layout/intro-to-flexbox.md
+      -
+        Type: Lesson
+        UID: 048145c61152e1c3754129f2ef24dd95
+        Path: /layout/layout-with-css-grid.md
+      -
+        Type: Lesson
+        UID: e3e0334d5b0354d5be0af200c4893a85
+        Path: /layout/problem-set-layout.md
+  -
+    Title: Learning Another Language
+    Description: "Our Path; Hello, World!; FizzBuzz; Summary, Resources, and Next Steps; Semicolons; Variables; Objects; Intro to Functions; Additional Topics; Problem Set: Intro to JavaScript"
+    UID: 9199ff6adef8940bbdbaa1cc4649bd9b
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: b64f715461d8ea07a5090b0e6c6fe4bd
+        Path: /learning-another-language/our-path.md
+      -
+        Type: Lesson
+        UID: 347e2fc9fd53b23e7ec4e9f298559a3b
+        Path: /learning-another-language/hello-world.md
+      -
+        Type: Lesson
+        UID: bf20e1a2d48ddf361ead9e1c8c1b7b57
+        Path: /learning-another-language/fizzbuzz.md
+      -
+        Type: Lesson
+        UID: 474d0d30c7e2b733185f146af5802eaa
+        Path: /learning-another-language/summary-resources-and-next-steps.md
+      -
+        Type: Lesson
+        UID: 913f60b4dd20c2aa0b1115227ad4d405
+        Path: /learning-another-language/semicolons.md
+      -
+        Type: Lesson
+        UID: a1aeec36cd644da97ab126357e012e1f
+        Path: /learning-another-language/variables.md
+      -
+        Type: Lesson
+        UID: eeab53fc59a3dc582cd8580253fb9827
+        Path: /learning-another-language/objects.md
+      -
+        Type: Lesson
+        UID: 659c7240cc40695d5e429e5c36386fa3
+        Path: /learning-another-language/intro-to-functions.md
+      -
+        Type: Lesson
+        UID: cfd5f597d9a76eaf406cb4125063e0fb
+        Path: /learning-another-language/additional-topics.md
+      -
+        Type: Lesson
+        UID: 36e4d945
+        Path: /learning-another-language/problem-set-intro-to-javascript.md
+  -
     Title: Functions
     Description: "Arrow Functions, Callback Functions, Anonymous Functions"
     UID: e93acb146e114b5dfa6ce2d12dcb96e4
@@ -19,3 +185,14 @@ Standards:
         Type: Lesson
         UID: 290fdf2cff17807ea8b5bb0a8e5f6880
         Path: /functions/anonymous-functions.md
+  -
+    Title: Tests
+    Description: "Problem Set: Tests"
+    UID: 2d8092a5
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 1d5ceb96
+        Path: /tests/problem-set-tests.md
