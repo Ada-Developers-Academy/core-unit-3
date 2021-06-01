@@ -177,8 +177,11 @@ const calculate = function (a, b, operate) {
   return operate(a, b);
 }
 
-const result = calculate(7, 6, multiply);
-console.log('Our final result from calculate is:', result);
+const multiply_result = calculate(7, 6, multiply);
+console.log('Our final result from calculate is:', multiply_result);
+
+const add_result = calculate(7, 6, add);
+console.log('Our final result from calculate is:', add_result);
 ```
 <!-- prettier-ignore-end -->
 
