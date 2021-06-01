@@ -154,9 +154,9 @@ const bakeCake = function (cleanupBehavior) {
 
 We call `cleanupBehavior` a _callback function_ inside `bakeCake`. It refers to the expectation that `bakeCake` should _call back_ to some other function... the function that was passed in when `bakeCake` was invoked in the first place.
 
-## Revisiting Calculator
+## Revisiting Calculate
 
-Let's consider how we can build our calculator function using callbacks. This process will be very similar to our `bakeCake` example, but we'll be mindful about how arguments are passed in.
+Let's consider how we can build our `calculate` function using callbacks. This process will be very similar to our `bakeCake` example, but we should remember that we are expecting to pass arguments to the operator functions. We'll need to mindful about defining our operator functions to accept parameters, and we'll need to pass arguments within `calculate`.
 
 Consider this code:
 
@@ -165,6 +165,11 @@ Consider this code:
 const multiply = function (factor_a, factor_b) {
   console.log('Now we\'re in multiply~~');
   return factor_a * factor_b;
+}
+
+const add = function (addend_a, addend_b) {
+  console.log('Now we\'re in add~~');
+  return addend_a + addend_b;
 }
 
 const calculate = function (a, b, operate) {
@@ -183,11 +188,16 @@ After running this code, we'll see this output:
 We're inside the calculate function!
 Now we're in multiply~~
 Our final result from calculate is: 42
+We're inside the calculate function!
+Now we're in add~~
+Our final result from calculate is: 13
 ```
 
 ### Practice Tracing Code
 
-Let's practice tracing code, going through it and following the flow of execution. The first several lines of this snippet define functions. Our first moment of action is the line `const result = calculate(7, 6, multiply);`.
+Let's practice tracing code, going through it and following the flow of execution.
+
+The first several lines of this snippet define functions. Our first line of code that does more than defining a function is `const multiply_result = calculate(7, 6, multiply);`.
 
 We invoke our `calculate` function by calling it with parentheses `()`, in the expression `calculate(7, 6, multiply)`. Here, we're passing in the `multiply` function, without invoking it.
 
@@ -230,11 +240,11 @@ This comes all the way back to our line where we originally started all of this!
 
 <!-- prettier-ignore-start -->
 ```js
-const result = calculate(7, 6, multiply);
+const multiply_result = calculate(7, 6, multiply);
 ```
 <!-- prettier-ignore-end -->
 
-We finally get a value for our variable `result`, which is `42`.
+We finally get a value for our variable `multiply_result`, which is `42`.
 
 ### !callout-info
 
