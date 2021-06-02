@@ -324,7 +324,7 @@ a {
 ##### !end-question
 ##### !answer
 
-/<a class="email-link info" id="admin-email">/
+/(<a class="email-link info" id="admin-email">)|(<a id="admin-email" class="email-link info">)/
 
 ##### !end-answer
 ### !end-challenge
