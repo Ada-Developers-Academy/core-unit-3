@@ -9,7 +9,7 @@
 
 ## Introduction
 
-What happens when more than one CSS rule-set applies to an element? Observe the following HTML and CSS, and predict what the resulting HTML looks like.
+What happens when more than one CSS rule-set applies to an element? Observe the following HTML and CSS, and predict what the resulting webpage looks like.
 
 ```html
 <article>
