@@ -27,7 +27,13 @@ This function takes in an array of objects. Each object in the array has this sh
 }
 ```
 
-The function should return a string. This string begins with the line `Tool List:`, and then for each tool, it adds the following lines with the appropriate values:
+The function should return a string. This string begins with the line:
+
+```
+Tool List:
+```
+
+Then for each tool, it adds the following lines with the appropriate values:
 
 ```
 Tool: Band Saw
@@ -228,7 +234,15 @@ This function takes in one object. The object has this shape:
 }
 ```
 
-The function should return a string. This string begins with the line `Reservations for ToolName:`, where `ToolName` is the tool's name. Then, the string lists a summary of each reservation's return date:
+The function should return a string. This string begins with the line:
+
+```
+Reservations for ToolName:
+```
+
+where `ToolName` is the tool's name.
+
+Then, the string lists a summary of each reservation's return date:
 
 ```
 - Return Date: June 01
@@ -377,7 +391,13 @@ This function takes in an array of objects. Each object in the array has this sh
 }
 ```
 
-The function should return a string. This string begins with the line `Tool Library:`. Then, the string lists a summary of the reservation return date:
+The function should return a string. This string begins with the line:
+
+```
+Tool Library:
+```
+
+Then, the string lists a summary of the quantity of each tool currently available to rent:
 
 ```
 1. Band Saw (Available: 32)
@@ -420,7 +440,7 @@ For example, given this array:
 
 the function should return a string that looks like this:
 
-```js
+```
 Tool Library:
 1. Band Saw (Available: 32)
 2. Bow (Available: 17)
