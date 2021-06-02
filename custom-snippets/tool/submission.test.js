@@ -12,7 +12,7 @@ describe('Tool', () => {
   test('render includes name and quantity', () => {
     const tool = new Tool('Band Saw', 36);
 
-    expect(tool.render()).toEqual(`Tool: Band Saw\nQuantity: 36\n`)
+    expect(tool.render()).toEqual(`Tool: Band Saw\nQuantity: 36`)
   });
 
 });
