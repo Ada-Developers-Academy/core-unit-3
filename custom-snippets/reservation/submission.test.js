@@ -7,6 +7,6 @@ describe('Reservation', () => {
 
     expect(reservation).toBeInstanceOf(Reservation);
     expect(reservation.username).toEqual('Hoppleypawz');
-    expect(reservation.returnDate()).toEqual('June 01');
+    expect(reservation.returnDate).toEqual('June 01');
   });
 });
