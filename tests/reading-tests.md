@@ -302,7 +302,8 @@ CodeSandbox.io is a platform for creating projects. We'll use this platform to r
 
 These projects need to be configured to use the Jest package. Let's purposely skip over those details in order to focus on the tests. The tests in [this CodeSandbox project](https://replit.com/@adacore/FizzBuzz-With-Tests#index.js) are already set up.
 
-![CodeSandbox UI showing the FizzBuzz project overall](../assets/tests_tests_sandbox-overview.png)
+![CodeSandbox UI that shows the overall structure of the FizzBuzz project](../assets/tests_tests_sandbox-overview.png)  
+_Fig. CodeSandbox UI that shows the overall structure of the FizzBuzz project_
 
 This project has the following files:
 
@@ -316,17 +317,20 @@ We can navigate between files using the left-hand navigation menu, under the hea
 
 We may want to collapse the surrounding sections, such as "Dependencies."
 
-![CodeSandbox UI that highlights the file navigation pane](../assets/tests_tests_sandbox-files.png)
+![CodeSandbox UI that highlights the file navigation pane](../assets/tests_tests_sandbox-files.png)  
+_Fig. CodeSandbox UI that highlights the file navigation pane_
 
 To run the tests, we use the preview pane, which automatically appears on the right.
 
 We can toggle the visibility of the preview pane by clicking the icon on the top right.
 
-![CodeSandbox UI that highlights the icon that toggles the preview pane](../assets/tests_tests_preview-pane.png)
+![CodeSandbox UI that highlights the icon that toggles the preview pane](../assets/tests_tests_preview-pane.png)  
+_Fig. CodeSandbox UI that highlights the icon that toggles the preview pane_
 
 When viewing the preview pane, instead of viewing the "Browser," we can view the "Tests."
 
-![CodeSandbox UI that highlights the icon that runs the tests](../assets/tests_tests_run-test-icon.png)
+![CodeSandbox UI that highlights the icon that runs the tests](../assets/tests_tests_run-test-icon.png)  
+_Fig. CodeSandbox UI that highlights the icon that runs the tests_
 
 On the right side of the top bar, we see a refresh 🔄 icon. Clicking this icon reloads the tests, which is sometimes necessary for CodeSandbox. Next to it, we see a play ▶️ button. Clicking this icon runs the tests.
 
@@ -336,7 +340,8 @@ A summary of the test results appears after running the tests. Details are outpu
 
 We should see one failing test.
 
-![CodeSandbox UI that highlights the summary of the test run](../assets/tests_tests_summary.png)
+![CodeSandbox UI that highlights the summary of the test run](../assets/tests_tests_summary.png)  
+_Fig. CodeSandbox UI that highlights the summary of the test run_
 
 We can use the error messages to change our code and get the test to pass!
 
