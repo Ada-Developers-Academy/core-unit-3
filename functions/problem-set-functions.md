@@ -203,7 +203,7 @@ Implement the following three functions:
 ##### !end-question
 ### !hint
 
-Inside the function `writeLetter`, `giveGreeting` is a function. We invoke this function with `giveGreeting()`. We can pass in a variable into `giveGreeting`:
+Inside the function `writeLetter`, `giveGreeting` is a function. We invoke this function with `giveGreeting()`. We expect it to accept a parameter, so we can pass a variable into `giveGreeting`:
 
 ```js
 giveGreeting(myCoolVariableThatHoldsAValue);
