@@ -7,6 +7,9 @@ describe('Reservation', () => {
 
     expect(reservation).toBeInstanceOf(Reservation);
     expect(reservation.username).toEqual('Hoppleypawz');
+    // Notice that returnDate doesn't use () to retrieve the value, even though
+    // it was documented as being a method. Getter methods behave a little differently,
+    // so be sure to research them specifically.
     expect(reservation.returnDate).toEqual('June 01');
   });
 });

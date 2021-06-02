@@ -24,7 +24,7 @@ describe('New features for ToolLibrary, Tool, and Reservation', () => {
     expect(axe.reservations[0]).toEqual(reservation);
   });
 
-  test('Tool has a method getAvailableQty', () => {
+  test('Tool has a method getAvailableQuantity', () => {
     const reservation = new Reservation('Guttersnipe23', 'June 02');
     const axe = new Tool('Bow', 18, [reservation]);
 
