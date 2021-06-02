@@ -168,7 +168,7 @@ Standards:
         Path: /learning-another-language/problem-set-intro-to-javascript.md
   -
     Title: Functions
-    Description: "Arrow Functions, Callback Functions, Anonymous Functions"
+    Description: "Arrow Functions, Callback Functions, Anonymous Functions, Problem Set: Functions"
     UID: e93acb146e114b5dfa6ce2d12dcb96e4
     SuccessCriteria:
       - success criteria
@@ -185,6 +185,14 @@ Standards:
         Type: Lesson
         UID: 290fdf2cff17807ea8b5bb0a8e5f6880
         Path: /functions/anonymous-functions.md
+      -
+        Type: Instructor
+        UID: ca55dc98
+        Path: /functions/problem-set-functions.instructor.md
+      -
+        Type: Lesson
+        UID: 22bfb1a1
+        Path: /functions/problem-set-functions.md
   -
     Title: Tests
     Description: "Problem Set: Tests"
