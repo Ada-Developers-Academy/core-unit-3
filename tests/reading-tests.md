@@ -38,7 +38,7 @@ They all differ in testing philosophy, strengths, responsibilities, and context.
 This curriculum focuses on Jest additionally because:
 
 - It is widely adopted in modern JavaScript projects
-- It is built into Replit.com
+- It is built into [CodeSandbox](https://codesandbox.io)
 - It is the default testing framework for the popular JavaScript library, React
 
 ## Vocabulary and Synonyms
@@ -263,7 +263,6 @@ describe('fizzBuzz', () => {
 
 The first thing Leila notices is that the next test is a second `test` block, located in the same `describe` block.
 
-
 This `test` block seems to be, ultimately, a function call: `test(..., ...);`
 
 ### First Argument of `test`
@@ -295,31 +294,49 @@ Drawing also from the first unit test, Leila concludes:
 
 To summarize, this second test expects the value of `fizzBuzz(25)` to equal `'Buzz'`.
 
-## Example on Replit.com
+## Example on CodeSandbox.io
 
-We can run a version of this test suite on [this Replit code snippet](https://replit.com/@adacore/FizzBuzz-With-Tests#index.js).
+We can run a version of this test suite on [this CodeSandbox project](https://codesandbox.io/s/fizzbuzz-with-tests-488sq?file=/test/fizzbuzz.test.js).
 
-Replit.com supports Jest unit tests, although it has its own configurations to deal with. Let's purposely skip over those details in order to focus on the tests.
+CodeSandbox.io is a platform for creating projects. We'll use this platform to read, write, and run our FizzBuzz unit tests.
 
-The tests in [this REPL](https://replit.com/@adacore/FizzBuzz-With-Tests#index.js) are already set up.
+These projects need to be configured to use the Jest package. Let's purposely skip over those details in order to focus on the tests. The tests in [this CodeSandbox project](https://replit.com/@adacore/FizzBuzz-With-Tests#index.js) are already set up.
 
-Navigate to the "Unit Tests" section, listed on the left-hand navigation menu.
+![CodeSandbox UI showing the FizzBuzz project overall](../assets/tests_tests_sandbox-overview.png)
 
-![Replit UI that highlights the "Unit Tests" tab on the left-hand navigation bar](../assets/tests_tests_replit-highlight-test-nav.png)
+This project has the following files:
 
-The left pane now shows details about the existing test suite, with a list of existing tests.
+| <div style="min-width:215px;">File</div> | Description                                                                                                                                                                                                                            |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `package.json`                           | Used by [Node JS](https://nodejs.dev/) projects. Determines project details, such as project dependencies. Because we are not focusing on configuration, we will use this file to list our one project dependency, the `jest` package. |
+| `src/fizzbuzz.js`                        | The source file where we define our `fizzBuzz` function.                                                                                                                                                                               |
+| `test/fizzbuzz.test.js`                  | The test file where we define our `fizzBuzz` unit tests.                                                                                                                                                                               |
 
-![Replit UI that highlights a list of four unit tests relating to FizzBuzz](../assets/tests_tests_replit-test-list.png)
+We can navigate between files using the left-hand navigation menu, under the header "Files."
 
-We can click into one of these tests and observe the contents of the test.
+We may want to collapse the surrounding sections, such as "Dependencies."
 
-![Modal that shows the details of the unit test titled `multiples-of-three`, including its test contents](../assets/tests_tests_replit-test-detail.png)
+![CodeSandbox UI that highlights the file navigation pane](../assets/tests_tests_sandbox-files.png)
 
-We can run the tests using the "Run tests" button.
+To run the tests, we use the preview pane, which automatically appears on the right.
+
+We can toggle the visibility of the preview pane by clicking the icon on the top right.
+
+![CodeSandbox UI that highlights the icon that toggles the preview pane](../assets/tests_tests_preview-pane.png)
+
+When viewing the preview pane, instead of viewing the "Browser," we can view the "Tests."
+
+![CodeSandbox UI that highlights the icon that runs the tests](../assets/tests_tests_run-test-icon.png)
+
+On the right side of the top bar, we see a refresh 🔄 icon. Clicking this icon reloads the tests, which is sometimes necessary for CodeSandbox. Next to it, we see a play ▶️ button. Clicking this icon runs the tests.
+
+The tests automatically reload and re-run every time there is a change in the code.
+
+A summary of the test results appears after running the tests. Details are output on the bottom-half.
 
 We should see one failing test.
 
-![Replit UI featuring test failure messages in the right-hand console](../assets/tests_tests_replit-test-failure.png)
+![CodeSandbox UI that highlights the summary of the test run](../assets/tests_tests_summary.png)
 
 We can use the error messages to change our code and get the test to pass!
 
@@ -327,36 +344,34 @@ We can use the error messages to change our code and get the test to pass!
 
 Leila and Nadia need to read through the test failure and both get aligned with which test is failing, and how it's failing.
 
-Consider this test failure message:
+Consider this test failure message for the test "returns Fizz on multiples of 3":
 
 ```
-❌   non-multiples
-Message: The function did not return the number itself on numbers that are not multiples of three or five
-Stack Trace:
-Error: expect(received).toEqual(expected)
+expect(received).toEqual(expected) // deep equality
 
-Expected value to equal:
-  4
-Received:
-  undefined
+Expected: "Fizz"
+Received: 9
 
-Difference:
-
-  Comparing two different types of values. Expected number but received undefined.
+   9 |     const result = fizzBuzz(num);
+  11 |     // Assert
+> 12 |     expect(result).toEqual("Fizz");
+  13 |   });
+  15 |   test("returns Buzz on multiples of 5", () => {
 ```
+
+<!-- Markdown wrongly parses `> 12 |` as starting a new table column, so `|` is omitted -->
 
 | <div style="min-width:200px;"> Piece of Output </div> | Notes                                                                                                                                                                                                   |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `❌ non-multiples`                                    | This indicates that a test by the name or description of `non-multiples` is failing                                                                                                                     |
-| `Message: ...`                                        | Replit.com features a message text box for each test, which allows us to describe why a test might fail.                                                                                                |
-| `Error: expect(received).toEqual(expected)`           | This line helps us understand what Jest is referring to for the rest of the message. The value of `received` is what we passed into `expect`. The value of `expected` is what we passed into `toEqual`. |
-| `Expected ... 4`                                      | This test expected `4`, but...                                                                                                                                                                          |
-| `Received: undefined`                                 | The value the test received is `undefined`.                                                                                                                                                             |
-| `Difference: ...`                                     | Jest will print out more details describing why this test failed.                                                                                                                                       |
+| `expect(received).toEqual(expected)`                  | This line helps us understand what Jest is referring to for the rest of the message. The value of `received` is what we passed into `expect`. The value of `expected` is what we passed into `toEqual`. |
+| `Expected: "Fizz"`                                    | This test expected `"Fizz"`, but...                                                                                                                                                                     |
+| `Received: 9`                                         | The value the test received is `9`.                                                                                                                                                                     |
+| `> 12`                                                | The line that contains the failing assertion is highlighted with a `>`. In this case, the assertion on line 12 is failing.                                                                              |
+| ` 13`                                                 | This is a line of code that surrounds the highlighted line, line 12. This line of code shows up to give context about the surrounding code.                                                             |
 
-These messages help Leila and Nadia get on the same page.
+Without even looking at the test implementation, Leila and Nadia can understand the test failure! They both agree that the test failed because `fizzBuzz()` returned `9`, which is not the expected `"Fizz"`.
 
-Without even looking at the test implementation, they can understand the test failure! They both agree that the test failed because `fizzBuzz()` returned `undefined`, which is not the expected `4`. 
+If they needed to inspect the test, they would go to line 12 of the test file.
 
 ## Check for Understanding
 
