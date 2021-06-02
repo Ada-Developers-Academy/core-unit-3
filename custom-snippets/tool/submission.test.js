@@ -2,7 +2,7 @@ const { Tool } = require('./submission');
 
 describe('Tool', () => {
 
-  test('instances of tool have name and quantity attributes', () => {
+  test('instances of tool have name, quantity, and reservations attributes', () => {
     const tool = new Tool('Band Saw', 36, []);
     expect(tool).toBeInstanceOf(Tool);
     expect(tool.name).toEqual('Band Saw');
