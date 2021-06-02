@@ -1,7 +1,7 @@
 Standards:
   -
     Title: "Problem Set: Tool Library"
-    Description: "Practice with Functions"
+    Description: "Practice with Functions, Research OOP"
     UID: 46d7ee8a
     SuccessCriteria:
       - success criteria
@@ -14,3 +14,7 @@ Standards:
         Type: Lesson
         UID: 80f0a0cd
         Path: /problem-set-tool-library/problem-set-tool-library.md
+      -
+        Type: Lesson
+        UID: aae0de8d
+        Path: /problem-set-tool-library/problem-set-tool-library-wave-2.md
