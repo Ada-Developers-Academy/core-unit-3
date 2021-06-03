@@ -1,12 +1,21 @@
+---
 Standards:
   -
-    Title: Tests
-    Description: "Problem Set: Tests"
-    UID: 2d8092a5
+    Title: Adding Behavior
+    Description: "Connecting HTML, CSS, and JS; Changing the DOM; Problem Set: Adding Behavior"
+    UID: a0d8555c7bb2bc809c15b9fc37560a5e
     SuccessCriteria:
       - success criteria
     ContentFiles:
       -
         Type: Lesson
-        UID: 1d5ceb96
-        Path: /tests/problem-set-tests.md
+        UID: 11fc027a59fe1963ba5dc88c3c30e4fd
+        Path: /adding-behavior/connecting-html-css-and-js.md
+      -
+        Type: Lesson
+        UID: 206e76c0851277903fb91d8fca4e362f
+        Path: /adding-behavior/changing-the-dom.md
+      -
+        Type: Lesson
+        UID: bb75d829bbbeeb390880eb1ef5c952e0
+        Path: /adding-behavior/problem-set-adding-behavior.md
