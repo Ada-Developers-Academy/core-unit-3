@@ -51,7 +51,6 @@ Here are details about the `Reservation` class:
 | ------------- | ------------------------------------------------------------------------- |
 | `username`    | Attribute. The name of the user who borrowed the tool.                    |
 | `date`        | Attribute. A string with the return date designated for this reservation. |
-| `returnDate`  | Getter Method. Returns the value of `date`.                               |
 
 <!-- Question 1 -->
 <!-- prettier-ignore-start -->
@@ -262,7 +261,6 @@ Implement the class `Reservation`. Here are details about the `Reservation` clas
 | ------------- | ------------------------------------------------------------------------- |
 | `username`    | Attribute. The name of the user who borrowed the tool.                    |
 | `date`        | Attribute. A string with the return date designated for this reservation. |
-| `returnDate`  | Getter Method. Returns the value of `date`.                               |
 
 The tests are visible in the first hint. (Moved into hints to prevent this text from becoming unusably long.)
 
@@ -277,10 +275,6 @@ class Reservation {
         this.username = username;
         this.date = date;
     }
-
-    get returnDate() {
-        return this.date;
-    }
 }
 ```
 
@@ -292,14 +286,12 @@ Here are the tests:
 ```js
 describe('Reservation', () => {
 
-  test('instances of reservation have username and a getter method for returnDate', () => {
+  test('instances of reservation have username and date', () => {
     const reservation = new Reservation('Hoppleypawz', 'June 01');
 
     expect(reservation).toBeInstanceOf(Reservation);
     expect(reservation.username).toEqual('Hoppleypawz');
-    // Notice that returnDate doesn't use () to retrieve the value, Getter methods 
-    // behave a little differently, so be sure to research them specifically.
-    expect(reservation.returnDate).toEqual('June 01');
+    expect(reservation.date).toEqual('June 01');
   });
 });
 ```
@@ -345,7 +337,6 @@ Here are details about the `Reservation` class:
 | ------------- | ------------------------------------------------------------------------- |
 | `username`    | Attribute. The name of the user who borrowed the tool.                    |
 | `date`        | Attribute. A string with the return date designated for this reservation. |
-| `returnDate`  | Getter Method. Returns the value of `date`.                               |
 
 <!-- Question 5 -->
 <!-- prettier-ignore-start -->
@@ -410,10 +401,6 @@ class Reservation {
     constructor(username, date) {
 
     }
-
-    get returnDate() {
-
-    }
 }
 ```
 ##### !end-placeholder
@@ -467,10 +454,6 @@ class Reservation {
     constructor(username, date) {
         this.username = username;
         this.date = date;
-    }
-
-    get returnDate() {
-        return this.date;
     }
 }
 ```
