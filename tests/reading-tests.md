@@ -38,7 +38,7 @@ They all differ in testing philosophy, strengths, responsibilities, and context.
 This curriculum focuses on Jest additionally because:
 
 - It is widely adopted in modern JavaScript projects
-- It is built into [CodeSandbox](https://codesandbox.io)
+- It is built into several online editors, including [Replit.com](https://replit.com), which we have used before, as well as [CodeSandbox](https://codesandbox.io), which we'll explore a bit in this lesson.
 - It is the default testing framework for the popular JavaScript library, React
 
 ## Vocabulary and Synonyms
@@ -300,14 +300,31 @@ We can run a version of this test suite on [this CodeSandbox project](https://co
 
 CodeSandbox.io is a platform for creating projects. We'll use this platform to read, write, and run our FizzBuzz unit tests.
 
-These projects need to be configured to use the Jest package. Let's purposely skip over those details in order to focus on the tests. The tests in [this CodeSandbox project](https://replit.com/@adacore/FizzBuzz-With-Tests#index.js) are already set up.
+### !callout-info
 
-![CodeSandbox UI that shows the overall structure of the FizzBuzz project](../assets/tests_tests_sandbox-overview.png)  
+## CodeSandbox Is the Same, but Different
+
+CodeSandbox provides an environment for editing code, just like Replit.com or even VS Code do. We should spend a few minutes looking around to identify where we can find some of the common features in any IDE. Some areas to keep an eye out for include:
+- a list of files in the project
+- a file editor view
+- search tools
+- output views
+- configuration settings
+
+<br />
+
+We should feel comfortable exploring this environment until we feel like we have a general idea of where our main project areas are.
+
+### !end-callout
+
+These projects need to be configured to use the Jest package. Let's purposely skip over those details in order to focus on the tests. The tests in [this CodeSandbox project](https://codesandbox.io/s/fizzbuzz-with-tests-488sq?file=/test/fizzbuzz.test.js) are already set up.
+
+![CodeSandbox UI that shows the overall structure of the FizzBuzz project, including project files, editing views, and test output](../assets/tests_tests_sandbox-overview.png)  
 _Fig. CodeSandbox UI that shows the overall structure of the FizzBuzz project_
 
 This project has the following files:
 
-| <div style="min-width:215px;">File</div> | Description                                                                                                                                                                                                                            |
+| <div style="min-width:230px;">File</div> | Description                                                                                                                                                                                                                            |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `package.json`                           | Used by [Node JS](https://nodejs.dev/) projects. Determines project details, such as project dependencies. Because we are not focusing on configuration, we will use this file to list our one project dependency, the `jest` package. |
 | `src/fizzbuzz.js`                        | The source file where we define our `fizzBuzz` function.                                                                                                                                                                               |
@@ -317,19 +334,19 @@ We can navigate between files using the left-hand navigation menu, under the hea
 
 We may want to collapse the surrounding sections, such as "Dependencies."
 
-![CodeSandbox UI that highlights the file navigation pane](../assets/tests_tests_sandbox-files.png)  
+![CodeSandbox UI that highlights the file navigation pane, showing the fizzbuzz.js file in the src folder, the test folder, and the package.json file](../assets/tests_tests_sandbox-files.png)  
 _Fig. CodeSandbox UI that highlights the file navigation pane_
 
 To run the tests, we use the preview pane, which automatically appears on the right.
 
 We can toggle the visibility of the preview pane by clicking the icon on the top right.
 
-![CodeSandbox UI that highlights the icon that toggles the preview pane](../assets/tests_tests_preview-pane.png)  
+![CodeSandbox UI that highlights the icon that toggles the preview pane. It looks like a small window with a play button. It is highlighted with a fuchsia square in this image.](../assets/tests_tests_preview-pane.png)  
 _Fig. CodeSandbox UI that highlights the icon that toggles the preview pane_
 
 When viewing the preview pane, instead of viewing the "Browser," we can view the "Tests."
 
-![CodeSandbox UI that highlights the icon that runs the tests](../assets/tests_tests_run-test-icon.png)  
+![CodeSandbox UI that highlights the icon that runs the tests. It is a typical triangular play button icon shown to the far right of the Test Suites status information.](../assets/tests_tests_run-test-icon.png)  
 _Fig. CodeSandbox UI that highlights the icon that runs the tests_
 
 On the right side of the top bar, we see a refresh 🔄 icon. Clicking this icon reloads the tests, which is sometimes necessary for CodeSandbox. Next to it, we see a play ▶️ button. Clicking this icon runs the tests.
@@ -340,10 +357,10 @@ A summary of the test results appears after running the tests. Details are outpu
 
 We should see one failing test.
 
-![CodeSandbox UI that highlights the summary of the test run](../assets/tests_tests_summary.png)  
+![CodeSandbox UI that highlights the summary of the test run. The fizzbuzz.test.js file has a failing test called 'returns Fizz on multiples of 3.' An excerpt of the failing test is shown beneath, with the line where the failure occurred bolded, and marked with a a '>' character.](../assets/tests_tests_summary.png)  
 _Fig. CodeSandbox UI that highlights the summary of the test run_
 
-We can use the error messages to change our code and get the test to pass!
+We can use the error messages to figure out where to change our code and get the test to pass!
 
 ## Reading Jest Error Messages
 
