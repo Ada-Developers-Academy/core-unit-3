@@ -1,6 +1,6 @@
 # Intro to HTML
 
-<!-- TODO: Learning goals -->
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=7ee51f0d-1bc0-4cb7-ad19-ad3a01747596&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
 ## Vocabulary and Synonyms
 

@@ -1,5 +1,7 @@
 # Classes and IDs
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=35fcdb29-0312-418e-8af1-ad2d003d9395&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Learning Goals
 
 - Compare ID and Class
@@ -322,7 +324,7 @@ a {
 ##### !end-question
 ##### !answer
 
-/<a class="email-link info" id="admin-email">/
+/(<a class="email-link info" id="admin-email">)|(<a id="admin-email" class="email-link info">)/
 
 ##### !end-answer
 ### !end-challenge

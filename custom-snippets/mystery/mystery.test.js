@@ -13,12 +13,12 @@ describe('mystery', () => {
   });
 
   test('returns false when one letter from the alphabet is missing', () => {
-    const alphabetWithMissingX = 'abcdefghijklnopqrstuvwyz';
+    const alphabetWithMissingX = 'abcdefghijklmnopqrstuvwyz';
     const result = mystery(alphabetWithMissingX);
     expect(result).toBeFalsy();
   });
 
-  test('returns true when all of alphabet is present, even with spaces and repetition', () => {
+  test('returns true when all letters of the alphabet are present, even with spaces and repetition', () => {
     const text = 'the quick brown fox jumps over the lazy dog';
     const result = mystery(text);
     expect(result).toBeTruthy();
@@ -28,7 +28,7 @@ describe('mystery', () => {
     expect(mystery('')).toBeFalsy();
   });
 
-  test('returns true when all of alphabet is present, even with symbols and numbers', () => {
+  test('returns true when all letters of the alphabet are present, even with symbols and numbers', () => {
     const text = 'the 1 /quick brown fox/ jumps over the _lazy dog_!';
     expect(mystery(text)).toBeTruthy();
   });

@@ -1,5 +1,7 @@
 # The Display Property
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=7a44d438-0e2d-420b-b10d-ad2d01494489&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Introduction
 
 When we want to create a _layout_ for our site, we should write CSS, as CSS is responsible for the visual presentation of the site.

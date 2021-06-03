@@ -1,5 +1,7 @@
 # Activity: Group Selector Fun
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=b8d364fd-d14b-4c5c-b7f8-ad3b017a7454&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Goal
 
 Our goal is to ask and answer questions during CSS development! Learning about CSS is often most useful when there is HTML in front of you.
