@@ -352,6 +352,10 @@ Consider your UML diagram, and update it with the new information above. Include
 - The `Tool` class has a method named `getAvailableQuantity`
 - The `Tool` class has a method named `summarize`
 
+Consider the implementations of these methods and how they're related. Write pseudocode if needed.
+
+In 2-5 sentences, describe the relationships between `summarizeLibrary`, `getAvailableQuantity`, and `summarize`.
+
 ##### !end-question
 ### !end-challenge
 <!-- prettier-ignore-end -->
