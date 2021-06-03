@@ -1,10 +1,22 @@
-const { Tool, ToolLibrary } = require('./submission');
+const { ToolLibrary } = require('./submission');
+
+class Tool {
+  constructor(name, quantity, reservations) {
+      this.name = name;
+      this.quantity = quantity;
+      this.reservations = reservations;
+  }
+
+  render() {
+      return `Tool: ${this.name}\nQuantity: ${this.quantity}`
+  }
+}
 
 describe('ToolLibrary', () => {
 
   test('sets a given array of tools to the property tools', () => {
-    const hammer = new Tool('Hammer', 35);
-    const axe = new Tool('Axe', 18);
+    const hammer = new Tool('Hammer', 35, []);
+    const axe = new Tool('Axe', 18, []);
     const tools = [hammer, axe];
 
     const toolLibrary = new ToolLibrary(tools);
@@ -15,8 +27,8 @@ describe('ToolLibrary', () => {
   });
 
   test('listTools returns a string with tool names and quantities', () => {
-    const hammer = new Tool('Hammer', 35);
-    const axe = new Tool('Axe', 18);
+    const hammer = new Tool('Hammer', 35, []);
+    const axe = new Tool('Axe', 18, []);
 
     const toolLibrary = new ToolLibrary([hammer, axe]);
 

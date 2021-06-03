@@ -4,21 +4,28 @@
 
 Complete all questions below.
 
-The following questions will require independent research.
+The following questions will require independent research centered on how to represent classes in JavaScript. We should consider what we know about classes in other languages, and look for ways to represent those concepts in JavaScript.
+
+Some useful concepts to think about include:
+1. Class definitions
+1. Constructors
+1. Fields/properties/attributes
+1. Instance methods
+1. Getter methods
 
 Our objective is to learn and practice object-oriented programming in JavaScript.
 
-We'll accomplish this by making some classes, methods in these classes, and a relationship between these classes.
+We'll accomplish this by making some classes, adding methods to these classes, and forming relationships between them.
 
 ## Diagram
 
-In this section, let's express the classes we need to make in a UML diagram. Imagine that you are working with a team member on this project. Take notes on paper, an online tool, or a whiteboard, so you can share your diagram easily.
+In this section, let's express the classes we need to make in a UML diagram (similar to an ERD diagram, but for classes instead of databases). Imagine that you are working with a team member on this project. Take notes on paper, an online tool, or a whiteboard, so you can share your diagram easily.
 
-We have three classes:
+We will have three classes:
 
 | <div style="width:200px;">Class Name</div>    | Responsibility                                                                                                |
 | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| `Tool`        | Represents a single tool in the tool library, such as a "Solder" or "3D Printer." Acts like a database model. |
+| `Tool`        | Represents a single tool in the tool library, such as a "Soldering Iron" or "3D Printer." Acts like a database model. |
 | `ToolLibrary` | Represents a library of tools.                                                                                |
 | `Reservation` | Represents one reservation of a tool, where one user is renting a tool, and must return it at a certain date. |
 
@@ -26,23 +33,23 @@ Here are details about the `Tool` class:
 
 | <div style="width:150px;">Property Name</div>  | Description                                                                                                                |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `name`         | Attribute. The human-readable name of a tool, such as "Solder" or "3D Printer."                                            |
+| `name`         | Attribute. The human-readable name of a tool, such as "Soldering Iron" or "3D Printer."                                            |
 | `quantity`     | Attribute. The total quantity of this tool within the tool library.                                                        |
 | `reservations` | Attribute. An array of `Reservation` instances associated with this tool.                                                  |
-| `render`       | Method. Responsible for formatting the data of the tool in a nice, human-readable string that would show up on a web page. |
+| `render`       | Method. Responsible for formatting the data of the tool in a nice, human-readable string such as would show up on a web page. |
 
 Here are details about the `ToolLibrary` class:
 
 | <div style="width:150px;">Property Name</div>  | Description                                                                                                                |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `tools`       | Attribute. An array of `Tool` instances.                                                                                 |
-| `listTools`   | Method. Responsible for formatting the array of tools in a nice, human-readable string that would show up on a web page. |
+| `listTools`   | Method. Responsible for formatting the array of tools in a nice, human-readable string such as would show up on a web page. |
 
 Here are details about the `Reservation` class:
 
 | <div style="width:150px;">Property Name</div>  | Description                                                                                                                |
 | ------------- | ------------------------------------------------------------------------- |
-| `username`    | Attribute.                                                                |
+| `username`    | Attribute. The name of the user who borrowed the tool.                    |
 | `date`        | Attribute. A string with the return date designated for this reservation. |
 | `returnDate`  | Getter Method. Returns the value of `date`.                               |
 
@@ -54,12 +61,11 @@ Here are details about the `Reservation` class:
 * title: Tool Library Wave 2
 ##### !question
 
-Create a UML diagram that describes these three classes. Your diagram should include:
+Do some research about UML diagrams, then use your findings to create a UML diagram that describes these three classes. Your diagram should include:
 
 - The names of all three classes
 - A list of all properties underneath each class name
 - Arrows between the classes, with labels to describe composition. Label which class is the _composite_ and which class is the _component_.
-    - Refer to resources about UML diagrams
 
 Now, briefly summarize your diagram below. Include a link to your diagram, if possible.
 
@@ -79,18 +85,20 @@ Now, briefly summarize your diagram below. Include a link to your diagram, if po
 * docker_directory_path: /custom-snippets/tool
 ##### !question
 
-Implement the class `Tool`. Here are details about the `Tool` class. **Do not include a property named `reservations`**.
+Implement the class `Tool`. Here are details about the `Tool` class.
 
 | <div style="width:150px;">Property Name</div>  | Description                                                                                                                |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | `name`        | Attribute. The human-readable name of a tool, such as "Solder" or "3D Printer."                                            |
 | `quantity`    | Attribute. The total quantity of this tool within the tool library.                                                        |
-| `render`      | Method. Responsible for formatting the data of the tool in a nice, human-readable string that would show up on a web page. |
+| `reservations`    | Attribute. An array of `Reservation` instances associated with this tool. We will see what `Reservation` instances look like a bit later. For now, we can simply be sure to keep a reference to whatever array we receive in our constructor.                                                        |
+| `render`      | Method. Responsible for formatting the data of the tool in a nice, human-readable string such as would show up on a web page. |
 
 For a `Tool` with the `name` "Band Saw" and the `quantity` 36, the `render` method will return:
 
-```js
-'Tool: Band Saw\nQuantity: 36\n'
+```
+Tool: Band Saw
+Quantity: 36
 ```
 
 The tests are visible in the first hint. (Moved into hints to prevent this text from becoming unusably long.)
@@ -103,17 +111,18 @@ Here are the tests:
 ```js
 describe('Tool', () => {
 
-  test('instances of tool have name and quantity attributes', () => {
-    const tool = new Tool('Band Saw', 36);
+  test('instances of tool have name, quantity, and reservations attributes', () => {
+    const tool = new Tool('Band Saw', 36, []);
     expect(tool).toBeInstanceOf(Tool);
     expect(tool.name).toEqual('Band Saw');
     expect(tool.quantity).toEqual(36);
+    expect(tool.reservations.length).toEqual(0);
   });
 
   test('render includes name and quantity', () => {
-    const tool = new Tool('Band Saw', 36);
+    const tool = new Tool('Band Saw', 36, []);
 
-    expect(tool.render()).toEqual(`Tool: Band Saw\nQuantity: 36\n`)
+    expect(tool.render()).toEqual('Tool: Band Saw\nQuantity: 36');
   });
 
 });
@@ -126,13 +135,14 @@ An example of a working implementation:
 
 ```js
 class Tool {
-    constructor(name, quantity) {
+    constructor(name, quantity, reservations) {
         this.name = name;
         this.quantity = quantity;
+        this.reservations = reservations;
     }
 
     render() {
-        return `Tool: ${this.name}\nQuantity: ${this.quantity}\n`
+        return `Tool: ${this.name}\nQuantity: ${this.quantity}`;
     }
 }
 ```
@@ -158,12 +168,22 @@ Implement the class `ToolLibrary`. Here are details about the `ToolLibrary` clas
 | <div style="width:150px;">Property Name</div>  | Description                                                                                                                |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `tools`         | Attribute. An array of `Tool` instances.                                                                                 |
-| `listTools` | Method. Responsible for formatting the array of tools in a nice, human-readable string that would show up on a web page. |
+| `listTools` | Method. Responsible for formatting the array of tools in a nice, human-readable string such as would show up on a web page. |
 
 For a `ToolLibrary` with two tools, the `listTools` method will return:
 
-```js
-'Tool List:\nTool: Hammer\nQuantity: 35\nReserve Now!\nDonate Tool!\nTool: Axe\nQuantity: 18\nReserve Now!\nDonate Tool!\n'
+```
+Tool List:
+Tool: Hammer
+Quantity: 35
+Reserve Now!
+Donate Tool!
+---
+Tool: Axe
+Quantity: 18
+Reserve Now!
+Donate Tool!
+---
 ```
 
 The tests are visible in the first hint. (Moved into hints to prevent this text from becoming unusably long.)
@@ -181,7 +201,7 @@ class ToolLibrary {
 
     listTools() {
         const formattedString = this.tools.reduce((text, tool) => {
-            return `${text}\nTool: ${tool.name}\nQuantity: ${tool.quantity}\nReserve Now!\nDonate Tool!\n---`;
+            return `${text}\n${tool.render()}\nReserve Now!\nDonate Tool!\n---`;
         }, "Tool List:");
         return formattedString;
     }
@@ -197,19 +217,20 @@ Here are the tests:
 describe('ToolLibrary', () => {
 
   test('sets a given array of tools to the property tools', () => {
-    const hammer = new Tool('Hammer', 35);
-    const axe = new Tool('Axe', 18);
+    const hammer = new Tool('Hammer', 35, []);
+    const axe = new Tool('Axe', 18, []);
     const tools = [hammer, axe];
 
     const toolLibrary = new ToolLibrary(tools);
 
+    expect(toolLibrary).toBeInstanceOf(ToolLibrary);
     expect(toolLibrary.tools[0].name).toEqual('Hammer');
     expect(toolLibrary.tools[1].name).toEqual('Axe');
   });
 
   test('listTools returns a string with tool names and quantities', () => {
-    const hammer = new Tool('Hammer', 35);
-    const axe = new Tool('Axe', 18);
+    const hammer = new Tool('Hammer', 35, []);
+    const axe = new Tool('Axe', 18, []);
 
     const toolLibrary = new ToolLibrary([hammer, axe]);
 
@@ -239,7 +260,7 @@ Implement the class `Reservation`. Here are details about the `Reservation` clas
 
 | <div style="width:150px;">Property Name</div>  | Description                                                                                                                |
 | ------------- | ------------------------------------------------------------------------- |
-| `username`    | Attribute.                                                                |
+| `username`    | Attribute. The name of the user who borrowed the tool.                    |
 | `date`        | Attribute. A string with the return date designated for this reservation. |
 | `returnDate`  | Getter Method. Returns the value of `date`.                               |
 
@@ -276,6 +297,8 @@ describe('Reservation', () => {
 
     expect(reservation).toBeInstanceOf(Reservation);
     expect(reservation.username).toEqual('Hoppleypawz');
+    // Notice that returnDate doesn't use () to retrieve the value, Getter methods 
+    // behave a little differently, so be sure to research them specifically.
     expect(reservation.returnDate).toEqual('June 01');
   });
 });
@@ -291,8 +314,10 @@ Let's rework our classes to make them all fit together.
 
 Inside the `ToolLibrary` class, we'll create a new method named `summarizeLibrary`. This method returns a string that summarizes the tools and available quantity, such as:
 
-```js
-'Tool Library:\n1. Band Saw (Available: 32)\n2. Bow (Available: 17)'
+```
+Tool Library:
+1. Band Saw (Available: 32)
+2. Bow (Available: 17)
 ```
 
 To support this feature, we are introducing a number of new helper methods.
@@ -302,23 +327,23 @@ Here are details about the `ToolLibrary` class:
 | <div style="width:200px;">Property Name</div>  | Description                                                                                                                |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | `tools`            | Attribute. An array of `Tool` instances.                                                                                                        |
-| `summarizeLibrary` | Method. Responsible for formatting a summary of tools and available quantity in a nice, human-readable string that would show up on a web page. |
+| `summarizeLibrary` | Method. Responsible for formatting a summary of tools and available quantity in a nice, human-readable string such as would show up on a web page. |
 
 Here are details about the `Tool` class:
 
-| <div style="width:200px;">Property Name</div>  | Description                                                                                                                |
+| <div style="width:270px;">Property Name</div>  | Description                                                                                                                |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`            | Attribute. The human-readable name of a tool, such as "Solder" or "3D Printer."                                                                         |
+| `name`            | Attribute. The human-readable name of a tool, such as "Soldering Iron" or "3D Printer."                                                                         |
 | `quantity`        | Attribute. The total quantity of this tool within the tool library.                                                                                     |
 | `reservations`    | Attribute. An array of `Reservation` instances associated with this tool.                                                                               |
-| `getAvailableQty` | Method. Responsible for calculating the available quantity, which is the quantity minus the number of reservations.                                     |
-| `summarize`       | Method. Responsible for formatting a summary of the tool name and available quantity in a nice, human-readable string that would show up on a web page. |
+| `getAvailableQuantity` | Method. Responsible for calculating the available quantity, which is the quantity minus the number of reservations.                                     |
+| `summarize`       | Method. Responsible for formatting a summary of the tool name and available quantity in a nice, human-readable string such as would show up on a web page. |
 
 Here are details about the `Reservation` class:
 
 | <div style="width:150px;">Property Name</div>  | Description                                                                                                                |
 | ------------- | ------------------------------------------------------------------------- |
-| `username`    | Attribute.                                                                |
+| `username`    | Attribute. The name of the user who borrowed the tool.                    |
 | `date`        | Attribute. A string with the return date designated for this reservation. |
 | `returnDate`  | Getter Method. Returns the value of `date`.                               |
 
@@ -333,13 +358,8 @@ Here are details about the `Reservation` class:
 Consider your UML diagram, and update it with the new information above. Include the following additions:
 
 - The `ToolLibrary` class has a method named `summarizeLibrary`
-- The `Tool` class has an attribute named `reservations`, which is a new, third argument passed into the constructor
-- The `Tool` class has a method named `getAvailableQty`
+- The `Tool` class has a method named `getAvailableQuantity`
 - The `Tool` class has a method named `summarize`
-
-Imagine the implementation for `ToolLibrary`'s `summarizeLibrary` method. This method will need to access the return date of every reservation for every tool.
-
-Describe how `summarizeLibrary` will access the return dates.
 
 ##### !end-question
 ### !end-challenge
@@ -355,7 +375,7 @@ Describe how `summarizeLibrary` will access the return dates.
 * docker_directory_path: /custom-snippets/summarizeLibrary
 ##### !question
 
-Implement all three classes, `ToolLibrary`, `Tool`, and `Reservation`.
+Implement all three classes, `ToolLibrary`, `Tool`, and `Reservation`. We can reuse some of the logic we implemented in previous questions.
 
 The tests are visible in the first hint. (Moved into hints to prevent this text from becoming unusably long.)
 
@@ -367,7 +387,7 @@ class Tool {
 
     }
 
-    getAvailableQty() {
+    getAvailableQuantity() {
 
     }
 
@@ -388,12 +408,11 @@ class ToolLibrary {
 
 class Reservation {
     constructor(username, date) {
-        this.username = username;
-        this.date = date;
+
     }
 
     get returnDate() {
-        return this.date;
+
     }
 }
 ```
@@ -411,15 +430,15 @@ class Tool {
     }
 
     render() {
-        return `Tool: ${this.name}\nQuantity: ${this.quantity}\n`
+        return `Tool: ${this.name}\nQuantity: ${this.quantity}`;
     }
 
-    getAvailableQty() {
+    getAvailableQuantity() {
         return this.quantity - this.reservations.length;
     }
 
     summarize() {
-        return `${this.name} (Available: ${this.getAvailableQty()})`;
+        return `${this.name} (Available: ${this.getAvailableQuantity()})`;
     }
 }
 
@@ -430,7 +449,7 @@ class ToolLibrary {
 
     listTools() {
         const formattedString = this.tools.reduce((text, tool) => {
-            return `${text}\nTool: ${tool.name}\nQuantity: ${tool.quantity}\nReserve Now!\nDonate Tool!\n---`;
+            return `${text}\n${tool.render()}\nReserve Now!\nDonate Tool!\n---`;
         }, "Tool List:");
         return formattedString;
     }
@@ -490,7 +509,7 @@ describe('New features for ToolLibrary, Tool, and Reservation', () => {
     const reservation = new Reservation('Guttersnipe23', 'June 02');
     const axe = new Tool('Bow', 18, [reservation]);
 
-    expect(axe.getAvailableQty()).toEqual(17);
+    expect(axe.getAvailableQuantity()).toEqual(17);
   });
 
   test('Tool has a method summarize', () => {
