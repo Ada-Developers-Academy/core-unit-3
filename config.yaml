@@ -250,3 +250,26 @@ Standards:
         Type: Lesson
         UID: bb75d829bbbeeb390880eb1ef5c952e0
         Path: /adding-behavior/problem-set-adding-behavior.md
+  -
+    Title: Event Handling
+    Description: "Intro to Event Handling, Adding onclick Handling, Foreshadowing: State, Problem Set: Event Handling"
+    UID: b7a2c117790fd3d9347e2dc80519e151
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 361b4130f4c5ab73de1043e514a8ee48
+        Path: /event-handling/intro-to-event-handling.md
+      -
+        Type: Lesson
+        UID: 4662421b1d590d31cd374fbdb3d14244
+        Path: /event-handling/adding-onclick-handling.md
+      -
+        Type: Lesson
+        UID: 97a3ad9ab680dbbe2254f61c3964e07d
+        Path: /event-handling/foreshadowing-state.md
+      -
+        Type: Lesson
+        UID: 1c7326a3cfb0353b88713902f959584b
+        Path: /event-handling/problem-set-event-handling.md
