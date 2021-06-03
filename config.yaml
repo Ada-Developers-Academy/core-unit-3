@@ -195,11 +195,19 @@ Standards:
         Path: /functions/problem-set-functions.md
   -
     Title: Tests
-    Description: "Problem Set: Tests"
+    Description: "Reading Tests, Test Syntax Detail, Problem Set: Tests"
     UID: 2d8092a5
     SuccessCriteria:
       - success criteria
     ContentFiles:
+      -
+        Type: Lesson
+        UID: a40cb618a5471bef09a22c78348b4547
+        Path: /tests/reading-tests.md
+      -
+        Type: Lesson
+        UID: 0811cf72e5bfff1f4cfd1357972481aa
+        Path: /tests/test-syntax-detail.md
       -
         Type: Lesson
         UID: 1d5ceb96
