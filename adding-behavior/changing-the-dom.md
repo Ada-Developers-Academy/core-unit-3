@@ -98,7 +98,8 @@ Here, she selects the desired heading element by its `id` using `document.getEle
 
 Then, she sets its `textContent` attribute to `"Qualities and Traits of a Crab"`.
 
-![The Crab Fan Site with the heading "Qualities and Traits of a Crab"](../assets/adding-behavior_changing-the-dom_text-content.png)
+![The Crab Fan Site with the heading "Qualities and Traits of a Crab"](../assets/adding-behavior_changing-the-dom_text-content.png)  
+_Fig. Keira's crab fan site with an updated heading thanks to JavaScript!_
 
 ### Example: Changing Styles
 
@@ -132,7 +133,8 @@ importantFact.className = `${importantFact.className} highlight`;
 
 Note that she set `importantFact.className` to a string that interpolates the existing `importantFact.className` value! Since she wanted to _add_ the class `highlight`, and not _replace_ all the classes for the element, she included the current value of the element's classes.
 
-![The Crab Fan Site with one important fact highlighted with a pale yellow background and bolder text](../assets/adding-behavior_changing-the-dom_appearance.png)
+![The Crab Fan Site with one important fact highlighted with a pale yellow background and bolder text](../assets/adding-behavior_changing-the-dom_appearance.png)  
+_Fig. Keira's crab fan site showing off an important fact thanks to JavaScript!_
 
 ## Creating New Elements
 
@@ -159,7 +161,8 @@ appearanceList.appendChild(newAppearanceFact);
 
 In [this example](https://replit.com/@adacore/Changing-the-DOM-Demo#scripts/index.js), after reloading the page, Keira is happy to see her new, sixth crab fact!
 
-![The Crab Fan Site with a new fact added to the list, "covered in sand (when on a sandy beach)"](../assets/adding-behavior_changing-the-dom_adding-content.png)
+![The Crab Fan Site with a new fact added to the list, "covered in sand (when on a sandy beach)"](../assets/adding-behavior_changing-the-dom_adding-content.png)  
+_Fig. Keira's crab fan site laying down the facts thanks to JavaScript!_
 
 ### !callout-info
 
