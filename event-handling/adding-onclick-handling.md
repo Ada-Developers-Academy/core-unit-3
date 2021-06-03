@@ -49,7 +49,7 @@ Let's add a function named `addCrab` to our `index.js` file. There's no specific
 
 - Create a `span` element that will contain our new crab
 - Find the HTML element that matches the given selector rule (our crab container!), which is where we will add our new `span`
-- Set the new crab element (`span`) content to something appropriately "crabby", then add it to our crab container which we just selected
+- Set the new crab element (`span`) content to something appropriately "crabby," then add it to our crab container which we just selected
 
 ```js
 const addCrab = () => {
@@ -117,6 +117,8 @@ const addCrab = () => {
 Now we can register our `addCrab` event handler with our "Add Crab" button. Let's examine the following code, which registers our event handler in response to handling a _different_ event: `DOMContentLoaded`.
 
 ```js
+// ... addCrab ...
+
 const registerEventHandlers = () => {
   const crabButton = document.querySelector("#addCrabButton");
   crabButton.addEventListener("click", addCrab);

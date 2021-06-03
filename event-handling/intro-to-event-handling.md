@@ -65,7 +65,7 @@ With those points in mind, when we write event-handling code, we should consider
 
 - When does a specific element (`<button>`, `<form>`, `<section>`, etc.) fire a specific event?
   - What is the element? What is the event name?
-- How is the event handled? How do we write a function that can listen for a specific event on a specific element.
+- How is the event handled? How do we write a function that can listen for a specific event on a specific element?
 
 ## Default Events in the Browser
 
