@@ -233,7 +233,7 @@ Standards:
         Path: /problem-set-tool-library/problem-set-tool-library-wave-2.md
   -
     Title: Adding Behavior
-    Description: "Connecting HTML, CSS, and JS; Changing the DOM; Problem Set: Adding Behavior"
+    Description: "Connecting HTML, CSS, and JS; Changing the DOM"
     UID: a0d8555c7bb2bc809c15b9fc37560a5e
     SuccessCriteria:
       - success criteria
@@ -246,10 +246,6 @@ Standards:
         Type: Lesson
         UID: 206e76c0851277903fb91d8fca4e362f
         Path: /adding-behavior/changing-the-dom.md
-      -
-        Type: Lesson
-        UID: bb75d829bbbeeb390880eb1ef5c952e0
-        Path: /adding-behavior/problem-set-adding-behavior.md
   -
     Title: Event Handling
     Description: "Intro to Event Handling, Adding onclick Handling, Foreshadowing: State, Problem Set: Event Handling"
