@@ -21,12 +21,12 @@ Here's the answer I got formatted:
 }
 ```
 
-And the solution I had:
+## Simon's Solution (For-Loop and Weird Forced Timeouts)
 
 ```js
 const axios = require("axios");
 
-const YOUR_API_KEY = "pk.faf2e66100f4dafc47888bcec6a8368a";
+const YOUR_API_KEY = "...";
 
 const wonders = [
   "Great Wall of China",
@@ -53,11 +53,11 @@ const findLatitudeAndLongitude = (query) => {
     .then((response) => {
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
-      console.log("success in findLatitudeAndLongitude!", latitude, longitude);
+      // console.log("success in findLatitudeAndLongitude!", latitude, longitude);
       locations[query] = { latitude, longitude };
     })
     .catch((error) => {
-      console.log("error in findLatitudeAndLongitude!", error.response.data);
+      // console.log("error in findLatitudeAndLongitude!", error.response.data);
     });
 };
 
