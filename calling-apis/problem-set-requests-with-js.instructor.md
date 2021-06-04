@@ -78,3 +78,70 @@ setTimeout(() => {
   console.log("locations", locations);
 }, 10000);
 ```
+
+## Ansel's Solution (Promise Chaining)
+
+```js
+const axios = require("axios");
+
+const mySecret = process.env["api_key"];
+// const mySecret = '';
+
+const getLatLon = (placeName) => {
+  return axios
+    .get("https://us1.locationiq.com/v1/search.php", {
+      params: {
+        key: mySecret,
+        q: placeName,
+        format: "json",
+      },
+    })
+    .then((response) => {
+      const data = response.data[0];
+      const result = {};
+      result[placeName] = {
+        latitude: data.lat,
+        longitude: data.lon,
+      };
+
+      return result;
+    });
+};
+
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const getPlaces = (places) => {
+  const result = [];
+  let query = Promise.resolve();
+  for (const place of places) {
+    query = query
+      .then(() => wait(500))
+      .then(() => getLatLon(place))
+      .then((placeData) => {
+        result.push(placeData);
+      });
+  }
+
+  return query.then(() => result);
+};
+
+const wonders = [
+  "Great Wall of China",
+  "Petra",
+  "Colosseum",
+  "Chichen Itza",
+  "Machu Picchu",
+  "Taj Mahal",
+  "Christ the Redeemer",
+];
+
+getPlaces(wonders)
+  .then((result) => {
+    for (const place of result) {
+      console.log(place);
+    }
+  })
+  .catch((error) => {
+    console.log("uh oh!");
+  });
+```
