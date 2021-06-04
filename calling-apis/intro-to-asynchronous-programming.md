@@ -13,7 +13,7 @@ Instead, they'll make a phone call to their favorite restaurant (who's not on an
 
 There's a series of things that happen between the moment Mica makes the order all the way to the point where they take the first bite.
 
-In pain-staking detail, let's outline all the actions Mica would do, beginning with picking up the phone, and ending with eating the meal.
+In painstaking detail, let's outline all the actions Mica would do, beginning with picking up the phone, and ending with eating the meal.
 
 <br/>
 
@@ -27,8 +27,6 @@ We may imagine that what Mica does is make the order, then wait for the order, a
 It's actually way more likely that Mica will make the order, then **before the order arrives, they do other things,** like read, shower, sleep, watch TV. Mica is able to eat their food only after the food order has been received, cooked, assembled, assigned a driver, driven over, and delivered.
 
 The food order was received, made, and delivered. However, while that was happening, Mica **did not wait for the food order to finish** in order to continue other actions. While waiting for the food, Mica didn't stop everything they were doing, sit on the couch, and stare at the wall. (Or maybe they did!)
-
-<br/>
 
 The point is, Mica didn't _need_ to stop executing other actions while waiting for the food. They continued their other actions and processes while the food-delivery process was working and finishing.
 
@@ -46,7 +44,7 @@ Throughout this lesson, we can keep in mind these two questions:
 | Vocab                    | Definition                                                                                                                                        | Synonyms          | How to Use in a Sentence                                                                                                                            |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Flow of control          | The order of execution of programming statements.                                                                                                 | -                 | "When we trace code as it runs, we are following the flow of control"                                                                               |
-| Asynchronous programming | A method of programming that intentionally executes actions and processes outside of program flow, so that the program doesn't stop for a result. | Async programming | "Making API calls and loading pages on the web is usually asynchronous, and other code will execute without waiting for the result of an API call." |
+| Asynchronous programming | A method of programming that intentionally executes actions and processes outside of the typical program flow, so that the program doesn't stop and wait for a result. | Async programming | "Making API calls and loading pages on the web is usually asynchronous, and other code will execute without waiting for the result of an API call." |
 
 ## Flow of Control
 
@@ -69,18 +67,20 @@ say_apples()
 say_oranges()
 ```
 
+<!-- prettier-ignore-start -->
 ```js
 const sayApples = () => {
-  console.log("apples");
+  console.log('apples');
 };
 
 const sayOranges = () => {
-  console.log("oranges");
+  console.log('oranges');
 };
 
 sayApples();
 sayOranges();
 ```
+<!-- prettier-ignore-end -->
 
 Both code snippets print out `apples` first, and then `oranges` second, because we call the function that prints `apples` first, and _then_ we call the function that prints `oranges` second. If we need to change the order of how these print, we need to change the order of the lines of code.
 
@@ -96,17 +96,19 @@ Synchronous code may be more like calling the restaurant and making the order:
 
 ## Asynchronous Programming
 
-[Asynchronous Programming](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts) is a method of programming that intentionally breaks program flow in order to:
+[Asynchronous Programming](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts) is a method of programming that intentionally breaks the typical flow of control in order to avoid having to stop and wait for a result.
 
-1. call actions/processes outside of program flow, so that the program doesn't stop for a result
-2. define what happens when the result comes back
+Asynchronous programming accomplishes this by:
+
+1. calling actions/processes outside the usual program flow
+2. defining what happens when the result eventually comes back
 
 Asynchronous programming allows us to program behavior where some code _does not wait_ for other code to finish.
 
-To set up asynchronous programming, we will need to consider initially:
+To set up asynchronous programming, we will need to consider:
 
 - Which specific technologies (tools and environment) to use that support running asynchronous code
-- While or after an asynchronous call, what should happen, and all the different cases of success and failure
+- During or after an asynchronous call, what should happen for all the different cases of success and failure
 
 ## Writing Asynchronous Code
 
@@ -121,7 +123,7 @@ To write good asynchronous code, we will have to determine and write the followi
 
 ## Summary
 
-Typically, we write a lot of code that runs in a very specific order (synchronous). However, certain technologies allow us to write asynchronous code, and we'll see plenty in JavaScript.
+Typically, we write a lot of code that runs in a very specific order (synchronous). However, certain technologies allow us to write asynchronous code, and we'll see plenty of these technologies in JavaScript.
 
 To write asynchronous code, we'll need to anticipate four things:
 

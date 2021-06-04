@@ -19,7 +19,7 @@ Matteo's first step is to [research the API documentation](https://github.com/Ad
 
 <br/>
 
-<details style="max-width: 700px; margin: auto;">
+<details>
 
   <summary>
     Here is what Matteo discovers with the documentation and Postman.
@@ -28,20 +28,22 @@ Matteo's first step is to [research the API documentation](https://github.com/Ad
 1. `get` `https://trektravel.herokuapp.com/trips`
 1. Depends, but Matteo will note the shape of the expected JSON response
 1. `post` `https://trektravel.herokuapp.com/trips`
-1. `post`, and `https://trektravel.herokuapp.com/trips`
+1. verb: `POST`, and URL: `https://trektravel.herokuapp.com/trips`
 1. Required: `name`, `continent`, `category`, `weeks`, and `cost`. Optional: `about`
 
 </details>
 
 ## Making a `POST` request
 
-The syntax for making a POST request using `axios` is very similar to making a GET request, but we will use the `post` function instead.
+Matteo wants to be able to add new Trip packages to the service, and from his initial research, that requires making a `POST` request.
 
-### An Aside: Working With Ambiguous Documentation
+The syntax for making a `POST` request using `axios` is very similar to making a `GET` request, but instead of using the `get` function, `axios` provides a `post` function.
 
-What happens if Matteo [finds that the official `POST` request documentation is ambiguous](https://axios-http.com/docs/post_example), and he can't find more satisfactory resources?
+### An Aside: Working With Vague Documentation
 
-For example, Matteo could go to the POST request page and see this code, with zero explanation:
+Matteo is going to need to make a `POST` request using `axios`, but sometimes a library's official documentation, even one as popular as `axios`, can be lacking in details.
+
+For example, when he visits the [`POST` Requests](https://axios-http.com/docs/post_example) documentation, he finds this example code, with no further explanation:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -58,12 +60,16 @@ axios.post('/user', {
 ```
 <!-- prettier-ignore-end -->
 
-The best thing for Matteo to do in this situation is:
+Matteo could perform additional web searches to find other documentation about the `post` method, but instead he decides to take this opportunity to practice making inferences from seeing how a method is used.
+
+To practice this skill, Matteo will:
 
 1. Make hypotheses, using context clues and what he knows about APIs
 1. Test them
 
-From this example code, we can see that the second argument for `axios.post` is this object literal:
+Matteo supposes that the string `'/user'` provided for the first argument to `post` is the URL of the endpoint. This mirrors the meaning of the first argument to a `get` call, so he feels good making this assumption.
+
+Continuing with the example, he sees that the second argument for `axios.post` is this object literal:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -74,13 +80,15 @@ From this example code, we can see that the second argument for `axios.post` is 
 ```
 <!-- prettier-ignore-end -->
 
-Matteo sees that there are two keys, `firstName` and `lastName`. From his knowledge of APIs, these keys don't look like they're describing parts of an HTTP request like HTTP headers or params. Additionally, this example request is being made to `/user`.
+Matteo sees that there are two keys, `firstName` and `lastName`. From his knowledge of APIs, these keys don't look like they're describing parts of an HTTP request like HTTP headers or params. Unlike the `get` call, the second argument doesn't seem to hold "config" data, which was where the `get` call had passed its query params.
 
-Matteo hypothesizes that this object literal holds the HTTP request body data, and he can test his hypothesis against his API.
+Matteo hypothesizes that this object literal holds the HTTP request body data.
+
+Now, with an idea of how he can set the URL endpoint and the request data, Matteo could test his hypothesis against an API of his own to confirm it. Or if he's feeling confident, he can move on to working with his target API!
 
 ### Sending a Request to the Ada Trip Reserving Service™ Trip API™™™
 
-Matteo is ready to try to make a `POST` request to the back-end service. He [determines from the API documentation](https://github.com/AdaGold/trip-api) that the request he wants to make is:
+Matteo decides that he is ready to try to make a `POST` request to the back-end service. He [determines from the API documentation](https://github.com/AdaGold/trip-api) that the request he wants to make is:
 
 - `POST` request to `https://trektravel.herokuapp.com/trips`
 - Request Body:
@@ -91,63 +99,75 @@ Matteo is ready to try to make a `POST` request to the back-end service. He [det
   - `weeks`
   - `cost`
 
-The `post` function takes in two parameters: URL, and an optional object. This optional object represents the HTTP request body data that we want to send.
+From the limited `axios` documentation, he has determined that the `post` function takes in two parameters: a URL, and an object. This object represents the HTTP request body data that we want to send.
 
 Matteo could write this code:
 
+<!-- prettier-ignore-start -->
 ```js
-const axios = require("axios");
+const axios = require('axios');
 
 const tripData = {
-  name: "Matteo's Chill Trip to Chicago",
-  continent: "North America",
-  about: "A tour around good architecture and hot dogs.",
-  category: "casual",
+  name: 'Matteo\'s Chill Trip to Chicago',
+  continent: 'North America',
+  about: 'A tour around good architecture and hot dogs.',
+  category: 'casual',
   weeks: 1,
   cost: 180,
 };
 
 axios
-  .post("https://trektravel.herokuapp.com/trips", tripData)
+  .post('https://trektravel.herokuapp.com/trips', tripData)
   .then((response) => {
-    console.log("response:", response);
-    console.log("response data:", response.data);
+    console.log('response:', response);
+    console.log('response data:', response.data);
   })
   .catch((error) => {
-    console.log("error:", error);
-    console.log("error response:", error.response);
+    console.log('error:', error);
+    console.log('error response:', error.response);
   })
   .finally(() => {
-    console.log("finally done!");
+    console.log('finally done!');
   });
 ```
+<!-- prettier-ignore-end -->
 
-With this code, Matteo can begin to make more `POST` requests in JavaScript!
+Fingers crossed, Matteo runs his code. After a brief moment, he receives a successful response! With this working code, Matteo can begin to make more `POST` requests in JavaScript!
+
+### !callout-warning
+
+## Trip Names Must Be Unique
+
+If we try running Matteo's code, we're likely to get an error! The Trip API requires the trip package names to be unique, and Matteo has already used the name in the example. But we can supply a new name to try running the code ourselves!
+
+### !end-callout
 
 #### Refactoring: Inline `tripData`
 
-<details style="max-width: 700px; margin: auto;">
+<details>
 
   <summary>
-    Let's refactor our code! Instead of initializing the tripData variable, let's pass in an object literal.
+    Let's refactor our code! Instead of initializing the <code>tripData</code> variable, let's pass in an object literal.
   </summary>
 
+<!-- prettier-ignore-start -->
 ```js
-const axios = require("axios");
+const axios = require('axios');
 
-axios.post("https://trektravel.herokuapp.com/trips", {
-  name: "Matteo's Chill Trip to Chicago",
-  continent: "North America",
-  about: "A tour around good architecture and hot dogs.",
-  category: "casual",
+axios.post('https://trektravel.herokuapp.com/trips', {
+  name: 'Matteo\'s Chill Trip to Chicago',
+  continent: 'North America',
+  about: 'A tour around good architecture and hot dogs.',
+  category: 'casual',
   weeks: 1,
   cost: 180,
-});
+})
 //   proceed as normal...
 //   .then((response) => { })
 //   .catch((error) => { })
 //   .finally(() => { });
 ```
+<!-- prettier-ignore-end -->
 
 </details>
 
@@ -155,34 +175,35 @@ axios.post("https://trektravel.herokuapp.com/trips", {
 
 Matteo wants to confirm that his code can handle unsuccessful HTTP requests.
 
-To confirm this, he will temporarily purposely make an API call with bad trip data.
+To do so, he will temporarily make an API call with bad trip data on purpose.
 
-He refactors his code to use a new object, `badTripData`, which has a blank `name`. According to [the API documentation](<(https://github.com/AdaGold/trip-api)>), it should not be a successful call.
+He modifies his code to use a new object, `badTripData`, which has a blank `name`. According to [the API documentation](<(https://github.com/AdaGold/trip-api)>), it should not be a successful call.
 
+<!-- prettier-ignore-start -->
 ```js
-const axios = require("axios");
+const axios = require('axios');
 
 const badTripData = {
-  name: "",
-  continent: "North America",
-  about: "A tour around good architecture and hot dogs.",
-  category: "casual",
+  name: '',
+  continent: 'North America',
+  about: 'A tour around good architecture and hot dogs.',
+  category: 'casual',
   weeks: 1,
   cost: 180,
 };
 
 axios
-  .post("https://trektravel.herokuapp.com/trips", badTripData)
+  .post('https://trektravel.herokuapp.com/trips', badTripData)
   .then((response) => {
-    //
+    console.log('response:', response);
+    console.log('response data:', response.data);
   })
   .catch((error) => {
-    console.log("error:", error);
-    console.log("error response:", error.response);
+    console.log('error:', error);
+    console.log('error response:', error.response);
   });
 ```
-
-</details>
+<!-- prettier-ignore-end -->
 
 <!-- Question 1 -->
 <!-- prettier-ignore-start -->

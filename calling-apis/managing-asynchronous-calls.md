@@ -17,18 +17,26 @@ He wants to make two API requests to the [LocationIQ APIs](https://locationiq.co
 
 He decides to run his experiment with [this code](https://replit.com/@adacore/Managing-Asynchronous-Requests)!
 
+### !callout-warning
+
+## Raffy's LocationIQ API Key
+
+Raffy knows that it's important to keep his API key private, so he set up a secret in his REPL to keep the key out of his code. If we want to try running Raffy's code, we'll need to do the same thing by opening the Secrets panel, and adding a new key named `api_key` with our LocationIQ API key as the value.
+
+### !end-callout
+
 <!-- prettier-ignore-start -->
 ```js
-const axios = require("axios");
+const axios = require('axios');
 
-const YOUR_API_KEY = 'YOUR API KEY';
+const LOCATIONIQ_KEY = process.env['api_key'];
 
 const findLatitudeAndLongitude = (query) => {
   let latitude, longitude;
   axios.get('https://us1.locationiq.com/v1/search.php',
   {
     params: {
-      key: YOUR_API_KEY,
+      key: LOCATIONIQ_KEY,
       q: 'Seattle, Washington, USA',
       format: 'json'
     }
@@ -52,7 +60,7 @@ const findLocation = (latitude, longitude) => {
   axios.get('https://us1.locationiq.com/v1/reverse.php',
   {
     params: {
-      key: YOUR_API_KEY,
+      key: LOCATIONIQ_KEY,
       format: 'json',
       lat: latitude,
       lon: longitude
@@ -77,12 +85,12 @@ console.log(locations);
 
 This code:
 
-- Defines `findLatitudeAndLongitude`, which searches for latitude and longitude with the given query
-- Defines `findLocation`, which searches for location with the given latitude and longitude
-- Finds the coordinates of Seattle by calling `findLatitudeAndLongitude` and puts it in `seattleCoordinates`
-- Finds the location results by calling `findLocations` and puts it in `locations`
+- Defines `findLatitudeAndLongitude`, which searches for the best latitude and longitude coordinates using the given query
+- Defines `findLocation`, which searches for location records using the given latitude and longitude
+- Finds the coordinates of Seattle by calling `findLatitudeAndLongitude`, and stores the result in `seattleCoordinates`
+- Finds the location records for the retrieved `seattleCoordinates` by calling `findLocations`, and stores the result in `locations`
 
-However, when we run this code, our console outputs this:
+However, when he runs this code, Raffy sees the following in his console output:
 
 ```
 error in findLocation!
@@ -91,7 +99,7 @@ success in findLatitudeAndLongitude! 47.6038321 -122.3300624
 
 Raffy's experiment doesn't look successful at all! What's noticeable is that `error in findLocation!` prints out **_before_** `success in findLatitudeAndLongitude!` does.
 
-It's apparent that the API call in `findLatitudeAndLongitude` works. We can get back a latitude and longitude just fine!
+Because `findLatitudeAndLongitude` prints a success message, it seems like the API call in `findLatitudeAndLongitude` works. The latitude and longitude values print just fine!
 
 Why would there be an error when calling `findLocation`? And why would this print **_before_** we see a print statement from `findLatitudeAndLongitude`?
 
@@ -113,45 +121,94 @@ Why would there be an error when calling `findLocation`? And why would this prin
 
 ### Debugging Our Problem
 
-After debugging, Raffy should hone in on one specific line:
+Raffy adds some additional debug logging statements, which leads him to focus on one line in particular:
 
 ```js
 const locations = findLocation(seattleCoordinates.seattleLat, seattleCoordinates.seattleLon);
 ```
 
-Raffy found these two facts while debugging:
+Raffy makes two observations while debugging:
 
 - `seattleCoordinates.seattleLat` _and_ `seattleCoordinates.seattleLon` are `undefined` at the time of calling `findLocation`
 - The print statements in `findLocation` printed, meaning that `findLocation` was definitely called and got into the `catch` block
 
+Raffy decides to trace further back to check the values in the object being assigned to `seattleCoordinates`. He knows this is the return value from `findLatitudeAndLongitude`, so he adds some logging before the return statement to check on the `latitude` and `longitude`.
+
+<!-- prettier-ignore-start -->
+```js
+  console.log('latitude:', latitude);
+  console.log('longitude:', longitude);
+
+  // existing return in findLatitudeAndLongitude
+  return {
+      seattleLat: latitude,
+      seattleLon: longitude
+  }
+```
+<!-- prettier-ignore-end -->
+
+He is surprised by the result.
+
+When the object being returned from `findLatitudeAndLongitude` is created, `latitude` and `longitude` are both `undefined`. On top of that, the logging statements print out before the success message prints out. The return is running before the API call returns!
+
 After diagramming, thinking, researching, and rubber-ducking, Raffy comes to this conclusion:
 
-- `seattleCoordinates` has undefined values because it hasn't been assigned a value yet, and JavaScript gives `undefined` when accessing `seattleCoordinates.seattleLat` and `seattleCoordinates.seattleLon`
-- `seattleCoordinates` is assigned a value from `findLatitudeAndLongitude`'s return
-- `seattleCoordinates` wasn't assigned a value because `findLatitudeAndLongitude` didn't return yet
-- Something that changes the flow of control in our code is our asynchronous API calls
+- The fields in `seattleCoordinates` have `undefined` values
+- `seattleCoordinates` is assigned the object returned from `findLatitudeAndLongitude`
+- When `findLatitudeAndLongitude` returns, the API call hasn't completed yet
+- Since the API call hasn't completed, `latitude` and `longitude` are both still `undefined` when they are used to initialize the returned object
+- Somehow, he needs to wait until after the first API call has completed to use the `latitude` and `longitude` values
+
+The asynchronous nature of the API calls means that Raffy needs to think about more than the typical program flow!
 
 ### Refactoring: Utilize `then`
 
-How can Raffy ensure that `findLocation` executes after `findLatitudeAndLongitude` finishes?
+How can Raffy ensure that `findLocation`, which needs the `latitude` and `longitude`, executes only after the API call in `findLatitudeAndLongitude` finishes?
 
 Raffy has a few options:
 
 - Re-order the code, so that the second API call happens **inside** the `then` chained to the first API call
-- Depending on our depth of knowledge in JavaScript, approach this from a different design pattern
-- Depending on different tools/libraries available, approach this from a different design pattern
+- Depending on our depth of knowledge in JavaScript, approach this from a different design perspective
+- Depending on the tools/libraries available, approach this using a different design pattern
 
-When working on a smaller JavaScript project, we can approach solving this problem by refactoring our work into the first `then` block.
+When working on a smaller JavaScript project, one way we can approach solving this problem is by refactoring our second API call into a `then` block of the first API call.
 
 Raffy could [refactor his code to this](https://replit.com/@adacore/Managing-Asynchronous-Requests):
 
 <!-- prettier-ignore-start -->
 ```js
+const axios = require('axios');
+
+const LOCATIONIQ_KEY = process.env['api_key'];
+
+const findLatitudeAndLongitude = (query) => {
+  let latitude, longitude;
+  axios.get('https://us1.locationiq.com/v1/search.php',
+  {
+    params: {
+      key: LOCATIONIQ_KEY,
+      q: 'Seattle, Washington, USA',
+      format: 'json'
+    }
+  })
+  .then( (response) => {
+    latitude = response.data[0].lat;
+    longitude = response.data[0].lon;
+    console.log('success in findLatitudeAndLongitude!', latitude, longitude);
+
+    // make the next API call here!
+    findLocation(latitude, longitude);
+  })
+  .catch( (error) => {
+    console.log('error in findLatitudeAndLongitude!');
+  });
+}
+
 const findLocation = (latitude, longitude) => {
   axios.get('https://us1.locationiq.com/v1/reverse.php',
   {
     params: {
-      key: YOUR_API_KEY,
+      key: LOCATIONIQ_KEY,
       format: 'json',
       lat: latitude,
       lon: longitude
@@ -165,29 +222,7 @@ const findLocation = (latitude, longitude) => {
   });
 }
 
-const findLocationFromLatAndLon = (query) => {
-  let latitude, longitude;
-  axios.get('https://us1.locationiq.com/v1/search.php',
-  {
-    params: {
-      key: YOUR_API_KEY,
-      q: 'Seattle, Washington, USA',
-      format: 'json'
-    }
-  })
-  .then( (response) => {
-    latitude = response.data[0].lat;
-    longitude = response.data[0].lon;
-    console.log('success in findLatitudeAndLongitude!', latitude, longitude);
-
-    findLocation(latitude, longitude);
-  })
-  .catch( (error) => {
-    console.log('error in findLatitudeAndLongitude!');
-  });
-}
-
-findLocationFromLatAndLon('Seattle, Washington, USA');
+findLatitudeAndLongitude('Seattle, Washington, USA');
 ```
 <!-- prettier-ignore-end -->
 
@@ -274,4 +309,16 @@ Which of the following most accurately describes where we print the results from
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-When we introduce other tools, libraries, and programming paradigms, we will approach this from a different angle.
+This solution successfully uses the results of one API call to make another API call, but it has a few drawbacks:
+
+- `findLatitudeAndLongitude` _does_ find the coordinates, but that's not _all_ it does. At the least, we might want to rename the function to more accurately describe what the entire chain of functionality does. In general, we might say this method now violates the Single Responsibility Principle.
+- What if we _do_ only need to get the coordinates? By calling the second method directly from inside the first, we have linked these two functions together, so it's harder to use one without the other.
+- What if there were a third operation we needed to perform using the location result that was looked up by latitude and longitude? Would we call that third method from inside the second? Would that make it difficult to keep track of what this growing chain of function calls is doing?
+
+### !callout-info
+
+## Promises, Promises
+
+There are many ways to approach situations like this. For some ideas on where to start our own research, we could look for information about "Promise chaining" or "JavaScript async await". We could also think about how we could use callback functions to help us customize the behavior here. Follow your curiosity!
+
+### !end-callout
