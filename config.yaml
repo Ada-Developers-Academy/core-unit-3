@@ -2,7 +2,7 @@
 Standards:
   -
     Title: "Algorithmic Strategies"
-    Description: "Algorithmic Strategies"
+    Description: "Divide & Conquer, Dynamic Programming"
     UID: b1ec8907
     SuccessCriteria:
       - success criteria
