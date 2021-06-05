@@ -63,7 +63,7 @@ QuickSort is a sorting algorithm which takes  a divide & conquer approach to sol
 1. Move all elements smaller than the pivot to the left and all elements larger than the piviot to the right.  Note that the pivot is now in the correct index.
 1. Perform QuickSort on the left and right sides of the pivot.
 
-![QuickSort](images/Quicksort.png)
+![QuickSort](../assets/algorithmic-strategies_algorithmic-strategies_quick-sort.png)
 
 So in terms of Divide & Conquer, you pick a pivot and move elements smaller to the left and larger to the right and you have two smaller subproblems.  Then you call quicksort on each section, which is a smaller subproblem.
 
@@ -87,7 +87,7 @@ Merge sort is a *divide-and-conquer* algorithm. It involves the following three 
 
 This is usually done by keeping track of three indices in the array: *starting index*, *ending index* and *midway index* as shown in the image below. 
 
-![Merge Sort Example](images/MergeSort.png)
+![Merge Sort Example](../assets/algorithmic-strategies_algorithmic-strategies_merge-sort.png)
 
 As you can see in the image above, in the first *divide* step, the original array of size eight gets divided into two sub-arrays of size four each. This is done by setting *starting index* to *0*, the index of the first element in the array and the *ending index* set to the index of the last element in the array. The *midway index* is then computed using the formula: 
 &nbsp;&nbsp;&nbsp;&nbsp;*midway index* = (*starting index* + *ending index*)/2
@@ -177,7 +177,7 @@ end
 
 However this is widely inefficient.  Note below for the Fibonacci of 5, how `Fibonacci(2)` is called 3 times.  `Fibonacci(1)` is called 5 times.  As `n` grows larger, this occurs more and more often.  For any n > 1, we end up making 2<sup>n</sup> method calls!  
 
-![Fibonacci of 5, note how the same subproblems are repeatably called](images/fibonacci-inefficient.png)
+![Fibonacci of 5, note how the same subproblems are repeatably called](../assets/algorithmic-strategies_algorithmic-strategies_fibonacci-inefficient.png)
 
 Instead of solving the same problems over and over again we can solve these problems by storing them  in a `memo` and using the stored subproblems to make calculating the larger problem more efficient.
 
