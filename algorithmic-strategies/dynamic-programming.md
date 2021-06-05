@@ -1,12 +1,29 @@
 # Dynamic Programming
 
-Dynamic programming is a way to optimize a recursive or iterative solution.  When we see a problem that repeatably involves solving the same problem repeatably we can optimize it by using Dynamic programming.  The key concept is to recognize subproblems we solve repeatably and store the solutions to those problems, also called _memoizing_, to use the stored solutions in solving larger problems.
+## Learning Goals
 
-Dynamic Programming is in some ways similar to Divide & Conquer.  A Dynamic Programming problem breaks the problem into subproblems and saves the solutions to those subproblems.  The key difference is that in dynamic programming the subproblems are often overlapping and stored.  In a divide and conquer problem the larger problems is divided into two non-overlapping subproblems and the solutions to each subproblem is used to solve the larger problem.
+By the end of this less you should be able to:
+
+- Explain the concept of dynamic programming
+- Explain the concept of memoization
+- Use dynamic programming to optimize programming solutions
+
+## Overview
+
+Dynamic programming is a way to optimize a recursive or iterative solution. When we see a problem that repeatably involves solving the same problem repeatably we can optimize it by using Dynamic programming. The key concept is to recognize subproblems we solve repeatably and store the solutions to those problems, also called _memoizing_, to use the stored solutions in solving larger problems.
+
+Dynamic Programming is in some ways similar to Divide & Conquer. A Dynamic Programming problem breaks the problem into subproblems and saves the solutions to those subproblems. The key difference is that in dynamic programming the subproblems are often overlapping and stored. In a divide and conquer problem the larger problems is divided into two non-overlapping subproblems and the solutions to each subproblem is used to solve the larger problem.
+
+## Terms
+
+| Term                | Definition                                                                                                                                                                  | How to Use in a Sentence |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| Dynamic Programming | The algorithmic strategy of breaking a problem down into subproblems in such a way to solve repeated subproblems and use the stored results to solve a larger problem.      |                          |
+| Memoization         | An optimization technique used primarily to speed up algorithms by storing the results of subproblems and returning the cached result when the same subproblem occur again. |                          |
 
 ## Fibonacci
 
-The classic Fibonacci sequence is inherently recursive, but also inefficient to solve in a straightforward recursive manner.  
+The classic Fibonacci sequence is inherently recursive, but also inefficient to solve in a straightforward recursive manner.
 
 In the Fibonacci sequence Fib(n):
 
@@ -26,11 +43,11 @@ def fibonacci(n)
 end
 ```
 
-However this is widely inefficient.  Note below for the Fibonacci of 5, how `Fibonacci(2)` is called 3 times.  `Fibonacci(1)` is called 5 times.  As `n` grows larger, this occurs more and more often.  For any n > 1, we end up making 2<sup>n</sup> method calls!  
+However this is widely inefficient. Note below for the Fibonacci of 5, how `Fibonacci(2)` is called 3 times. `Fibonacci(1)` is called 5 times. As `n` grows larger, this occurs more and more often. For any n > 1, we end up making 2<sup>n</sup> method calls!
 
 ![Fibonacci of 5, note how the same subproblems are repeatably called](../assets/algorithmic-strategies_dynamic-programming_fibonacci-inefficient.png)
 
-Instead of solving the same problems over and over again we can solve these problems by storing them  in a `memo` and using the stored subproblems to make calculating the larger problem more efficient.
+Instead of solving the same problems over and over again we can solve these problems by storing them in a `memo` and using the stored subproblems to make calculating the larger problem more efficient.
 
 Below we have dynamic programming solutions, both iterative & recursive.
 
@@ -70,7 +87,7 @@ def fib_helper(solutions, current, n)
 end
 ```
 
-**Question** Note how to solve Fibonacci(n) we only need Fibonacci(n-1) and Fibonacci(n-2).  Can we reduce our space complexity from O(n) to O(1).  Discuss with your neighbor how you can do so for the iterative solution.
+**Question** Note how to solve Fibonacci(n) we only need Fibonacci(n-1) and Fibonacci(n-2). Can we reduce our space complexity from O(n) to O(1). Discuss with your neighbor how you can do so for the iterative solution.
 
 ## Dynamic Programming in a Nutshell
 
@@ -88,7 +105,7 @@ This is taken from Quora's [How to explain Dynamic Programming to a 4-year-old?]
 "So you didn't need to recount because you remembered there were eight! Dynamic Programming is just a fancy way to say 'remembering stuff to save time later'"
 ```
 
-## Problem:  Longest Common Subsequence
+## Problem: Longest Common Subsequence
 
 **With your neighbor attempt to solve the following problem:**
 
@@ -100,13 +117,12 @@ If there is no common subsequence, return 0.
 
 ### Example 1:
 
+**Input:** text1 = "abcde", text2 = "ace"
 
-**Input:** text1 = "abcde", text2 = "ace" 
-
-**Output:** 3 
+**Output:** 3
 
 **Explanation:** The longest common subsequence is "ace" and its length is 3.
- 
+
 ### Example 2:
 
 **Input:** text1 = "abc", text2 = "abc"
@@ -122,4 +138,16 @@ If there is no common subsequence, return 0.
 **Output:** 0
 
 **Explanation:** There is no such common subsequence, so the result is 0.
- 
+
+## Summary
+
+Dynamic Programming is an algorithmic strategy which involves breaking down a large problem into easier-to-solve subproblems.
+
+In a Dynamic Programming approach the solved subproblems are saved for use in solving larger instances of the problem. In this manner we exchange larger space complexity for smaller time complexity.
+
+## Resources
+
+- [Geeks for Geeks: Dynamic Programming](https://www.geeksforgeeks.org/dynamic-programming/)
+- [Geeks for Geeks: Ugly Number Problem](https://www.geeksforgeeks.org/ugly-numbers/)
+- [Quora: How should I explain dynamic programming to a 4-year-old?](https://www.quora.com/How-should-I-explain-dynamic-programming-to-a-4-year-old/answer/Jonathan-Paulson)
+- [Medium: Dynamic Programming an Induction Approach](https://medium.com/@tiagot/dynamic-programming-an-induction-approach-b5c5e73c4a19)
