@@ -9,10 +9,6 @@ Standards:
     ContentFiles:
       -
         Type: Lesson
-        UID: 16bdd2a3
-        Path: /algorithmic-strategies/algorithmic-strategies.md
-      -
-        Type: Lesson
         UID: 31eb5440
         Path: /algorithmic-strategies/divide-and-conquer.md
       -
