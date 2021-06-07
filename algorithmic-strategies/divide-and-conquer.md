@@ -2,20 +2,20 @@
 
 ## Learning Goals
 
-By the end of this less you should be able to:
+By the end of this lesson we should be able to:
 
 - Explain what a divide-and-conquer solution is
 - Write some divide-and-conquer solutions
 
 ## Overview
 
-**Divide and Conquer** is an approach to problem solving that breaks down a large problem into multiple, smaller subproblems. We use the results of those sub-problems to solve the original problem.
+**Divide and Conquer** is an approach to problem solving that breaks down a large problem into multiple, smaller subproblems. We use the results of those subproblems to solve the original problem.
 
 When we write a divide-and-conquer solution we normally:
 
 1. Break the problem into subproblems of the same type
-2. Recursively solve the subproblems
-3. Combine the solved subproblems to solve the larger problem
+1. Recursively solve the subproblems
+1. Combine the solved subproblems to solve the larger problem
 
 This name is sometimes also applied to algorithms that only need to solve a single, reduced subproblem without the need to combine any results. In this case, the distinction between a general recursive algorithm, and one that might be called "divide and conquer" is largely based on how much we are able to divide the original problem at each recursive step.
 
@@ -25,8 +25,8 @@ For example, if we are working with a list and are only able to remove a single 
 
 | Term               | Definition                                                                                                                                                                                                                                                                                                             | How to Use in a Sentence                                                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Divide and Conquer | An algorithm design paradigm based on multi-branched recursion. We recursively break down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly. The solutions to the sub-problems are then combined to give a solution to the original problem. | "If multiple sub-problems can be combined to solve a larger problem, we might try to apply a divide-and-conquer solution." |
-| Pivot              | An element used in Quicksort to divide the array into two sections, one section less than the pivot and the other greater than the pivot. The choice of the pivot has enormous implications to the efficiency of QuickSort.                                                                                            | "Picking the leftmost item as the pivot causes worst-case performance for sorted arrays!"                                  |
+| Divide and Conquer | An algorithm design paradigm based on multi-branched recursion. We recursively break down a problem into two or more subproblems of the same or related type, until these become simple enough to be solved directly. The solutions to the subproblems are then combined to give a solution to the original problem. | "If multiple subproblems can be combined to solve a larger problem, we might try to apply a divide-and-conquer solution." |
+| Pivot              | An element used in QuickSort to divide the array into two sections, one section less than the pivot and the other greater than the pivot. The choice of the pivot has enormous implications to the efficiency of QuickSort.                                                                                            | "Picking the leftmost item as the pivot causes worst-case performance for sorted arrays!"                                  |
 
 ## Example: Binary Search
 
@@ -38,7 +38,7 @@ If we find the value we return the position where it was found.
 
 If we don't find the value, we determine whether it would be in the left or right half of the array by seeing whether it is smaller or larger than the middle element. Then we perform a binary search on the selected half.
 
-If at any point, we end up with an empty range, we know the value was not in the array, and we can return a result indicating the value was not found, such as `None`.
+If at any point, we end up with an empty range, we know the value was not in the array, and we can return a result indicating the value was not found, such as `None`. Other variations of binary search may return the index of where the value _should_ have been, but as a negative value to indicate that it was missing.
 
 Each recursion divides the array in half and performs the binary search on a smaller subproblem.
 
@@ -75,22 +75,22 @@ def recursive_binary_search(array, to_find, low=0, high=None):
 QuickSort is an algorithm which takes a divide-and-conquer approach to sorting an array by using the following steps:
 
 1. If the array is only one element or empty, we are done, the array is sorted.
-2. Pick an element from the array as the _pivot_.
-3. Move all elements smaller than the pivot to the left and all elements larger than the pivot to the right. Note that the pivot is now in the correct index. Picking a pivot and rearranging the elements is referred to as _partitioning_.
-4. Perform QuickSort on the left and right sides of the pivot.
+1. Pick an element from the array as the _pivot_.
+1. Move all elements smaller than the pivot to the left and all elements larger than the pivot to the right. Note that the pivot is now in the correct index. Picking a pivot and rearranging the elements is referred to as _partitioning_.
+1. Perform QuickSort on the left and right sides of the pivot.
 
-![Quicksorting the array (7, 3, 9, 1, 6, 8, 2, 5) where the pivot is chosen by taking the last element in the array. The first pivot is 5, which after rearranging gives the array (3, 1, 2, 5, 6, 8, 9, 7). The left array (3, 1, 2) and right array (6, 8, 9, 7) are quicksorted. 2 is selected as the pivot, and after rearranging, the left array becomes (1, 2, 3). The left and right arrays are (1) and (3), which are both 1 element, meaning they are sorted. Returning to (6, 8, 9, 7), 7 is picked as the pivot. After rearranging, the array becomes (6, 7, 9, 8). The left array is (6), which is sorted. The right array is (9, 8). 8 is selected as the pivot. After rearranging, the array becomes (8, 9). There is no left array, and the right is (9), which is sorted. All subarrays have been sorted, meaning the whole array is sorted, having become (1, 2, 3, 5, 6, 7, 8, 9).](../assets/algorithmic-strategies_divide-and-conquer_quick-sort.png)  
+![QuickSorting the array (7, 3, 9, 1, 6, 8, 2, 5) where the pivot is chosen by taking the last element in the array. The first pivot is 5, which after rearranging gives the array (3, 1, 2, 5, 6, 8, 9, 7). The left array (3, 1, 2) and right array (6, 8, 9, 7) are QuickSorted. 2 is selected as the pivot, and after rearranging, the left array becomes (1, 2, 3). The left and right arrays are (1) and (3), which are both 1 element, meaning they are sorted. Returning to (6, 8, 9, 7), 7 is picked as the pivot. After rearranging, the array becomes (6, 7, 9, 8). The left array is (6), which is sorted. The right array is (9, 8). 8 is selected as the pivot. After rearranging, the array becomes (8, 9). There is no left array, and the right is (9), which is sorted. All subarrays have been sorted, meaning the whole array is sorted, having become (1, 2, 3, 5, 6, 7, 8, 9).](../assets/algorithmic-strategies_divide-and-conquer_quick-sort.png)  
 _Fig. Tracing through an application of QuickSort in which the final element in a subarray is chosen as the pivot._
 
-In terms of divide and conquer, we pick a pivot and move elements smaller to the left, and larger to the right. This leaves us with two smaller subproblems: sorting the elements on the left, and those on the right. We call quicksort on each side.
+In terms of divide and conquer, we pick a pivot and move smaller elements to the left, and larger elements to the right. This leaves us with two smaller subproblems: sorting the elements on the left, and those on the right. We call QuickSort on each side.
 
-If the pivot is relatively well chosen we will divide the list `log n` times, and shift at most `n` elements with each level of division, arriving at a O(n log n) runtime.
+If the pivot is relatively well chosen we will divide the list _log n_ levels deep, and shift at most _n_ elements with each level of division, arriving at a _O(n log n)_ runtime.
 
 **Weakness of QuickSort**: The Pivot
 
-Notice however we said, **if** the pivot is well chosen. If the pivot does not break the list into two relatively equal subarrays it will not arrive at a O(n log n) runtime. Instead it will approach a O(n<sup>2</sup>) runtime.
+Notice however we said, **if** the pivot is well chosen. If the pivot does not break the list into two relatively equal subarrays it will not arrive at a _O(n log n)_ runtime. Instead it will approach a _O(n<sup>2</sup>)_ runtime.
 
-For example if with each iteration the pivot is the smallest remaining element in an array, rather than splitting the array into approximately n/2 sized pieces, instead you have one subarray of size n-1.
+For example, if with each iteration the pivot is the smallest remaining element in an array, rather than splitting the array into approximately _n/2_ sized pieces, instead we have one subarray of size _n-1_.
 
 <br />
 
@@ -126,10 +126,10 @@ def partition(array, low, high):
     # iterate over the values not including the pivot
     i = low
     while i < last:
-        # if the current value should be to the left of the pivot, swap this
-        # value to the potential pivot location and advance that location.
-        # conceptually this adds the value to the end of the smaller list and
-        # tracks the new end of this list
+        # if the current value should be to the left of the pivot, swap
+        # this value to the potential pivot location and advance that
+        # location. conceptually this adds the value to the end of the
+        # smaller list and tracks the new end of this list
         if array[i] < pivot:
             temp = array[i]
             array[i] = array[p_index]
@@ -137,9 +137,9 @@ def partition(array, low, high):
             p_index += 1
         i += 1
 
-    # swap the pivot value to the end of the smaller list. after this swap,
-    # we know that all values to the left of the pivot are smaller, and all
-    # values to the right of the pivot are greater or equal
+    # swap the pivot value to the end of the smaller list. after this
+    # swap, we know that all values to the left of the pivot are smaller,
+    # and all values to the right of the pivot are greater or equal
     temp = array[i]
     array[i] = array[p_index]
     array[p_index] = temp
@@ -157,81 +157,109 @@ There are a variety of strategies for selecting the pivot, and for how to rearra
 
 ### !end-callout
 
+## Example: Merge Sort
 
+Merge sort is another divide-and-conquer algorithm. It involves the following three stages:
 
-
-## Example: MergeSort
-
-Merge sort is a _divide-and-conquer_ algorithm. It involves the following three stages:
-
-1. **Divide** the array into two sub-arrays at each step until each sub-array is of size one.
-1. **Sort** each sub-array. (An array of size one is sorted by default.)
-1. **Merge** the sub-arrays into one array by combining two sub-arrays into one at each step.
+1. _Divide_ the array into two subarrays at each step until each subarray is of size one.
+1. _Sort_ each subarray with the merge sort algorithm. (An array of size one is sorted by default.)
+1. _Merge_ the subarrays into one array by combining two subarrays into one at each step.
 
 This is usually done by keeping track of three indices in the array: _starting index_, _ending index_ and _midway index_ as shown in the image below.
 
-![Merge Sort Example](../assets/algorithmic-strategies_divide-and-conquer_merge-sort.png)
+![Merge sort example. The list starts with the values (7, 2, 8, 1, 6, 5, 3, 9) (s=0, m=4, e=8). This is split into to lists with one having (7, 2, 8, 1) (s=0, m=2, e=4), and the other having (6, 5, 3, 9) (s=4, m=6, e=8). Each list of four values is split into two lists of 2 value, resulting in 4 total lists. (7, 2) (s=0, m=1, e=2), (8, 1) (s=2, m=3, e=4), (6, 5) (s=4, m=5, e=6), and (3, 9) (s=6, m=7, e=8). Finally, each list of two is split into two single item lists for a total of 8 single item lists. (7) (s=0, e=1), (2) (s=1, e=2), (8) (s=2, e=3), (1) (s=3, e=4), (6) (s=4, e=5), (5) (s=5, e=6), (3) (s=6, e=7), (9) (s=7, e=8). Now each array has only a single value, making it implicitly sorted. The individual subarrays are merged so that they preserve their sorted property by combining them into a temporary array, then copying the sorted values over the merged range until the entire array becomes sorted.](../assets/algorithmic-strategies_divide-and-conquer_merge-sort.png)  
+_Fig. Example run of merge sort showing the index calculations used to split and merge the arrays. Note the convention used of the end index being exclusive._
 
-As you can see in the image above, in the first _divide_ step, the original array of size eight gets divided into two sub-arrays of size four each. This is done by setting _starting index_ to _0_, the index of the first element in the array and the _ending index_ set to the index of the last element in the array. The _midway index_ is then computed using the formula:
-&nbsp;&nbsp;&nbsp;&nbsp;_midway index_ = (_starting index_ + _ending index_)/2
+As we can see in the image above, in the first _divide_ step, the original array of size eight gets divided into two subarrays of size four each. This is done by setting the _starting index_ to _0_, the index of the first element in the array, and the _ending index_ is set to one past the last element in the array, using the convention of the ending index being exclusive. The _midway index_ is then computed using the formula:
 
-For the first _divide_ step, the _midway index_ will be _(0+7)/2_ i.e. _3_ (by considering the floor of _3.5_).
-In the next _divide_ step, we have two sub-arrays, one ranging in index from _0_ to _3_ and the other ranging in index from _4_ to _7_. The sub-arrays are not yet of size one. So, the same action gets repeated to compute the _midway index_. This _divide_ stage continues until the original array of size _n_ is reduced to sub-arrays of size _1_ each.
+<div style="margin:auto;width:fit-content;">
 
-A sub-array of size one is trivially, and by default sorted.
+_midway index_ = ⌊(_starting index_ + _ending index_) / 2⌋
 
-The _merge_ stage starts by combining two sub-arrays at a time. While combining the sub-arrays containing _7_ and _2_ respectively, the values in each is compared, the smaller value i.e. _2_ is written to the lower index, and the higher value i.e. _7_ is written to the higher index. The merging process continues in this manner. An auxiliary array of size _n_ is often used to facilitate the merge steps.
+</div>
 
-Consider the two sub-arrays _[1, 2, 7, 8]_ and _[3, 5, 6, 9]_ in the final merge step in our example image above.
+Where ⌊⌋ denotes the _floor_ operator.
 
-- We start with comparing _1_ with _3_. The smaller value, _1_ gets written to the auxiliary array. (Auxiliary array: _[1]_)
-- Next, we compare _2_ with _3_. _2_ gets written to the auxiliary array. (Auxiliary array: _[1, 2]_)
-- Next, we compare _7_ with _3_. _3_ gets written to the auxiliary array. (Auxiliary array: _[1, 2, 3]_)
-- Next, we compare _7_ with _5_. _5_ gets written to the auxiliary array. (Auxiliary array: _[1, 2, 3, 5]_)
-- Next, we compare _7_ with _6_. _6_ gets written to the auxiliary array. (Auxiliary array: _[1, 2, 3, 5, 6]_)
-- Next, we compare _7_ with _9_. _7_ gets written to the auxiliary array. (Auxiliary array: _[1, 2, 3, 5, 6, 7]_)
-- Next, we compare _8_ with _9_. _8_ gets written to the auxiliary array. (Auxiliary array: _[1, 2, 3, 5, 6, 7, 8]_)
-- At this point, all elements of the first sub-array have been merged. So, all remaining elements of the second sub-array get copied over linearly to the auxiliary array. In this case, only one element is left in the second sub-array. So, _9_ gets copied over to the auxiliary array. (Auxiliary array: _[1, 2, 3, 5, 6, 7, 8, 9]_)
+For the first _divide_ step, the _midway index_ will be _(0+8)/2_ = _4_. In the next _divide_ step, we have two subarrays, one ranging in index from _0_ to _4_ and the other ranging in index from _4_ to _8_. The subarrays are not yet of size one. So, the same action gets repeated to compute the _midway index_. This _divide_ stage continues until the original array of size _n_ is reduced to subarrays of size _1_ each.
 
-This two-way merging continues until there are no more sub-arrays and the original array is completely sorted. Finally, the auxiliary array gets linearly copied back to the original array.
+A subarray of size one is trivially sorted, since there can be no elements out of place relative to the single value in the array.
 
-**Analysis:** The time complexity of merge sort is _(n log n)_. Let's look closer to understand this.
+The _merge_ stage starts by combining two subarrays at a time. While combining the subarrays containing _7_ and _2_ respectively, the value in each is compared, the smaller value i.e. _2_ is written to the lower index, and the higher value, i.e. _7_, is written to the higher index. Larger merges would continue comparing the values to be merged element by element, taking the smaller until one subarray is "empty," at which point the remainder of the other array can be copied over.
 
-- **Divide**: Finding the midway index is a straightforward computation (_midway index_ = (_starting index_ + _ending index_)/2). This takes constant time regardless of the subarray.
-- **Merge**: Merging a total of _n_ elements takes _O(n)_ time. If there are two sub-arrays of size _n/2_ each, then we will compare one element from one sub-array with another element from the second sub-array and one of the two will get copied. This step will continue until all are copied, taking a total of _O(n)_ time.
-- As the sub-problems get smaller, the number of sub-problems doubles at each level, but the merging time halves. The doubling and halving cancel each other out and so the merging takes _O(n)_ time at each level of the merge steps (as seen in the image above).
-- **Base case**: In the base case, we have sub-arrays of size _1_ and a total of _n_ subarrays. It takes _O(1)_ time to sort an array of size one. Overall, merging at base level is _O(n)_ time, just like any other level.
-- **Count of levels**: Starting with _n_ elements and reducing by half at each level, until we reach one element sized array takes _log n_ steps. Similarly, starting with sub-arrays of one element each and combining two sub-arrays at a time until we reach an array of _n_ elements also takes _log n_ steps.
-  Overall, each level takes _O(n)_ time. There are _O(log n)_ such levels. Resulting in an overall time complexity of O(n log n) for merge sort.
+An auxiliary array of size _n_ is often used to facilitate the merge steps, after which the values are copied from the auxiliary array back to the original array.
 
-Note: We will look closer at merge sort and its implementation when we discuss _Recursive algorithms_ in the future.
+The two-way merging continues until there are no more subarrays and the original array is completely sorted.
 
-For small arrays insertion sort performs better than merge sort, but as the size of the array grows merge sort becomes much more performant. There are other O(n log n) sorting algorithms, notably [Quick Sort](https://www.geeksforgeeks.org/quick-sort/), and [Heap Sort](https://medium.com/@allegranzia/heap-sort-in-ruby-acab02b57d44).
+Since merge sort always divides the list in half at each divide step, there will be _log n_ levels in the division phase. By keeping data in place, and only adjusting indices to keep track of where the subarrays are located, at each level, there are at most _n_ calculations, for a time complexity of the division phase of _O(n log n)_.
 
-## Exercise - Merging Two Sorted Arrays
+In the merge phase, there will still be _log n_ levels of mergers, and at each level of the merge, there are _n_ copies from the split arrays into the auxiliary array, and _n_ copies back into the original array, giving a total complexity for the merge phase of _O(2n log n)_.
 
-[To be worked on together in repl.it](https://repl.it/@ChrisMcAnally/MergeSortedArrays#main.rb)
+Combining the divide and merge phases, we get a total complexity of _O(3n log n)_, which after dropping the coefficient gives us _O(n log n)_.
 
-Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+<br />
 
-**Note:**
+<details>
 
-The number of elements initialized in nums1 and nums2 are m and n respectively.
+<summary>We can view an example of merge sort making use of index tracking by expanding this section.</summary>
 
-You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.
+```python
+def merge_sort(array, low=0, high=None):
+    if high is None:
+        high = len(array)
 
-**Example:**
+    # if the array has 0 or 1 elements, it's already sorted
+    if high - low <= 1:
+        return
 
-**Input:**
-nums1 = [1,2,3,0,0,0], m = 3
-nums2 = [2,5,6], n = 3
+    # find the midway point where we will divide
+    mid = (low + high) // 2
 
-**Output:**
-[1,2,2,3,5,6]
+    # apply merge sort to each half of the array
+    merge_sort(array, low, mid)
+    merge_sort(array, mid, high)
+
+    # merge the sorted left and right subarrays
+    merge(array, low, mid, high)
+
+def merge(array, low, mid, high):
+    merged = []
+    l = low
+    r = mid
+
+    # continue merging by comparison until one subarray is empty
+    while l < mid and r < high:
+        # take either the left or right value
+        if array[l] <= array[r]:
+            merged.append(array[l])
+            l += 1
+        else:
+            merged.append(array[r])
+            r += 1
+
+    # if there was data remaining in the left array take the rest
+    while l < mid:
+        merged.append(array[l])
+        l += 1
+
+    # or if there was data remaining in the right array take the rest
+    while r < high:
+        merged.append(array[r])
+        r += 1
+
+    # copy from the auxiliary array back to the main array
+    m = 0
+    l = low
+    while l < high:
+        array[l] = merged[m]
+        l += 1
+        m += 1
+```
+
+</details>
 
 ## Summary
 
-Divide & Conquer is an algorithmic strategy which involves breaking down a large problem into easier-to-solve subproblems.
+Divide and conquer is an algorithmic strategy which involves breaking down a large problem into easier-to-solve subproblems.
 
 In a divide and conquer solution we break a large problem into one or more smaller subproblems and then use the solution to the subproblems to solve the larger problem.
 
@@ -241,3 +269,24 @@ In a divide and conquer solution we break a large problem into one or more small
 - [Daniel Liang's Binary Search Animation](https://yongdanielliang.github.io/animation/web/BinarySearchNew.html)
 - [Geeks for Geeks: Python Program for QuickSort](https://www.geeksforgeeks.org/python-program-for-quicksort/)
 - [hackerearth: QuickSort Animation](https://www.hackerearth.com/practice/algorithms/sorting/quick-sort/visualize/)
+
+## Check for Understanding
+
+<!-- Question Takeaway -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: paragraph
+* id: 3f147ff7
+* title: Divide & Conquer
+##### !question
+
+What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
+
+##### !end-question
+##### !placeholder
+
+My biggest takeaway from this lesson is...
+
+##### !end-placeholder
+### !end-challenge
+<!-- prettier-ignore-end -->
