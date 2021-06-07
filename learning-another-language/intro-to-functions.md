@@ -1,5 +1,7 @@
 # Intro to Functions
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ef1f5de9-d033-400e-b5ff-ad4000f5c37f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Introduction
 
 There are _many_ ways to define functions. For now, we will dive into two ways:
