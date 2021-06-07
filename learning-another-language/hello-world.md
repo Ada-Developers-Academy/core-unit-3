@@ -252,7 +252,7 @@ True or False: We used parens `()` to invoke the function `log`.
 * title: Hello, World!
 ##### !question
 
-True or False: We used can use single-quotes and double-quotes to create string literals.
+True or False: We can use single-quotes or double-quotes to create string literals.
 
 ##### !end-question
 ##### !options
