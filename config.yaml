@@ -8,6 +8,10 @@ Standards:
       - success criteria
     ContentFiles:
       -
+        Type: Instructor
+        UID: 282c6bfa
+        Path: /algorithmic-strategies/algorithmic-strategies.instructor.md
+      -
         Type: Lesson
         UID: 31eb5440
         Path: /algorithmic-strategies/divide-and-conquer.md
