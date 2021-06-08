@@ -193,6 +193,8 @@ Implement the following three functions:
 1. `giveGreeting`, which is a reference to a function that accepts a single string parameter
 1. `name`
 
+and returns a responses as shown in the table below:
+
 | <div style="width:200px;">`giveGreeting`</div> | <div style="width:125px;">`name`</div> | Expected Return Value
 --- | --- | ---
 `giveCasualGreeting` | `'Miranda'` | `'Howdy, Miranda! I hope this letter finds you well.'`
