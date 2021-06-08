@@ -75,15 +75,16 @@ def fibonacci(n):
 
 def fibonacci_recursive(n, solutions=None):
     if solutions is None:
-        solutions = [None] * max(n + 1, 2)
-        solutions[0] = 0
-        solutions[1] = 1
+        solutions = [None] * (n + 1)
 
     if solutions[n] is not None:
         return solutions[n]
 
-    solutions[n] = (fibonacci_recursive(n - 1, solutions) +
-        fibonacci_recursive(n - 2, solutions))
+    if n == 0 or n == 1:
+        solutions[n] = n
+    else:
+        solutions[n] = (fibonacci_recursive(n - 1, solutions) +
+            fibonacci_recursive(n - 2, solutions))
 
     return solutions[n]
 ```
