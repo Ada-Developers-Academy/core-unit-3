@@ -1,5 +1,7 @@
 # Intro to Event Handling
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=fa901f7d-d360-4bea-b431-ad4100fe825f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Goals
 
 Our goal for this lesson is to introduce concepts related to event handling, so we can write event-handling code later.
