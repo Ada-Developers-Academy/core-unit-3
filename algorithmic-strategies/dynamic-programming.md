@@ -27,7 +27,7 @@ In a divide-and-conquer problem the larger problem is divided into several non-o
 | Dynamic Programming | An algorithmic strategy of breaking a problem down into subproblems that need to be calculated multiple times, allowing us to improve performance by storing results and reusing them. | "This algorithm calculates the same subproblem over and over, so let's use a dynamic-programming approach to improve the performance!" |
 | Memoization         | An optimization technique used primarily to speed up algorithms by storing the results of subproblems and returning the cached result when the same subproblem occurs again.           | "If we memoize the results of that function call, we can improve the performance if it gets called again with the same arguments."     |
 
-## Fibonacci
+## Example: Fibonacci
 
 The classic Fibonacci sequence is inherently recursive, but also inefficient to solve using the typical recursive manner.
 
@@ -54,10 +54,15 @@ _Fig. Fibonacci of 5. Notice how the same subproblems are repeatedly called!_
 
 Instead of solving the same problems over and over again we can solve these problems by storing them in a `memo` and using the stored subproblems to make calculating the larger problem more efficient.
 
-Below we have dynamic programming solutions, both iterative & recursive.
+Let's take a look at a few variations of `fibonacci` which make use of memoization to improve their performance.
+
+<br />
+
+<details>
+
+<summary>Forward iterative solution. Starts from the base cases of [0, 1] building up to the desired number.</summary>
 
 ```python
-# Iterative Solution
 def fibonacci(n):
     if n == 0 or n == 1:
         return n
@@ -70,14 +75,40 @@ def fibonacci(n):
         current += 1
 
     return solutions[n]
+```
 
-# Recursive Solution
+</details>
 
+<details>
+
+<summary>Forward recursive solution. A recursive adaptation of the forward iterative solution.</summary>
+
+```python
+def fibonacci_recursive(n, solutions=None, current=None):
+    if solutions is None:
+        solutions = [0, 1]
+        current = 2
+
+    solutions.append(solutions[current - 1] + solutions[current - 2])
+
+    if n <= current:
+        return solutions[n]
+
+    return fibonacci_recursive(n, solutions, current + 1)
+```
+
+</details>
+
+<details>
+
+<summary>Traditional recursive solution. Based on the typical branching recursive solution, but memoizes calculations as they are performed.</summary>
+
+```python
 def fibonacci_recursive(n, solutions=None):
     if solutions is None:
-        solutions = [None] * (n + 1)
+        solutions = {}
 
-    if solutions[n] is not None:
+    if n in solutions:
         return solutions[n]
 
     if n == 0 or n == 1:
@@ -89,11 +120,15 @@ def fibonacci_recursive(n, solutions=None):
     return solutions[n]
 ```
 
+</details>
+
+To really appreciate the improvements that dynamic programming can bring, we can try running `fibonacci(40)` with the original, recursive implementation and note how long this takes to run. If we then run _any_ of the versions that use dynamic-programming techniques, we should see a significant improvement!
+
 ### !callout-info
 
-## Fibonacci With O(1) Space Complexity
+## Fibonacci Challenges
 
-Notice how when solving `fibonacci(n)` we only need `fibonacci(n-1)` and `fibonacci(n-2)`. Can we reduce our space complexity from \(O(n)\) to \(O(1)\)? Think about how we can do so for the iterative solution.
+Notice how when solving `fibonacci(n)` we only need `fibonacci(n-1)` and `fibonacci(n-2)`. Using this observation, can we reduce our space complexity from \(O(n)\) to \(O(1)\) for the forward iterative solution? Would a similar approach improve the forward recursive solution?
 
 ### !end-callout
 
@@ -115,39 +150,120 @@ To paraphrase a great discussion that can be found on Quora (link in the referen
  'remembering stuff to save time later'"
 ```
 
-## Problem: Longest Common Subsequence
+## Example: Longest Common Subsequence
 
-**With your neighbor attempt to solve the following problem:**
+The longest common subsequence problem takes two strings `text1` and `text2`, and returns the length of their longest common subsequence.
 
-Given two strings `text1` and `text2`, return the length of their longest common subsequence.
-
-A subsequence of a string is a new string generated from the original string with some characters(can be none) deleted without changing the relative order of the remaining characters. (eg, "ace" is a subsequence of "abcde" while "aec" is not). A common subsequence of two strings is a subsequence that is common to both strings.
+A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters. (eg, "ace" is a subsequence of "abcde" while "aec" is not). A common subsequence of two strings is a subsequence that is common to both strings.
 
 If there is no common subsequence, return 0.
 
-### Example 1:
+| `text1`   | `text2`     | Subsequence | Length (result) |
+| --------- | ----------- | ----------- | --------------- |
+| `"abcde"` | `"ace"`     | `"ace"`     | 3               |
+| `"abcde"` | `"aqzcrue"` | `"ace"`     | 3               |
+| `"abc"`   | `"abc"`     | `"abc"`     | 3               |
+| `"abc"`   | `"def"`     | `""`        | 0               |
 
-**Input:** text1 = "abcde", text2 = "ace"
+### !callout-info
 
-**Output:** 3
+## From Genomics to Git Diffs
 
-**Explanation:** The longest common subsequence is "ace" and its length is 3.
+Variations of the longest common subsequence problem power solutions for problems ranging from gene sequence comparisons to Git diffs!
 
-### Example 2:
+### !end-callout
 
-**Input:** text1 = "abc", text2 = "abc"
+One approach we might take to solving this problem is for each position to consider the current letter in each string, and the remaining portion of each string. If the current characters match, they contribute one matched character count to our total length, plus however many matches there are in the remainders of the strings.
 
-**Output:** 3
+But maybe we can get a better alignment (a longer subsequence) if we don't take the current pair of characters as part of the subsequence. What if we advanced the first string, looking for a better place to start the match. Or what if we advanced the second string? And what if this wasn't a match in the first place? We can advance both strings. For any of these cases, the current characters don't add anything to the overall length of the subsequence. The final length would be the maximum of those three options.
 
-**Explanation:** The longest common subsequence is "abc" and its length is 3.
+And how do we find the maximum subsequence of the remaining strings? Why with recursion!
 
-### Example 3:
+![The call tree for finding the longest common subsequence for the string s"ace" and "ae". Because there are three branches at each level, it spreads very quickly. There are large repeated sections of the call tree.](../assets/algorithmic-strategies_dynamic-programming_lcs.png)  
+_Fig. If the recursive explosion of Fibonacci seemed bad, get a load of this!_
 
-**Input:** text1 = "abc", text2 = "def"
+The explosion of calls in this diagram puts Fibonacci to shame! But for small examples, like in the example table above, it can be manageable with a traditional recursive implementation.
 
-**Output:** 0
+```python
+def lcs(str1, str2):
+    if not str1 or not str2:
+        return 0
 
-**Explanation:** There is no such common subsequence, so the result is 0.
+    # split the first character from the rest
+    first1 = str1[0]
+    rest1 = str1[1:]
+    first2 = str2[0]
+    rest2 = str2[1:]
+
+    # is this spot a match?
+    if first1 == first2:
+        current_score = 1
+    else:
+        current_score = 0
+
+    # the result for this position is the max of the current score
+    # and each of the maxes from the three possibilities:
+    # 1. advance both characters (adding to score if a match)
+    # 2. advance only the first character
+    # 3. advance only the second character
+    result = max(
+        current_score + lcs(rest1, rest2),
+        lcs(rest1, str2),
+        lcs(str1, rest2)
+    )
+
+    return result
+```
+
+But increasing the input size can slow things down quickly! Consider calculating the longest common subsequence for `"tagacgttagtc"` and `"qaqaqgqtqgqc"`. The traditional recursive solution will take a noticeable amount of time.
+
+From the example call diagram, if we notice that there are many repeated sub-trees, we might think about applying dynamic programming practices to reuse these calculations.
+
+To add memoization to the Fibonacci algorithm, we only had to check whether a single value had been calculated before. But for the longest common subsequence we need to look up a result based on two inputs.
+
+<br />
+
+<details>
+
+<summary>Think about how we might accomplish this, and then click here to review a possible solution.</summary>
+
+```python
+def lcs(str1, str2, memo=None):
+    if not str1 or not str2:
+        return 0
+
+    # initialize the memo or lookup the current values
+    if memo is None:
+        memo = {}
+    elif str1 not in memo:
+        memo[str1] = {}
+    elif str2 in memo[str1]:
+        return memo[str1][str2]
+
+
+    first1 = str1[0]
+    rest1 = str1[1:]
+    first2 = str2[0]
+    rest2 = str2[1:]
+
+    if first1 == first2:
+        current_score = 1
+    else:
+        current_score = 0
+
+    result = max(
+        current_score + lcs(rest1, rest2, memo),
+        lcs(rest1, str2, memo),
+        lcs(str1, rest2, memo)
+    )
+
+    # store this calculation for later
+    memo[str1][str2] = result
+
+    return result
+```
+
+</details>
 
 ## Summary
 
