@@ -52,7 +52,7 @@ However this is wildly inefficient. Note below for the Fibonacci of 5, how `fibo
 ![fibonacci(5) calls fibonacci(4)(a) and fibonacci(3)(b). fibonacci(4)(a) calls fibonacci(3)(c) and fibonacci(2)(d). fibonacci(3)(c) calls fibonacci(2)(e) and fibonacci(1)(f). fibonacci(2)(e) calls fibonacci(1)(g) and fibonacci(0)(h). fibonacci(2)(d) calls fibonacci(1)(i) and fibonacci(0)(j). fibonacci(3)(b) calls fibonacci(2)(k) and fibonacci(1)(l). fibonacci(2)(k) calls fibonacci(1)(m) and fibonacci(0)(n).](../assets/algorithmic-strategies_dynamic-programming_fibonacci-inefficient.png)  
 _Fig. Fibonacci of 5. Notice how the same subproblems are repeatedly called!_
 
-Instead of solving the same problems over and over again we can solve these problems by storing them in a `memo` and using the stored subproblems to make calculating the larger problem more efficient.
+Instead of solving the same problems over and over again we can solve these problems by storing them in a _memo_ and using the stored subproblems to make calculating the larger problem more efficient.
 
 Let's take a look at a few variations of `fibonacci` which make use of memoization to improve their performance.
 
@@ -146,24 +146,25 @@ To paraphrase a great discussion that can be found on Quora (link in the referen
 "How'd you know it was nine so fast?"
 "You just wrote one more"
 "So you didn't need to recount because you remembered there were eight!
- Dynamic programming is just a fancy way to say:
- 'remembering stuff to save time later'"
+  Dynamic programming is just a fancy way to say:
+  'remembering stuff to save time later'"
 ```
 
 ## Example: Longest Common Subsequence
 
-The longest common subsequence problem takes two strings `text1` and `text2`, and returns the length of their longest common subsequence.
+The longest common subsequence problem takes two strings `str1` and `str2`, and returns the length of their longest common subsequence.
 
 A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters. (eg, "ace" is a subsequence of "abcde" while "aec" is not). A common subsequence of two strings is a subsequence that is common to both strings.
 
 If there is no common subsequence, return 0.
 
-| `text1`   | `text2`     | Subsequence | Length (result) |
+| `str1`    | `str2`      | Subsequence | Length (result) |
 | --------- | ----------- | ----------- | --------------- |
 | `"abcde"` | `"ace"`     | `"ace"`     | 3               |
-| `"abcde"` | `"aqzcrue"` | `"ace"`     | 3               |
+| `"abcde"` | `"aqzcrwe"` | `"ace"`     | 3               |
 | `"abc"`   | `"abc"`     | `"abc"`     | 3               |
 | `"abc"`   | `"def"`     | `""`        | 0               |
+| `"abc"`   | `""`        | `""`        | 0               |
 
 ### !callout-info
 
@@ -173,14 +174,14 @@ Variations of the longest common subsequence problem power solutions for problem
 
 ### !end-callout
 
-One approach we might take to solving this problem is for each position to consider the current letter in each string, and the remaining portion of each string. If the current characters match, they contribute one matched character count to our total length, plus however many matches there are in the remainders of the strings.
+One approach we might take to solve this problem is at each position, to consider the current letter in each string and the remaining portion of each string. If the current characters match, they contribute one matched character count to our total length, plus however many matches there are in the remainders of the strings.
 
 But maybe we can get a better alignment (a longer subsequence) if we don't take the current pair of characters as part of the subsequence. What if we advanced the first string, looking for a better place to start the match. Or what if we advanced the second string? And what if this wasn't a match in the first place? We can advance both strings. For any of these cases, the current characters don't add anything to the overall length of the subsequence. The final length would be the maximum of those three options.
 
 And how do we find the maximum subsequence of the remaining strings? Why with recursion!
 
-![The call tree for finding the longest common subsequence for the string s"ace" and "ae". Because there are three branches at each level, it spreads very quickly. There are large repeated sections of the call tree.](../assets/algorithmic-strategies_dynamic-programming_lcs.png)  
-_Fig. If the recursive explosion of Fibonacci seemed bad, get a load of this!_
+![The call tree for finding the longest common subsequence for the strings "ace" and "ae". Because there are three branches at each level, it spreads very quickly. There are large repeated sections of the call tree.](../assets/algorithmic-strategies_dynamic-programming_lcs.png)  
+_Fig. If the recursive explosion of Fibonacci seemed bad, get a load of this! Crossed-out nodes indicate calls that result in a 0 length due to at least one of the input strings being empty. The numbers indicate the maximum value being returned back from a particular branch of execution. Repeated regions are outlined in yellow._
 
 The explosion of calls in this diagram puts Fibonacci to shame! But for small examples, like in the example table above, it can be manageable with a traditional recursive implementation.
 
@@ -217,7 +218,7 @@ def lcs(str1, str2):
 
 But increasing the input size can slow things down quickly! Consider calculating the longest common subsequence for `"tagacgttagtc"` and `"qaqaqgqtqgqc"`. The traditional recursive solution will take a noticeable amount of time.
 
-From the example call diagram, if we notice that there are many repeated sub-trees, we might think about applying dynamic programming practices to reuse these calculations.
+From the example call diagram, if we notice that there are many repeated sub-trees (especially the calls to `lcs("ce", "e")`, outlined in yellow), we might think about applying dynamic programming practices to reuse these calculations.
 
 To add memoization to the Fibonacci algorithm, we only had to check whether a single value had been calculated before. But for the longest common subsequence we need to look up a result based on two inputs.
 
@@ -225,9 +226,10 @@ To add memoization to the Fibonacci algorithm, we only had to check whether a si
 
 <details>
 
-<summary>Think about how we might accomplish this, and then click here to review a possible solution.</summary>
+<summary>Think about how we might accomplish this, and then click here to review a possible solution. Comments are included to indicate the newly added code.</summary>
 
 ```python
+# include a parameter to receive the memo
 def lcs(str1, str2, memo=None):
     if not str1 or not str2:
         return 0
@@ -240,7 +242,6 @@ def lcs(str1, str2, memo=None):
     elif str2 in memo[str1]:
         return memo[str1][str2]
 
-
     first1 = str1[0]
     rest1 = str1[1:]
     first2 = str2[0]
@@ -252,6 +253,7 @@ def lcs(str1, str2, memo=None):
         current_score = 0
 
     result = max(
+        # include the memo in the recursive calls
         current_score + lcs(rest1, rest2, memo),
         lcs(rest1, str2, memo),
         lcs(str1, rest2, memo)
@@ -277,3 +279,24 @@ In a dynamic-programming approach, the solved subproblems are saved for use in s
 - [Geeks for Geeks: Ugly Number Problem](https://www.geeksforgeeks.org/ugly-numbers/)
 - [Quora: How should I explain dynamic programming to a 4-year-old?](https://www.quora.com/How-should-I-explain-dynamic-programming-to-a-4-year-old/answer/Jonathan-Paulson)
 - [Medium: Dynamic Programming an Induction Approach](https://medium.com/@tiagot/dynamic-programming-an-induction-approach-b5c5e73c4a19)
+
+## Check for Understanding
+
+<!-- Question Takeaway -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: paragraph
+* id: 78c6c09f
+* title: Dynamic Programming
+##### !question
+
+What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
+
+##### !end-question
+##### !placeholder
+
+My biggest takeaway from this lesson is...
+
+##### !end-placeholder
+### !end-challenge
+<!-- prettier-ignore-end -->
