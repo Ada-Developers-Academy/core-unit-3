@@ -304,3 +304,38 @@ Standards:
         Type: Lesson
         UID: af9932f5
         Path: /calling-apis/problem-set-requests-with-js.md
+  -
+    Title: React Components
+    Description: "Intro to React JS; Hello, World!; JSX; Components; Styling Components; Problem Set: Recreating Components"
+    UID: 2b07c4b3
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Instructor
+        UID: 536fdd9e
+        Path: /react-components/react-components.instructor.md
+      -
+        Type: Lesson
+        UID: 2a9c8e05
+        Path: /react-components/intro-to-react-js.md
+      -
+        Type: Lesson
+        UID: 5991512b
+        Path: /react-components/hello-world.md
+      -
+        Type: Lesson
+        UID: a931c8b5
+        Path: /react-components/jsx.md
+      -
+        Type: Lesson
+        UID: bb4d023f
+        Path: /react-components/components.md
+      -
+        Type: Lesson
+        UID: 794e8d8d
+        Path: /react-components/styling-components.md
+      -
+        Type: Lesson
+        UID: 29fee3f1
+        Path: /react-components/problem-set-recreating-components.md
