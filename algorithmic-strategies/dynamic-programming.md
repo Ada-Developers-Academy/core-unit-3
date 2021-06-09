@@ -10,7 +10,7 @@ By the end of this lesson we should be able to:
 
 ## Overview
 
-**Dynamic Programming** is a way to optimize both recursive and iterative solution. When we see a problem that repeatedly involves solving the same problem, we can optimize it by using dynamic programming.
+**Dynamic Programming** is a way to optimize both recursive and iterative solutions. When we see a problem that repeatedly involves solving the same problem, we can optimize it by using dynamic programming.
 
 The key concept of dynamic programming is to recognize subproblems we solve again and again, and store the solutions to those problems, called _memoizing_. Then we use the stored solutions to help solve the larger problems.
 
