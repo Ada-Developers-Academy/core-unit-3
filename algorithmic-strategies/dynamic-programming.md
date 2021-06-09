@@ -184,11 +184,6 @@ But maybe we can get a better alignment (a longer subsequence) if we don't take 
 
 And how do we find the maximum subsequence of the remaining strings? Why with recursion!
 
-![The call tree for finding the longest common subsequence for the strings "ace" and "ae". Because there are three branches at each level, it spreads very quickly. There are large repeated sections of the call tree.](../assets/algorithmic-strategies_dynamic-programming_lcs.png)  
-_Fig. If the recursive explosion of Fibonacci seemed bad, get a load of this! Crossed-out nodes indicate calls that result in a 0 length due to at least one of the input strings being empty. The numbers indicate the maximum value being returned back from a particular branch of execution. Repeated regions are outlined in yellow._
-
-The explosion of calls in this diagram puts Fibonacci to shame! But for small examples, like in the example table above, it can be manageable with a recursive implementation like the following:
-
 ```python
 def lcs(str1, str2):
     if not str1 or not str2:
@@ -219,6 +214,13 @@ def lcs(str1, str2):
 
     return result
 ```
+
+And let's visualize this solution in a diagram. In this example, we're finding the longest common subsequence for the strings "ace" and "ae." When we illustrate the number of function calls needed, we see there are _a lot_.
+
+![The call tree for finding the longest common subsequence for the strings "ace" and "ae". Because there are three branches at each level, it spreads very quickly. There are large repeated sections of the call tree.](../assets/algorithmic-strategies_dynamic-programming_lcs.png)  
+_Fig. If the recursive explosion of Fibonacci seemed bad, get a load of this! Crossed-out nodes indicate calls that result in a 0 length due to at least one of the input strings being empty. The numbers indicate the maximum value being returned back from a particular branch of execution. Repeated regions are outlined in yellow._
+
+The explosion of calls in this diagram puts Fibonacci to shame! But for small examples, like in the example table above, this recursive implementation might be manageable.
 
 But increasing the input size by even a little bit can slow things down significantly! If we try using the strings `"tagacgttagtc"` and `"qaqaqgqtqgqc"` as input to our current implementation, even though they are only 12 characters long each, it will take a noticeable amount of time to run! What if we were using this to align genes, which can often span tens of thousands of characters?
 
