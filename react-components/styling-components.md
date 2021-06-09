@@ -103,7 +103,7 @@ export default StudentList;
 
 We see our CSS is applied, just by importing the CSS file!
 
-![](../assets/react-components/styling-components_red-boxes.png)
+![](../assets/react-components_styling-components_red-boxes.png)
 
 ### Using `class`/`className`
 
@@ -118,7 +118,7 @@ h2 {
 }
 ```
 
-![](../assets/react-components/styling-components_element-selector.png)
+![](../assets/react-components_styling-components_element-selector.png)
 
 However, there is one exception: in order to set the `class` attribute to any element in JSX, we must use the attribute `className`.
 
@@ -156,7 +156,7 @@ And create CSS rule-sets that select those classes:
 
 We can even check our browser Dev Tools and inspect the rendered HTML. The `className` attribute defined in JSX has turned into the `class` attribute in rendered HTML.
 
-![](../assets/react-components/styling-components_classname-render.png)
+![](../assets/react-components_styling-components_classname-render.png)
 
 ## More CSS
 

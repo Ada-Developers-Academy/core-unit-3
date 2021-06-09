@@ -19,7 +19,7 @@ Consider a social media website, such as [Reddit.com](https://www.reddit.com/r/r
 - Handle the buttons to "join" those communities
 - Display and handle the UI to create a new post
 
-![](../assets/react-components/intro-to-react-js_reddit.png)
+![](../assets/react-components_intro-to-react-js_reddit.png)
 
 Imagine creating all of this functionality using HTML and vanilla JavaScript. It wouldn't be impossible, but our resulting code is probably:
 

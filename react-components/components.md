@@ -253,11 +253,11 @@ Sofia can verify that her `App` and `StudentList` components are rendered succes
 
 Success! Sofia successfully renders both the `App` and `StudentList` components once.
 
-![](../assets/react-components/components_first-render.png)
+![](../assets/react-components_components_first-render.png)
 
 Let's check what the rendered HTML ultimately looks like using browser Dev Tools.
 
-![](../assets/react-components/components_first-render-dev-tools.png)
+![](../assets/react-components_components_first-render-dev-tools.png)
 
 ```html
 <div id="root">
@@ -300,9 +300,9 @@ export default App;
 
 With this code, `localhost:3000` will display `StudentList` twice.
 
-![](../assets/react-components/components_render-component-twice.png)
+![](../assets/react-components_components_render-component-twice.png)
 
-![](../assets/react-components/components_render-component-twice-dev-tools.png)
+![](../assets/react-components_components_render-component-twice-dev-tools.png)
 
 ## A Second Component: `ClassInfo`
 
@@ -372,7 +372,7 @@ export default App;
 
 Her webapp now looks like this:
 
-![](../assets/react-components/components_render-classinfo.png)
+![](../assets/react-components_components_render-classinfo.png)
 
 ## Check for Understanding
 

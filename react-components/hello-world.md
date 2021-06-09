@@ -66,7 +66,7 @@ By default, our front-end is viewable at `localhost:3000`.
 
 Every time we make a change in a file and save it, our server will detect changes and then reload the app immediately.
 
-![](../assets/react-components/hello-world-landing.png)
+![](../assets/react-components_hello-world-landing.png)
 
 <!-- Question 1 -->
 <!-- prettier-ignore-start -->

@@ -18,7 +18,7 @@ There is no submission for this problem set. Be prepared to share your work in s
 
 Create a simplified version of the GitHub landing page using React components.
 
-![](../assets/react-components/problem-set_recreating-components_landing.png)
+![](../assets/react-components_problem-set-recreating-components_landing.png)
 
 You _must_ create the following components with these names:
 
@@ -58,7 +58,7 @@ For this exercise, creating the components with the correct content and renderin
 
 ### `NavigationBar`
 
-![](../assets/react-components/problem-set_recreating-components_navigationbar.png)
+![](../assets/react-components_problem-set-recreating-components_navigationbar.png)
 
 This component should list the following navigation items:
 
@@ -75,7 +75,7 @@ Components can be small! This component should include a text input field with t
 
 ### `LoginControls`
 
-![](../assets/react-components/problem-set_recreating-components_logincontrols.png)
+![](../assets/react-components_problem-set-recreating-components_logincontrols.png)
 
 This component should include these links:
 
@@ -84,7 +84,7 @@ This component should include these links:
 
 ### `HeroSection`
 
-![](../assets/react-components/problem-set_recreating-components_herosection.png)
+![](../assets/react-components_problem-set-recreating-components_herosection.png)
 
 This component should include the following text:
 
@@ -93,7 +93,7 @@ This component should include the following text:
 
 ### `NewsletterForm`
 
-![](../assets/react-components/problem-set_recreating-components_newsletterform.png)
+![](../assets/react-components_problem-set-recreating-components_newsletterform.png)
 
 This component should include:
 
@@ -102,7 +102,7 @@ This component should include:
 
 ### `StatsBar`
 
-![](../assets/react-components/problem-set_recreating-components_statsbar.png)
+![](../assets/react-components_problem-set-recreating-components_statsbar.png)
 
 This component should include the following text:
 
