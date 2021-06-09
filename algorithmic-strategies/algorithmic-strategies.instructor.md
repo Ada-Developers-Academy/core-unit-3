@@ -62,7 +62,7 @@ It turns out this style of memoization is so common, that python has a decorator
 import functools
 
 @functools.cache
-def lcs(str1, str2, memo=None):
+def lcs(str1, str2):
     if not str1 or not str2:
         return 0
 
