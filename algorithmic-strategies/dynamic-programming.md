@@ -2,10 +2,8 @@
 
 ## Learning Goals
 
-By the end of this lesson we should be able to:
-
-- Explain the concept of dynamic programming
-- Explain the concept of memoization
+- Define dynamic programming
+- Define memoization
 - Use dynamic programming to optimize programming solutions
 
 ## Overview
@@ -29,15 +27,15 @@ In a divide-and-conquer problem the larger problem is divided into several non-o
 
 ## Example: Fibonacci
 
-The classic Fibonacci sequence is inherently recursive, but also inefficient to solve using the typical recursive manner.
+Let's consider how to create a solution for the Fibonacci sequence that uses dynamic programming.
 
-In the Fibonacci sequence `fibonacci(n)`:
+Let's recall what the Fibonacci sequence is `fibonacci(n)`:
 
 `fibonacci(0)` = 0, for \(n = 0\)  
 `fibonacci(1)` = 1, for \(n = 1\)  
 `fibonacci(n)` = `fibonacci(n-1)` + `fibonacci(n-2)`, for \(n > 1\)
 
-We could code the Fibonacci sequence as follows:
+We _could_ code the Fibonacci sequence with a recursive solution as follows:
 
 ```python
 def fibonacci(n):
@@ -47,20 +45,24 @@ def fibonacci(n):
     return fibonacci(n - 1) + fibonacci(n - 2)
 ```
 
-However this is wildly inefficient. Note below for the Fibonacci of 5, how `fibonacci(2)` is called 3 times, and `fibonacci(1)` is called 5 times. As \(n\) grows larger, this will occur more and more often. For any \(n > 1\), we end up making \(2^n\) method calls!
+However this is wildly inefficient!
 
 ![fibonacci(5) calls fibonacci(4)(a) and fibonacci(3)(b). fibonacci(4)(a) calls fibonacci(3)(c) and fibonacci(2)(d). fibonacci(3)(c) calls fibonacci(2)(e) and fibonacci(1)(f). fibonacci(2)(e) calls fibonacci(1)(g) and fibonacci(0)(h). fibonacci(2)(d) calls fibonacci(1)(i) and fibonacci(0)(j). fibonacci(3)(b) calls fibonacci(2)(k) and fibonacci(1)(l). fibonacci(2)(k) calls fibonacci(1)(m) and fibonacci(0)(n).](../assets/algorithmic-strategies_dynamic-programming_fibonacci-inefficient.png)  
 _Fig. Fibonacci of 5. Notice how the same subproblems are repeatedly called!_
+
+For the Fibonacci of 5, how `fibonacci(2)` is called 3 times, and `fibonacci(1)` is called 5 times. As \(n\) grows larger, this will occur more and more often. For any \(n > 1\), we end up making \(2^n\) method calls!
 
 Instead of solving the same problems over and over again we can solve these problems by storing them in a _memo_ and using the stored subproblems to make calculating the larger problem more efficient.
 
 Let's take a look at a few variations of `fibonacci` which make use of memoization to improve their performance.
 
+All of these solutions _memoize_ results by storing different in-progress solutions in a collection named `solutions`. By storing them for later use, we avoid performing identical sub-calculations, since we can instead simply look them up!
+
 <br />
 
 <details>
 
-<summary>Forward iterative solution. Starts from the base cases of [0, 1] building up to the desired number.</summary>
+<summary>Iterative solution. Starts from the base cases of [0, 1] building up to the desired number.</summary>
 
 ```python
 def fibonacci(n):
@@ -81,7 +83,7 @@ def fibonacci(n):
 
 <details>
 
-<summary>Forward recursive solution. A recursive adaptation of the forward iterative solution.</summary>
+<summary>Recursive solution. A recursive adaptation of the iterative solution.</summary>
 
 ```python
 def fibonacci_recursive(n, solutions=None, current=None):
@@ -101,7 +103,7 @@ def fibonacci_recursive(n, solutions=None, current=None):
 
 <details>
 
-<summary>Traditional recursive solution. Based on the typical branching recursive solution, but memoizes calculations as they are performed.</summary>
+<summary>"Fixed" recursive solution. Based on the inefficient initial recursive solution, but memoizes calculations as they are performed. Notice how similar this implementation is to that initial version. The addition of memoization preserves the core of the original logic, but improves the performance significantly!</summary>
 
 ```python
 def fibonacci_recursive(n, solutions=None):
@@ -128,7 +130,7 @@ To really appreciate the improvements that dynamic programming can bring, we can
 
 ## Fibonacci Challenges
 
-Notice how when solving `fibonacci(n)` we only need `fibonacci(n-1)` and `fibonacci(n-2)`. Using this observation, can we reduce our space complexity from \(O(n)\) to \(O(1)\) for the forward iterative solution? Would a similar approach improve the forward recursive solution?
+Notice how when solving `fibonacci(n)`, the only solutions we need are `fibonacci(n-1)` and `fibonacci(n-2)`. Using this observation, can we reduce our space complexity from \(O(n)\) to \(O(1)\) for the iterative solution? Are we able to apply this strategy to the recursive version of that solution?
 
 ### !end-callout
 
@@ -152,7 +154,9 @@ To paraphrase a great discussion that can be found on Quora (link in the referen
 
 ## Example: Longest Common Subsequence
 
-The longest common subsequence problem takes two strings `str1` and `str2`, and returns the length of their longest common subsequence.
+Let's create a function named `lcs`, which stands for "longest common subsequence."
+
+This function takes two strings `str1` and `str2`, and returns the length of their longest common subsequence.
 
 A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters. (eg, "ace" is a subsequence of "abcde" while "aec" is not). A common subsequence of two strings is a subsequence that is common to both strings.
 
@@ -170,7 +174,7 @@ If there is no common subsequence, return 0.
 
 ## From Genomics to Git Diffs
 
-Variations of the longest common subsequence problem power solutions for problems ranging from gene sequence comparisons to Git diffs!
+The longest common subsequence problem is relevant to a lot of different subjects, such as comparing gene sequences, or even creating Git diffs!
 
 ### !end-callout
 
@@ -183,7 +187,7 @@ And how do we find the maximum subsequence of the remaining strings? Why with re
 ![The call tree for finding the longest common subsequence for the strings "ace" and "ae". Because there are three branches at each level, it spreads very quickly. There are large repeated sections of the call tree.](../assets/algorithmic-strategies_dynamic-programming_lcs.png)  
 _Fig. If the recursive explosion of Fibonacci seemed bad, get a load of this! Crossed-out nodes indicate calls that result in a 0 length due to at least one of the input strings being empty. The numbers indicate the maximum value being returned back from a particular branch of execution. Repeated regions are outlined in yellow._
 
-The explosion of calls in this diagram puts Fibonacci to shame! But for small examples, like in the example table above, it can be manageable with a traditional recursive implementation.
+The explosion of calls in this diagram puts Fibonacci to shame! But for small examples, like in the example table above, it can be manageable with a recursive implementation like the following:
 
 ```python
 def lcs(str1, str2):
@@ -216,7 +220,7 @@ def lcs(str1, str2):
     return result
 ```
 
-But increasing the input size can slow things down quickly! Consider calculating the longest common subsequence for `"tagacgttagtc"` and `"qaqaqgqtqgqc"`. The traditional recursive solution will take a noticeable amount of time.
+But increasing the input size by even a little bit can slow things down significantly! If we try using the strings `"tagacgttagtc"` and `"qaqaqgqtqgqc"` as input to our current implementation, even though they are only 12 characters long each, it will take a noticeable amount of time to run! What if we were using this to align genes, which can often span tens of thousands of characters?
 
 From the example call diagram, if we notice that there are many repeated sub-trees (especially the calls to `lcs("ce", "e")`, outlined in yellow), we might think about applying dynamic programming practices to reuse these calculations.
 
@@ -226,7 +230,7 @@ To add memoization to the Fibonacci algorithm, we only had to check whether a si
 
 <details>
 
-<summary>Think about how we might accomplish this, and then click here to review a possible solution. Comments are included to indicate the newly added code.</summary>
+<summary>Consider how we might accomplish this. Then click here to review a possible solution. Comments are included to indicate the newly added code.</summary>
 
 ```python
 # include a parameter to receive the memo
