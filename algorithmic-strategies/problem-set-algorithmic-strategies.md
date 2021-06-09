@@ -230,7 +230,7 @@ class TestZeroOneKnapsack(unittest.TestCase):
 ### !hint
 
 - What data coming into the function call can be used to uniquely mark _this_ function call? The weights? The values? The max weight? Are any of these redundant?
-- If multiple pieces of data are required, how can use those as keys into our memoized data? Can we use multi-dimensional storage? Is there a way to pack multiple pieces of data into a single piece of data?
+- If multiple pieces of data are required, how can we use those as keys into our memoized data? Can we use multi-dimensional storage? Is there a way to pack multiple pieces of data into a single piece of data?
 - If any of the data we would like to use as keys is mutable, can that be used? Is there a way to convert it to immutable data?
 
 <br />
