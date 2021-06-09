@@ -25,6 +25,24 @@ In a divide-and-conquer problem the larger problem is divided into several non-o
 | Dynamic Programming | An algorithmic strategy of breaking a problem down into subproblems that need to be calculated multiple times, allowing us to improve performance by storing results and reusing them. | "This algorithm calculates the same subproblem over and over, so let's use a dynamic-programming approach to improve the performance!" |
 | Memoization         | An optimization technique used primarily to speed up algorithms by storing the results of subproblems and returning the cached result when the same subproblem occurs again.           | "If we memoize the results of that function call, we can improve the performance if it gets called again with the same arguments."     |
 
+## Dynamic Programming in a Nutshell
+
+To paraphrase a great discussion that can be found on Quora (link in the references), here's a concise way to think about dynamic programming.
+
+```
+*writes down "11111111" on a sheet of paper*
+"How many 1s are there?"
+*counting* "Eight!"
+*writes down another "1"*
+"How about now?"
+*quickly* "Nine!"
+"How'd you know it was nine so fast?"
+"You just wrote one more"
+"So you didn't need to recount because you remembered there were eight!
+  Dynamic programming is just a fancy way to say:
+  'remembering stuff to save time later'"
+```
+
 ## Example: Fibonacci
 
 Let's consider how to create a solution for the Fibonacci sequence that uses dynamic programming.
@@ -50,7 +68,7 @@ However this is wildly inefficient!
 ![fibonacci(5) calls fibonacci(4)(a) and fibonacci(3)(b). fibonacci(4)(a) calls fibonacci(3)(c) and fibonacci(2)(d). fibonacci(3)(c) calls fibonacci(2)(e) and fibonacci(1)(f). fibonacci(2)(e) calls fibonacci(1)(g) and fibonacci(0)(h). fibonacci(2)(d) calls fibonacci(1)(i) and fibonacci(0)(j). fibonacci(3)(b) calls fibonacci(2)(k) and fibonacci(1)(l). fibonacci(2)(k) calls fibonacci(1)(m) and fibonacci(0)(n).](../assets/algorithmic-strategies_dynamic-programming_fibonacci-inefficient.png)  
 _Fig. Fibonacci of 5. Notice how the same subproblems are repeatedly called!_
 
-For the Fibonacci of 5, how `fibonacci(2)` is called 3 times, and `fibonacci(1)` is called 5 times. As \(n\) grows larger, this will occur more and more often. For any \(n > 1\), we end up making \(2^n\) method calls!
+For the Fibonacci of 5, `fibonacci(2)` is called 3 times, and `fibonacci(1)` is called 5 times. As \(n\) grows larger, this will occur more and more often. For any \(n > 1\), we end up making \(2^n\) method calls!
 
 Instead of solving the same problems over and over again we can solve these problems by storing them in a _memo_ and using the stored subproblems to make calculating the larger problem more efficient.
 
@@ -133,24 +151,6 @@ To really appreciate the improvements that dynamic programming can bring, we can
 Notice how when solving `fibonacci(n)`, the only solutions we need are `fibonacci(n-1)` and `fibonacci(n-2)`. Using this observation, can we reduce our space complexity from \(O(n)\) to \(O(1)\) for the iterative solution? Are we able to apply this strategy to the recursive version of that solution?
 
 ### !end-callout
-
-## Dynamic Programming in a Nutshell
-
-To paraphrase a great discussion that can be found on Quora (link in the references), here's a concise way to think about dynamic programming.
-
-```
-*writes down "11111111" on a sheet of paper*
-"How many 1s are there?"
-*counting* "Eight!"
-*writes down another "1"*
-"How about now?"
-*quickly* "Nine!"
-"How'd you know it was nine so fast?"
-"You just wrote one more"
-"So you didn't need to recount because you remembered there were eight!
-  Dynamic programming is just a fancy way to say:
-  'remembering stuff to save time later'"
-```
 
 ## Example: Longest Common Subsequence
 
