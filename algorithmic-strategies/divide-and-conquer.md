@@ -1,23 +1,29 @@
-# Divide & Conquer
+# Divide and Conquer
 
-## Learning Goals
+## Goals
 
-By the end of this lesson we should be able to:
+As developers, we need as many tools to solve problems as possible.
 
-- Explain what a divide-and-conquer solution is
-- Write some divide-and-conquer solutions
+When we understand the _kind_ of solution or algorithm we are using or can use, we can more easily read and understand it.
+
+There are a number of solutions and algorithms classified as using the divide-and-conquer approach. Learning about divide-and-conquer approaches will:
+
+- Help us identify divide and conquer algorithms
+- Help us think about, design, and write divide and conquer solutions
 
 ## Overview
 
 **Divide and Conquer** is an approach to problem solving that breaks down a large problem into multiple, smaller subproblems. We use the results of those subproblems to solve the original problem.
 
-When we write a divide-and-conquer solution we normally:
+When we write a divide-and-conquer solution we can follow these steps:
 
 1. Break the problem into subproblems of the same type
 1. Recursively solve the subproblems
 1. Combine the solved subproblems to solve the larger problem
 
-This name is sometimes also applied to algorithms that only need to solve a single, reduced subproblem without the need to combine any results. In this case, the distinction between a general recursive algorithm, and one that might be called "divide and conquer" is largely based on how much we are able to divide the original problem at each recursive step.
+This name is sometimes applied to algorithms that only need to solve a single, reduced subproblem without the need to combine any results.
+
+This sounds very similar to a recursive algorithm! In this case, the distinction between a general recursive algorithm, and one that might be called "divide and conquer," is largely based on how much we're able to divide the original problem at each recursive step.
 
 For example, if we are working with a list and are only able to remove a single element at each recursive step, we are unlikely to call such a solution a divide-and-conquer algorithm. But if at each recursive step we can reduce the size of the list by half, we might call that solution a divide-and-conquer algorithm.
 
@@ -32,15 +38,13 @@ For example, if we are working with a list and are only able to remove a single 
 
 Binary search can be considered a divide-and-conquer algorithm.
 
-Starting with a sorted array, we check whether it contains a particular value by comparing the search value with the element in the middle of the array.
+Here's a description of the binary search algorithm:
 
-If we find the value we return the position where it was found.
-
-If we don't find the value, we determine whether it would be in the left or right half of the array by seeing whether it is smaller or larger than the middle element. Remember, we can make this decision because _we assume the array is sorted!_ Then we perform a binary search on the selected half.
-
-If at any point, we end up with an empty range, we know the value was not in the array, and we can return a result indicating the value was not found, such as `None`. Other variations of binary search may return the index of where the value _should_ have been, but as a negative value to indicate that it was missing.
-
-Each recursion divides the array in half and performs the binary search on a smaller subproblem.
+1. Starting with a sorted array, we check whether it contains a particular value by comparing the search value with the element in the middle of the array.
+1. If we find the value we return the position where it was found.
+1. If we don't find the value, we determine whether it would be in the left or right half of the array by seeing whether it is smaller or larger than the middle element. Remember, we can make this decision because _we assume the array is sorted!_ Then we perform a binary search on the selected half.
+1. If at any point, we end up with an empty range, we know the value was not in the array, and we can return a result indicating the value was not found, such as `None`. Other variations of binary search may return the index of where the value _should_ have been, but as a negative value to indicate that it was missing.
+1. Each recursion divides the array in half and performs the binary search on a smaller subproblem.
 
 <br />
 
@@ -86,9 +90,9 @@ In terms of divide and conquer, we pick a pivot and move smaller elements to the
 
 If the pivot is relatively well chosen we will divide the list _log n_ levels deep, and shift at most _n_ elements with each level of division, arriving at a _O(n log n)_ runtime.
 
-**Weakness of QuickSort**: The Pivot
+### Weakness of QuickSort: The Pivot
 
-However, notice we said **if** the pivot is well chosen. If the pivot does not break the list into two relatively equal subarrays it will not arrive at a _O(n log n)_ runtime. Instead it will approach a _O(n<sup>2</sup>)_ runtime.
+Again, QuickSort is _O(n log n)_ **if** the pivot is well-chosen. If the pivot does not break the list into two relatively equal subarrays, it will not arrive at a _O(n log n)_ runtime. Instead, it will approach a _O(n<sup>2</sup>)_ runtime.
 
 For example, if with each iteration the pivot is the smallest remaining element in an array, rather than splitting the array into approximately _n/2_ sized pieces, instead we have one subarray of size _n-1_.
 
@@ -180,15 +184,35 @@ _midway index_ = ⌊(_starting index_ + _ending index_) / 2⌋
 
 Where ⌊⌋ denotes the mathematical _floor_ operation, or integer truncation.
 
-For the first _divide_ step, the _midway index_ will be _(0+8)/2_ = _4_. In the next _divide_ step, we have two subarrays, one ranging in index from _0_ to _4_ and the other ranging in index from _4_ to _8_. The subarrays are not yet of size one. So, the same action gets repeated to compute the _midway index_. This _divide_ stage continues until the original array of size _n_ is reduced to subarrays of size _1_ each.
+### Divide
+
+For the first _divide_ step, the _midway index_ will be _(0+8)/2_ = _4_.
+
+In the next _divide_ step, we have two subarrays, one ranging in index from _0_ to _4_ and the other ranging in index from _4_ to _8_.
+
+At this point, the subarrays are not yet of size one. So, the same action gets repeated to compute the _midway index_. This _divide_ stage continues until the original array of size _n_ is reduced to subarrays of size _1_ each.
 
 A subarray of size one is trivially sorted, since there can be no elements out of place relative to the single value in the array.
 
-The _merge_ stage starts by combining two subarrays at a time. While combining the subarrays containing _7_ and _2_ respectively, the value in each is compared, the smaller value, i.e. _2_, is written to the lower index, and the higher value, i.e. _7_, is written to the higher index. Larger merges would continue comparing the values to be merged element by element, taking the smaller until one subarray is "empty," at which point the remainder of the other array can be copied over.
+### Sort and Merge
 
-An auxiliary array of size _n_ is often used to facilitate the merge steps, after which the values are copied from the auxiliary array back to the original array.
+The _merge_ stage starts by combining two sorted subarrays at a time.
+
+While combining the subarrays containing _7_ and _2_ respectively, the value in each is compared, the smaller value, i.e. _2_, is written to the lower index, and the higher value, i.e. _7_, is written to the higher index.
+
+Larger merges would continue by comparing the values to be merged element by element, taking the smaller until one subarray is "empty." At that point, the remainder of the other array can be copied over!
+
+### !callout-info
+
+## Copying and Merging Arrays
+
+How do we efficiently merge two arrays? An auxiliary array of size _n_ is often used to facilitate the merge steps, after which the values are copied from the auxiliary array back to the original array.
+
+### !end-callout
 
 The two-way merging continues until there are no more subarrays and the original array is completely sorted.
+
+### Divide and Conquer Complexity in Merge Sort
 
 Since merge sort always divides the list in half at each divide step, there will be _log n_ levels in the division phase. By keeping data in place, and only adjusting indices to keep track of where the subarrays are located, at each level, there are at most _n_ calculations, for a time complexity of the division phase of _O(n log n)_.
 
