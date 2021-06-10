@@ -148,7 +148,7 @@ export default StudentList;
 
 ### Where to Render `StudentList`
 
-Sofia just began her project by using `create-react-app`. At this moment, when Sofia runs `npm start`, her webapp at `localhost:3000` looks like the default splash screen.
+Sofia just began her project by using `create-react-app`. At this moment, when Sofia runs `yarn start`, her webapp at `localhost:3000` looks like the default splash screen.
 
 She's traced her code through `src/index.js` and `src.App.js`, and Sofia knows that **currently, her webapp renders one component:** one instance of **the `App` component**.
 
@@ -248,7 +248,7 @@ export default App;
 
 Sofia can verify that her `App` and `StudentList` components are rendered successfully by:
 
-- Ensuring that the server is running with `npm start`
+- Ensuring that the server is running with `yarn start`
 - Checking the appearance of `localhost:3000`
 
 Success! Sofia successfully renders both the `App` and `StudentList` components once.
