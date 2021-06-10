@@ -1,5 +1,7 @@
 # Adding onclick Handling
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=ac2483cc-a37a-4b76-a463-ad4100fee632&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Goals
 
 Our goal for this lesson is to implement event handling in JavaScript. 

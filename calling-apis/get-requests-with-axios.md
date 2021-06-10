@@ -1,5 +1,7 @@
 # GET Requests With axios
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=180e70d4-580d-400b-a1e3-ad41015fdc72&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Goals
 
 - Request data from an API to render client-side using JavaScript

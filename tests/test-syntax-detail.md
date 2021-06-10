@@ -1,5 +1,7 @@
 # Test Syntax Detail
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=44b8eb11-2e49-422f-88d1-ad41003906d9&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 We've read through some Jest tests, run them, and maybe even made them pass!
 
 These steps make it easier for us to take a step back, and formally consider the syntax.

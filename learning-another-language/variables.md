@@ -1,5 +1,7 @@
 # Variables
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ba6bb1e9-6f16-4338-8a78-ad4000f5c3b5&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Vocabulary and Synonyms
 
 | Vocab            | Definition                                                                                                                 | How to Use in a Sentence                                                                                     |

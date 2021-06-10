@@ -1,5 +1,7 @@
 # Semicolons
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=14f2b362-da31-42b0-8043-ad40014eb7f1&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Introduction: To Use or Not Use
 
 In JavaScript, semicolons are used to mark the end of a statement:

@@ -356,8 +356,8 @@ Create a function named `compareIds`. It has two parameters, `candidateA` and `c
 
 ```js
 {
-    name: 'Mx. Candidate Name',
-    votes: 5
+    id: 5,
+    name: 'Mx. Candidate Name'
 }
 ```
 

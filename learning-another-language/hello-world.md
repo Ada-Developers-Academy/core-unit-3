@@ -1,5 +1,7 @@
 # Hello, World!
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=1273d731-b286-4a6e-9b0c-ad4000f5c3d3&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Introduction
 
 A well-known exercise to accomplish when learning another programming language is "Hello, World!" We'll know we're successful if we see the text `Hello, World!` appear somewhere after running the code.
@@ -250,7 +252,7 @@ True or False: We used parens `()` to invoke the function `log`.
 * title: Hello, World!
 ##### !question
 
-True or False: We used can use single-quotes and double-quotes to create string literals.
+True or False: We can use single-quotes or double-quotes to create string literals.
 
 ##### !end-question
 ##### !options

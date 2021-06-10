@@ -1,5 +1,7 @@
 # FizzBuzz
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ad3fad3f-c5e3-482d-8021-ad4000f5e363&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Introduction
 
 When learning another language, implementing FizzBuzz is a great way to jump into it. This program allows us to explore how to:

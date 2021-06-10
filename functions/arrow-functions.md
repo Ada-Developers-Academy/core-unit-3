@@ -1,5 +1,7 @@
 # Arrow Functions
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=8fa701c5-2bb6-45b6-8259-ad410025b6c2&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Introduction
 
 Arrow functions have minimized _syntax_ compared to regular JavaScript
