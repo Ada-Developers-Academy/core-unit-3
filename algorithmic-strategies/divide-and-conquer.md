@@ -36,7 +36,7 @@ For example, if we are working with a list and are only able to remove a single 
 
 ## Example: Binary Search
 
-Binary search can be considered a divide-and-conquer algorithm.
+Binary search can be considered a divide-and-conquer algorithm because it divides the array in half with each step. No matter how large the original array was, at each step we'll be able to discard half the remaining data from consideration!
 
 Here's a description of the binary search algorithm:
 
