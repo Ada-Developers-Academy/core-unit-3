@@ -106,7 +106,7 @@ def lcs(str1, str2):
 - What data type would be appropriate for storing the memoized data?
   - Dictionary because we need to store the max value (the result of a knapsack call) for some list of values and a remaining weight. These keys are not consecutive numbers (not obvious how we would make them so—at least not immediately) so going with a dictionary is a good strategy.
 - How can we initialize the storage for the memoized data?
-  - If memo isn't initialized (it's None), initialize it to empty dict. Not that we cannot simply do a Falsy check since that would constantly re-initialized the dictionary if it were empty, so the many stack frames would not be sharing the same memo object.
+  - If memo isn't initialized (it's None), initialize it to empty dict. Note that we cannot simply do a Falsy check since that would constantly re-initialize the dictionary if it were empty, so the stack frames would not be sharing the same memo object.
 - Where do we need to update our memoized data?
   - Towards the end of the function, once we've found the max for this sub-problem.
 - Where do we need to pass our memoized data?

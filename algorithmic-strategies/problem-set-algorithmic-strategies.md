@@ -131,6 +131,8 @@ def knapsack(weights, values, max_weight):
 
 An example of a working implementation:
 
+<br />
+
 ```python
 def knapsack(weights, values, max_weight):
     if not weights or max_weight <= 0:
@@ -149,6 +151,38 @@ def knapsack(weights, values, max_weight):
 
     return result
 ```
+
+<br />
+
+The following lines use tuple unpacking to create four distinct local variables.
+
+<br />
+
+```python
+    weight, rest_weight = weights[0], weights[1:]
+    value, rest_value = values[0], values[1:]
+```
+
+<br />
+
+The right sides of the assignments create temporary anonymous tuples which are immediately unpacked into the positionally corresponding variables on the left sides of the assignments.
+
+<br />
+
+This could have been similarly accomplished with code such as:
+
+<br />
+
+```python
+    weight = weights[0]
+    rest_weight = weights[1:]
+    value = values[0]
+    rest_value = values[1:]
+```
+
+<br />
+
+Or by foregoing the use of temporaries entirely. The use of named local variables to refer to the first value and the remaining values of each list is purely for readability.
 
 ### !end-explanation
 ### !end-challenge
@@ -303,6 +337,8 @@ def knapsack(weights, values, max_weight, memo=None):
 
 An example of a working implementation:
 
+<br />
+
 ```python
 def knapsack(weights, values, max_weight, memo=None):
     if memo is None:
@@ -330,7 +366,6 @@ def knapsack(weights, values, max_weight, memo=None):
 
     return result
 ```
-
 ### !end-explanation
 ### !end-challenge
 <!-- prettier-ignore-end -->
