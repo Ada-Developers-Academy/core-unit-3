@@ -33,7 +33,7 @@ As an example, let's consider the case where there are three items:
 
 If we are able to carry 50 units of weight, what is the maximum value of the items we can fit in our knapsack?
 
-In this case, we can take items 1 and 2, which have a combined weight of 50, and a combined value of 220. So our maximum value is 220.
+In this case, we can take items 2 and 3, which have a combined weight of 50, and a combined value of 220. So our maximum value is 220.
 
 Here are the tests:
 
@@ -78,9 +78,9 @@ class TestZeroOneKnapsack(unittest.TestCase):
 ### !end-tests
 ### !hint
 
-- Is there a way we can think of this problem as resembling the the structure of the longest common subsequence problem?
-- If for the current item (weight and value) we take the weight and value, leaving the rest of the weights and values, what are the choices we can make about taking an item or leaving an item?
+- Is there a way we can think of this problem as resembling the structure of the longest common subsequence problem?
 - What limits are there on whether we are _allowed_ to take an item?
+- If we are _able_ to take an item, what aspects around taking or not taking the item do we need to consider?
 
 ### !end-hint
 ### !hint
@@ -120,7 +120,7 @@ def knapsack(weights, values, max_weight):
             #    affected since we didn't take the current item
         # our max value is the max of these two options
     # otherwise there is no room for the current item
-        # our max value must be whatever the max value is of the rest of the items
+        # our max value must be the max value of the rest of the items
 
     # return the result
 ```
@@ -229,7 +229,7 @@ class TestZeroOneKnapsack(unittest.TestCase):
 
 ### !hint
 
-- What data coming into the function call can be used to uniquely mark _this_ function call? The weights? The values? The max weight? Are any of these redundant?
+- What piece or pieces of data coming into the function call can be used to uniquely mark _this_ function call? The weights? The values? The max weight? Are any of these redundant?
 - If multiple pieces of data are required, how can we use those as keys into our memoized data? Can we use multi-dimensional storage? Is there a way to pack multiple pieces of data into a single piece of data?
 - If any of the data we would like to use as keys is mutable, can that be used? Is there a way to convert it to immutable data?
 
