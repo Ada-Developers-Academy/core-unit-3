@@ -46,6 +46,9 @@ Here's a description of the binary search algorithm:
 1. If at any point, we end up with an empty range, we know the value was not in the array, and we can return a result indicating the value was not found, such as `None`. Other variations of binary search may return the index of where the value _should_ have been, but as a negative value to indicate that it was missing.
 1. Each recursion divides the array in half and performs the binary search on a smaller subproblem.
 
+![Performing binary search for the value 5 in the sorted list (1, 2, 3, 5, 6, 7, 8, 9). Looking for 5. Check the value at the midway index (s=0, m=4, e=8). 5 is less than 6. Adjust the ending index to rule out the right half. Check the value at the updated midway index (s=0, m=2, e=4). 5 is greater than 3. ADjust the starting index to rule out the left half. Check the value at the updated midway index (s=3, m=3, e=4). The value, 5, was found. Return the position, 3.](../assets/algorithmic-strategies_divide-and-conquer_binary-search.png)  
+_Fig. Looking for the position of the value 5 in a sorted array using binary search._
+
 <br />
 
 <details>
