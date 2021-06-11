@@ -156,8 +156,9 @@ Here, we are creating the `const` variable `appElements`, setting it to a JSX ob
 
 When we have a JavaScript expression, such as a variable or function call, to add into a JSX object, we can do so with `{}`.
 
+<!-- prettier-ignore-start -->
 ```js
-const guestName = "Megha";
+const guestName = 'Megha';
 
 const welcomeMessage = (
   <section>
@@ -166,6 +167,7 @@ const welcomeMessage = (
   </section>
 );
 ```
+<!-- prettier-ignore-end -->
 
 In this situation, the rendered HTML would look like:
 
@@ -180,9 +182,10 @@ In this situation, the rendered HTML would look like:
 
 Let's revisit this `src/App.js` again!
 
+<!-- prettier-ignore-start -->
 ```js
-import logo from "./logo.svg";
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
@@ -205,6 +208,7 @@ function App() {
   );
 }
 ```
+<!-- prettier-ignore-end -->
 
 We can focus on this part of the JSX:
 
