@@ -2,11 +2,11 @@
 
 ## Goals
 
-React JS can use JavaScript syntax known as JSX. It's used when rendering components in our webapp, so we can expect to see a lot of JSX!
+React JS provides a special syntax known as JSX. It's used when rendering components in our webapp, so we can expect to see JSX all over the place!
 
-JSX is used to declare HTML-like UI in JavaScript. JSX determines what our webapp's rendered HTML looks like.
+JSX is used to declare HTML-like UI in React JS. It determines what our webapp's rendered HTML looks like.
 
-Before we use JSX extensively, let's pause to understand what JSX is and how to write it.
+Before we start using JSX extensively, let's pause to understand what JSX is and how to write it.
 
 ## Introduction
 
@@ -45,9 +45,9 @@ What is this code? How do we read it? How do we write it?
 
 ## JSX
 
-[**JSX**](https://reactjs.org/docs/introducing-jsx.html) is a _syntax extension_ to JavaScript. It is JavaScript code that isn't normally available in vanilla JS projects.
+[**JSX**](https://reactjs.org/docs/introducing-jsx.html) is a _syntax extension_ to JavaScript that isn't normally available in vanilla JavaScript projects. It may look like HTML, but it's really JavaScript _in disguise_!
 
-In our React projects, we'll write the logic for _how_ to render our components in JSX.
+In our React projects, we'll write the logic for _how_ to render our components using JSX.
 
 ## Objects in JSX
 
@@ -59,7 +59,7 @@ An object in JSX contains at least one element.
 const welcomeMessage = <span>Welcome!</span>;
 ```
 
-| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                            |
+| <div style="min-width:230px;"> Piece of Code </div> | Notes                                                                                                                            |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `const welcomeMessage =`                            | We declare a `const` variable `welcomeMessage`, which will refer to our JSX object.                                              |
 | `<span>Welcome~</span>`                             | A JSX object. When this JSX object is rendered in React, it will become a `<span>` HTML element, with the text `Welcome~` in it. |
@@ -220,7 +220,7 @@ The value of the `src` attribute for this element will be the value of `logo`. `
 
 ## Element Attributes in JSX Objects
 
-We can define any attributes for any element in a JSX object. We use syntax that is nearly identical to what we'd use for HTML elements.
+We can set the element attributes for JSX objects just like we can for the HTML elements they resemble. For most element attributes, the JSX object syntax is identical to what we'd use for HTML elements.
 
 ```js
 <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
@@ -236,9 +236,9 @@ This `<a>` element will have the following HTML attributes when it's rendered:
 
 ## CSS Classes in JSX Objects
 
-One of the most important differences between JSX objects and HTML elements is how to add classes.
+One of the most important differences between JSX objects and HTML elements is how to add CSS classes.
 
-In JSX, we use the attribute `className` to define `class` in rendered HTML.
+While HTML elements use the `class` attribute, in JSX we use the `className` attribute.
 
 For example, this JSX object:
 
@@ -256,7 +256,7 @@ This will be crucial for styling!
 
 ## Comments in JSX Syntax
 
-A JSX object can contain code comments only if the comments are embedded as a JS expression.
+A JSX object can contain code comments only if the comments are embedded as a JavaScript expression.
 
 For example:
 
