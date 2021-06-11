@@ -6,7 +6,7 @@ Our goal is to practice diving into a new library. By creating a Hello, World! p
 
 ## Format
 
-To jump into front-end development with React, we will create a Hello, World app.
+To jump into front-end development with React, we will create a Hello, World! app.
 
 We'll take the following steps:
 
@@ -28,7 +28,7 @@ $ npx create-react-app hello-world
 
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                            |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `npx`                                               | A CLI tool that runs packages. In this curriculum, we will use this infrequently.                                                |
+| `npx`                                               | A CLI tool that runs packages. In this curriculum, we will use this infrequently, mostly only in this scenario when we are creating a new React project.                                                |
 | `create-react-app`                                  | A package that includes the command for Create React App, which creates a minimal React app.                                     |
 | `hello-world`                                       | **Replace this** with the name of your new React project. This will be the name of the project and the generated project folder. |
 
@@ -54,9 +54,10 @@ $ yarn start
 
 By default, our front-end is viewable at `localhost:3000`.
 
-Every time we make a change in a file and save it, our server will detect changes and then reload the app immediately.
+Every time we make a change in a file and save it, our server will detect the changes and then reload the app immediately.
 
-![](../assets/react-components_hello-world-landing.png)
+![A web browser displaying the default React application. It consists of the React logo, a note to "Edit src/App.js and save to reload," and a link to additional resources for learning about React.](../assets/react-components_hello-world-landing.png)  
+_Fig. The default React application created by `npx create-react-app`_
 
 <!-- Question 1 -->
 <!-- prettier-ignore-start -->
@@ -114,7 +115,7 @@ In this curriculum, we will intentionally not cover the following files:
 - `reportWebVitals.js`
 - `setupTests.js`
 
-There are two files that are the most important to understand when developing React for the first time:
+There are two files that are the most important to understand when developing with React for the first time:
 
 1. `src/index.js`
 1. `src/App.js`
@@ -123,18 +124,19 @@ There are two files that are the most important to understand when developing Re
 
 Let's go ahead and open this project up in our text editor to examine the files that have been created for us. We'll begin with `src/index.js` and practice our reading skills.
 
+<!-- prettier-ignore-start -->
 ```js
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
@@ -142,6 +144,7 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 ```
+<!-- prettier-ignore-end -->
 
 <!-- Question 2 -->
 <!-- prettier-ignore-start -->
@@ -151,13 +154,13 @@ reportWebVitals();
 * title: Hello, World!
 ##### !question
 
-`src/index.js` imports several files. Select the files that are imported.
+`src/index.js` imports several resources. Select the resources that are imported.
 
 ##### !end-question
 ##### !options
 
-* `React`
-* `ReactDOM`
+* `React` from `'react'`
+* `ReactDOM` from `'react-dom'`
 * `'./index.css'`
 * `App` from `'./App'`
 * `logo` from `'./logo.svg'`
@@ -166,8 +169,8 @@ reportWebVitals();
 ##### !end-options
 ##### !answer
 
-* `React`
-* `ReactDOM`
+* `React` from `'react'`
+* `ReactDOM` from `'react-dom'`
 * `'./index.css'`
 * `App` from `'./App'`
 
@@ -236,6 +239,8 @@ This code is...
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
+### `index.js` Is the Starting Point
+
 `index.js` is responsible for being the starting point of our webapp.
 
 It is the entry point of our project; our app is configured to look for this file first when we run the app.
@@ -258,9 +263,10 @@ Instead, we'll focus on leveraging the `App` component.
 
 Consider the contents of `src/App.js`.
 
+<!-- prettier-ignore-start -->
 ```js
-import logo from "./logo.svg";
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
@@ -285,8 +291,9 @@ function App() {
 
 export default App;
 ```
+<!-- prettier-ignore-end -->
 
-From reading `src/App.js`, answer the questions below.
+From reading `src/App.js`, answer the questions below. If a question involves an expression that hasn't been discussed yet, we can hypothesize what it might do based on what we know about other languages, or from what a natural language reading might imply.
 
 <!-- Question 5 -->
 <!-- prettier-ignore-start -->
@@ -296,12 +303,12 @@ From reading `src/App.js`, answer the questions below.
 * title: Hello, World!
 ##### !question
 
-`src/App.js` imports several files. Select the files that are imported.
+`src/App.js` imports several resources. Select the resources that are imported.
 
 ##### !end-question
 ##### !options
 
-* `React`
+* `React` from `'react'`
 * `'./index.js'`
 * `'./App.js'`
 * `App` from `'./App'`
@@ -373,9 +380,11 @@ Check all options that are true about `src/App.js`.
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
+### `App.js` Defines Our `App` Component
+
 The `App` function defines a component named `App`.
 
-The responsibility of `App` function is to return _how_ to render the `App` component whenever the `App` component is declared and used.
+The responsibility of the `App` function is to return _how_ to render the `App` component whenever the `App` component is declared and used.
 
 ### !callout-info
 
