@@ -6,22 +6,6 @@ Ultimately, React is used to create compelling and usable UIs. We've seen how de
 
 How do we actually add styles to our React front-end?!
 
-## Adding Attributes to Components
-
-Before we add styles to components, we should cover how to add attributes to components.
-
-Whenever we render a component in a JSX object, we can add as many attributes to that instance of a rendered component as we'd like.
-
-Every attribute-value pair is declared inside a component's opening tag, much like HTML attributes.
-
-```js
-<SomeComponent some-attr="some value"></SomeComponent>
-```
-
-This example code adds an attribute named `some-attr` to a `SomeComponent` component.
-
-The value of the `some-attr` attribute is the string `"some value"`.
-
 ## Sofia's Story
 
 Sofia is a teacher creating a React front-end for her attendance app.
