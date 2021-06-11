@@ -475,7 +475,7 @@ This is a warning, and doesn't break our React code. If we follow the recommende
 
 <br/>
 
-We won't address this in this curriculum, but following this best practice will help our React apps become more performant. Follow your curiosity!
+We won't address this in this curriculum, but following this best practice will help our React apps become perform better. Follow your curiosity!
 
 <br/>
 
