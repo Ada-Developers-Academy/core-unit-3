@@ -1,5 +1,7 @@
 # Divide and Conquer
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=04387545-7ced-4c84-9ce4-ad44002bde36&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Goals
 
 As developers, we need as many tools to solve problems as possible.
