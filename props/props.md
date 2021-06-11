@@ -255,9 +255,10 @@ const Student = (props) => {
 ```
 <!-- prettier-ignore-end -->
 
-Hooray! Her webapp now shows Ada, Soo-ah, and Chrissy's names and emails.
+Hooray! Her web app now shows Ada, Soo-ah, and Chrissy's names and emails.
 
-![](../assets/props_props_initial-props.png)
+![An attendance web app with a list of three students. One student's information is "Nickname: Ada, Email: ada@dev.org." The second student's information is "Nickname: Soo-ah, Email: sooah@dev.org." The third student's information is "Nickname: Chrissy, Email: chrissy@dev.org"](../assets/props_props_initial-props.png)  
+_Fig. An attendance web app with a list of three students. One student's information is "Nickname: Ada, Email: ada@dev.org." The second student's information is "Nickname: Soo-ah, Email: sooah@dev.org." The third student's information is "Nickname: Chrissy, Email: chrissy@dev.org"_
 
 ### !callout-info
 
@@ -280,9 +281,11 @@ const StudentList = () => {
 
 In this case, in the `Student` component, `props.name` will be `undefined`. `props.email` will also be undefined. When React renders an `undefined` value, it will become an empty string.
 
-![](../assets/props_props_undefined.png)
+![An attendance web app with a list of two students. One student reads "Nickname: , Email: ." The second student reads "Nickname: Soo-ah, Email: sooah@dev.org"](../assets/props_props_undefined.png)  
+__Fig. An attendance web app with a list of two students. One student reads "Nickname: , Email: ." The second student reads "Nickname: Soo-ah, Email: sooah@dev.org"_
 
-![](../assets/props_props_undefined-dev-tools.png)
+![An attendance web app with a list of two students. The browser dev tools are open, showing the HTML of a student with no name or email.](../assets/props_props_undefined-dev-tools.png)  
+_Fig. An attendance web app with a list of two students. The browser dev tools are open, showing the HTML of a student with no name or email._
 
 ### !end-callout
 
@@ -319,7 +322,8 @@ In this scenario, the variable `studentComponents` is a comma-separated array of
 
 We embed `studentComponents` in curly braces `{}` in the returned JSX. Our resulting webapp looks identical to our webapp from before!
 
-![](../assets/props_props_initial-props.png)
+![An attendance web app with a list of three students. One student's information is "Nickname: Ada, Email: ada@dev.org." The second student's information is "Nickname: Soo-ah, Email: sooah@dev.org." The third student's information is "Nickname: Chrissy, Email: chrissy@dev.org"](../assets/props_props_initial-props.png)  
+_Fig. An attendance web app that looks identical to an earlier web app, which listed three different students._
 
 ## Iterating Over Data Structures
 
@@ -469,7 +473,8 @@ Even after this refactor, Sofia's webapp looks the same as before. Great!
 
 If we check our console, we may see the warning "Warning: Each child in a list should have a unique "key" prop."
 
-![](../assets/props_props_warning-key.png)
+![An attendance web app with the browser dev tools open. The console of the dev tools reads "Warning: Each child in a list should have a unique "key" prop."](../assets/props_props_warning-key.png)  
+_Fig. An attendance web app with the browser dev tools open. The console of the dev tools reads "Warning: Each child in a list should have a unique "key" prop."_
 
 This is a warning, and doesn't break our React code. If we follow the recommended React resources, we'll learn about the `key` prop, what it's used for, and best practices for how to set it.
 
@@ -536,7 +541,8 @@ Extend your app in the following ways:
 - In `App`, create a `prop` to send to `ClassInfo`. The `prop`'s value should be some data related to the number of students in `studentData`.
 - In `ClassInfo`, begin to accept `props`. This component should read this new `prop`, and replace `30` with the actual number of students.
 
-![](../assets/props_props_classInfo-memberCount.png)
+![An attendance web app with class information and a student list. The class information reads "Number of members: 3"](../assets/props_props_classInfo-memberCount.png)  
+_Fig. An attendance web app with class information and a student list. The class information reads "Number of members: 3"_
 
 <details>
 

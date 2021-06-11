@@ -38,7 +38,8 @@ const StudentList = () => {
 ```
 <!-- prettier-ignore-end -->
 
-![](../assets/props_proptypes_undefined.png)
+![An attendance web app with a list of two students. One student reads "Nickname: , Email: ." The second student reads "Nickname: Soo-ah, Email: sooah@dev.org"](../assets/props_proptypes_undefined.png)  
+__Fig. An attendance web app with a list of two students. One student reads "Nickname: , Email: ." The second student reads "Nickname: Soo-ah, Email: sooah@dev.org"_
 
 It would be nice if the React library could enforce the presence or data type of our props...
 

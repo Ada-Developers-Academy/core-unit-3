@@ -161,7 +161,8 @@ const StudentList = () => {
 
 Sofia's app now looks like this, which includes three rendered `Student` components! (This image also includes a previously implemented `ClassInfo` component.)
 
-![](../assets/props_nested-components_render.png)
+![An attendance web app with a heading "Student List," and a list of three students. All three students read "Nickname: Ada" and "Email: ada@dev.org."](../assets/props_nested-components_render.png)  
+_Fig. An attendance web app with a heading "Student List," and a list of three students. All three students read "Nickname: Ada" and "Email: ada@dev.org."_
 
 ## Summary
 
