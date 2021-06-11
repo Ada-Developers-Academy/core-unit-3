@@ -57,17 +57,20 @@ Initially, Sofia populates `src/components/StudentList.css` with the following s
 
 To include the new CSS file, Sofia should import it into the `StudentList` component file.
 
+<!-- prettier-ignore-start -->
 ```js
-import "./StudentList.css";
+import './StudentList.css';
 ```
+<!-- prettier-ignore-end -->
 
 While Sofia is in this file, she'll add some student content to make this app more interesting.
 
 In order to return only _one_ JSX object, Sofia needs to wrap her expanded content with a new outer element.
 
+<!-- prettier-ignore-start -->
 ```js
-import React from "react";
-import "./StudentList.css";
+import React from 'react';
+import './StudentList.css';
 
 const StudentList = () => {
   return (
@@ -84,6 +87,7 @@ const StudentList = () => {
 
 export default StudentList;
 ```
+<!-- prettier-ignore-end -->
 
 We see our CSS is applied, just by importing the CSS file!
 
