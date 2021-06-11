@@ -61,7 +61,7 @@ Like other parts of React, the name and location of this file isn't mandatory, b
 
 ### Populate the CSS File
 
-At this moment, Sofia can populate `src/components/StudentList.css` with the following style. This style will apply a bright red box to every element, and it's an effective way to check that CSS is working.
+Initially, Sofia populates `src/components/StudentList.css` with the following style. This style will apply a bright red box to every element, and it's an effective way to check that CSS is working.
 
 ```css
 * {
@@ -79,7 +79,7 @@ import "./StudentList.css";
 
 While Sofia is in this file, she'll add some student content to make this app more interesting.
 
-In order to return only _one_ JSX object, Sofia needs to wrap her content into a new outer element.
+In order to return only _one_ JSX object, Sofia needs to wrap her expanded content with a new outer element.
 
 ```js
 import React from "react";
@@ -103,7 +103,8 @@ export default StudentList;
 
 We see our CSS is applied, just by importing the CSS file!
 
-![](../assets/react-components_styling-components_red-boxes.png)
+![Web browser showing the effects of the CSS style. Every element on the page is outlined with a two-pixel, red border.](../assets/react-components_styling-components_red-boxes.png)  
+_Fig. Well, the CSS is working. Ow ow ow! My eyes!_
 
 ### Using `class`/`className`
 
@@ -118,9 +119,10 @@ h2 {
 }
 ```
 
-![](../assets/react-components_styling-components_element-selector.png)
+![Web browser showing the updated CSS styles. The red borders are gone. Now the headers (Class Information, Student List) are shown in dark blue.](../assets/react-components_styling-components_element-selector.png)  
+_Fig. Sophia's webapp with more reasonable styles applied._
 
-However, there is one exception: in order to set the `class` attribute to any element in JSX, we must use the attribute `className`.
+However, we must be careful of one thing: in order to set the CSS `class` attribute on any HTML element when using JSX, we must use the attribute `className`.
 
 Sofia can modify her `StudentList` component to include some classes with `className`:
 
@@ -156,7 +158,8 @@ And create CSS rule-sets that select those classes:
 
 We can even check our browser Dev Tools and inspect the rendered HTML. The `className` attribute defined in JSX has turned into the `class` attribute in rendered HTML.
 
-![](../assets/react-components_styling-components_classname-render.png)
+![Web browser showing the structure of the rendered HTML. The attributes that had been specified as `className` in JSX have been transformed into `class` attributes in the HTML.](../assets/react-components_styling-components_classname-render.png)  
+_Fig. The JSX `className` attributes have been rendered as HTML `class` element attributes._
 
 ## More CSS
 
@@ -164,9 +167,13 @@ We can apply our current React and CSS knowledge to our projects.
 
 <!-- I'm emphasizing this in order to pave the way for conditional logic -->
 
-### Embedding Classes
+### Injecting Classes
 
-Just like components, we can also embed our class values.
+We were able to store component objects in variables, then use `{varName}` syntax in our JSX to inject that component into the JSX structure.
+
+We can do the same thing with CSS classes.
+
+We can store our CSS class names in variables, then inject them into our JSX as follows:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -190,7 +197,7 @@ const StudentList = () => {
 
 ### Multiple Classes
 
-To give an element multiple classes, we can continue to space-separate class names.
+To give an element multiple classes, we can space-separate class names, just as in regular HTML.
 
 ```js
 <h2 className="student-list__heading yellow-bg">Student List</h2>
@@ -202,7 +209,9 @@ This would give the `h2` element the classes `student-list__heading` and `yellow
 
 Instead of importing an external CSS file, another way to include CSS is to use the built-in `style` attribute.
 
-The `style` attribute takes in a JavaScript object. This JS object should contain the property-value pairs, where the property name is the CSS equivalent, but camelCase.
+The `style` attribute takes in a JavaScript object. This JS object should contain property-value pairs, where the property name is equivalent to a CSS style property, but camelCase.
+
+For example, the CSS style property `background-image` would become `backgroundImage`.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -217,7 +226,7 @@ const someComponent = () => {
 ```
 <!-- prettier-ignore-end -->
 
-This method of adding styles is commonly written online (particularly in documentation and tutorials) because it's convenient to condense the code in this way.
+It's common to see this method of adding styles in online resources (particularly in documentation and tutorials) because it's convenient to condense the code in this way.
 
 **This form of including CSS is _discouraged_**. To read and learn more, we can visit [React docs on the use of inline styles](https://reactjs.org/docs/dom-elements.html#style).
 
