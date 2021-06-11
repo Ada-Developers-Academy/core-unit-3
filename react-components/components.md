@@ -34,7 +34,7 @@ In order to "use" a component, there are three steps:
 Sofia wants her attendance webapp to have the following UI displayed on one single page:
 
 - Information about the class
-- A list of students and their details (name, birthday)
+- A list of students and their details (e.g., name, birthday, etc.)
 
 Both of these features can make great React components! Sofia will plan to create two components.
 
@@ -76,8 +76,9 @@ The React library does not require or enforce any sort of folder structure, nami
 
 ### Import React
 
-At the top of `src/components/StudentList.js`, Sofia will import the React library. Importing React in this file makes built-in React functionality available through an object named `React`.
+At the top of `src/components/StudentList.js`, Sofia will import the React library. Importing React in this file makes the built-in React functionality available through an object named `React`.
 
+<!-- prettier-ignore-start -->
 ```javascript
 import React from 'react';
 ```
