@@ -34,6 +34,18 @@ $ npx create-react-app hello-world
 
 If `npx` isn't available, we should follow directions to install the latest version of [Node.js](https://nodejs.org/en/). Node.js includes `npm`. `npm` 5.2+ includes `npx`.
 
+### !callout-info
+
+## Node.js Is JavaScript
+
+We have seen JavaScript running in the browser, and in editing environments such as Replit.com. Now we are going to start working with JavaScript on our own machines. The runtime environment we use for this is called Node.js.
+
+<br />
+
+To start our project we use `npx`, which eXecutes Node Packages. Node packages are the primary way that JavaScript libraries are shared, and we will learn more about installing and using them ourselves in later lessons!
+
+### !end-callout
+
 After running `create-react-app`, we'll have a new project folder. We should `cd` into our project folder before we do anything else!
 
 ```bash
@@ -55,6 +67,18 @@ $ yarn start
 By default, our front-end is viewable at `localhost:3000`.
 
 Every time we make a change in a file and save it, our server will detect the changes and then reload the app immediately.
+
+### !callout-info
+
+## VSCode Autosave, Meet React Autoload
+
+It's often convenient to have our editor automatically save our files as we're working to help us avoid needless hours spent debugging an issue that was ultimately caused by forgetting to save a file. However, this help can become a hindrance when we are working with a program like React that watches for changes and then reloads. Since VSCode saves constantly, even while in the middle of typing a line of code, it's possible (actually common!) for React to try reloading our code when it's not syntactically correct, causing errors in our project.
+
+<br />
+
+When working with React, or other autoloading programs, it's a good idea to disable the VSCode autosave feature. Under the File menu, simply uncheck Auto Save!
+
+### !end-callout
 
 ![A web browser displaying the default React application. It consists of the React logo, a note to "Edit src/App.js and save to reload," and a link to additional resources for learning about React.](../assets/react-components_hello-world-landing.png)  
 _Fig. The default React application created by `npx create-react-app`_
@@ -255,9 +279,9 @@ This file renders our first _JSX_ (described in another lesson).
 
 This code indicates that when we start our React webapp, it will _render_ an `App` component using `<App />`.
 
-In this curriculum, we will rarely touch `src/index.js`. Additionally, there are other lines of code in this file that is worth exploring with bigger projects.
+Aside from seeing that this is how the `App` component gets loaded, we will rarely visit `src/index.js` in this curriculum, even though there are lines of code in this file that are worth exploring with bigger projects.
 
-Instead, we'll focus on leveraging the `App` component.
+Instead, we'll focus on working with the `App` component.
 
 ### Exploring `App.js`
 
@@ -390,6 +414,10 @@ The responsibility of the `App` function is to return _how_ to render the `App` 
 
 ## Explore!
 
-Now is a great time to explore our webapp. We can change the headers and text, and observe how they get reflected in our app.
+Now is a great time to explore our webapp. We can change the headers and text, and observe how any changes get reflected in our browser.
+
+<br />
+
+Notice that `create-react-app` automatically initialized a Git repository in our directory. So if something breaks during our exploration we can always get back to the initial version of the files using our Git skills!
 
 ### !end-callout
