@@ -10,11 +10,11 @@ This lesson will follow the story of Sofia, who will learn the syntax to create 
 
 ## Our Current Definition of Component
 
-**Components** in React are units of UI.
+**Components** in React are the building blocks of our UI.
 
 All components can be rendered to the page, hold data, manage their own state, handle events, and contain other elements and components.
 
-Our understanding and definition of what a React component is and can do will grow over time. For now, let's learn the following.
+Our understanding and definition of what a React component is and can do will grow over time. For now, let's focus on the following core ideas.
 
 All components are:
 
@@ -36,9 +36,9 @@ Sofia wants her attendance webapp to have the following UI displayed on one sing
 - Information about the class
 - A list of students and their details (name, birthday)
 
-Both of these list items can create great React components! Sofia will plan to create two components.
+Both of these features can make great React components! Sofia will plan to create two components.
 
-She'll start with creating the component to display a list of students and their details. While she's planning, Sofia will pick the name of her component.
+She'll start with creating the component that displays a list of students and their details. While she's planning, Sofia will pick the name of her component.
 
 Conventionally, React components are named with CapitalCamelCase. Sofia will name this component `StudentList`.
 
@@ -70,7 +70,7 @@ $ touch src/components/StudentList.js
 
 ## This is a Recommendation
 
-The React library does not require or enforce any sort of folder structure, naming convention, or rule about how many files there should be in a project. This folder structure is a recommendation, and it should adapt to whatever best suits the situation.
+The React library does not require or enforce any sort of folder structure, naming convention, or rule about how many files there should be in a project. This folder structure is a recommendation, and we should adapt it to whatever best suits our particular situation.
 
 ### !end-callout
 
@@ -79,8 +79,9 @@ The React library does not require or enforce any sort of folder structure, nami
 At the top of `src/components/StudentList.js`, Sofia will import the React library. Importing React in this file makes built-in React functionality available through an object named `React`.
 
 ```javascript
-import React from "react";
+import React from 'react';
 ```
+<!-- prettier-ignore-end -->
 
 ### Create a Function
 
@@ -106,7 +107,7 @@ She could have defined it using different coding techniques. For example, she co
 const StudentList = () => {
   return (
     <h2>Student List</h2>
-    );
+  );
 }
 ```
 <!-- prettier-ignore-end -->
@@ -124,7 +125,7 @@ const StudentList = () => {
 
 ### Export the Component
 
-In order to use the `StudentList` component in other files, we'll need to _export_ it. To export the component, we make an `export` statement, and attach the name of our component function.
+In order to use the `StudentList` component in other files, we'll need to _export_ it. To export the component, we make an `export` statement, and specify the name of our component function.
 
 This line goes at the _bottom_ of our file.
 
@@ -150,11 +151,11 @@ export default StudentList;
 
 Sofia just began her project by using `create-react-app`. At this moment, when Sofia runs `yarn start`, her webapp at `localhost:3000` looks like the default splash screen.
 
-She's traced her code through `src/index.js` and `src.App.js`, and Sofia knows that **currently, her webapp renders one component:** one instance of **the `App` component**.
+She's traced her code through `src/index.js` and `src/App.js`, and Sofia knows that **currently, her webapp renders one component:** one instance of **the `App` component**.
 
 Sofia knows that **a JSX object can contain other elements _and components_**.
 
-She wants her webapp to render this StudentList component, so her plan is to render the `StudentList` component using the existing `App` component.
+She wants her webapp to render this `StudentList` component, so her plan is to render the `StudentList` component within the existing `App` component.
 
 ### Import the Component
 
@@ -162,11 +163,13 @@ In order to use the `StudentList` component in the `App` component, first we nee
 
 At the top of `src/App.js`, she'll include:
 
+<!-- prettier-ignore-start -->
 ```js
-import StudentList from "./components/StudentList";
+import StudentList from './components/StudentList';
 ```
+<!-- prettier-ignore-end -->
 
-| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                                                         |
+| <div style="min-width:280px;"> Piece of Code </div> | Notes                                                                                                                                                                         |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `import`                                            | The import keyword begins an import statement                                                                                                                                 |
 | `StudentList`                                       | **Replace this** with the name of the object we want to import. The specific object imported will be whatever was _exported_ from the source file.                            |
@@ -205,7 +208,7 @@ To include a component once in a JSX object, we use the following syntax:
 | `</...>`                                            | Our component in JSX needs a closing tag, too.                                      |
 | `ComponentName`                                     | Valid JSX has a matching closing tag for the component.                             |
 
-Using this syntax, we can adjust our `App` component:
+Using this syntax, we can update our `App` component:
 
 ```js
 import StudentList from './components/StudentList';
@@ -253,11 +256,13 @@ Sofia can verify that her `App` and `StudentList` components are rendered succes
 
 Success! Sofia successfully renders both the `App` and `StudentList` components once.
 
-![](../assets/react-components_components_first-render.png)
+![Web browser showing the result of rendering Sophia's updated App component. Attendance. Student List.](../assets/react-components_components_first-render.png)  
+_Fig. Sofia's updated webapp making use of her new `StudentList` component_
 
-Let's check what the rendered HTML ultimately looks like using browser Dev Tools.
+Let's check what the rendered HTML ultimately looks like using our browser's Dev Tools.
 
-![](../assets/react-components_components_first-render-dev-tools.png)
+![Web browser with Dev Tools open, showing the HTML rendered for the components.](../assets/react-components_components_first-render-dev-tools.png)  
+_Fig. The browser Dev Tools showing the rendered HTML_
 
 ```html
 <div id="root">
@@ -276,7 +281,7 @@ Because our `App` component also declared the `StudentList` component, we can se
 
 Our `App` component can render our `StudentList` component more than once!
 
-We render a component more than once by declaring it in a 
+We render a component more than once by declaring it in multiple places.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -300,9 +305,11 @@ export default App;
 
 With this code, `localhost:3000` will display `StudentList` twice.
 
-![](../assets/react-components_components_render-component-twice.png)
+![Web browser showing two copies of the StudentList component. Attendance. Here's the first rendered student list: Student List. Here's the second rendered student list: Student List.](../assets/react-components_components_render-component-twice.png)  
+_Fig. Sofia's webapp now shows two copies of her `StudentList` component_
 
-![](../assets/react-components_components_render-component-twice-dev-tools.png)
+![Web browser with Dev Tools open, showing the HTML rendered for the two StudentList version of the webapp.](../assets/react-components_components_render-component-twice-dev-tools.png)  
+_Fig. The browser Dev Tools showing the rendered HTML now showing two sets of HTML from the `StudentList` component_
 
 ## A Second Component: `ClassInfo`
 
@@ -312,7 +319,7 @@ To practice, let's make another component!
 
 ### Defining `ClassInfo`
 
-Sofia can create a new file, `src/components/ClassInfo.js`.
+Sofia creates a new file, `src/components/ClassInfo.js`.
 
 Within this file, she will:
 
@@ -372,7 +379,8 @@ export default App;
 
 Her webapp now looks like this:
 
-![](../assets/react-components_components_render-classinfo.png)
+![Web browser showing the ClassInfo component and the StudentList component. Attendance. Class Information. Name: Team Semicolons. Number of members: 30. Student List.](../assets/react-components_components_render-classinfo.png)  
+_Fig. Sofia's webapp now shows her `ClassInfo` component and her `StudentList` component_
 
 ## Check for Understanding
 
