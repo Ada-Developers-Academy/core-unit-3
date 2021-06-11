@@ -56,7 +56,7 @@ We will create _objects_ in JSX.
 An object in JSX contains at least one element.
 
 ```js
-const welcomeMessage = <span>Welcome!</span>;
+const welcomeMessage = <span>Welcome~</span>;
 ```
 
 | <div style="min-width:230px;"> Piece of Code </div> | Notes                                                                                                                            |
