@@ -233,9 +233,9 @@ const StudentList = () => {
         <section>
             <h2>Student List</h2>
             <ul>
-                <li><Student name='Ada' email='ada@dev.org'></Student></li>
-                <li><Student name='Soo-ah' email='sooah@dev.org'></Student></li>
-                <li><Student name='Chrissy' email='chrissy@dev.org'></Student></li>
+                <li><Student name="Ada" email="ada@dev.org"></Student></li>
+                <li><Student name="Soo-ah" email="sooah@dev.org"></Student></li>
+                <li><Student name="Chrissy" email="chrissy@dev.org"></Student></li>
             </ul>
         </section>
     );
@@ -282,7 +282,7 @@ const StudentList = () => {
     return (
         <section>
                 <Student></Student>
-                <Student name='Soo-ah' email='sooah@dev.org'></Student>
+                <Student name="Soo-ah" email="sooah@dev.org"></Student>
         </section>
     );
 };
@@ -323,9 +323,9 @@ Consider this code, which uses JSX to create an array of list item elements hold
 ```js
 const StudentList = () => {
     const studentComponents = [
-        <li><Student name='Ada' email='ada@dev.org'></Student></li>,
-        <li><Student name='Soo-ah' email='sooah@dev.org'></Student></li>,
-        <li><Student name='Chrissy' email='chrissy@dev.org'></Student></li>
+        <li><Student name="Ada" email="ada@dev.org"></Student></li>,
+        <li><Student name="Soo-ah" email="sooah@dev.org"></Student></li>,
+        <li><Student name="Chrissy" email="chrissy@dev.org"></Student></li>
     ];
 
     return (
