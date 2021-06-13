@@ -2,11 +2,9 @@
 
 ## Goals
 
-In order to increase the complexity of our React webapps, we should practice nesting components.
+In order to manage the increasing complexity of our React webapps, we should practice nesting components.
 
-Nested components share a relationship that is different from sibling components.
-
-We can apply a design pattern for components that will help us distinguish what our components do.
+We can apply a design pattern for our components that will help us separate the responsibilities of the components in our applications.
 
 ## Format
 
@@ -15,7 +13,7 @@ This lesson will take the following steps:
 1. Introduce two design patterns for components:
    - presentational components
    - container components
-1. Follow Sofia's journey on creating an attendance app, applying these design patterns
+1. Follow Sofia's journey to create an attendance app, applying these design patterns
 
 ## Nested Components
 
@@ -74,14 +72,14 @@ Container components often have presentation components _nested_ inside them.
 
 ## Example: `StudentList` and `Student` Components
 
-Sofia is a teacher creating an attendance app. Her app should display a list of students. At this moment, she starts with this implementation of a `StudentList` component in `src/components/StudentList.js`.
-
-(Class names have been omitted from this code snippet for clarity)
+Sofia is a teacher creating an attendance app. Her app should display a list of students. Initially, she starts with this implementation of a `StudentList` component in `src/components/StudentList.js`.
 
 <!-- prettier-ignore-start -->
 ```js
 import React from 'react';
 import './StudentList.css';
+
+// className attributes have been omitted from this code snippet for clarity
 
 const StudentList = () => {
     return (
@@ -102,7 +100,7 @@ export default StudentList;
 
 This component displays a list of students, where each student is in an `<li>` element.
 
-However, Sofia knows that each student list item should display a lot of data, such as their name and email address.
+However, Sofia knows that she needs to display a lot of data about each student, such as their name and email address.
 
 Sofia can apply the container and presentational component design patterns, and:
 
@@ -111,7 +109,7 @@ Sofia can apply the container and presentational component design patterns, and:
 
 ### `Student` Component
 
-Sofia's `Student` component should display a student's name and email address. She'll create a new file, `src/components/Student.js`, and write this code:
+Sofia's `Student` component should display a student's name and email address. She creates a new file, `src/components/Student.js`, and writes this code:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -119,12 +117,10 @@ import React from 'react';
 
 const Student = () => {
     return (
-        <li>
-            <ul>
-                <li>Nickname: Ada</li>
-                <li>Email: ada@dev.org</li>
-            </ul>
-        </li>
+        <ul>
+            <li>Nickname: Ada</li>
+            <li>Email: ada@dev.org</li>
+        </ul>
     )
 }
 
@@ -136,20 +132,23 @@ export default Student;
 
 Now, Sofia can update her `StudentList` component.
 
-First, she needs to import the `Student` component into `src/components/StudentList.js` with `import Student from './Student';`.
+First, she imports the `Student` component into `src/components/StudentList.js` with `import Student from './Student';`.
 
-Then, she should replace the contents of the `<ul>` element.
+Then, she replaces the contents of the `<ul>` element.
 
 <!-- prettier-ignore-start -->
 ```js
+// imports, exports, and className attributes have been omitted
+// from this code snippet for clarity
+
 const StudentList = () => {
     return (
         <section>
             <h2>Student List</h2>
             <ul>
-                <Student></Student>
-                <Student></Student>
-                <Student></Student>
+                <li><Student></Student></li>
+                <li><Student></Student></li>
+                <li><Student></Student></li>
             </ul>
         </section>
     )
@@ -157,18 +156,32 @@ const StudentList = () => {
 ```
 <!-- prettier-ignore-end -->
 
-(Imports, exports, and class names have been omitted from this code snippet for clarity)
+### !callout-info
 
-Sofia's app now looks like this, which includes three rendered `Student` components! (This image also includes a previously implemented `ClassInfo` component.)
+## Closing Tags Are Required
 
-![An attendance web app with a heading "Student List," and a list of three students. All three students read "Nickname: Ada" and "Email: ada@dev.org."](../assets/props_nested-components_render.png)  
-_Fig. An attendance web app with a heading "Student List," and a list of three students. All three students read "Nickname: Ada" and "Email: ada@dev.org."_
+React is very strict about closing tags. Even tags that are self-closing in HTML (such as `<br>` and `<hr>`) must be explicitly closed in React components. This requirement is very similar to a variant of HTML called [XHTML](https://www.w3schools.com/html/html_xhtml.asp).
+
+<br />
+
+Rather than forcing us to write something like `<br></br>`, we can use a shorthand: `<br />`.
+
+<br />
+
+We can use this same shorthand for our own components, so instead of `<Student></Student>`, we could have written `<Student />`.
+
+### !end-callout
+
+Sofia's app now looks like this, which includes three rendered `Student` components!
+
+![Sophia's attendance web app with a heading "Student List," and a list of three students. All three students read "Nickname: Ada" and "Email: ada@dev.org."](../assets/props_nested-components_render.png)  
+_Fig. Updated `StudentList` output. The previously implemented `ClassInfo` component is also displayed._
 
 ## Summary
 
-Sofia has applied the presentational and container component design pattern to her project.
+Sofia has applied the presentational and container component design patterns to her project.
 
-- The `Student` component is a presentational component, responsible for display student data (name and email)
+- The `Student` component is a presentational component, responsible for displaying student data (name and email)
 - The `StudentList` component is a container component, responsible for using presentational components
 
 The `StudentList` component will soon _hold_ and _manage_ the student data. It will _pass_ this data _into_ the presentational components.
