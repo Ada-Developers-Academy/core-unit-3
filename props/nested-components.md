@@ -74,12 +74,12 @@ Container components often have presentation components _nested_ inside them.
 
 Sofia is a teacher creating an attendance app. Her app should display a list of students. Initially, she starts with this implementation of a `StudentList` component in `src/components/StudentList.js`.
 
+> `className` attributes have been omitted from this code snippet for clarity.
+
 <!-- prettier-ignore-start -->
 ```js
 import React from 'react';
 import './StudentList.css';
-
-// className attributes have been omitted from this code snippet for clarity
 
 const StudentList = () => {
     return (
@@ -136,11 +136,10 @@ First, she imports the `Student` component into `src/components/StudentList.js` 
 
 Then, she replaces the contents of the `<ul>` element.
 
+> Imports, exports, and `className` attributes have been omitted from this code snippet for clarity.
+
 <!-- prettier-ignore-start -->
 ```js
-// imports, exports, and className attributes have been omitted
-// from this code snippet for clarity
-
 const StudentList = () => {
     return (
         <section>
