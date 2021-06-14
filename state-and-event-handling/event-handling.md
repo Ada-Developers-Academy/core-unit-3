@@ -2,7 +2,7 @@
 
 ## Goals
 
-Our React web apps are more fulfilling when they handle user events. To handle events in React, we must learn the React conventions.
+Our React web apps become more capable when they handle user events. To handle events in React, we must learn the React conventions.
 
 ## Handling Events
 
@@ -15,11 +15,11 @@ In React, we'll add event listeners by using special attributes in our JSX.
 
 ## Event Listeners
 
-For any element to listen to an event, we set an attribute to the element.
+For any element to listen to an event, we set an attribute on the element.
 
 For click events, we set the `onClick` attribute.
 
-When submitting a form, for submit events, we set the `onSubmit` attribute. To handle when a `<input type="text">` element changes, we set the `onChange` attribute.
+When submitting a form, for submit events, we set the `onSubmit` attribute. To handle when an `<input type="text">` element changes, we set the `onChange` attribute.
 
 In general, to handle events in React, the proper attribute follows the pattern of "on`<blank>`" in camelCase, where `<blank>` is the name of the event. To confirm, we should research the correct attribute in the React docs, though!
 
@@ -46,17 +46,19 @@ The "like" button listens for click events. By setting the value of `onClick` to
 const Post = () => {
     const printMessage = () => {
         console.log('Hello! We\'re in printMessage!');
-    }
+    };
 
-    return (<section>
-        <button onClick={printMessage}>Like</button>
-    </section>)
-}
+    return (
+        <section>
+            <button onClick={printMessage}>Like</button>
+        </section>
+    );
+};
 ```
 <!-- prettier-ignore-end -->
 
 ![An app with a "like" button, and browser Dev Tools that read "Hello! We're in printMessage!" in the console.](../assets/state-and-event-handling_event-handling_printMessage.png)  
-_Fig. An app with a "like" button, and browser Dev Tools that read "Hello! We're in printMessage!" in the console._
+_Fig. Clicking the Like button calls `printMessage`, with our message appearing in the console_
 
 Every time we click our "Like" button, we'll see our message in the console!
 
@@ -66,9 +68,11 @@ Hello! We're in printMessage!
 
 ### Event Handling Functions Can Accept `event`
 
-We can get details about our events in our event-handling functions.
+We can get details in our event-handling functions about the event that occurred.
 
-If our event-handling function accepts arguments, the first argument will be an event object.
+If our event-handling function accepts arguments, React will pass an event object as the first argument.
+
+As with vanilla JavaScript event handling, we usually name this parameter `event` to remind us what to expect in that parameter. Also like vanilla JavaScript, this is merely convention, and we can name the parameter whatever we would like.
 
 Consider this code, where `printMessage` accepts an event object, and then prints it.
 
@@ -78,12 +82,14 @@ const Post = () => {
     const printMessage = (event) => {
         console.log('Hello! We\'re in printMessage!');
         console.log('This event object contains details about the event:', event);
-    }
+    };
 
-    return (<section>
-        <button onClick={printMessage}>Like</button>
-    </section>)
-}
+    return (
+        <section>
+            <button onClick={printMessage}>Like</button>
+        </section>
+    );
+};
 ```
 <!-- prettier-ignore-end -->
 
@@ -97,7 +103,7 @@ Object { _reactName: "onClick", ...
 
 ### Event Handling Functions Are Functions
 
-It's helpful to know that our event handling functions are, otherwise, normal functions.
+It's helpful to know that our event handling functions are still, in every way, normal functions.
 
 They can call other functions inside them, and pass arguments to them, too.
 
@@ -113,17 +119,19 @@ const Post = () => {
     const printName = (name) => {
         console.log('We\'re in printName!');
         console.log(`Hello, ${name}!`);
-    }
+    };
 
     const printMessage = () => {
         printName('Ada Lovelace');
         console.log('Now, we\'re in printMessage!');
-    }
+    };
 
-    return (<section>
-        <button onClick={printMessage}>Like</button>
-    </section>)
-}
+    return (
+        <section>
+            <button onClick={printMessage}>Like</button>
+        </section>
+    );
+};
 ```
 <!-- prettier-ignore-end -->
 
@@ -147,12 +155,14 @@ const Post = () => {
     const printName = (name) => {
         console.log('We\'re in printName!');
         console.log(`Hello, ${name}!`);
-    }
+    };
 
-    return (<section>
-        <button onClick={() => printName('Ada Lovelace')}>Like</button>
-    </section>)
-}
+    return (
+        <section>
+            <button onClick={() => printName('Ada Lovelace')}>Like</button>
+        </section>
+    );
+};
 ```
 <!-- prettier-ignore-end -->
 
@@ -165,9 +175,17 @@ Hello, Ada Lovelace!
 
 Every time we click on our "like" button, our anonymous function will fire. This, in turn, invokes `printName('Ada Lovelace')`!
 
-This is a common pattern in React code.
+Using anonymous functions for event handlers is a common pattern in React, especially when the function we want to call needs us to pass in some parameters.
 
-When our event handler has at least one parameter, we can use this technique.
+A common mistake when trying to call a function that takes an argument as an event handler is to try to write the function call, in this case `printName('Ada Lovelace')`, directly as the even handler.
+
+But this does not have the desired result! Instead, it:
+1. Calls `printName('Ada Lovelace')` as the button is being rendered rather than when it is clicked. This causes the output message to appear while the page is still being rendered. Not what we wanted!
+1. Sets the _result_ of calling `printName('Ada Lovelace')` as the click handler. Since `printName` returns nothing, the result is `undefined`. So no event handler is registered for `onClick`, and the button does nothing when it is clicked. Also not what we wanted!
+
+So when our desired behavior takes at least one parameter, we can use this technique of wrapping it in an anonymous function.
+
+An anonymous function lets us call arbitrary code exactly where the event registration occurs, which can be good for understandability. But we may find that, if we need to do more than one or two things in the event handler, then using a named function may still be more understandable.
 
 ### !callout-info
 
