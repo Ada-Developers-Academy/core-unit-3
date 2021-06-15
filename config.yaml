@@ -385,3 +385,30 @@ Standards:
         Type: Checkpoint
         UID: 235188b7
         Path: /props/problem-set-timeline.checkpoint.md
+  -
+    Title: State and Event Handling
+    Description: "Event Handling, Using State, Updating State, Problem Set: Recreate Weather Report"
+    UID: d4db3705
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Instructor
+        UID: a9ce35e1
+        Path: /state-and-event-handling/state-and-event-handling.instructor.md
+      -
+        Type: Lesson
+        UID: 127fbd6b
+        Path: /state-and-event-handling/event-handling.md
+      -
+        Type: Lesson
+        UID: 62b88196
+        Path: /state-and-event-handling/using-state.md
+      -
+        Type: Lesson
+        UID: 78e21e09
+        Path: /state-and-event-handling/updating-state.md
+      -
+        Type: Lesson
+        UID: 1da518bb
+        Path: /state-and-event-handling/problem-set-recreate-weather-report.md
