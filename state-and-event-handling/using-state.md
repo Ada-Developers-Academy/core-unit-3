@@ -46,7 +46,7 @@ Will we represent the state of our front-end React layer in something similar? A
 
 We can't, because of how React renders components!
 
-React is known for rendering UI really quickly! Under the hood, React achieves its speed by detecting changes in state, and re-rendering the component.
+React is known for rendering UI really quickly! Under the hood, React achieves its speed by detecting changes in state, and re-rendering only those components that depend on that state.
 
 Therefore, in order to hold, manage, and use state, we need to use React conventions.
 
@@ -79,13 +79,17 @@ The most common React hook we will use is the `useState` hook. It gives us the a
 `useState` is a function. It returns an _array_ of two things.
 
 1. In index `0` of the returned array, there is a _variable_ that references the piece of state we're managing
-1. In index `1`, there is a _function_ that updates that piece of state
+1. In index `1`, there is a _reference to a function_ for updating that piece of state
+
+`useState` also takes a single argument.
+
+1. The value used to initialize the piece of state, used _only the first_ time the component instance is rendered. This will become important when we look at updating our state value later.
 
 Consider this code for an `App` component to prove that this is what `useState` does:
 
 <!-- prettier-ignore-start -->
 ```js
-import { useState } from "react";
+import { useState } from 'react';
 
 function App() {
   const resultFromUseStateHook = useState('initial value of a piece of state');
@@ -105,17 +109,17 @@ A reference to the piece of state: initial value of a piece of state
 A function to update this piece of state: function dispatchAction()
 ```
 
-Again, we can conclude that the `useState` hook returns an array of two items: a reference to some state, and a function to update that state.
+Again, we can conclude that the `useState` hook returns an array of two items: a reference to some state, and a reference to a function to update that state.
 
 ### Using `useState`
 
 The conventional way to use `useState` is to take advantage of _destructuring assignment_.
 
-Every time we want a component to have a piece of state, we need to call `useState`:
+For every piece of state we want a component to have, we need to call `useState`:
 
 <!-- prettier-ignore-start -->
 ```js
-import { useState } from "react";
+import { useState } from 'react';
 
 function App() {
     const [pieceOfState, setPieceOfState] = useState('Initial value for pieceOfState.');
@@ -126,27 +130,29 @@ function App() {
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                                                                                                   |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `import { useState } from "react";`                 | In order to use `useState`, our code must import `useState` from React. This syntax uses object destructuring.                                                                                                          |
-| `const [..., ...] =`                                | This is the syntax for [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). This single line of code will assign a value to two variables. |
+| `const [..., ...] =`                                | This is the syntax for array [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). This single line of code will assign a value to two variables. |
 | `pieceOfState`                                      | **Replace this** with a name for the piece of state we are managing. Examples include `isCollapsed` or `likesCount`.                                                                                                    |
 | `setPieceOfState`                                   | **Replace this** with a name for `pieceOfState`'s update function. Conventionally, this is named "`set<piece of state>`". Examples include `setIsCollapsed` or `setLikesCount`.                                         |
-| `useState(...);`                                    | We invoke `useState`. This function takes in one argument: an initial value for the piece of state.                                                                                                                     |
+| `useState(...);`                                    | We invoke `useState`. This function takes in one argument: an initial value for the piece of state. This value is used _only the first_ time the component renders.                                                                                                                      |
 | `'Initial value for pieceOfState.'`                 | **Replace this** with an initial value for `pieceOfState`. This can be a string, boolean, number, object, etc.                                                                                                          |
 
 ### Example: `useState`
 
-Imagine a social media web app that has a list of posts. Each `Post` component that needs to display the number of likes it has.
+Imagine a social media web app that has a list of posts. Each `Post` component needs to display the number of likes it has.
 
 <!-- prettier-ignore-start -->
 ```js
-import { useState } from "react";
+import { useState } from 'react';
 
 const Post = () => {
     const [likesCount, setLikesCount] = useState(0);
 
-    return (<section>
-        <p>What is the number of likes we should display? {likesCount}</p>
-    </section>)
-}
+    return (
+        <section>
+            <p>What is the number of likes we should display? {likesCount}</p>
+        </section>
+    );
+};
 
 export default Post;
 ```
@@ -160,31 +166,8 @@ When we render one `Post` component, we see this text:
 What is the number of likes we should display? 0
 ```
 
-![A web app that displays the following text: "What is the number of likes we should display? 0"](../assets/state-and-event-handling_using-state_initial-state.png)
-
-### !callout-info
-
-## Getting the Initial Value From Props
-
-Instead of passing in a string literal to `useState`, what would happen if we passed in a variable?
-
-<br/>
-
-Sometimes, we'll get the initial value of state through _`props`_! Consider:
-
-```
-const SomeComponent = (props) => {
-    const [pieceOfState, setPieceOfState] = useState(this.props.initialPieceOfState);
-}
-
-SomeComponent.propTypes = {
-    initialPieceOfState: PropTypes.string.isRequired
-};
-```
-
-In this example, `SomeComponent` requires a `prop` named `initialPieceOfState`. We read this property with `this.props.initialPieceOfState` and pass it into `useState`.
-
-### !end-callout
+![A web app that displays the following text: "What is the number of likes we should display? 0"](../assets/state-and-event-handling_using-state_initial-state.png)  
+_Fig. The `Post` component can use its state like any other variable_
 
 ## Check for Understanding
 
@@ -233,6 +216,6 @@ Before 2018, React managed state using classes, a state object, and lifecycle me
 
 <br/>
 
-This lesson teaches managing state using React hooks. Both are valid ways to manage state. Using React hooks is considered better practice because it improves the ability to create independent, clean components. If we're curious, we can [read more about the motivation to use hooks in the official React docs](https://reactjs.org/docs/hooks-intro.html#motivation) anytime.
+This lesson teaches managing state using React hooks. Both are valid ways to manage state. Using React hooks is considered better practice because this method is designed to improve our long-term ability to create independent, clean components. If we're curious, we can [read more about the motivation to use hooks in the official React docs](https://reactjs.org/docs/hooks-intro.html#motivation) anytime.
 
 ### !end-callout
