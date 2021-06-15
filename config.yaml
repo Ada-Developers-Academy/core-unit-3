@@ -8,6 +8,10 @@ Standards:
       - success criteria
     ContentFiles:
       -
+        Type: Instructor
+        UID: a9ce35e1
+        Path: /state-and-event-handling/state-and-event-handling.instructor.md
+      -
         Type: Lesson
         UID: 127fbd6b
         Path: /state-and-event-handling/event-handling.md
