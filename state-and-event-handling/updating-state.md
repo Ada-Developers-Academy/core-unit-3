@@ -183,12 +183,12 @@ _Fig. Sofia's ideal end result. Ada has a red name because they are absent. Soo-
 She'll need to update her app in the following ways:
 
 1. Create two CSS classes: one that sets the name to green, and another to set the name to red
-1. Create a piece of state in `Student` to hold whether the student is present
-1. Create a button in `Student` to toggle whether the student is present
-1. Create an event handler that updates state whenever the button is clicked
-1. Use the CSS class in `Student`. One CSS class should be applied if the student is present, and the other CSS class should be applied if they're absent.
+2. Create a piece of state in `Student` to hold whether the student is present
+3. Create a button in `Student` to toggle whether the student is present
+4. Create an event handler that updates state whenever the button is clicked
+5. Use the CSS class in `Student`. One CSS class should be applied if the student is present, and the other CSS class should be applied if they're absent.
 
-### CSS Classes
+### 1. CSS Classes
 
 In `src/components/Student.css`, Sofia adds these two classes:
 
@@ -220,7 +220,7 @@ This line is in the `Student` component function, before the return statement:
 ```
 <!-- prettier-ignore-end -->
 
-### Create the Toggle Presence Button in `Student`
+### 2. Create the Toggle Presence Button in `Student`
 
 Sofia updates the returned JSX in `Student`. She adds this `<button>` just after the `</ul>` tag, with an appropriate label.
 
@@ -257,7 +257,7 @@ To deal with the enclosing tag requirement, Sofia decides to wrap the `Student` 
     );
 ```
 
-### Create the Event Handler
+### 3. Create the Event Handler
 
 Sofia now creates the event handler, which updates the `isPresent` state. This function is in the `Student` component function, before the return statement.
 
@@ -270,7 +270,7 @@ Sofia now creates the event handler, which updates the `isPresent` state. This f
 ```
 <!-- prettier-ignore-end -->
 
-#### Attach the Event Handler to the Button
+#### 4. Attach the Event Handler to the Button
 
 She modifies her `<button>` JSX to include this click event listener:
 
@@ -281,7 +281,7 @@ She modifies her `<button>` JSX to include this click event listener:
 ```
 <!-- prettier-ignore-end -->
 
-### Modify the JSX to Use Conditional CSS Classes
+### 5. Modify the JSX to Use Conditional CSS Classes
 
 Now, Sofia needs to conditionally select which CSS class to apply to the student's name.
 
