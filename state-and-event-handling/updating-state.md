@@ -57,8 +57,8 @@ Each post starts with zero likes. When we click the "like" button, the number of
 
 Let's consider the code we need to write for this:
 
-1. The `Post` component should have a piece of state, `likesCount`.`likesCount` is ideally a piece of state, and not a `prop`, because state can be modified within a component.
-1. We should also get a function to update this piece of state, `setLikesCount`.
+1. The `Post` component should have a piece of state, `likesCount`. `likesCount` is data that changes within the component, so we should represent it with a piece of state rather than a `prop`.
+1. We should get a reference to the update function for this piece of state, and store it in a variable with a good name like `setLikesCount`.
 1. The "like" button should listen for click events, using the attribute `onClick`.
 1. When the "like" button is clicked, we should call an event handler function. We can name this function `increaseLikes`.
 1. When our component increases likes in `increaseLikes`, we should update our state using `setLikesCount`.
@@ -89,17 +89,19 @@ export default Post;
 When we look at our web app, our count of likes starts at zero:
 
 ![An app that reads "The number of likes is 0." and a "like" button. The browser Dev Tools are open.](../assets/state-and-event-handling_updating-state_zero-likes.png)  
-_Fig. An app that reads "The number of likes is 0."_
+_Fig. A Post just waiting to be liked!_
 
-When we click it once, we see that `increaseLikes` has been invoked... and the number of likes has increased! Our state has been updated!
+When we click the "like" button once, we see that `increaseLikes` gets invoked... and the number of likes increases! Our state has been updated, and our component has been re-rendered.
+
+Even though our `useState` is still passing `0` for the initial value, the value that `likesCount` gets on each following render is the updated value!
 
 ![An app that reads "The number of likes is 1." and a "like" button. The browser Dev Tools are open. The console reads "We're inside increaseLikes!"](../assets/state-and-event-handling_updating-state_one-like.png)  
-_Fig. An app that reads "The number of likes is 1." and a "like" button. The browser Dev Tools are open. The console reads "We're inside increaseLikes!"_
+_Fig. The console message shows that the button called our event handler, and ultimately increased the like count._
 
-Clicking on the "like" button five times continues to update state!
+Clicking on the "like" button four more times continues to update the component state!
 
-![An app that reads "The number of likes is 5." and a "like" button. The browser Dev Tools are open. The console reads "We're inside increaseLikes!"](../assets/state-and-event-handling_updating-state_five-likes.png)  
-_Fig. An app that reads "The number of likes is 5."_
+![An app that reads "The number of likes is 5." and a "like" button. The browser Dev Tools are open. The console reads "We're inside increaseLikes!" with a count of 5 beside.](../assets/state-and-event-handling_updating-state_five-likes.png)  
+_Fig. The like count is up to five, and the console message was also printed 5 times, denoted by the 5 beside it._
 
 ### Seeing Multiple `Post`s Manage Their Own State
 
@@ -124,7 +126,7 @@ function App() {
 Our web app renders three posts, which all manage their own `likesCount` state.
 
 ![A web app that has three sentences and three like buttons. The first sentence says "The number of likes is 1." The second sentence says "The number of likes is 8." The third sentence says "The number of likes is 4."](../assets/state-and-event-handling_updating-state_three-posts.png)  
-_Fig. The web app with three different posts with three different counts of likes. The first post has 1 like, the second post has 8 likes, and the third post has 3 likes._
+_Fig. Three different Posts with three different like counts that update independently_
 
 Here, we've clicked "like" on the first post once, the second post eight times, and the third post four times.
 
@@ -134,7 +136,7 @@ Sofia is a teacher creating an attendance web app in React. She has the followin
 
 | <div style="min-width:200px;">Component</div> | Description                                                                                                                               |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `App`                                          | Holds the data of all students. Renders an instance of `ClassInfo` and an instance of `StudentList`, and passes the student data to them. |
+| `App`                                          | Holds the data of all students. Renders an instance of `ClassInfo` and an instance of `StudentList`, passing the needed student data to each component. |
 | `ClassInfo`                                    | Presents information about the class.                                                                                                     |
 | `StudentList`                                  | Renders a list of `Student`s, based on the student data.                                                                                  |
 | `Student`                                      | Presents information about a single student: their `name` and `email`.                                                                    |
@@ -143,7 +145,7 @@ Sofia is a teacher creating an attendance web app in React. She has the followin
 
 <details>
 
-<summary>Consider this initial implementation of the <code>Student</code> component.</summary>
+<summary>Recall this initial implementation of the <code>Student</code> component.</summary>
 
 ```js
 import PropTypes from 'prop-types';
@@ -173,14 +175,16 @@ When a student is present, their name is green. When a student is absent, their 
 
 For each student, there is a button to toggle if the student is present or not.
 
+> Throughout the remainder of this lesson, the `ClassInfo` component output will be omitted for clarity.
+
 ![A web app that lists three students. One student's name is in red. Two students' names are in green.](../assets/state-and-event-handling_updating-state_some-green-1.png)  
 _Fig. Sofia's ideal end result. Ada has a red name because they are absent. Soo-ah and Chrissy have green names because they are present._
 
 She'll need to update her app in the following ways:
 
 1. Create two CSS classes: one that sets the name to green, and another to set the name to red
-1. Create a piece of state in `Student` to hold if the student is present
-1. Create a button in `Student` to toggle if the student is present
+1. Create a piece of state in `Student` to hold whether the student is present
+1. Create a button in `Student` to toggle whether the student is present
 1. Create an event handler that updates state whenever the button is clicked
 1. Use the CSS class in `Student`. One CSS class should be applied if the student is present, and the other CSS class should be applied if they're absent.
 
@@ -218,7 +222,7 @@ This line is in the `Student` component function, before the return statement:
 
 ### Create the Toggle Presence Button in `Student`
 
-Sofia updates the returned JSX in `Student`. She adds this `<button>`, with an appropriate label.
+Sofia updates the returned JSX in `Student`. She adds this `<button>` just after the `</ul>` tag, with an appropriate label.
 
 <!-- Simon note: I added the indentation to clue to the student that it is likely indented? -->
 <!-- prettier-ignore-start -->
@@ -253,9 +257,9 @@ She modifies her `<button>` JSX to include this click event listener:
 
 ### Modify the JSX to Use Conditional CSS Classes
 
-Now, Sofia wants to use conditional CSS classes.
+Now, Sofia needs to conditionally select which CSS class to apply to the student's name.
 
-In her `Student` component, she creates a variable which holds the value of the appropriate CSS class. This value is based on:
+In her `Student` component, she will create a variable to hold the value of the appropriate CSS class. This value will use:
 
 - The value of `isPresent`
 - The names of the CSS classes she created earlier
@@ -279,7 +283,7 @@ This variable is in the `Student` component function, before the return statemen
 ```
 <!-- prettier-ignore-end -->
 
-Finally, she should ensure that this variable is used as a class name in her JSX.
+Finally, she ensures that this variable is used as a class name in her JSX.
 
 <!-- Simon note: I added the indentation to clue to the student that it is likely indented? -->
 <!-- prettier-ignore-start -->
@@ -330,20 +334,20 @@ export default Student;
 When Sofia loads her web app, which has the student data of three students, she sees that the initial value of `isPresent` is `false` for all of them.
 
 ![A web app that lists three students. All three students have their names in a red background, to indicate that they are not present.](../assets/state-and-event-handling_updating-state_all-red.png)  
-_Fig. The web app that lists three students. All three students have their names in a red background, to indicate that they are not present._
+_Fig. No one is here yet_
 
 She can click on the buttons for each component, and toggle their presence!
 
-![A web app that lists three students. One student's name is in red. Two students' names are in green.](../assets/state-and-event-handling_updating-state_some-green-1.png)  
-_Fig. Ada has a red name because they are absent. Soo-ah and Chrissy have green names because they are present._
+![A web app that lists three students. Ada's name is in red. Soo-ah's and Chrissy's names are in green.](../assets/state-and-event-handling_updating-state_some-green-1.png)  
+_Fig. Sofia clicks the buttons for Soo-ah and Chrissy_
 
-![A web app that lists three students. One student's name is in red. Two students' names are in green.](../assets/state-and-event-handling_updating-state_some-green-2.png)  
-_Fig. Soo-ah has a red name because they are absent. Ada and Chrissy have green names because they are present._
+![A web app that lists three students. Soo-ah's name is in red. Ada's and Chrissy's names are in green.](../assets/state-and-event-handling_updating-state_some-green-2.png)  
+_Fig. Clicking around some more, Sofia can mark Soo-ah as absent instead_
 
 We can even open up our browser Dev Tools and witness the CSS classes change.
 
 ![The attendance web app with browser Dev Tools opened. The dev tools show that the element containing Soo-ah's name has the class "red."](../assets/state-and-event-handling_updating-state_some-green-dev-tools.png)  
-_Fig. The attendance web app with browser Dev Tools opened. The dev tools show that the element containing Soo-ah's name has the class "red."_
+_Fig. Inspector view confirming that the element has the class "red"_
 
 ## Check for Understanding
 
@@ -432,7 +436,7 @@ Create a list of steps or pseudocode to implement this feature in `Temperature`.
 * title: Updating State
 ##### !question
 
-Create a generic list of steps to follow to add event-handling to _any_ component.
+Create a generic list of steps we can follow to add event-handling to _any_ component.
 
 ##### !end-question
 ##### !placeholder
