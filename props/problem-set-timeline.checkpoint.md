@@ -13,7 +13,7 @@ Answer the Check for Understanding questions at the end of this lesson.
 Our goal is to create a social media web app. In this web app, there is a timeline, which lists many timeline events. Timeline events are small posts that include a status message, an author, and a timestamp.
 
 ![Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has the timestamp "3 days ago." They also include a person's name and a status message.](../assets/props_problem-set-timeline_example.png)  
-_Fig. Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has the timestamp "3 days ago." They also include a person's name and a status message._
+_Fig. Social media feed where a few influential folx have come together to share some wisdom!_
 
 This document covers:
 
@@ -57,20 +57,22 @@ Read through each code snippet. Then, create these exact same files in your own 
     Replace your <code>src/App.js</code> with this
 </summary>
 
+<!-- prettier-ignore-start -->
 ```js
-import "./App.css";
-import timelineData from "./data/timeline.json";
-import Timeline from "./components/Timeline";
+import './App.css';
+import timelineData from './data/timeline.json';
+import Timeline from './components/Timeline';
 
 function App() {
-  console.log("The value of timelineData is", timelineData);
-  console.log("We should use timelineData in our project somehow...");
+  console.log('The value of timelineData is', timelineData);
+  console.log('We should use timelineData in our project somehow...');
 
   return <div></div>;
 }
 
 export default App;
 ```
+<!-- prettier-ignore-end -->
 
 </details>
 
@@ -154,14 +156,16 @@ export default App;
     <code>src/components/Timeline.js</code>
 </summary>
 
+<!-- prettier-ignore-start -->
 ```js
-import "./Timeline.css";
-import TimelineEvent from "./TimelineEvent";
+import './Timeline.css';
+import TimelineEvent from './TimelineEvent';
 
 const Timeline = () => {};
 
 export default Timeline;
 ```
+<!-- prettier-ignore-end -->
 
 </details>
 
@@ -187,14 +191,16 @@ export default Timeline;
     <code>src/components/TimelineEvent.js</code>
 </summary>
 
+<!-- prettier-ignore-start -->
 ```js
-import "./TimelineEvent.css";
-import Timestamp from "./Timestamp";
+import './TimelineEvent.css';
+import Timestamp from './Timestamp';
 
 const TimelineEvent = () => {};
 
 export default TimelineEvent;
 ```
+<!-- prettier-ignore-end -->
 
 </details>
 
@@ -242,12 +248,13 @@ export default TimelineEvent;
     <code>src/components/Timestamp.js</code>
 </summary>
 
+<!-- prettier-ignore-start -->
 ```js
-import moment from "moment";
+import moment from 'moment';
 
 const Timestamp = (props) => {
   const time = moment(props.time);
-  const absolute = time.format("MMMM Do YYYY, h:mm:ss a");
+  const absolute = time.format('MMMM Do YYYY, h:mm:ss a');
   const relative = time.fromNow();
 
   return <span title={absolute}>{relative}</span>;
@@ -255,6 +262,7 @@ const Timestamp = (props) => {
 
 export default Timestamp;
 ```
+<!-- prettier-ignore-end -->
 
 </details>
 
@@ -269,7 +277,7 @@ In this assignment, modify the following three components:
 The `Timestamp` component is **_already fully implemented_**. You will _not_ need to modify it during this assignment.
 
 ![Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has the timestamp "3 days ago." They also include a person's name and a status message.](../assets/props_problem-set-timeline_example.png)  
-_Fig. Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has the timestamp "3 days ago." They also include a person's name and a status message._
+_Fig. The timeline output reproduced here for convenience_
 
 ### `App` Component
 
@@ -289,7 +297,7 @@ import timelineData from "./data/timeline.json";
 
 The `Timeline` component is also a container component. It's responsible for:
 
-- Reading the timeline data from `App`
+- Receiving the timeline data from `App`
 - Rendering a list of `TimelineEvent` components based on the timeline data.
 - Passing person, status, and timestamp data to each `TimelineEvent` component.
 

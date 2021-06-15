@@ -12,14 +12,12 @@ Sofia created an attendance app that displays a list of students using a `Studen
 ```js
 const Student = (props) => {
     return (
-        <li>
-            <ul>
-                <li>Nickname: {props.name}</li>
-                <li>Email: {props.email}</li>
-            </ul>
-        </li>
-    )
-}
+        <ul>
+            <li>Nickname: {props.name}</li>
+            <li>Email: {props.email}</li>
+        </ul>
+    );
+};
 ```
 <!-- prettier-ignore-end -->
 
@@ -31,17 +29,17 @@ const StudentList = () => {
     return (
         <section>
                 <Student></Student>
-                <Student name='Soo-ah' email='sooah@dev.org'></Student>
+                <Student name="Soo-ah" email="sooah@dev.org"></Student>
         </section>
-    )
-}
+    );
+};
 ```
 <!-- prettier-ignore-end -->
 
 ![An attendance web app with a list of two students. One student reads "Nickname: , Email: ." The second student reads "Nickname: Soo-ah, Email: sooah@dev.org"](../assets/props_proptypes_undefined.png)  
-__Fig. An attendance web app with a list of two students. One student reads "Nickname: , Email: ." The second student reads "Nickname: Soo-ah, Email: sooah@dev.org"_
+_Fig. Output of Sofia's attendance web app when a `Student` component is used without supplying the required props._
 
-It would be nice if the React library could enforce the presence or data type of our props...
+Wouldn't it be nice if the React library could enforce the presence or data type of our props?
 
 ## PropTypes
 
@@ -62,11 +60,11 @@ For each component, we need to do the following:
 
 1. Import `PropTypes` into our component file
 1. Attach a `propTypes` member to our component function
-1. Assign the `propTypes` member to an object, where each key-value pair is a `prop` name and a _validator_
+1. Assign an object to the `propTypes` member, where each key-value pair in the object is a `prop` name and a _validator_
 
-Here, we are adding PropTypes to a component `ComponentA`.
+In the following example, we are adding PropTypes to a component `ComponentA`.
 
-In this example, these PropTypes state that there are two expected `props` for `ComponentA`:
+The PropTypes settings state that there are two expected `props` for `ComponentA`:
 
 - `title`, which is a string, and required
 - `operate`, which is a function
@@ -78,8 +76,8 @@ import PropTypes from 'prop-types';
 const ComponentA = (props) => {
     return (
         <span>{props.title}</span>
-    )
-}
+    );
+};
 
 ComponentA.propTypes = {
     title: PropTypes.string.isRequired,
@@ -90,14 +88,14 @@ export default ComponentA;
 ```
 <!-- prettier-ignore-end -->
 
-| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                          |
+| <div style="min-width:265px;"> Piece of Code </div> | Notes                                                                                                                                          |
 | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `import PropTypes from 'prop-types';`               | We need to import `PropTypes` properly before we use it.                                                                                       |
-| `ComponentA.propTypes`                              | After and outside the `ComponentA` function definition, we will set a value to the `propTypes` member of `ComponentA`.                         |
+| `import PropTypes from 'prop-types';`               | We need to import `PropTypes` properly before we use it. Notice that we use the `PropTypes` name literally in each validator we set up, which is why we must import `PropTypes` specifically.                                                                                      |
+| `ComponentA.propTypes`                              | After and outside the `ComponentA` function definition, we will assign a value to a new `propTypes` member of `ComponentA`. Note that this is a member of the entire component function (like a class member) rather than belonging to any particular component instance.                        |
 | `= { ... };`                                        | The value of `ComponentA.propTypes` should be an object.                                                                                       |
 | `title:`                                            | **Replace this** with the exact name of a `prop` we want to validate.                                                                          |
-| `PropTypes.string.isRequired`                       | **Replace this** with a PropType validator. Details below. This example validator checks if the `title` prop is a string, and if it's present. |
-| `operate: PropTypes.func`                           | Each props-validator pair is comma-separated. This props-validator pair states that the value of the prop `operate` should be a function.      |
+| `PropTypes.string.isRequired`                       | **Replace this** with a PropType validator. Details below. This example validator checks whether the prop is a string, and whether it's present. |
+| `operate: PropTypes.func`                           | Each props-validator pair is comma-separated, following regular JavaScript object syntax. This props-validator pair states that the value of the prop `operate` should be a function, but that it is optional (not required).      |
 
 ### Failing PropType Validations
 
@@ -108,10 +106,10 @@ Imagine an `App` component that renders instances of `ComponentA`:
 <!-- prettier-ignore-start -->
 ```js
 function App() {
-  const exampleTitle = "Multiply"
+  const exampleTitle = 'Multiply';
   const exampleOperate = (a, b) => {
     return a * b;
-  }
+  };
   return (
     <main>
       <ComponentA operate={exampleOperate}></ComponentA>
@@ -142,7 +140,7 @@ Here is an abbreviated list of validators that we can access through the object 
 
 Even more validators, details, explanations, and examples can be found [in the React documentation for PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html).
 
-| Validator   | Description                                                                                                                                                                                 |
+| <div style="min-width:100px;">Validator</div>   | Description                                                                                                                                                                                 |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `string`    | A String                                                                                                                                                                                    |
 | `array`     | An Array                                                                                                                                                                                    |
@@ -160,7 +158,7 @@ Even more validators, details, explanations, and examples can be found [in the R
 
 Sofia can define PropTypes validators for the `name` and `email` props in her `Student` component.
 
-She'll define:
+She defines:
 
 - `name` is a string, and it is required
 - `email` is a string, and it is required
@@ -170,12 +168,10 @@ import PropTypes from "prop-types";
 
 const Student = (props) => {
   return (
-    <li>
-      <ul>
-        <li>Nickname: {props.name}</li>
-        <li>Email: {props.email}</li>
-      </ul>
-    </li>
+    <ul>
+      <li>Nickname: {props.name}</li>
+      <li>Email: {props.email}</li>
+    </ul>
   );
 };
 
@@ -190,7 +186,7 @@ export default Student;
 If Sofia's array of student data isn't valid, and there's missing information...
 
 ```js
-[
+const studentData = [
   {
     nameData: "Ada",
   },
@@ -221,6 +217,6 @@ Through this tracing, she'll eventually debug and realize that her student data 
 
 ## Default Prop Values
 
-We can set default values for `props` using PropTypes. This is a useful skill! Follow your curiosity with independent research.
+We can set default values for `props` using a technique very similar to how we set the PropTypes. This is a useful skill! Follow your curiosity with independent research.
 
 ### !end-callout
