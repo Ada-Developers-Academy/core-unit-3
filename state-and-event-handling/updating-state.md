@@ -231,6 +231,32 @@ Sofia updates the returned JSX in `Student`. She adds this `<button>` just after
 ```
 <!-- prettier-ignore-end -->
 
+### !callout-danger
+
+## Adjacent JSX elements must be wrapped in an enclosing tag
+
+React tries to update the running web app as Sofia saves her changes, but after saving the `<button>`, React displays the error, "Adjacent JSX elements must be wrapped in an enclosing tag." Sofia realizes that she has violated the rule that React components must return a single parent JSX element!
+
+<br/>
+
+She knows that if she really didn't want to modify her JSX structure further, she could make use of React [Fragments](https://reactjs.org/docs/fragments.html) to group her elements, but instead, she decides to fix this situation by introducing an additional tag.
+
+### !end-callout
+
+To deal with the enclosing tag requirement, Sofia decides to wrap the `Student` JSX in a `<div>` tag, updating the `return` as follows:
+
+```js
+    return (
+        <div>
+            <ul>
+                <li>Nickname: {props.name}</li>
+                <li>Email: {props.email}</li>
+            </ul>
+            <button>Toggle if {props.name} is present</button>
+        </div>
+    );
+```
+
 ### Create the Event Handler
 
 Sofia now creates the event handler, which updates the `isPresent` state. This function is in the `Student` component function, before the return statement.
