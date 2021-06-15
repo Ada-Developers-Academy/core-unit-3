@@ -65,20 +65,22 @@ Let's consider the code we need to write for this:
 
 <!-- prettier-ignore-start -->
 ```js
-import { useState } from "react";
+import { useState } from 'react';
 
 const Post = () => {
     const [likesCount, setLikesCount] = useState(0);
     const increaseLikes = () => {
         console.log('We\'re inside increaseLikes!');
         setLikesCount(likesCount + 1);
-    }
+    };
 
-    return (<section>
+    return (
+      <section>
         <p>The number of likes is {likesCount}.</p>
         <button onClick={increaseLikes}>Like</button>
-    </section>)
-}
+      </section>
+    );
+};
 
 export default Post;
 ```
@@ -108,11 +110,13 @@ Imagine this `App` component, which renders three `Post` components.
 <!-- prettier-ignore-start -->
 ```js
 function App() {
-  return (<main>
-    <Post></Post>
-    <Post></Post>
-    <Post></Post>
-  </main>)
+  return (
+    <main>
+      <Post></Post>
+      <Post></Post>
+      <Post></Post>
+    </main>
+  );
 }
 ```
 <!-- prettier-ignore-end -->
@@ -142,16 +146,14 @@ Sofia is a teacher creating an attendance web app in React. She has the followin
 <summary>Consider this initial implementation of the <code>Student</code> component.</summary>
 
 ```js
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const Student = (props) => {
   return (
-    <li>
-      <ul>
-        <li>Nickname: {props.name}</li>
-        <li>Email: {props.email}</li>
-      </ul>
-    </li>
+    <ul>
+      <li>Nickname: {props.name}</li>
+      <li>Email: {props.email}</li>
+    </ul>
   );
 };
 
@@ -234,7 +236,7 @@ Sofia now creates the event handler, which updates the `isPresent` state. This f
 ```js
     const togglePresence = () => {
         setIsPresent(!isPresent);
-    }
+    };
 ```
 <!-- prettier-ignore-end -->
 
@@ -301,20 +303,20 @@ const Student = (props) => {
 
     const togglePresence = () => {
         setIsPresent(!isPresent);
-    }
+    };
 
     const nameColor = isPresent ? 'green' : 'red';
 
     return (
-        <li>
+        <div>
             <ul>
                 <li className={nameColor}>Nickname: {props.name}</li>
                 <li>Email: {props.email}</li>
             </ul>
             <button onClick={togglePresence}>Toggle if {props.name} is present</button>
-        </li>
-    )
-}
+        </div>
+    );
+};
 
 Student.propTypes = {
     name: PropTypes.string.isRequired,
