@@ -362,3 +362,26 @@ Standards:
         Type: Lesson
         UID: 29fee3f1
         Path: /react-components/problem-set-recreating-components.md
+  -
+    Title: Props
+    Description: "Nested Components, props, PropTypes, Problem Set: Timeline"
+    UID: c101520f
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: f51978eb
+        Path: /props/nested-components.md
+      -
+        Type: Lesson
+        UID: 230f7e72
+        Path: /props/props.md
+      -
+        Type: Lesson
+        UID: b64be794
+        Path: /props/proptypes.md
+      -
+        Type: Checkpoint
+        UID: 235188b7
+        Path: /props/problem-set-timeline.checkpoint.md
