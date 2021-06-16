@@ -1,5 +1,7 @@
 # Styling Components
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=8adc0690-b5c6-4b83-8c6f-ad4900119cab&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Goals
 
 Ultimately, React is used to create compelling and usable UIs. We've seen how defining and using components affects our HTML structures.
