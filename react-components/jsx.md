@@ -1,5 +1,7 @@
 # JSX
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=cc4ae742-d750-477b-aeec-ad490010cb45&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Goals
 
 React JS provides a special syntax known as JSX. It's used when rendering components in our webapp, so we can expect to see JSX all over the place!
