@@ -1,5 +1,7 @@
 # Intro to React JS
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=4e4cbdd2-e752-4149-9c40-ad490011022e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Learning Goals
 
 - Define what React is
