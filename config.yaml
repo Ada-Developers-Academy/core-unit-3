@@ -2,7 +2,7 @@
 Standards:
   -
     Title: Lifting State Up
-    Description: "Intro, Single Source of Truth, Passing Down Event Handlers, Lifting State Up, Problem Set: Lifting State Up"
+    Description: "Inspecting React State, Single Source of Truth, Passing Down Event Handlers, Lifting State Up, Problem Set: Lifting State Up"
     UID: ddc232ea
     SuccessCriteria:
       - success criteria

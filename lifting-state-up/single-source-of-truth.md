@@ -17,7 +17,7 @@ Consider for a moment what it would be like if we _didn't_ strive for a single s
 
 - If another component needs to read a student's `isPresent` state, where do they look for that data?
   - For example, what if another component wanted to count how many students were absent that day?
-- If there are multiple sources of truth, in what situations do we update one of source of truth, and don't update the others?
+- If there are multiple sources of truth, in what situations do we update one source of truth, but don't update the others?
 - What happens if our multiple sources of truth are out of sync with each other?
 
 <br/>
@@ -37,9 +37,9 @@ Sofia chooses to move the data to the `App` component. She chooses the `App` com
 
 ### New Student Data Shape in `App`
 
-First, we should add `isPresent` into our student data in `App`.
+First, Sofia adds `isPresent` to the student data in `App`.
 
-While we're here, we're also going to add `id` data to each student. This helps the data feel a little more realistic, as if we're reading it from a database or API.
+While she's there, she also adds `id` data to each student. This helps the data feel a little more realistic, as if it were coming from a database or API.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -75,13 +75,15 @@ function App() {
 ```
 <!-- prettier-ignore-end -->
 
-In this example, we've chosen the name `isPresentData` to help us clarify that this is coming from the student dataset. We can change the name to anything else if we want to!
+Sofia chose the name `isPresentData` rather than simply `isPresent` to help clarify that this value is coming from the student dataset. If we don't like that name, we can choose to give it any other name that helps us keep track of the data!
 
 ### Update PropTypes
 
-Now that `id` and `isPresentData` are in our `studentData`, and we pass that data into `StudentList` and `Student`, we should update our PropTypes.
+Since Sofia changed the structure of `studentData`, she also needs to update the PropTypes for the components that receive `studentData` through their `props`: `StudentList` and `Student`.
 
-The PropTypes for `StudentList` can look like this:
+She added `id` and `isPresentData` to the `studentData`, so these need to be added to the PropTypes shape.
+
+She updates the PropTypes for `StudentList` like this:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -96,7 +98,7 @@ StudentList.propTypes = {
 ```
 <!-- prettier-ignore-end -->
 
-And for `Student`:
+And for `Student` she does this:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -111,11 +113,13 @@ Student.propTypes = {
 
 ### Ensure `StudentList` Passes the New `App` Data
 
-We introduced the new pieces of data, `id` and `isPresentData`, in `App`. This data gets sent to `StudentList` through the prop named `students`.
+The new pieces of data, `id` and `isPresentData`, have been added to `App`. Now Sofia needs to make sure this data gets used in the rest of the app!
 
-Let's ensure that this data gets used!
+The data gets sent from `App` to `StudentList` through the prop named `students`.
 
-`StudentList` should read this data, and then sends it to `Student` components.
+`StudentList` should read `students`, and send the data for each student to a new `Student` component.
+
+Sofia updates the code that builds the array of `Student` components like this:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -134,16 +138,15 @@ const StudentList = (props) => {
     });
 
     // ... return some JSX
-}
+};
 ```
 <!-- prettier-ignore-end -->
 
-<!-- available callout types: info, success, warning, danger, secondary  -->
 ### !callout-info
 
 ## Refactoring Opportunity: `key=student.id`
 
-In a later commit, we could update our `map` call so that the `key` pulls the ID from the student data, not from the list index.
+In a later commit, Sofia could update the `map` call so that the `key` pulls the ID from the student data, not from the list index.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -162,19 +165,19 @@ const StudentList = (props) => {
     });
 
     // ... return some JSX
-}
+};
 ```
 <!-- prettier-ignore-end -->
 
-We'll do this in a later commit, so that we're working on only one task at a time.
+She decides to do this in a later commit, so that she can concentrate on working on only one task at a time.
 
 ### !end-callout
 
 ### Use `isPresent` as a `prop` in `Student`
 
-Now, let's remove our "other source of truth," and remove the piece of state `isPresent` from `Student`.
+Now, the other "source of truth" has to go! The piece of state `isPresent` in `Student` competes with the `isPresentData` set in the `App` and needs to be removed.
 
-_Instead_, we will use `isPresent` as a read-only `prop` that `StudentList` sends.
+Sofia removes that piece of state, and updates her code to use `isPresent` from the read-only `props` that were set by `StudentList`.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -190,21 +193,21 @@ const Student = (props) => {
             </ul>
             <button onClick={/* togglePresence */}>Toggle if {props.name} is present</button>
         </div>
-    )
-}
+    );
+};
 ```
 <!-- prettier-ignore-end -->
 
-Here, we've:
+Here, Sofia:
 
 - Deleted the line that initialized the piece of state `isPresent` with `useState`
 - Deleted the function `togglePresence`, which updated `isPresent`
-- Modified how `nameColor` is set: the conditional logic should read from `props.isPresent`
+- Modified how `nameColor` is set: the conditional logic now reads from `props.isPresent`
 - _Commented out_ the `onClick` event handler of the button
 
-We can't use the `togglePresence` event handler anymore. What does our button do when it's clicked, then?
+Sofia removed the `togglePresence` event handler, so she can't register it with the button anymore. So then what should the button do when it's clicked?
 
-We'll pass down an event handler!
+She'll pass down an event handler!
 
 ## Check for Understanding
 
