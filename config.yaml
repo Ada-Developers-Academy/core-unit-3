@@ -435,3 +435,7 @@ Standards:
         Type: Lesson
         UID: 82f81bda
         Path: /lifting-state-up/lifting-state-up.md
+      -
+        Type: Lesson
+        UID: abc286b1
+        Path: /lifting-state-up/problem-set-lifting-state-up.md
