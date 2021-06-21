@@ -422,7 +422,7 @@ Standards:
       -
         Type: Lesson
         UID: 09de9b49
-        Path: /lifting-state-up/intro.md
+        Path: /lifting-state-up/inspecting-react-state.md
       -
         Type: Lesson
         UID: 32852ddd
