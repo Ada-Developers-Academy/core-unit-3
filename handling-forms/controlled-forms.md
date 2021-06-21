@@ -311,8 +311,8 @@ const Student = (props) => {
             isPresentData: !props.isPresent
         }
 
-        // Invoke the function passed in through the prop named "onUpate"
-        // This function is referenced by the name "updateStudent" in App
+        // Invoke the function passed in through the prop named "onUpdate"
+        // This function is referenced by the name "updateStudentData" in App
         props.onUpdate(updatedStudent);
     }
 
@@ -399,7 +399,7 @@ Sofia will:
 
 Sofia needs to introduce state into the `NewStudentForm` component.
 
-She's made pieces of state that were strings and booleans before, but she's never put an object on state!
+She's made pieces of state that were strings and booleans before, but she's never put an object in state!
 
 To practice that, she'll make one piece of state named `formFields`. It will be an object that will hold `name` and `email` as key-value pairs.
 

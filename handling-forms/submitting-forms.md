@@ -4,6 +4,8 @@
 
 Sofia has been working on making a new student form in her attendance app. Consider her progress with this list of components:
 
+<br/>
+
 <details>
 
 <summary>An <code>App</code> component, responsible for managing all the student data</summary>
@@ -136,8 +138,8 @@ const Student = (props) => {
             isPresentData: !props.isPresent
         }
 
-        // Invoke the function passed in through the prop named "onUpate"
-        // This function is referenced by the name "updateStudent" in App
+        // Invoke the function passed in through the prop named "onUpdate"
+        // This function is referenced by the name "updateStudentData" in App
         props.onUpdate(updatedStudent);
     }
 
@@ -276,7 +278,7 @@ Sofia chose to implement `addStudentData` this way:
 1. She duplicates the `studentData` array into `newStudentList`, which will help React detect a change.
 1. She generates a new ID number, `nextId`.
 1. She pushes a new object into `newStudentList`. The shape of this object matches the other objects in `studentData`.
-1. The `newStudentList` now contains an object with the `newStudent` data. She updates `studentData` on state with `setStudentData`.
+1. The `newStudentList` now contains an object with the `newStudent` data. She updates `studentData` in state with `setStudentData`.
 
 ### !callout-info
 
