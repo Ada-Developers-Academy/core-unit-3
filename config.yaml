@@ -412,3 +412,26 @@ Standards:
         Type: Lesson
         UID: 1da518bb
         Path: /state-and-event-handling/problem-set-recreate-weather-report.md
+  -
+    Title: Lifting State Up
+    Description: "Inspecting React State, Single Source of Truth, Passing Down Event Handlers, Lifting State Up, Problem Set: Lifting State Up"
+    UID: ddc232ea
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 09de9b49
+        Path: /lifting-state-up/intro.md
+      -
+        Type: Lesson
+        UID: 32852ddd
+        Path: /lifting-state-up/single-source-of-truth.md
+      -
+        Type: Lesson
+        UID: 589f187c
+        Path: /lifting-state-up/passing-down-event-handlers.md
+      -
+        Type: Lesson
+        UID: 82f81bda
+        Path: /lifting-state-up/lifting-state-up.md
