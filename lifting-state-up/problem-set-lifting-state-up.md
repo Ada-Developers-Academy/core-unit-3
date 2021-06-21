@@ -94,7 +94,7 @@ const ClassInfo = (props) => {
             </ul>
         </section>
     );
-}
+};
 
 ClassInfo.propTypes = {
     memberCount: PropTypes.number
@@ -108,4 +108,5 @@ Create a delete button that will clear all student data.
 
 An example implementation looks like this:
 
-![](../assets/lifting-state-up_problem-set-lifting-state-up_delete-example.png)
+![Web browser displaying Sofia's attendance app, displaying the following output: the heading Attendance; the sub-heading Class Information; a bulleted list showing Name: Team Semicolons, and Number of members: 0; a button labelled Delete All Students!; and the sub-heading Student List with no students listed.](../assets/lifting-state-up_problem-set-lifting-state-up_delete-example.png)  
+_Fig. After clicking the Delete All Students! button, the app no longer displays any students._
