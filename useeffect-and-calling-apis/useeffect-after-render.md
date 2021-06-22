@@ -4,15 +4,15 @@
 
 During the first time that an instance of a component appears, the component initializes state (if it has any). After that, every time that component's state updates, the component re-renders.
 
-This React feature is extremely useful! It allows us to rely on React reliably keeping the UI up to date.
+This React feature is extremely useful! It allows us to rely on React keeping the UI up to date in response to state changes.
 
 However, there are certain situations where this feature _causes problems_. Here are some examples:
 
-1. A `Timer` component that is responsible for starting and keeping an uninterrupted ten-minute timer, even if the appearance of the timer changes
-1. A `RestaurantList` component that gets a list of restaurants from the Yelp API once. The API call to the Yelp API should only be made once, even when the user marks a restaurant as a "favorite."
-1. A `VideoPlayer` component that loads a large movie file from an API once, even if the volume bar is adjusted.
+1. A `Timer` component that is responsible for starting and keeping an uninterrupted ten-minute timer, even if the appearance of the timer changes. We don't want to restart the timer any time the visual appearance of the `Timer` updates.
+1. A `RestaurantList` component that gets a list of restaurants from the Yelp API once. We don't want to retrieve the data again simply because the user marks a restaurant as a "favorite."
+1. A `VideoPlayer` component that loads a large movie file from an API once. We don't want to start downloading the movie again simply because the volume bar is adjusted.
 
-In each of these examples, we can expect the state of the component to change, but we need more control over what happens during each re-render. What do we need to learn in order to build these features?
+In each of these examples, we expect the state of the component to change, but we need more control over what happens during each re-render. We need to know more about how React renders controls!
 
 ## The Component Lifecycle
 
@@ -24,32 +24,33 @@ Under-the-hood, the React library manages components through a process called _[
 | Updating Stage   | Occurs when a component is being re-rendered.                                      |
 | Unmounting Stage | Occurs when a component is being removed from the DOM.                             |
 
-![](../assets/useeffect-and-calling-apis_useeffect-after-render_lifecycle.png)
+![The Mounting stage calls the constructor, then render. After updating the DOM and refs, the stage ends by calling componentDidMount. The Updating stage is triggered in response to new props, calling a setState method, or a forceUpdate call. render is called, and then after updating the DOM and refs, the stage ends by calling componentDidUpdate. The Unmounting stage is triggered when a component that was part of the rendered output is removed from the output. It calls componentWillUnmount. All actions taken before updating the DOM and refs are considered as part of the Render Phase, which has no side effects and can be restarted or aborted. Any actions after updating the DOM (including the Unmounting stage) are considered part of the Commit Phase, during which we can work with the DOM.](../assets/useeffect-and-calling-apis_useeffect-after-render_lifecycle.png)  
+_Fig. A simplified view of the React lifecycle methods called during various stages. [Source](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)_
 
-During each stage, each component calls a set of different and unique functions that are defined under-the-hood. These functions are hidden from view.
+During each stage, each component calls a set of different and unique functions that are defined under-the-hood. When using React with hooks, these functions are hidden from view, and instead we tie into these events by using other hooks!
 
-During the mounting stage, a component will calls these functions, in this exact order.:
+During the _mounting_ stage, a component will calls these functions, in this exact order (starred functions are not depicted in the simplified chart):
 
 1. `constructor()`
-1. `getDerivedStateFromProps()`
+1. `getDerivedStateFromProps()`*
 1. `render()`
 1. `componentDidMount()`
 
-On the other hand, during the _updating stage_, components call this different set of functions in this order:
+On the other hand, during the _updating stage_, components call this different set of functions in this order (starred functions are not depicted in the simplified chart):
 
-1. `getDerivedStateFromProps()`
-1. `shouldComponentUpdate()`
+1. `getDerivedStateFromProps()`*
+1. `shouldComponentUpdate()`*
 1. `render()`
-1. `getSnapshotBeforeUpdate()`
+1. `getSnapshotBeforeUpdate()`*
 1. `componentDidUpdate()`
 
 Finally, during the _unmounting stage_, components call this function:
 
 1. `componentWillUnmount()`
 
-Again, we haven't seen these before because all of these functions are defined and invoked under-the-hood in the React library.
+Again, we haven't seen these before because all of these functions are defined and invoked under-the-hood when using React with hooks.
 
-Becoming aware of the stages and phases in the component lifecycle gives us more insight for our code. The most important functions be aware of are:
+Becoming aware of the stages and phases in the component lifecycle gives us more insight about our code. The most important functions to be aware of are:
 
 1. `componentDidMount()`
 1. `componentDidUpdate()`
@@ -105,19 +106,21 @@ In summary, we can say that `useEffect` is called after a component renders.
 To use the `useEffect` hook, we call the `useEffect` function with two parameters:
 
 1. A function that describes what to do _after the component fully renders_ during `componentDidMount` and `componentDidUpdate`.
-1. A "dependency" array. The array contains references to any _props or state_ to _watch_. Whenever any watched props or state update, `useEffect` will run as part of `componentDidUpdate`.
-   - If we don't define this array, `useEffect` will be called during _every_ `componentDidUpdate`.
+1. A "dependency" array. This array contains references to any _props or state_ to _watch_. Whenever any watched props or state update, `useEffect` will run as part of `componentDidUpdate`.
+   - If we don't define this array, `useEffect` will be called during _every_ `componentDidUpdate`. That is, every time the component re-renders.
    - This array can be empty `[]` to indicate we are not watching for any updates.
 
 ### Syntax: Executing `useEffect` After Specific Values Change
 
-Firstly, each file that uses `useEffect` should import it:
+First, each file that uses `useEffect` should import it:
 
 ```js
 import { useEffect } from "react";
 ```
 
-Now, observe this example of `useEffect`:
+Now, consider the following example of `useEffect`.
+
+Keep in mind that this should not be taken as an example of how to log output in response to a button press, since we could simply do that directly in an event handler. Instead, we can imagine there being multiple ways that the monitored state value could be updated. And rather than logging, we could take any number of actions in response to the state change.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -133,23 +136,25 @@ function App() {
     console.log('or whenever pieceOfState is updated');
   }, [pieceOfState]);
 
-  return (<div>
-    <button onClick={() => setPieceOfState(pieceOfState + 1)}>Click Me to Update pieceOfState!</button>
-  </div>);
+  return (
+    <div>
+      <button onClick={() => setPieceOfState(pieceOfState + 1)}>Click Me to Update pieceOfState!</button>
+    </div>
+  );
 }
 ```
 <!-- prettier-ignore-end -->
 
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                                                                               |
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `import { useState, useEffect } ...`                | In this example, we're importing both `useState` and `useEffect` from React. Continuing to use valid object destructuring, we can list comma-separate them.                                         |
+| `import { useState, useEffect } ...`                | In this example, we're importing both `useState` and `useEffect` from React. Object destructuring syntax lets us list multiple comma-separated values.                                         |
 | `const [pieceOfState ... ;`                         | As part of this example, we are creating some state named `pieceOfState`, with an initial value of `0`.                                                                                             |
 | `useEffect(..., ...);`                              | Within our component function, we use this hook by invoking it.                                                                                                                                     |
 | `() => { ... }`                                     | The first parameter of `useEffect` is a function.                                                                                                                                                   |
 | `console.log ...`                                   | **Replace these statements** with the logic to run after a component mounts or updates. In this example, we are printing several things to the console.                                             |
-| `[pieceOfState]`                                    | **Replace this** with an array of dependencies. Whenever any item in this array updates, the `useEffect` function runs. In this example, `useEffect` will run in every time `pieceOfState` updates. |
+| `[pieceOfState]`                                    | **Replace this** with an array of dependencies. Whenever any item in this array updates, the `useEffect` function runs. In this example, `useEffect` will run every time `pieceOfState` updates. |
 | `return (...);`                                     | This component function still needs to return a JSX object.                                                                                                                                         |
-| `<button ...>...</button>`                          | In this example, we are creating a button. When the button is clicked, it runs an anonymous one-line function that updates `pieceofState`.                                                          |
+| `<button ...>...</button>`                          | In this example, we are creating a button. When the button is clicked, it runs an anonymous one-line function that updates `pieceOfState`.                                                          |
 
 When we run our app, we'll see this console output after the `App` component initially renders, as part of `componentDidMount`!
 
@@ -159,15 +164,15 @@ This will be called whenever an instance of this component mounts
 or whenever pieceOfState is updated
 ```
 
-We'll also see it whenever we click the button, which updates `pieceOfState`.
+We'll also see it whenever we click the button, which updates `pieceOfState`, since `pieceOfState` is listed as a dependency for the `useEffect` call.
 
 #### Dependency Arrays With Selective `useEffect` Calls
 
-Let's observe an example to demonstrate the dependency list even more. In this case, we have two pieces of state: `apples` and `oranges`.
+Let's examine another example to deepen our understanding of the dependency list. In this case, we have two pieces of state: `apples` and `oranges`.
 
 <!-- Simon note: Awkward grammar, but I want the "we've specified ... when oranges is updated" explanation first, before pointing out it was through the syntax [oranges]. Open for suggestions if the order of "info revealed" remains. -->
 
-We've specified that `useEffect` should _only_ run when **`oranges`** is updated. We accomplished this by passing in `[oranges]` as the second parameter to `useEffect`.
+This example specifies that `useEffect` should _only_ run when **`oranges`** is updated. We accomplish this by passing in `[oranges]` as the second parameter to `useEffect`.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -184,17 +189,20 @@ function App() {
     console.log('NOT when apples updates');
   }, [oranges]);
 
-  return (<div>
-    <p>Apples: {apples}</p>
-    <button onClick={() => setApples(apples + 1)}>Click Me to Update apples!</button>
-    <p>Oranges: {oranges}</p>
-    <button onClick={() => setOranges(oranges + 1)}>Click Me to Update oranges!</button>
-  </div>);
+  return (
+    <div>
+      <p>Apples: {apples}</p>
+      <button onClick={() => setApples(apples + 1)}>Click Me to Update apples!</button>
+      <p>Oranges: {oranges}</p>
+      <button onClick={() => setOranges(oranges + 1)}>Click Me to Update oranges!</button>
+    </div>
+  );
 }
 ```
 <!-- prettier-ignore-end -->
 
-![](../assets/useeffect-and-calling-apis_useeffect-after-render_oranges-dependency-list.png)
+![Sample output from running the previous example. Apples is displayed with the number 7, and has a button below labelled Click Me to Update apples! Oranges is displayed with the number 2, and has a button below labelled Click Me to Update oranges! The developer tools console is open, and the console.log messages from the useEffect are displayed, in total three times.](../assets/useeffect-and-calling-apis_useeffect-after-render_oranges-dependency-list.png)  
+_Fig. Console output after clicking the apples button seven times and the oranges button twice_
 
 In this example, we've clicked on the "apples" button seven times, but we don't see seven print statements from `useEffect`. Instead, we only see our print statements three times: once after the component mounted, and two more times from clicking the "oranges" button.
 
@@ -233,17 +241,23 @@ function App() {
 
 Let's explore an example React app that will showcase the importance of when `useEffect` runs.
 
-Just like static-site development using HTML, CSS, and vanilla JS, JavaScript can execute faster than the DOM is built.
+Recall that in static-site development using HTML, CSS, and vanilla JS, we saw that our JavaScript code can execute before the DOM is completely built. This meant we couldn't be certain that any particular DOM element was available when our script ran.
 
-In vanilla JS, we handled this problem by listening for the event "DOMContentLoaded":
+In vanilla JS, we handled this problem by listening for the "DOMContentLoaded" event:
 
 <!-- prettier-ignore-start -->
 ```js
-document.addEventListener("DOMContentLoaded", () => { console.log('We can manipulate the DOM now!'); });
+document.addEventListener('DOMContentLoaded', () => { console.log('We can manipulate the DOM now!'); });
 ```
 <!-- prettier-ignore-end -->
 
-React encounters the same problem! Imagine this `App` component, where we access the global variable `document`, and print it to the console.
+We can encounter a similar problem in React.
+
+What if we had a component with logic to locate and update a particular page element. Let's assume this element is rendered using the JSX result from our component.
+
+How can we get a reference to the desired element from the DOM if our JSX hasn't been rendered yet?
+
+We might try logging the value of the global `document` object to the console to see whether it looks like the DOM structure is available.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -251,14 +265,19 @@ function App() {
 
   console.log('The value of document is:', document);
 
-  return (<div>
-    <h1 id="title">Violin Practice Log</h1>
-  </div>);
+  return (
+    <div>
+      <h1 id="title">Violin Practice Log</h1>
+    </div>
+  );
 }
 ```
 <!-- prettier-ignore-end -->
 
-![](../assets/useeffect-and-calling-apis_useeffect-after-render_log-document.png)
+![Rendered result of the previous example. The heading Violin Practice Log is displayed. The developer tools console is visible. It displays The value of document is: and what appears to be a live reference to the document object.](../assets/useeffect-and-calling-apis_useeffect-after-render_log-document.png)  
+_Fig. Logging the value of `document` to check whether the desired elements are available_
+
+The browser tools display a live reference to the `document` object. If we expand the `document` object, it might look like our content is in the DOM, available for us to access.
 
 _However_, if we try to directly manipulate the DOM as part of our `App` component function...
 
@@ -267,28 +286,31 @@ _However_, if we try to directly manipulate the DOM as part of our `App` compone
 function App() {
 
   console.log('The value of document is:', document);
-  document.getElementById('title').textContent = "Not a Violin Practice Log";
+  document.getElementById('title').textContent = 'Not a Violin Practice Log';
 
-  return (<div>
-    <h1 id="title">Violin Practice Log</h1>
-  </div>);
+  return (
+    <div>
+      <h1 id="title">Violin Practice Log</h1>
+    </div>
+  );
 }
 ```
 <!-- prettier-ignore-end -->
 
-We'll get an error stating that `document.getElementById('title')` is `null`!
+We'll get an error stating that `document.getElementById('title')` is `null`! Note that the exact wording of the error may vary depending on the browser we are using.
 
 ```
 Uncaught TypeError: document.getElementById(...) is null
 ```
 
-![](../assets/useeffect-and-calling-apis_useeffect-after-render_document-getelementbyid.png)
+![Error message caused by trying to manipulate the DOM in the previous example. The error message displayed is "TypeError: document.getElementById(...) is null". The developer tools console displays the same error message including a short stack trace.](../assets/useeffect-and-calling-apis_useeffect-after-render_document-getelementbyid.png)  
+_Fig. Accessing the specific DOM element caused a null reference error_
 
 ### Switching to `useEffect`
 
 In order to directly manipulate the DOM in our component, we need to wait for the DOM to fully build, and our components to finish rendering.
 
-This is a great use case for `useEffect`! We can:
+This sounds like a job for `useEffect`! We can:
 
 1. Import `useEffect`
 1. Move our logic into a new function, which we pass into `useEffect`
@@ -302,27 +324,34 @@ function App() {
   console.log('The value of document is:', document);
 
   useEffect(() => {
-    document.getElementById('title').textContent = "Not a Violin Practice Log";
     console.log('I\'m in useEffect!');
+    document.getElementById('title').textContent = 'Not a Violin Practice Log';
   }, []);
 
 
-  return (<div>
-    <h1 id="title">Violin Practice Log</h1>
-  </div>);
+  return (
+    <div>
+      <h1 id="title">Violin Practice Log</h1>
+    </div>
+  );
 }
 ```
 <!-- prettier-ignore-end -->
 
-With this adjustment, we can confidently observe that the DOM was successfully manipulated _after_ the component rendered, as part of `useEffect`.
+With this adjustment, our DOM manipulation was successful! `useEffect` doesn't run until after the DOM is ready and our components are rendered.
 
-![](../assets/useeffect-and-calling-apis_useeffect-after-render_dom-manipulation-success.png)
+![Rendered result of the fixed example. The heading Not a Violin Practice Log is displayed. The developer tools console is visible. It displays The value of document is: and what appears to be a live reference to the document object, followed by the message "I'm in useEffect", which was logged by our anonymous effect function just before updating the DOM.](../assets/useeffect-and-calling-apis_useeffect-after-render_dom-manipulation-success.png)  
+_Fig. The DOM is successfully updated after moving the manipulation into an effect_
 
 ### !callout-info
 
 ## Manipulating `document` in `useEffect`?
 
-Our above example successfully manipulated the DOM using the `useEffect` hook. This isn't necessarily a realistic example! In practice, we'd likely _not_ manipulate the DOM directly, and if we did, we'd likely use a different hook, `useRef`. Follow your curiosity!
+Our above example successfully manipulated the DOM using the `useEffect` hook. This isn't necessarily a realistic example! In practice, we'd likely _not_ manipulate the DOM directly. Try thinking of a different way we could have updated the heading content in the previous examples _without_ getting a DOM element reference.
+
+<br/>
+
+There are still times where we might need a reference to an element that our control renders. In that case, we'd likely use a different hook, `useRef`. Follow your curiosity!
 
 ### !end-callout
 
@@ -330,7 +359,7 @@ Our above example successfully manipulated the DOM using the `useEffect` hook. T
 
 Our primary use for the `useEffect` hook will be to make API calls after a component mounts.
 
-We could make API calls inside a component function without caring about the lifecycle, but then API requests would run every time our function was called (i.e., every time the component get re-rendered).
+We could make API calls inside a component function without caring about the lifecycle, but then API requests would run every time our function was called (i.e., every time the component gets re-rendered).
 
 Further, the API call might delay the rendering of our component leading to the app "hanging," and not responding to the user.
 
@@ -346,7 +375,7 @@ It's more advantageous to make API calls asynchronously after the app is fully r
 * title: useEffect After Render
 ##### !question
 
-Check all lifecycle functions where `useEffect` function is called.
+Check all lifecycle functions where our `useEffect` function is called.
 
 ##### !end-question
 ##### !options
@@ -511,17 +540,21 @@ On the subject of `useEffect` syntax, the `useEffect` hook also supports definin
 
 In the examples in this curriculum, there will not be many or any examples that use the cleanup function meaningfully.
 
+<br/>
+
 <details>
 
 <summary>For those curious, here's an example of defining a clean-up function.</summary>
+
+<br/>
 
 In React, clean-up functions will run during `componentWillUnmount`. To define a clean-up function, we must _return_ the clean-up function inside our `useEffect` callback function.
 
 <!-- prettier-ignore-start -->
 ```js
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-function App() {
+const ComponentWithCleanup = () => {
 
   useEffect(() => {
     console.log('I\'m in useEffect!');
@@ -531,11 +564,30 @@ function App() {
   }, []);
 
   return (<h1>Demo of Clean-up Function Syntax</h1>);
+};
+
+function App() {
+  const [showComponent, setShowComponent] = useState(true);
+
+  const childComponent = showComponent ? <ComponentWithCleanup /> : <h1>Removed!</h1>;
+
+  return (
+    <div>
+      { childComponent }
+      <button onClick={() => setShowComponent(! showComponent)}>Update</button>
+    </div>
+  );
 }
 ```
 <!-- prettier-ignore-end -->
 
-In this example, our `useEffect` callback function returns a one-line, anonymous arrow function, which prints to the console.
+<br/>
+
+In this example we define a `ComponentWithCleanup` component, which logs a message to the console in its cleanup function. The `App` component has a button that toggles whether to include the `ComponentWithCleanup` in the rendered output.
+
+<br/>
+
+When the app is rendered, we see the messages logged to the console through the component's `useEffect` function. Then when we click the button, the component is removed from the rendered output, and we see the cleanup message appear in the console log.
 
 </details>
 
