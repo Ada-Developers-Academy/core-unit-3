@@ -569,12 +569,12 @@ const ComponentWithCleanup = () => {
 function App() {
   const [showComponent, setShowComponent] = useState(true);
 
-  const childComponent = showComponent ? <ComponentWithCleanup /> : <h1>Removed!</h1>;
+  const childComponent = showComponent ? (<ComponentWithCleanup />) : (<h1>Removed!</h1>);
 
   return (
     <div>
       { childComponent }
-      <button onClick={() => setShowComponent(! showComponent)}>Update</button>
+      <button onClick={() => setShowComponent(!showComponent)}>Update</button>
     </div>
   );
 }
