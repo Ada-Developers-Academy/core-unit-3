@@ -439,3 +439,18 @@ Standards:
         Type: Lesson
         UID: abc286b1
         Path: /lifting-state-up/problem-set-lifting-state-up.md
+  -
+    Title: useEffect and Calling APIs
+    Description: "useEffect After Render, Calling APIs from Components"
+    UID: b778886a
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 645ec05b
+        Path: /useeffect-and-calling-apis/useeffect-after-render.md
+      -
+        Type: Lesson
+        UID: dade3f84
+        Path: /useeffect-and-calling-apis/calling-apis-from-components.md
