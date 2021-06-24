@@ -477,3 +477,14 @@ Standards:
         Type: Lesson
         UID: 2f5670a2
         Path: /handling-forms/problem-set-forms-and-apis.md
+  -
+    Title: Unit Wrap Up
+    Description: "Activity: Mind Map"
+    UID: 6efdc648
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: cb7e8aab
+        Path: /unit-wrap-up/activity-mind-map.md
