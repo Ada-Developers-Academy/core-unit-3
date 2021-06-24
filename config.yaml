@@ -454,3 +454,26 @@ Standards:
         Type: Lesson
         UID: dade3f84
         Path: /useeffect-and-calling-apis/calling-apis-from-components.md
+  -
+    Title: Handling Forms
+    Description: "Controlled Forms, Submitting Forms, Problem Set: Forms and APIs"
+    UID: c5e86e7e
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Instructor
+        UID: a939ecdf
+        Path: /handling-forms/controlled-forms.instructor.md
+      -
+        Type: Lesson
+        UID: e292aa10
+        Path: /handling-forms/controlled-forms.md
+      -
+        Type: Lesson
+        UID: c073ec6c
+        Path: /handling-forms/submitting-forms.md
+      -
+        Type: Lesson
+        UID: 2f5670a2
+        Path: /handling-forms/problem-set-forms-and-apis.md
