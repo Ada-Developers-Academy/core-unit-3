@@ -412,3 +412,79 @@ Standards:
         Type: Lesson
         UID: 1da518bb
         Path: /state-and-event-handling/problem-set-recreate-weather-report.md
+  -
+    Title: Lifting State Up
+    Description: "Inspecting React State, Single Source of Truth, Passing Down Event Handlers, Lifting State Up, Problem Set: Lifting State Up"
+    UID: ddc232ea
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 09de9b49
+        Path: /lifting-state-up/inspecting-react-state.md
+      -
+        Type: Lesson
+        UID: 32852ddd
+        Path: /lifting-state-up/single-source-of-truth.md
+      -
+        Type: Lesson
+        UID: 589f187c
+        Path: /lifting-state-up/passing-down-event-handlers.md
+      -
+        Type: Lesson
+        UID: 82f81bda
+        Path: /lifting-state-up/lifting-state-up.md
+      -
+        Type: Lesson
+        UID: abc286b1
+        Path: /lifting-state-up/problem-set-lifting-state-up.md
+  -
+    Title: useEffect and Calling APIs
+    Description: "useEffect After Render, Calling APIs from Components"
+    UID: b778886a
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 645ec05b
+        Path: /useeffect-and-calling-apis/useeffect-after-render.md
+      -
+        Type: Lesson
+        UID: dade3f84
+        Path: /useeffect-and-calling-apis/calling-apis-from-components.md
+  -
+    Title: Handling Forms
+    Description: "Controlled Forms, Submitting Forms, Problem Set: Forms and APIs"
+    UID: c5e86e7e
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Instructor
+        UID: a939ecdf
+        Path: /handling-forms/controlled-forms.instructor.md
+      -
+        Type: Lesson
+        UID: e292aa10
+        Path: /handling-forms/controlled-forms.md
+      -
+        Type: Lesson
+        UID: c073ec6c
+        Path: /handling-forms/submitting-forms.md
+      -
+        Type: Lesson
+        UID: 2f5670a2
+        Path: /handling-forms/problem-set-forms-and-apis.md
+  -
+    Title: Unit Wrap Up
+    Description: "Activity: Mind Map"
+    UID: 6efdc648
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: cb7e8aab
+        Path: /unit-wrap-up/activity-mind-map.md
