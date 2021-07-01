@@ -97,7 +97,7 @@ Rapidly making several HTTP requests to the same endpoint may exceed our API rat
 What is the latitude of the first result of "Great Wall of China"?
 ##### !end-question
 ##### !answer
-40.3587621
+/(40.3471793)|(40.3490948)/
 ##### !end-answer
 ### !end-challenge
 <!-- prettier-ignore-end -->
@@ -112,7 +112,7 @@ What is the latitude of the first result of "Great Wall of China"?
 What is the longitude of the first result of "Great Wall of China"?
 ##### !end-question
 ##### !answer
-116.0136394
+/(116.0043874)|(116.0031635)/
 ##### !end-answer
 ### !end-challenge
 <!-- prettier-ignore-end -->
