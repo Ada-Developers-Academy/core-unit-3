@@ -7,27 +7,20 @@ In JavaScript we will work with Objects regularly and at times we will want to w
 We can for example do:
 
 ```javascript
-const authorizedUsers = function(users) {
-    const authorizedPeople = [];
-
-    for (let user of users) {
-        const id = user.id;
-        const name = user.name;
-        const authorized = user.authorized;
-        
-        if (authorized) {
-            authorizedPeople.push( {
-                id: id,
-                name: name,
-            });
-        }
-    }
-
-    return authorizedPeople;
+const isUserAuthorized = function(user) {
+  const id = user.id;
+  const name = user.name;
+  const authorized = user.authorized;
+  
+  if (authorized) {
+    console.log(`${id}: ${name} is authorized`);
+  } else {
+    console.log(`${id}: ${name} is not authorized`);
+  }
 };
 ```
 
-However it can be time consuming to individually take elements from one object, like `user.id` in the example above, and store them in local variables.  JavaScript has a shorthand notation for this, known as *destructuring*.
+However it can be time consuming to individually take elements from one object, like `user.id` in the example above, and store them in local variables.  We could repeatably type `user.id` and `user.name` and `user.authorized`, but this is time consuming as well. JavaScript has a shorthand notation for this, known as *destructuring*.
 
 ## How To Destructure
 
@@ -64,12 +57,12 @@ isUserAuthorized(user); // Siobhan Thacker is authorized.
 
 const unAuthorizedUser = {
     id: 2,
-    name: 'Chris',
+    name: 'Chantay Jarrell',
     authorized: false,
     group: 'guest',
 };
 
-isUserAuthorized(unAuthorizedUser); // Chris is not authorized.
+isUserAuthorized(unAuthorizedUser); // Chantay Jarrell is not authorized.
 ```
 
 In the above example `user` and `unAuthorizedUser` are passed into the function and the function as arguments and the function will take the user object's `id`, `name` and `authorized` fields and assign them to the local variables `id`, `name` and `authorized`, very much like the prior assignment statement.
