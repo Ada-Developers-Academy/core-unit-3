@@ -156,6 +156,10 @@ Standards:
         Path: /learning-another-language/objects.md
       -
         Type: Lesson
+        UID: e8db03d5-8db6-4a9b-af37-489d395fc425
+        Path: /learning-another-language/destructuring.md
+      -
+        Type: Lesson
         UID: 659c7240cc40695d5e429e5c36386fa3
         Path: /learning-another-language/intro-to-functions.md
       -
