@@ -9,6 +9,118 @@ Complete all questions below.
 <!-- Question 1 -->
 <!-- prettier-ignore-start -->
 ### !challenge
+
+* type: multiple-choice
+* id: 23252c20-cf18-46c9-a4d9-91c55f47a414
+* title: `const` vs `let`
+
+##### !question
+
+If we are creating a variable which will **not** be reassigned, what should we use?
+
+##### !end-question
+
+##### !options
+
+* const
+* var
+* let
+* none of the above
+
+##### !end-options
+
+##### !answer
+
+* const
+
+##### !end-answer
+
+##### !explanation
+
+`const` variables are *constant* i.e. they cannot be reassigned.
+
+##### !end-explanation
+
+### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question 2 -->
+<!-- prettier-ignore-start -->
+### !challenge
+
+* type: multiple-choice
+* id: 02a03ac6-0df0-425e-95d1-f1b6e5a76d1f
+* title: `const` vs `let`
+
+##### !question
+
+If we are creating a variable which **will** be reassigned, what should we use?
+
+##### !end-question
+
+##### !options
+
+* const
+* var
+* let
+* none of the above
+
+##### !end-options
+
+##### !answer
+
+* let
+
+##### !end-answer
+
+##### !explanation
+
+`const` variables are *constant* i.e. they cannot be reassigned.
+
+##### !end-explanation
+
+### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question 3 -->
+<!-- prettier-ignore-start -->
+### !challenge
+
+* type: multiple-choice
+* id: 6b0badb8-bb83-4f83-98ed-37c026b83d47
+* title: `const` vs `let`
+
+##### !question
+
+Which variable declaration should we **not** use in modern JavaScript?
+
+##### !end-question
+
+##### !options
+
+* const x = 42;
+* var y = 43;
+* let z = 44;
+* none of the above
+
+##### !end-options
+
+##### !answer
+
+* var y = 43;
+
+##### !end-answer
+
+##### !explanation
+
+`const` variables are *constant* i.e. they cannot be reassigned.
+
+##### !end-explanation
+
+### !end-challenge
+
+<!-- Question 4 -->
+### !challenge
 * type: code-snippet
 * language: javascript
 * id: 3357aa77
@@ -59,7 +171,7 @@ const addFive = function(num) {
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-<!-- Question 2 -->
+<!-- Question 5 -->
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: code-snippet
@@ -120,7 +232,7 @@ const doubleAndAddTwo = function(num) {
 <!-- prettier-ignore-end -->
 
 
-<!-- Question 3 -->
+<!-- Question 6 -->
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: code-snippet
@@ -189,7 +301,7 @@ const getExampleSentence = function(pronouns) {
 
 
 
-<!-- Question 4 -->
+<!-- Question 7 -->
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: code-snippet
@@ -240,7 +352,7 @@ const getThirdPlace = function(finalists) {
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-<!-- Question 5 -->
+<!-- Question 8 -->
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: code-snippet
@@ -288,7 +400,7 @@ const getThirdPlace = function(finalists) {
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-<!-- Question 6 -->
+<!-- Question 9 -->
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: code-snippet
@@ -343,7 +455,7 @@ const compareVotes = function(candidateA, candidateB) {
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-<!-- Question 7 -->
+<!-- Question 10 -->
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: code-snippet
@@ -399,7 +511,7 @@ const compareIds = function(candidateA, candidateB) {
 <!-- prettier-ignore-end -->
 
 
-<!-- Question 8 -->
+<!-- Question 11 -->
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: code-snippet
@@ -454,7 +566,7 @@ const compareAlphabetically = function(wordA, wordB) {
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-<!-- Question 9 -->
+<!-- Question 12 -->
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: code-snippet
