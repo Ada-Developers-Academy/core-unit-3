@@ -147,13 +147,14 @@ A typical Node.js project will have the following structure:
 
 The `src` directory will contain our application code.
 
+The `node_modules` folder holds packages installed with a package manager like `yarn`.  Similar to how `pip` downloads and installs packages in Python, `yarn` can download packages for you to use and places them in the `node_modules` folder.  This folder can grow very large as you install more packages.  Make sure to add it to a `.gitingore` file so that it is ignored by Git.
+
 The `package.json` file will contain information about the project including the dependencies (libraries required) and scripts to run the app.
 
 The (optional) `.prettierrc` file will contain information about the Prettier plugin will format our code.
 
 The `.eslintrc.json` file will contain information about the linting rules.  Essentially they tell the Eslint plugin in VS Code what code style rules to enforce.
 
-The `node_modules` folder holds packages installed with a package manager like `yarn`.  Similar to how `pip` downloads and installs packages in Python, `yarn` can download packages for you to use and places them in the `node_modules` folder.  This folder can grow very large as you install more packages.  Make sure to add it to a `.gitingore` file so that it is ignored by Git.
 
 ### An Example Node Project
 
