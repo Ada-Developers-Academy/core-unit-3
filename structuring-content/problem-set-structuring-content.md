@@ -389,11 +389,21 @@ Do this work in a new `index.html` file on your computer, then reflect and answe
 
 Do not spend more than three hours on this. At three hours, consider it done! There is no submission for this. Be prepared to share your thought process with others.
 
+### !callout-info
+
+## Editing and Viewing HTML Files
+
+VS Code is a great editor for HTML files! It provides syntax hilighting and tag matching which makes writing your markup easier. 
+
+When you want to see how your HTML file is rendered, paste the full path to your file in the navigation bar of your browser. You can get the full path to a file in VS Code by holding control and clicking the name of the file, then selecting 'Copy Path'.
+
+### !end-callout
+
 ### !callout-success
 
 ## No Perfect Answers
 
-Translating content into HTML is creative work, with a lot of personal interpretation. Please keep in mind that there are no perfect answers!
+Translating content into HTML is creative work, with a lot of personal interpretation. Please keep in mind that there are no perfect answers! Your rendered HTML will look different from the sample resume and that's OK!
 
 ### !end-callout
 
