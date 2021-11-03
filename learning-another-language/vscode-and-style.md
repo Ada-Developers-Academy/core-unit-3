@@ -99,7 +99,6 @@ This just tells VS Code to use Prettier as the default formatter for JavaScript 
 
 [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) is an extension that can be used to check your JavaScript code for errors.  It is useful for ensuring that your code is well-written and follows best practices.  You can give Eslint a configuration file to have it enforce a specific style guide, more on this later.
 
-<!-- available callout types: info, success, warning, danger, secondary, star  -->
 ### !callout-info
 
 ## There Are A LOT of Extensions
@@ -111,6 +110,7 @@ The JavaScript community is very active.  There are many extensions for JavaScri
 ## Style Guides
 
 ![How Coding Standards Proliferate](../assets/learning-another-language__vscode-and-style__coding-stanards.png)
+
 *Source: [XKCD](https://xkcd.com/927/)*
 
 Many software teams adhere to a set of rules which serve as guidelines for how to write and organize code.  Linters can be an integral part of a team's style conventions.
@@ -136,7 +136,7 @@ A typical Node.js project will have the following structure:
 .
 ├── src
 │   ├── index.js
-│   ├── [Other files & folders]
+│   ├── [other files & folders]
 ├── node_modules
 │   ├── [folders with dependencies]
 ├── README.md
