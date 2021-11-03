@@ -282,6 +282,7 @@ Callback functions are also used with event handling. In the code below, using t
 const clickMessage = function() {
   console.log("Button Clicked");
 }
+
 document.getElementById("#callback-button")
     .addEventListener("click", clickMessage);
 ```
