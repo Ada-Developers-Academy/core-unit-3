@@ -325,7 +325,7 @@ Our best strategies for debugging HTML at this moment are:
 ### !challenge
 * type: tasklist
 * id: 17371044
-* title: CSS Walk-through
+* title: Intro to HTML
 ##### !question
 
 Check off all the topics that we've briefly touched on so far.
