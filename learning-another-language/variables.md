@@ -68,6 +68,41 @@ var jingsFavColor = 'green';
 ```
 <!-- prettier-ignore-end -->
 
+### Scope of var vs let & const
+
+When creating a variable using `let` and `const` will scope the variable to the block it is in.  In the below example `i` and `name` are defined inside of the `for-of` loop and are scoped to the loop so are not accessable outside of the loop.  This applies to all blocks of code in JavaScript, except conditionals (if statements).  
+
+```javaScript
+const nums = [14, 15, 16, 18, 19, 20];
+
+for (let i of nums) {
+    console.log(`i is ${i}`);
+    const name = 'peter';
+    console.log(`name is ${name}`);
+}
+
+console.log(i); // ReferenceError: i is not defined
+console.log(name); // ReferenceError: name is not defined
+
+```
+
+On the other hand, when using `var` the variable is scoped to the function it is defined in.
+
+```javascript
+const nums = [14, 15, 16, 18, 19, 20];
+
+for (var i of nums) {
+    console.log(`i is ${i}`);
+    var name = 'peter';
+    console.log(`name is ${name}`);
+}
+
+console.log(i); // 20
+console.log(name); // peter
+```
+
+This can be very confusing!  Variables defined with `let` and `const` are scoped to the block they are defined in, whereas variables created with `var` are scoped to the function.  This can be confusing and can lead to bugs.  In general, i.e. **always**, it is best to use `let` and `const`.
+
 ### Prefer `let` for Re-assignable Variables
 
 `let` variables are block-scoped variables. Their visibility is limited to the closest enclosing block, typically the closest enclosing braces `{}`. After leaving a block, any `let` variable names that were defined in that block become inaccessible. `let` variables are similar to local variables in other block-scoped programming language.
