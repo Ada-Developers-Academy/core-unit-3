@@ -86,7 +86,7 @@ console.log(name); // ReferenceError: name is not defined
 
 ```
 
-On the other hand, when using `var` the variable is scoped to the function it is defined in.
+On the other hand, when using `var`, the variable is instead scoped to the _function_ that contains it, or if not in a function, to the global scope.
 
 ```javascript
 const nums = [14, 15, 16, 18, 19, 20];
