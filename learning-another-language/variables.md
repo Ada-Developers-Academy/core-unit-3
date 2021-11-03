@@ -101,7 +101,7 @@ console.log(i); // 20
 console.log(name); // peter
 ```
 
-This can be very confusing!  Variables defined with `let` and `const` are scoped to the block they are defined in, whereas variables created with `var` are scoped to the function.  This can be confusing and can lead to bugs.  In general, i.e. **always**, it is best to use `let` and `const`.
+This can be very confusing! Variables defined with `let` and `const` are scoped to the block they are defined in, whereas variables created with `var` are scoped to the function, or to the global scope. This is easy to overlook and can lead to bugs. As a result, it is a best practice to **always** use `let` and `const`.
 
 ### Prefer `let` for Re-assignable Variables
 
