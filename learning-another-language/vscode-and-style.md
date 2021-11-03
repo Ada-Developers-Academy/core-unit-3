@@ -79,6 +79,7 @@ After installing the extension you can set it up to run automatically as the def
 
 To have Prettier run automatically hit `cmd-,` (command-comma) and click on the Configuation File icon.  
 
+![VS Code Config file icon](../assets/learning-another-language__writing-javascript-locally__vscode-config-file-icon.png)
 
 Then add the following `[javascrpt]` section:
 
