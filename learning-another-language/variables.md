@@ -68,7 +68,7 @@ var jingsFavColor = 'green';
 ```
 <!-- prettier-ignore-end -->
 
-### Scope of var vs let & const
+### Scope of `var` versus `let` and `const`
 
 When creating a variable using `let` and `const` will scope the variable to the block it is in.  In the below example `i` and `name` are defined inside of the `for-of` loop and are scoped to the loop so are not accessable outside of the loop.  This applies to all blocks of code in JavaScript, except conditionals (if statements).  
 
