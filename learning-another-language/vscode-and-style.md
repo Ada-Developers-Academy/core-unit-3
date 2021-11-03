@@ -182,9 +182,11 @@ Because `create-react-app` uses `yarn` to manage dependencies, we will stick to 
 
 ### [Optional] Setting Up A Node Project From Scratch
 
-To create a `package.json` file you can use the following command:
+To create a `package.json` file you can create a folder to house the project and use `yarn init` to create a `package.json` file:
 
 ```bash
+$ mkdir <project-folder-name>
+$ cd <project-folder-name>
 $ yarn init
 ```
 
@@ -196,7 +198,7 @@ $ yarn add underscore
 
 You can also add dependencies which will only be used during development with `yarn add --dev <dependency>`
 
-For example adding prettier and eslint libraries.
+For example adding prettier and eslint libraries:
 
 ```bash
 $ yarn add --dev eslint eslint-config-prettier eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-prettier eslint-plugin-react prettier
@@ -211,6 +213,16 @@ $ npx eslint --init
 ```
 
 Eslint will take you through several options to set up your project for linting.  You can then edit the `.eslintrc.json` file to add the rules you want to enforce.
+
+Now you have the basic building blocks of a Node.js project.  You can start working on your project by creating a `src` directory and a `index.js` file.  You can also create scripts in the `package.json` file to run your application.  For example, you can create a `start` script to run your application:
+
+```json
+  "scripts": {
+    "start": "node index.js"
+  }
+```
+
+Congratulations!  You have created a Node.js project.  You can now run your application with `yarn start`. 
 
 ## Resources
 
