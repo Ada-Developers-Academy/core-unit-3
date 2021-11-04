@@ -12,11 +12,11 @@
 
 ## Reviewing Display
 
-When rendering, the browser _flows_ from left to right, placing things in a single line. The line is as tall as the tallest element, and all the things are lined up with its bottom. If an element flows off the edge of the screen, the browser wraps this element around and starts a new line, completely below the current one.
+When rendering, the browser _flows_ from left to right, placing things in a single line. The line is as tall as the tallest element, and all the elements are lined up with its bottom. If an element flows off the edge of the screen, the browser wraps this element around and starts a new line with it, directly below the previous line.
 
-By default, every HTML tag comes with a `display` property value of `inline` or `block`. The `display` property determines how elements flow on the page. As a general rule, flow has only be left to right, and top to bottom.
+By default, every HTML tag comes with a `display` property value of `inline` or `block`. The `display` property determines how elements flow on the page. As a general rule, flow is defined as left to right, and top to bottom.
 
-Elements that are by `inline` elements align themselves left-to-right as many items that can fit into the container. Examples of these elements are `a`, `span`, and `img`.
+Elements that are beside `inline` elements align themselves left-to-right with as many items that can fit into the container. Examples of these elements are `a`, `span`, and `img`.
 
 Elements that are `block` elements interrupt flow and start and end with a line break. Examples of these elements are `div`, `p`, and `h1`.
 
@@ -48,11 +48,11 @@ Flexbox is fairly new. A lot of older resources use CSS that does not use flexbo
 Flexbox solves the following problem: **How do I define rules for aligning many small elements in one larger container element?** Therefore, to use flexbox, we set up our site with these rules:
 
 1. The "one larger container element" is called **the flex container**. We designate it as the flex container by giving it the CSS rule `display: flex;`
-1. The "many small elements" that we are trying to align are called the flex items. The flex items **must** be and will only be the **direct children** of the flex container
-   - these flex items may have children inside of them. Note: the rules of a flex container do not apply to the children of flex items
+1. The "many small elements" that we are trying to align inside the flex container are called the flex items. The flex items **must** be and will only be the **direct children** of the flex container
+   - these flex items may have children inside of them. **Note**: the rules of a flex container do not apply to the children of flex items
 1. The "rules" we want to define for aligning the flex items will be additional properties on the flex container
 
-Note: The flex items of a specific flex container do not have to be all the same kind of element.
+**Note**: The flex items of a specific flex container do not have to be all the same kind of element.
 
 ### Observe
 
@@ -238,6 +238,14 @@ Internet Explorer 10 requires specifying the browser prefix `-ms-display: flex;`
 ## Conclusion
 
 It's entirely possible to customize flow and alignment of elements using CSS without flexbox. To do so, you will want to check out how to use `display` and `position` and `float`.
+
+### !callout-info
+
+## Be Careful with Float!
+
+`float` has fallen out of use now that we have grid and flexbox. It is a convenient property to "push" an element to the left or right of another element, but it can introduce complications into your layout. For more information read over the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/float) and an [opinion piece](https://css-tricks.com/is-css-float-deprecated/) from CSS-Tricks.
+
+### !end-callout
 
 However, flexbox provides deep solutions for flow and alignment in a way that promotes better, more responsive layouts.
 
