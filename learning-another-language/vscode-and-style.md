@@ -115,7 +115,9 @@ The JavaScript community is very active. There are many extensions for JavaScrip
 
 Many software teams adhere to a set of rules which serve as guidelines for how to write and organize code. Linters can be an integral part of a team's style conventions.
 
-**Why use a style guide?**  Style guides are a common way for a group of people to create consistently formatted documents. Like MLA or the Chicago Manual of Style, a code style guide helps us find the information we are looking for as quickly as possible.
+### Why use a style guide?
+
+Style guides are a common way for a group of people to create consistently formatted documents. Like MLA or the Chicago Manual of Style, a code style guide helps us find the information we are looking for as quickly as possible.
 
 In a large team, with programmers from a lot of different language backgrounds, it's easy to fall into whatever habits your first programming language encouraged. A Python whiz might default to using indentation alone to show where a code block begins and ends, where a C programmer at heart might feel more comfortable surrounding code blocks in curly braces. With small differences like these, one slight difference between two programmers may go unnoticed, but as teams get bigger and more and more styles mix, code becomes increasingly ugly and unreadable. 
 
