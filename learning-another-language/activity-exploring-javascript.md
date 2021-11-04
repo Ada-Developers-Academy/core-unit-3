@@ -13,9 +13,9 @@ Each group of 3-4 students will investigate **one** of the following features of
 1. [Hoisting](https://wesbos.com/javascript/02-functions/different-ways-to-declare-functions/#hoisting)
 1. [Switch Statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
 1. [null & undefined](https://wesbos.com/javascript/01-the-basics/types-null-and-undefined) and [Truthyness in JavaScript](https://wesbos.com/javascript/07-logic-and-flow-control/if-statements-function-returns-truthy-falsy)
-1. [JavaScript & The DOM](https://wesbos.com/javascript/04-the-dom/introduction-to-the-dom)
 1. [The Ternary Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
-1. [The Array Map Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+1. [The Array `reduce` Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+1. [The Array `map` Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
 
 Each team will create a lesson for the larger class on their topics and present the concept in 5-7 minutes. You are encouraged to create Google Slides, and example code in replit.com illustrating the concepts.
