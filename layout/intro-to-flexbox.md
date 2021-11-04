@@ -145,7 +145,7 @@ We can determine the direction of the main axis with the property `flex-directio
 - `column`
 - `column-reverse`
 
-**Practice:** Pair up with someone around you and make a prediction for what each of these properties will do. Then, add the property `flex-direction` to [the Codepen](https://codepen.io/adadev/pen/jzNQmV?editors=1100) and change the values and observe the differences.
+**Practice:** Make a prediction for what each of these properties will do. Then, add the property `flex-direction` to [the Codepen](https://codepen.io/adadev/pen/jzNQmV?editors=1100) and change the values and observe the differences.
 
 ## Determining Wrapping Behavior
 
