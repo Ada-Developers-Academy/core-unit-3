@@ -66,4 +66,4 @@ One `vw` (`1vw`) is equal to 1% of the viewport width, and `100vw` is 100% of th
 
 ### Live Preview
 
-Here is an [interactive example](https://codepen.io/slanndalous/pen/VwzyByb?editors=1100) using _Codepen_ to play around with! Try out different units and values to see what happens!
+Here is an [interactive example](https://codepen.io/adadev/pen/yLovVXz) using _Codepen_ to play around with! Try out different units and values to see what happens!
