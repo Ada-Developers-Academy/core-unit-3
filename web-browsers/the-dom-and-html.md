@@ -80,6 +80,9 @@ The `head` element is contained inside the `html` element. It's a child of the `
 
 The `title`, `meta`, and `meta` elements are siblings with each other.
 
+Here is a sample webpage with the DOM structure above, written in HTML. We will learn more about HTML in the next section. In Dev Tools, you can observe the DOM hierarchy by collapsing and expanding child elements using dropdown arrows next to each parent element.
+![Sample webpage that follows the DOM structure outlined above. A window containing the HTML code is on the left and the opened webpage is on the right. DevTools is open which shows the HTML structure and parent-child relationships."](../assets/web-browsers_web-structure-example.png)  
+
 ## Check for Understanding
 
 <!-- Question 4 -->
