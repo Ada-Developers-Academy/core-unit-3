@@ -61,7 +61,7 @@ Then, make many instances of the `Zine` class. Make an instance of `Zine` with t
 
 You should get input that looks like this:
 
-```bash
+```javascript
 const chefZine = new Zine('So you want to be a pastry chef');
 > undefined
 chefZine
