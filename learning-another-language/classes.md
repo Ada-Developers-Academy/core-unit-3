@@ -340,7 +340,7 @@ In the example above we can use the `super` keyword to access the parent class' 
 **Exercise**:  Create a `Cat` class that extends `Animal` and has a name attribute.  All `Cat` instances should "Meow" when speaking.  
 
 
-<details>
+<details style="max-width: 700px; margin: auto;">
   <summary>Click here for a solution</summary>
 
   ```javascript
