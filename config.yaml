@@ -218,11 +218,11 @@ Standards:
         Path: /tests/test-syntax-detail.md
       -
         Type: Lesson
-        UID: b8c5b5bc-de9a-42d9-941d-99462c42fbfc
-        Path: /tests/testing-in-node.md
+        UID: 54ba2065-ebda-4d46-93f2-93cffa2f7178
+        Path: /tests/test-syntax-detail.md
       -
         Type: Lesson
-        UID: 1d5ceb96
+        UID: 8c3b4251-61da-44cb-a2d9-6a3cd5d46237
         Path: /tests/problem-set-tests.md
   -
     Title: "Problem Set: Tool Library"
