@@ -218,6 +218,10 @@ Standards:
         Path: /tests/test-syntax-detail.md
       -
         Type: Lesson
+        UID: b8c5b5bc-de9a-42d9-941d-99462c42fbfc
+        Path: /tests/test-in-node.md
+      -
+        Type: Lesson
         UID: 1d5ceb96
         Path: /tests/problem-set-tests.md
   -
