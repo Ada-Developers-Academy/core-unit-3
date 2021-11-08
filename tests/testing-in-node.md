@@ -41,7 +41,7 @@ $ yarn install
 Open the `test/fizzbuzz.test.js` file.  This is a simple test file that tests the `fizzBuzz` function.  
 
 <details>
-  <summary>How does the test import the `fizzBuzz` function?</summary>
+  <summary>How does the test import the fizzBuzz function?</summary>
 
   The test imports the `fizzBuzz` function with the statement import fizzBuzz from '../src/fizzbuzz';
 
