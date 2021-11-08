@@ -68,6 +68,43 @@ var jingsFavColor = 'green';
 ```
 <!-- prettier-ignore-end -->
 
+### Scope of `var` versus `let` and `const`
+
+When creating a variable, using `let` and `const` will scope the variable to the block that contains it. In the example below, `name` is defined inside of the `for-of` loop's block. It is _scoped_ to the block. It is not accessible outside of the block. This applies to all blocks of code in JavaScript.
+
+In JavaScript, the `for` family of loops (`for`, `for-in`, `for-of`) consider the loop's condition to be within the block scope of the loop as well. So the variable `i`, defined in the condition of the `for-of` loop, is also _scoped_ to the block, and cannot be accessed outside of the block.
+
+```javaScript
+const nums = [14, 15, 16, 18, 19, 20];
+
+for (let i of nums) {
+    console.log(`i is ${i}`);
+    const name = 'peter';
+    console.log(`name is ${name}`);
+}
+
+console.log(i); // ReferenceError: i is not defined
+console.log(name); // ReferenceError: name is not defined
+
+```
+
+On the other hand, when using `var`, the variable is instead scoped to the _function_ that contains it, or if not in a function, to the global scope.
+
+```javascript
+const nums = [14, 15, 16, 18, 19, 20];
+
+for (var i of nums) {
+    console.log(`i is ${i}`);
+    var name = 'peter';
+    console.log(`name is ${name}`);
+}
+
+console.log(i); // 20
+console.log(name); // peter
+```
+
+This can be very confusing! Variables defined with `let` and `const` are scoped to the block they are defined in, whereas variables created with `var` are scoped to the function, or to the global scope. This is easy to overlook and can lead to bugs. As a result, it is a best practice to **always** use `let` and `const`.
+
 ### Prefer `let` for Re-assignable Variables
 
 `let` variables are block-scoped variables. Their visibility is limited to the closest enclosing block, typically the closest enclosing braces `{}`. After leaving a block, any `let` variable names that were defined in that block become inaccessible. `let` variables are similar to local variables in other block-scoped programming language.
