@@ -229,7 +229,7 @@ console.log(chefZine.totalPrice());
 **Exercise**:  For our `Animal` class, create a `speak` method which will print the sound to the console.  Try it out to verify that the method is working.  
 
 
-<details>
+<details style="max-width: 700px; margin: auto;">
   <summary>Click here for a solution</summary>
 
   ```javascript
