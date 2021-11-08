@@ -188,7 +188,7 @@ const chefZine = new Zine('So you want to be a pastry chef', 'Julia Child');
 **Exercise**:  Try creating an `Animal` class similar to `Zine` above.  The `constructor` should take a `sound` parameter and save it in an instance variable.  Then create an instance of the class.  Verify that it works.  
 
 
-<details>
+<details style="max-width: 700px; margin: auto;">
   <summary>Click here for a solution</summary>
 
   ```javascript
