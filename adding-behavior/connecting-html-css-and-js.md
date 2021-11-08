@@ -14,7 +14,7 @@ In our web projects, generally speaking, we can arrange our HTML, CSS, and JS fi
 
 ```
 .
-├── scripts
+├── src
 │   └── index.js
 ├── styles
 │   └── style.css
@@ -26,7 +26,7 @@ In our web projects, generally speaking, we can arrange our HTML, CSS, and JS fi
 - We keep our CSS files in a folder named `styles`.
   - `style.css` is a great name for a generic CSS file.
   - If we made a CSS file for each HTML file, they files could share names (such as `index.css` to correspond to `index.html`).
-- We keep our JS files inside a folder named `scripts`.
+- We keep our JS files inside a folder named `src`.
   - We can name our JS files based on their content, such as a `changeCursor.js` file to hold code that changes the mouse cursor, or a `scrollToTop.js` file to define scrolling behavior.
   - We can make a JS file for each HTML file, where the files could share names (such as `index.js` to correspond to `index.html`).
 
@@ -40,7 +40,7 @@ In order for our website to load HTML, we add a link to our JavaScript file in o
 <body>
   <!-- ... -->
 
-  <script src="scripts/index.js" type="text/javascript"></script>
+  <script src="src/index.js" type="text/javascript"></script>
 </body>
 ```
 
@@ -50,7 +50,7 @@ Let's dive into this line, which we'll place at the end of the body, right befor
 | --------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `<script`                                           | Begins a `<script>` tag, a tag used to embed JavaScript                            |
 | `src=`                                              | The `src` attribute holds the relative path to the JavaScript file we want to load |
-| `"scripts/index.js"`                                | **Replace this** with the relative path from this HTML file to the JS file         |
+| `"src/index.js"`                                | **Replace this** with the relative path from this HTML file to the JS file         |
 | `type="text/javascript">`                           | An attribute that specifies that we're linking a JS file                           |
 | `</script>`                                         | A closing tag                                                                      |
 
@@ -92,7 +92,7 @@ There are more techniques to work with this problem, such as downloading the scr
 
 [Let's make a Hello, World! program](https://replit.com/@adacore/Connecting-HTML-CSS-and-JS-Demo#index.html) that helps us see how HTML, CSS, and JS connect.
 
-In a project, we can create this file, `scripts/index.js`:
+In a project, we can create this file, `src/index.js`:
 
 ```js
 console.log('Hello, World!');
@@ -114,7 +114,7 @@ Then, we can create a minimal `index.html` file. The contents don't matter in th
       <h1>🦀 Welcome to my Crab Fan Site 🦀</h1>
       <p>Here is my website where I post interesting facts about crabs.</p>
     </main>
-    <script src="scripts/index.js"></script>
+    <script src="src/index.js"></script>
   </body>
 </html>
 ```
@@ -151,7 +151,7 @@ If we cannot see the print statement in the console, try refreshing the page whi
 
 We can put any valid JavaScript code we want in the script file, as long as our browser can run it. This includes making functions, calling them, creating objects, and so on.
 
-For example, we can add in the following code to our `scripts/index.js` file:
+For example, we can add in the following code to our `src/index.js` file:
 
 ```js
 const getRandomNumber = (max) => {
@@ -174,7 +174,7 @@ When we reload our HTML page, our random numbers should print to the console. Wh
 
 Let's extend our JavaScript with one more example.
 
-We can add the following code to `scripts/index.js`:
+We can add the following code to `src/index.js`:
 
 ```js
 const getCurrentTime = () => {
