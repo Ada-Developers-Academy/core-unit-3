@@ -1,5 +1,7 @@
 # Writing JavaScript Locally
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=a7fe5712-e072-472c-867a-adda011baa7c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 Most of our initial examples of JavaScript will reside in the browser running in [repl.it](https://replit.com/). However JavaScript can also be written locally, and run using the [Node.js](https://nodejs.org/en/) runtime environment. This is useful for writing code that is not dependent on the browser, and can be run on a server, but our focus will remain on front-end web development.
 
 ## Installing Node
