@@ -96,7 +96,7 @@ Yay! The tests run!  We are on the **RED** stage of our red-green-refactor cycle
 
 ## Running Tests in VS Code
 
-We can open our project in VS Code with the `code .` command.  Our tests are in the `test` directory. We can open the `fizzbuzz.test.js` file and inspect the tests.
+We can open our project in VS Code with the `code .` command (remember to run it in the project root).  Our tests are in the `test` directory. We can open the `fizzbuzz.test.js` file and inspect the tests.
 
 Notice that the flask icon does not automatically detect our tests.  
 
