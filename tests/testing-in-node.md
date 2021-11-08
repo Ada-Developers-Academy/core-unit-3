@@ -106,6 +106,16 @@ We can fix this by installing the [Jest Extension for VS Code](https://marketpla
 
 After installing the extension type `command-shift-p` and select `Jest start all runners`.  You may be asked to *Run Setup Wizard* when running a test. If so, the Jest commandline command is `yarn test`. Then follow the instructions and enter `yarn test` for the Jest command line.
 
+![Jest start all runners](../assets/tests__testing-in-node__test-runners.png)
+
+![Jest Run Setup Wizard](../assets/tests__testing-in-node__run-wizard.png)
+
+![Jest setup command line](../assets/tests__testing-in-node__setup-jest-commandline.png)
+
+![Are you able to run jest from cmd line](../assets/tests__testing-in-node__able-to-run-from-cmd.png)
+
+![Jest command line](../assets/tests__testing-in-node__enter-jest-cmd.png)
+
 Just like with Python we can now use VS Code to run our tests and even use breakpoints to inspect and debug the tests.
 
 ## Exercise
