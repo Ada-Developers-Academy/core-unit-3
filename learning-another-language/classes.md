@@ -281,7 +281,7 @@ Just like a Python class method, the above example calls the static method on th
 **Exercise**:  Add a static method to Animal called `createAnimals`, which takes an array of Strings (sounds) and returns an array of Animals which make those sounds.  
 
 
-<details>
+<details style="max-width: 700px; margin: auto;">
   <summary>Click here for a solution</summary>
 
   ```javascript
