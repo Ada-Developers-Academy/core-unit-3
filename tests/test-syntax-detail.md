@@ -93,6 +93,17 @@ Often, more than one matcher is appropriate for our test.
 
 We decide which matcher to use based on what we're testing, and how we want to express it.
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## Testing in Industry
+
+In the past some companies have maintained positions specifically for testing.  Software Engineer in Test is a common role in many companies.  Other companies have done away with the role and made testing a core responsibility of any engineer.
+
+In industry, you can expect any code you submit to production to have accompanying unit tests, and even have a test suite that tests the code against the production environment.
+
+### !end-callout
+
 ## Jest Resources
 
 Ultimately, to get deeper into Jest syntax, we should dive into the documentation and other tutorials!
