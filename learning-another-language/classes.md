@@ -102,7 +102,13 @@ console.log(chefZine['title']);
 > Frankly, this title is a little mediocre
 ```
 
-**Experiment:** What happens if you try to read or write an attribute that isn't set in the constructor?
+<details style="max-width: 700px; margin: auto;">
+  <summary>
+  **Experiment:** What happens if you try to read or write an attribute that isn't set in the constructor?
+  </summary>
+  
+  Any attribute not defined in the constructor is `undefined`.
+</details>
 
 **Question:** How are dot notation and bracket notation different? Is there something you can do with one that you can't with the other?
 
