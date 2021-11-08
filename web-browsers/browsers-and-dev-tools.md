@@ -82,9 +82,9 @@ Dev tools are a set of web authoring and debugging tools. They can show us detai
 
 ### !callout-info
 
-## Foreshadowing: Dev Tools Are for HTML and CSS development
+## Foreshadowing: Dev Tools Are for HTML, CSS, and JS development
 
-Dev Tools are useful when we dive into the details of HTML and CSS. But we haven't learned any concrete HTML or CSS problems! For now, the best thing we can do is get familiar with what the tools look like and anticipate what they can do for us in the future.
+Dev Tools are useful when we dive into the details of HTML, CSS, and JavaScript. But we haven't learned about them yet! For now, the best thing we can do is get familiar with what the tools look like and anticipate what they can do for us in the future.
 
 ### !end-callout
 
