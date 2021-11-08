@@ -99,7 +99,7 @@ We can open our project in VS Code with the `code .` command.  Our tests are in 
 
 Notice that the flask icon does not automatically detect our tests.  
 
-![Flask icon for inspecting tests](tests__testing-in-node__flask-icon.png)
+![Flask icon for inspecting tests](../assets/tests__testing-in-node__flask-icon.png)
 
 We can fix this by installing the [Jest Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest). This will allow us to see the tests using the Flask icon in the editor.
 
