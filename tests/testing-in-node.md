@@ -59,7 +59,7 @@ $ yarn test
 
 We should get the following output:
 
-```bash
+```
  FAIL  test/fizzbuzz.test.js
   fizzBuzz
     ✕ returns Fizz on multiples of 3 (2 ms)
