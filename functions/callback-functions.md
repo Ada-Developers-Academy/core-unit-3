@@ -258,3 +258,32 @@ We finally get a value for our variable `multiply_result`, which is `42`.
 Our example goes on to call `calculate` with the `add` function. We should trace through this call as well to practice thinking about callbacks!
 
 ### !end-callout
+
+## Applications
+
+As the examples above demonstrate, callback functions are useful when you want to control their precise execution with respect to their caller function, as well as providing dynamic functionality (e.g. `multiply`, `add`, etc.).
+
+An example of a built-in JavaScript function that uses a callback function as a parameter is [`setTimeOut()`](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout). The callback function will be executed after the timer expires.
+
+<!-- prettier-ignore-start -->
+```js
+const delayMessage = function() {  
+    console.log("This message will show up after 1 second.");
+}
+
+setTimeout(delayMessage, 1000);
+```
+<!-- prettier-ignore-end -->
+
+Callback functions are also used for event handling. In the code below, using the built-in [`addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) function, `clickMessage` will be executed when an HTML element with ID `callback-button` is clicked. Event handling will be a future topic, so consider this a sneak peek!
+
+<!-- prettier-ignore-start -->
+```js
+const clickMessage = function() {
+  console.log("Button Clicked");
+}
+
+document.getElementById("#callback-button")
+    .addEventListener("click", clickMessage);
+```
+<!-- prettier-ignore-end -->
