@@ -46,6 +46,7 @@ Open the `test/fizzbuzz.test.js` file.  This is a simple test file that tests th
   The test imports the `fizzBuzz` function with the statement import fizzBuzz from '../src/fizzbuzz';
 
 </details>
+
 ### Running The Tests
 
 Under the `"scripts"` key in the `package.json` file we can find a command to run the tests.  This command is `"test"`.
