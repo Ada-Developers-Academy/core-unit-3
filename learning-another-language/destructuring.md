@@ -2,9 +2,9 @@
 
 ## Introduction
 
-In JavaScript we will work with Objects regularly and at times we will want to work directly with specific key-value pairs within a larger object.  
+In JavaScript we will work with objects regularly. At times we will want to work _directly_ with specific key-value pairs within a larger object.  
 
-We can for example do:
+Let's look at the example below:
 
 ```javascript
 const isUserAuthorized = function(user) {
