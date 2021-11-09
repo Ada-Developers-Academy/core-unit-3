@@ -24,7 +24,7 @@ However it can be time consuming to individually take elements from one object, 
 
 ## How To Destructure
 
-If we want to take specific key-value pairs from a given object we can use the following style of notation.
+If we want to take specific key-value pairs from a given object, we can use the following style of notation.
 
 ```javascript
 const { id, name, authorized } = user;
