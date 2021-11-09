@@ -20,7 +20,9 @@ const isUserAuthorized = function(user) {
 };
 ```
 
-However it can be time consuming to individually take elements from one object, like `user.id` in the example above, and store them in local variables.  We could repeatably type `user.id` and `user.name` and `user.authorized`, but this is time consuming as well. JavaScript has a shorthand notation for this, known as *destructuring*.
+However, it can be time consuming to individually take elements from one object, like `user.id` in the example above, and store them in local variables.  We _could_ repeatedly type `user.id` and `user.name` and `user.authorized` when we need to access them instead, but this is time consuming as well. 
+
+Thankfully, JavaScript has a shorthand notation for this known as **destructuring**.
 
 ## How To Destructure
 
