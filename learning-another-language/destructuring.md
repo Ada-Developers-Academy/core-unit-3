@@ -65,7 +65,7 @@ const unAuthorizedUser = {
 isUserAuthorized(unAuthorizedUser); // Chantay Jarrell is not authorized.
 ```
 
-In the above example `user` and `unAuthorizedUser` are passed into the function and the function as arguments and the function will take the user object's `id`, `name` and `authorized` fields and assign them to the local variables `id`, `name` and `authorized`, very much like the prior assignment statement.
+In the above example `user` and `unAuthorizedUser` are passed into the function as arguments. The function will take the user object's `id`, `name` and `authorized` fields and assign them to the local variables `id`, `name` and `authorized`, very much like the prior example.
 
 ## Destructuring Arrays
 
