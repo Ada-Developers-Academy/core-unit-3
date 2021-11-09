@@ -121,7 +121,7 @@ Destructuring is useful for a couple of reasons.
 
 In this lesson we introduced destructuring in JavaScript.  Destructuring allows us to take specific key-value pairs from an object and assign them to local variables.  We also examined how to use array destructuring to take specific elements from an array and assign them to local variables.
 
-Destructuring can be a useful tool for working with objects and arrays and help us keep our code compact and readable.
+Destructuring can be a useful tool when working with objects and arrays, and it helps us keep our code compact and readable.
 
 ## Resources
 
