@@ -15,22 +15,22 @@ Standards:
         Type: Lesson
         UID: 4c26c8d2188464039fb99418a156376d
         Path: /web-browsers/the-dom-and-html.md
-     -
-       Type: Lesson
-       UID: 3e59f2f7f1a3569bfe9098bddede7105
-       Path: /structuring-content/intro-to-html.md
-     -
-       Type: Lesson
-       UID: 417921f9b31aff200457e4dcd409671f
-       Path: /structuring-content/content-elements.md
-     -
-       Type: Lesson
-       UID: 6704a2ab7992bfb7baa303d21a81c448
-       Path: /structuring-content/sectioning-elements.md
-     -
-       Type: Lesson
-       UID: dce3c31202fea299477ce39769337328
-       Path: /structuring-content/problem-set-structuring-content.md
+      -
+        Type: Lesson
+        UID: 3e59f2f7f1a3569bfe9098bddede7105
+        Path: /structuring-content/intro-to-html.md
+      -
+        Type: Lesson
+        UID: 417921f9b31aff200457e4dcd409671f
+        Path: /structuring-content/content-elements.md
+      -
+        Type: Lesson
+        UID: 6704a2ab7992bfb7baa303d21a81c448
+        Path: /structuring-content/sectioning-elements.md
+      -
+        Type: Lesson
+        UID: e7d337a4-d6a0-40bc-91a7-5db5c962a902
+        Path: /structuring-content/problem-set-structuring-content.md
   -
     Title: Styles And Presentation
     Description: "Intro to CSS, CSS Walk-through, Classes and IDs, Problem Set: Book Review Site"
