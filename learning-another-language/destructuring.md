@@ -30,7 +30,7 @@ If we want to take specific key-value pairs from a given object, we can use the 
 const { id, name, authorized } = user;
 ```
 
-By enclosing  `id`, `name` and `authorized` in curly braces we can specify which key-value pairs we want to take from the object.  The value of `id`, `name` and `authorized` will be assigned to the local variables `id`, `name` and `authorized` respectively.
+By enclosing  `id`, `name` and `authorized` in curly braces, we can specify which key-value pairs we want to take from the object.  The values of `id`, `name` and `authorized` will now be assigned to the local variables `id`, `name` and `authorized` respectively.
 
 This makes it easier to use specific attributes of an object without having to write the full `user.id` and `user.name` each time.
 
