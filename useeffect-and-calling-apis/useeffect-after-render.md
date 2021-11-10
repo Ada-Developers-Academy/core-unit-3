@@ -11,7 +11,7 @@ This React feature is extremely useful! It allows us to rely on React keeping th
 However, there are certain situations where this feature _causes problems_. Here are some examples:
 
 1. A `Timer` component that is responsible for starting and keeping an uninterrupted ten-minute timer, even if the appearance of the timer changes. We don't want to restart the timer any time the visual appearance of the `Timer` updates.
-1. A `RestaurantList` component that gets a list of restaurants from the Yelp API once. We don't want to retrieve the data again simply because the user marks a restaurant as a "favorite."
+1. A `RestaurantList` component that gets a list of restaurants from the Yelp API once. We don't want to make an api call to retrieve the data again simply because the user marks a restaurant as a "favorite."
 1. A `VideoPlayer` component that loads a large movie file from an API once. We don't want to start downloading the movie again simply because the volume bar is adjusted.
 
 In each of these examples, we expect the state of the component to change, but we need more control over what happens during each re-render. We need to know more about how React renders controls!
@@ -23,42 +23,10 @@ Under-the-hood, the React library manages components through a process called _[
 | Stage            | Description                                                                        |
 | ---------------- | ---------------------------------------------------------------------------------- |
 | Mounting Stage   | Occurs when an instance of a component is being created and inserted into the DOM. |
-| Updating Stage   | Occurs when a component is being re-rendered.                                      |
+| Updating Stage   | Occurs when a component is being re-rendered.                                    |
 | Unmounting Stage | Occurs when a component is being removed from the DOM.                             |
 
-![The Mounting stage calls the constructor, then render. After updating the DOM and refs, the stage ends by calling componentDidMount. The Updating stage is triggered in response to new props, calling a setState method, or a forceUpdate call. render is called, and then after updating the DOM and refs, the stage ends by calling componentDidUpdate. The Unmounting stage is triggered when a component that was part of the rendered output is removed from the output. It calls componentWillUnmount. All actions taken before updating the DOM and refs are considered as part of the Render Phase, which has no side effects and can be restarted or aborted. Any actions after updating the DOM (including the Unmounting stage) are considered part of the Commit Phase, during which we can work with the DOM.](../assets/useeffect-and-calling-apis_useeffect-after-render_lifecycle.png)  
-_Fig. A simplified view of the React lifecycle methods called during various stages. [Source](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)_
-
-During each stage, each component calls a set of different and unique functions that are defined under-the-hood. When using React with hooks, these functions are hidden from view, and instead we tie into these events by using other hooks!
-
-During the _mounting_ stage, a component will calls these functions, in this exact order (starred functions are not depicted in the simplified chart):
-
-1. `constructor()`
-1. `getDerivedStateFromProps()`*
-1. `render()`
-1. `componentDidMount()`
-
-On the other hand, during the _updating stage_, components call this different set of functions in this order (starred functions are not depicted in the simplified chart):
-
-1. `getDerivedStateFromProps()`*
-1. `shouldComponentUpdate()`*
-1. `render()`
-1. `getSnapshotBeforeUpdate()`*
-1. `componentDidUpdate()`
-
-Finally, during the _unmounting stage_, components call this function:
-
-1. `componentWillUnmount()`
-
-Again, we haven't seen these before because all of these functions are defined and invoked under-the-hood when using React with hooks.
-
-Becoming aware of the stages and phases in the component lifecycle gives us more insight about our code. The most important functions to be aware of are:
-
-1. `componentDidMount()`
-1. `componentDidUpdate()`
-1. `componentWillUnmount()`
-
-We can visit [this official interactive diagram showing the lifecycle methods](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) as a starting place for more research.
+React class components have specific [lifecycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle) that we can use to hook into the component lifecycle.  For React Hooks, we can use the `useEffect` hook to execute code during the `Mounting Stage`, `Updating Stage` and `Unmounting Stage`.  
 
 ### !callout-warning
 
@@ -85,21 +53,17 @@ Targeted questions will bring us back to this topic when we need to. Imagine deb
 
 ## `useEffect` Executes After Render
 
-Different [React hooks](https://reactjs.org/docs/hooks-intro.html) allow us to "hook" into specific parts of the lifecycle.
-
 The [**`useEffect` hook**](https://reactjs.org/docs/hooks-effect.html) is a hook function that runs during these lifecycle steps:
 
-- `componentDidMount`
-- `componentDidUpdate`
-- `componentWillUnmount`
+- `Mounting Stage`
+- `Updating Stage` - When specific props or state variables change
+- `Unmounting Stage`
 
-This means that the `useEffect` hooks runs:
+This means that the `useEffect` hooks can run:
 
-- once in the Mounting stage, after the component is successfully inserted into the DOM and fully renders
-- once in the Update stage, after the component fully updates and re-renders
-- once in the Unmounting stage, right before the component is removed from the DOM
-
-There is an important pattern here: both `componentDidMount` and `componentDidUpdate` occur **_after_** a component fully renders.
+- Once in the `Mounting Stage`, *after* the component is successfully inserted into the DOM and fully renders
+- In the `Update Stage`, after a prop or state variable changes
+- Once in the `Unmounting Stage`, right before the component is removed from the DOM
 
 In summary, we can say that `useEffect` is called after a component renders.
 
@@ -107,10 +71,11 @@ In summary, we can say that `useEffect` is called after a component renders.
 
 To use the `useEffect` hook, we call the `useEffect` function with two parameters:
 
-1. A function that describes what to do _after the component fully renders_ during `componentDidMount` and `componentDidUpdate`.
-1. A "dependency" array. This array contains references to any _props or state_ to _watch_. Whenever any watched props or state update, `useEffect` will run as part of `componentDidUpdate`.
-   - If we don't define this array, `useEffect` will be called during _every_ `componentDidUpdate`. That is, every time the component re-renders.
+1. A callback function that describes what to do _after the component fully renders_ just after the `Mounting Stage` or during `Update Stage`.
+1. A "dependency" array. This array contains references to any _props or state_ to _watch_. Whenever any watched props or state update, `useEffect` will run.
+   - If we don't define this array, `useEffect` will be called during _every_ `Update Stage`. That is, every time the component re-renders.
    - This array can be empty `[]` to indicate we are not watching for any updates.
+     - This means that the given callback function will only run once, when the component first renders.
 
 ### Syntax: Executing `useEffect` After Specific Values Change
 
@@ -174,7 +139,7 @@ Let's examine another example to deepen our understanding of the dependency list
 
 <!-- Simon note: Awkward grammar, but I want the "we've specified ... when oranges is updated" explanation first, before pointing out it was through the syntax [oranges]. Open for suggestions if the order of "info revealed" remains. -->
 
-This example specifies that `useEffect` should _only_ run when **`oranges`** is updated. We accomplish this by passing in `[oranges]` as the second parameter to `useEffect`.
+In the example below, the callback function passed into `useEffect` will _only_ run when the `oranges` state variable changes.  This is because we have specified `[oranges]` as the dependency array.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -212,7 +177,7 @@ If we wanted `useEffect` to run when _either_ `apples` or `oranges` updates, we 
 
 ### Executing `useEffect` Only After Mounting, Not After Updating
 
-Sometimes, we have logic we want to execute **only** after the component is initially mounted, and we don't need it to run on update.
+Sometimes, we have logic we want to execute **only once** after the component is initially mounted, and we don't need it to run on update.
 
 To achieve this, we should ensure that our second parameter, the dependency list, is an empty array.
 
