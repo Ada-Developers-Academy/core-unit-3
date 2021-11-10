@@ -4,7 +4,7 @@
 
 ## Learning Goals
 
-- Compare ID and Class
+- Compare IDs and Classes and their appropriate use cases.
 
 ## Introduction
 
@@ -55,7 +55,7 @@ Each section should cover the following:
 
 ## Classes
 
-Classes are ways to categorize multiple HTML elements that will share the same style.
+Classes are ways to categorize multiple HTML elements that will share the same style (think **CLASS**ify).
 
 If Liberty wants to give midnight blue text to her introduction paragraph, her page title, and her navigation links, she could group these HTML elements together by giving them all the same class.
 
@@ -179,14 +179,14 @@ It selects very element on the HTML page that **is a `<page-title>` element**, a
 
 ## IDs
 
-IDs are ways to identify _one_ specific HTML element. To preserver uniqueness, valid HTML follows these rules:
+IDs are ways to identify _one_ specific HTML element (think **ID**entify). To preserve uniqueness, valid HTML follows these rules:
 
 - Each element can have only one ID
 - Each page can have only one element with that ID
 
 If Liberty has an introductory paragraph, and she knows there will be only one, she can assign an ID. It will be invalid HTML and CSS if she gives the same ID to another element.
 
-### Assigning IDS to HTML Elements
+### Assigning IDs to HTML Elements
 
 We assign an ID to an HTML element by giving a value to an `id` attribute.
 
