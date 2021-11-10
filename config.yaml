@@ -112,6 +112,10 @@ Standards:
         Type: Lesson
         UID: e3e0334d5b0354d5be0af200c4893a85
         Path: /layout/problem-set-layout.md
+      -
+        Type: Lesson
+        UID: ef9f62eb-4c1c-4c42-91b4-84338046e425
+        Path: /layout/activity-personal-portfolio-3.md
   -
     Title: Learning Another Language
     Description: "Our Path; Hello, World!; FizzBuzz; Summary, Resources, and Next Steps; Semicolons; Variables; Objects; Intro to Functions; Classes; Additional Topics; Problem Set: Intro to JavaScript"
