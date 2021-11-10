@@ -25,7 +25,7 @@ This portfolio should have the following pages:
 
 - `about.html` should include some information about you, your interests, background or similar. Only post what you're comfortable sharing.
 
-- `portfolio.html` must include information about the projects you've completed at Ada (or elsewhere) with links to GitHub repo if available, descriptions, images, etc.
+- `portfolio.html` must include information about several projects you've completed at Ada (or elsewhere) with links to the GitHub repo if available, descriptions, images, etc.
 
 ### Required Page Structure
 Each page in this project must comply with the following layout requirements:
