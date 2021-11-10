@@ -1,5 +1,7 @@
 # Changing the DOM
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=0caa2a3a-ddfc-4b7a-b97c-addc0160432e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Goals
 
 The goal for this lesson is to display one of JavaScript's strengths: accessing and changing the DOM.
