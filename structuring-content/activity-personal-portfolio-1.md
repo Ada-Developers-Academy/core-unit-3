@@ -15,10 +15,9 @@ Fork the following repo: [personal portfolio website](), then clone it to your l
 ### Requirements
 
 This portfolio should have the following pages:
-.
-├── index.html
-├── about.html
-└── portfolio.html
+├── `index.html`
+├── `about.html`
+└── `portfolio.html`
 
 ### Page Details
 - `index.html` must include your name somewhere.
