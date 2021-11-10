@@ -32,7 +32,7 @@ For this project, focus on understanding the mechanics and semantics of HTML and
 * title: Finishing Up Personal Portfolio Website
 ##### !question
 
-Check off that you have completed personal portfolio activities and have submittd your `pull request URL` to the Personal Portfolio topic in Projects.
+Check off that you have completed personal portfolio activities and have submitted your `pull request URL` to the Personal Portfolio topic in Projects.
 
 ##### !end-question
 ##### !options
