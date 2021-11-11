@@ -314,11 +314,13 @@ _Fig. The DOM is successfully updated after moving the manipulation into an effe
 
 ## Manipulating `document` in `useEffect`?
 
-Our above example successfully manipulated the DOM using the `useEffect` hook. This isn't necessarily a realistic example! In practice, we'd likely _not_ manipulate the DOM directly. Try thinking of a different way we could have updated the heading content in the previous examples _without_ getting a DOM element reference.
+Our above example successfully manipulated the DOM using the `useEffect` hook. This isn't a realistic example! In practice, we'd likely _not_ manipulate the DOM directly. With React, we do not directly access the DOM. Instead, we use the `ReactDOM` API and React components to add, update, and delete DOM elements.
+
+Try thinking of a different way we could have updated the heading content in the previous examples _without_ getting a DOM element reference.
 
 <br/>
 
-There are still times where we might need a reference to an element that our control renders. In that case, we'd likely use a different hook, `useRef`. Follow your curiosity!
+There are still times where we might need a reference to an element that our control renders. In that case, we'd likely use a different hook, [`useRef`](https://reactjs.org/docs/hooks-reference.html#useref). Follow your curiosity!
 
 ### !end-callout
 
