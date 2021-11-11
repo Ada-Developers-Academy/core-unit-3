@@ -12,7 +12,7 @@ In this second activity, we will style our personal portfolio pages with CSS, ke
 
 This portfolio should have at least one CSS stylesheet (likely named  `styles.css`). Each page may use the same stylesheet, or you can create distinct stylesheets for each page.
 
-There are no restrictions or requirements for what CSS properties you use. Follow your curiosity and style your personal portfolio any way you wish!
+There are no restrictions or requirements for what CSS properties you use; however, if you need a place to start MDN has a list of the [most commonly used CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) with visual examples. Follow your curiosity and style your personal portfolio any way you wish!
 
 ### !callout-info
 
