@@ -26,7 +26,7 @@ Under-the-hood, the React library manages components through a process called _[
 | Updating Stage   | Occurs when a component is being re-rendered.                                  |
 | Unmounting Stage | Occurs when a component is being removed from the DOM.                           |
 
-React class components have specific [lifecycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle) that we can use to hook into the component lifecycle. For React Hooks, we can use the `useEffect` hook to execute code during the `Mounting Stage`, `Updating Stage` and `Unmounting Stage`.
+React class components have specific [lifecycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle) that we can use to hook into the component lifecycle. But for React Hooks, we can use the `useEffect` hook to execute code across the entire lifecycle of a component&mdash; `Mounting Stage`, `Updating Stage` and `Unmounting Stage`.
 
 ### !callout-warning
 
