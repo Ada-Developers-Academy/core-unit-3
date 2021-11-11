@@ -340,39 +340,6 @@ It's more advantageous to make API calls asynchronously after the app is fully r
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: checkbox
-* id: b4873684
-* title: useEffect After Render
-##### !question
-
-Check all lifecycle functions where our `useEffect` function is called.
-
-##### !end-question
-##### !options
-
-* `constructor()`
-* `getDerivedStateFromProps()`
-* `render()`
-* `componentDidMount()`
-* `shouldComponentUpdate()`
-* `getSnapshotBeforeUpdate()`
-* `componentDidUpdate()`
-* `componentWillUnmount()`
-
-##### !end-options
-##### !answer
-
-* `componentDidMount()`
-* `componentDidUpdate()`
-* `componentWillUnmount()`
-
-##### !end-answer
-### !end-challenge
-<!-- prettier-ignore-end -->
-
-<!-- Question 2 -->
-<!-- prettier-ignore-start -->
-### !challenge
-* type: checkbox
 * id: 7e4ff3f0
 * title: useEffect After Render
 ##### !question
