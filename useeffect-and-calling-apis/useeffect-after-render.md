@@ -530,3 +530,19 @@ When the app is rendered, we see the messages logged to the console through the 
 </details>
 
 ### !end-callout
+
+## Summary
+
+The `useEffect` hook, allows us to define a function which will execute at specific points in the lifecycle of a component. In particular a `useEffect` callback function can be executed at the following points:
+
+- `Mounting Stage`
+- `Updating Stage`
+- `Unmounting Stage`
+
+This allows us to do things like:
+
+1. Make an API call to retrieve data.
+1. Close a database connection
+1. Respond to changes in a prop or state variable value
+
+Our primary use of the `useEffect` hook, will be to handle API calls.
