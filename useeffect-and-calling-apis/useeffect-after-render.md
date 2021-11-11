@@ -354,13 +354,13 @@ const Timer = () => {
   const [isEnabled, setIsEnabled] = useState(false);
 
   useEffect(() => {
-
+    console.log('useEffect callback is running!');
   }, [isEnabled]);
 }
 
 ```
 
-`useEffect` will run every time certain value(s) update. Which values will cause `useEffect` to run?
+`useEffect` will run every time certain value(s) update. Which values will cause the `useEffect` callback to run?
 
 ##### !end-question
 ##### !options
@@ -379,7 +379,7 @@ const Timer = () => {
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-<!-- Question 3 -->
+<!-- Question 2 -->
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: checkbox
@@ -423,7 +423,7 @@ const Timer = () => {
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-<!-- Question 4 -->
+<!-- Question 3 -->
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: checkbox
