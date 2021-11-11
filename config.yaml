@@ -31,6 +31,10 @@ Standards:
         Type: Lesson
         UID: e7d337a4-d6a0-40bc-91a7-5db5c962a902
         Path: /structuring-content/problem-set-structuring-content.md
+      -
+        Type: Lesson
+        UID: 3b4d6a85-0a83-49bd-ad08-e130d72674ed
+        Path: /structuring-content/activity-personal-portfolio-1.md
   -
     Title: Styles And Presentation
     Description: "Intro to CSS, CSS Walk-through, Classes and IDs, Problem Set: Book Review Site"
