@@ -484,7 +484,7 @@ In the examples in this curriculum, there will not be many or any examples that 
 
 <br/>
 
-In React, clean-up functions will run during `componentWillUnmount`. To define a clean-up function, we must _return_ the clean-up function inside our `useEffect` callback function.
+In React, clean-up functions will run during `Unmounting Stage`. To define a clean-up function, we must _return_ the clean-up function inside our `useEffect` callback function.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -496,7 +496,7 @@ const ComponentWithCleanup = () => {
     console.log('I\'m in useEffect!');
     console.log('This will be called whenever an instance of this component mounts');
 
-    return () => { console.log('useEffect calls the returned function during componentWillUnmount') };
+    return () => { console.log('useEffect calls the returned function during Unmounting Stage') };
   }, []);
 
   return (<h1>Demo of Clean-up Function Syntax</h1>);
@@ -520,6 +520,8 @@ function App() {
 <br/>
 
 In this example we define a `ComponentWithCleanup` component, which logs a message to the console in its cleanup function. The `App` component has a button that toggles whether to include the `ComponentWithCleanup` in the rendered output.
+
+You can see a running example of this app in [CodeSandbox](https://codesandbox.io/s/green-violet-pwksu?file=/src/App.js).
 
 <br/>
 
