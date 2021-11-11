@@ -23,10 +23,10 @@ Under-the-hood, the React library manages components through a process called _[
 | Stage            | Description                                                                        |
 | ---------------- | ---------------------------------------------------------------------------------- |
 | Mounting Stage   | Occurs when an instance of a component is being created and inserted into the DOM. |
-| Updating Stage   | Occurs when a component is being re-rendered.                                    |
-| Unmounting Stage | Occurs when a component is being removed from the DOM.                             |
+| Updating Stage   | Occurs when a component is being re-rendered.                                  |
+| Unmounting Stage | Occurs when a component is being removed from the DOM.                           |
 
-React class components have specific [lifecycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle) that we can use to hook into the component lifecycle.  For React Hooks, we can use the `useEffect` hook to execute code during the `Mounting Stage`, `Updating Stage` and `Unmounting Stage`.  
+React class components have specific [lifecycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle) that we can use to hook into the component lifecycle. For React Hooks, we can use the `useEffect` hook to execute code during the `Mounting Stage`, `Updating Stage` and `Unmounting Stage`.
 
 ### !callout-warning
 
@@ -114,14 +114,14 @@ function App() {
 
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                                                                               |
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `import { useState, useEffect } ...`                | In this example, we're importing both `useState` and `useEffect` from React. Object destructuring syntax lets us list multiple comma-separated values.                                         |
-| `const [pieceOfState ... ;`                         | As part of this example, we are creating some state named `pieceOfState`, with an initial value of `0`.                                                                                             |
-| `useEffect(..., ...);`                              | Within our component function, we use this hook by invoking it.                                                                                                                                     |
-| `() => { ... }`                                     | The first parameter of `useEffect` is a function.                                                                                                                                                   |
-| `console.log ...`                                   | **Replace these statements** with the logic to run after a component mounts or updates. In this example, we are printing several things to the console.                                             |
+| `import { useState, useEffect } ...`                | In this example, we're importing both `useState` and `useEffect` from React. Object destructuring syntax lets us list multiple comma-separated values.                                       |
+| `const [pieceOfState ... ;`                         | As part of this example, we are creating some state named `pieceOfState`, with an initial value of `0`.                                                                                           |
+| `useEffect(..., ...);`                              | Within our component function, we use this hook by invoking it.                                                                                                                                   |
+| `() => { ... }`                                     | The first parameter of `useEffect` is a function.                                                                                                                                                 |
+| `console.log ...`                                   | **Replace these statements** with the logic to run after a component mounts or updates. In this example, we are printing several things to the console.                                           |
 | `[pieceOfState]`                                    | **Replace this** with an array of dependencies. Whenever any item in this array updates, the `useEffect` function runs. In this example, `useEffect` will run every time `pieceOfState` updates. |
-| `return (...);`                                     | This component function still needs to return a JSX object.                                                                                                                                         |
-| `<button ...>...</button>`                          | In this example, we are creating a button. When the button is clicked, it runs an anonymous one-line function that updates `pieceOfState`.                                                          |
+| `return (...);`                                     | This component function still needs to return a JSX object.                                                                                                                                       |
+| `<button ...>...</button>`                          | In this example, we are creating a button. When the button is clicked, it runs an anonymous one-line function that updates `pieceOfState`.                                                        |
 
 When we run our app, we'll see this console output after the `App` component initially renders, as part of `componentDidMount`!
 
@@ -139,7 +139,7 @@ Let's examine another example to deepen our understanding of the dependency list
 
 <!-- Simon note: Awkward grammar, but I want the "we've specified ... when oranges is updated" explanation first, before pointing out it was through the syntax [oranges]. Open for suggestions if the order of "info revealed" remains. -->
 
-In the example below, the callback function passed into `useEffect` will _only_ run when the `oranges` state variable changes.  This is because we have specified `[oranges]` as the dependency array.
+In the example below, the callback function passed into `useEffect` will _only_ run when the `oranges` state variable changes. This is because we have specified `[oranges]` as the dependency array.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -174,6 +174,8 @@ _Fig. Console output after clicking the apples button seven times and the orange
 In this example, we've clicked on the "apples" button seven times, but we don't see seven print statements from `useEffect`. Instead, we only see our print statements three times: once after the component mounted, and two more times from clicking the "oranges" button.
 
 If we wanted `useEffect` to run when _either_ `apples` or `oranges` updates, we should pass in `[apples, oranges]`.
+
+You can experiment with this code in a [Code Sandbox](https://codesandbox.io/s/apples-and-oranges-xwr8w?file=/src/App.js).
 
 ### Executing `useEffect` Only After Mounting, Not After Updating
 
