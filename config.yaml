@@ -31,6 +31,10 @@ Standards:
         Type: Lesson
         UID: e7d337a4-d6a0-40bc-91a7-5db5c962a902
         Path: /structuring-content/problem-set-structuring-content.md
+      -
+        Type: Lesson
+        UID: 3b4d6a85-0a83-49bd-ad08-e130d72674ed
+        Path: /structuring-content/activity-personal-portfolio-1.md
   -
     Title: Styles And Presentation
     Description: "Intro to CSS, CSS Walk-through, Classes and IDs, Problem Set: Book Review Site"
@@ -244,29 +248,6 @@ Standards:
         Type: Lesson
         UID: aae0de8d
         Path: /problem-set-tool-library/problem-set-tool-library-wave-2.md
-  -
-    Title: "Algorithmic Strategies"
-    Description: "Divide and Conquer, Dynamic Programming, Problem Set: Algorithmic Strategies"
-    UID: b1ec8907
-    SuccessCriteria:
-      - success criteria
-    ContentFiles:
-      -
-        Type: Instructor
-        UID: 282c6bfa
-        Path: /algorithmic-strategies/algorithmic-strategies.instructor.md
-      -
-        Type: Lesson
-        UID: 31eb5440
-        Path: /algorithmic-strategies/divide-and-conquer.md
-      -
-        Type: Lesson
-        UID: a9083082
-        Path: /algorithmic-strategies/dynamic-programming.md
-      -
-        Type: Lesson
-        UID: 673f70af
-        Path: /algorithmic-strategies/problem-set-algorithmic-strategies.md
   -
     Title: Adding Behavior
     Description: "Connecting HTML, CSS, and JS; Changing the DOM"

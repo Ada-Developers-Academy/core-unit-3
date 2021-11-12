@@ -1,5 +1,7 @@
 # Connecting HTML, CSS, and JS
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=9e30accc-216b-4a05-8e91-addc015fe713&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Goals and Introduction
 
 JavaScript is special. It's a language that can run directly within web browsers, letting it access and modify the structure of any HTML being displayed! It is able to do this even for web pages that aren't served by a web server.
