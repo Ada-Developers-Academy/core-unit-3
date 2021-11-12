@@ -68,6 +68,14 @@ Every time we click our "Like" button, we'll see our message in the console!
 Hello! We're in printMessage!
 ```
 
+### !callout-warning
+
+## A Note on Accessibility
+
+You can add "click" event handlers to *any* html element.  However, it is strongly recommended that you use the `onClick` attribute only for elements which are normally expected to interact with the user, such as `button`, `a` elements.  This makes the site more accessible to users with disabilities and performs better with screen reading apps.
+
+### !end-callout
+
 ### Event Handling Functions Can Accept `event`
 
 We can get details in our event-handling functions about the event that occurred.
