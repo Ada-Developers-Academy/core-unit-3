@@ -26,7 +26,7 @@ Under-the-hood, the React library manages components through a process called _[
 | Updating Stage   | Occurs when a component is being re-rendered.                                  |
 | Unmounting Stage | Occurs when a component is being removed from the DOM.                           |
 
-React class components have specific [lifecycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle) that we can use to hook into the component lifecycle. For React Hooks, we can use the `useEffect` hook to execute code during the `Mounting Stage`, `Updating Stage` and `Unmounting Stage`.
+React class components have specific [lifecycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle) that we can use to hook into the component lifecycle. But for React Hooks, we can use the `useEffect` hook to execute code across the entire lifecycle of a component&mdash; `Mounting Stage`, `Updating Stage` and `Unmounting Stage`.
 
 ### !callout-warning
 
@@ -71,11 +71,17 @@ In summary, we can say that `useEffect` is called after a component renders.
 
 To use the `useEffect` hook, we call the `useEffect` function with two parameters:
 
-1. A callback function that describes what to do _after the component fully renders_ just after the `Mounting Stage` or during `Update Stage`.
-1. A "dependency" array. This array contains references to any _props or state_ to _watch_. Whenever any watched props or state update, `useEffect` will run.
-   - If we don't define this array, `useEffect` will be called during _every_ `Update Stage`. That is, every time the component re-renders.
+1. A callback function that describes what to do _after the component fully renders_, ie. just after the `Mounting Stage` or during `Update Stage`.
+1. A "dependency" array. This array contains references to any _props or state_ we want to _listen for_. Then whenever any of those props or state update, `useEffect` will run.
+### !callout-danger
+
+## Watch Out for Infinite Loop
+
+   - If we don't define this array, `useEffect` will be called during _every_ `Update Stage`. That is, every time the component re-renders. That can turn into an endless re-rendering loop.
    - This array can be empty `[]` to indicate we are not watching for any updates.
      - This means that the given callback function will only run once, when the component first renders.
+
+### !end-callout
 
 ### Syntax: Executing `useEffect` After Specific Values Change
 
@@ -535,7 +541,7 @@ When the app is rendered, we see the messages logged to the console through the 
 
 ## Summary
 
-The `useEffect` hook, allows us to define a function which will execute at specific points in the lifecycle of a component. In particular a `useEffect` callback function can be executed at the following points:
+The `useEffect` hook allows us to define a function which will execute at specific points in the lifecycle of a component. In particular, a `useEffect` callback function can be executed at the following points:
 
 - `Mounting Stage`
 - `Updating Stage`
@@ -547,4 +553,4 @@ This allows us to do things like:
 1. Close a database connection
 1. Respond to changes in a prop or state variable value
 
-Our primary use of the `useEffect` hook, will be to handle API calls.
+Our primary use of the `useEffect` hook will be to handle API calls.
