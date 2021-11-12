@@ -58,6 +58,10 @@ Standards:
         Type: Lesson
         UID: 8d9e7bed804601f09191517e81507275
         Path: /styles-and-presentation/problem-set-book-review-site.md
+      -
+        Type: Lesson
+        UID: 486b598b-b798-4bfa-b183-1587d43e162e
+        Path: /styles-and-presentation/activity-personal-portfolio-2.md
   -
     Title: More Neat CSS Things
     Description: "Cascade & Inheritance, More Selectors, Problem Set: More Neat CSS Things, Activity: Group Selector Fun"
