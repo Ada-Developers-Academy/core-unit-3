@@ -74,6 +74,16 @@ Hello! We're in printMessage!
 
 You can add "click" event handlers to *any* html element.  However, it is strongly recommended that you use the `onClick` attribute only for elements which are normally expected to interact with the user, such as `button`, `a` elements.  This makes the site more accessible to users with disabilities and performs better with screen reading apps.
 
+For example this is not a good use of the `onClick` attribute:
+
+```html
+<div class="clickable-div" onClick="somefunction">
+    <p>Click me!</p>
+<div>
+```
+
+The fact that this `div` element is clickable is not a good indication that it is expected to interact with the user.  It is better to use the `onClick` attribute on a `button` or an anchor (`a`) element.
+
 ### !end-callout
 
 ### Event Handling Functions Can Accept `event`
