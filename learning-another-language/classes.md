@@ -1,5 +1,7 @@
 # Object-Oriented Classes in JavaScript
 
+<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=79449fb4-4505-4ff1-a6a0-ade2015090af&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
 ## Learning Goals
 - Understand on a high-level that ES6 introduced classes as syntactical sugar
 - By the end of this you should be able to:
