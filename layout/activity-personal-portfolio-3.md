@@ -10,7 +10,13 @@ In the final activity, we will finish up our personal portfolio website by layin
 
 ### Requirements
 
-Present the elements on the page as you see fit; however, if you need some inspiration, here are two common layouts you can replicate:
+Present the elements on the page as you see fit by using the following at least once:
+* a grid container with a few grid items
+* a flexbox container with a few flex items
+
+Both of these containers do not need to be on the same page. Try using one for one page, and the other for another page!
+
+If you need some inspiration, here are two common layouts you can replicate:
 
 ![Personal Portfolio Wfireframe Example 1](../assets/personal-portfolio_wifreframe1.png)  
 
