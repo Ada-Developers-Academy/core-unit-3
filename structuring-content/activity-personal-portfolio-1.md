@@ -10,7 +10,7 @@ In this first activity, we will build the HTML structure of our personal portfol
 
 ### Setup
 
-Fork the following repo: [personal portfolio website](), then clone it to your local machine. From here you can begin creating the following pages based on the requirements below.
+Fork the following repo: [personal portfolio website](https://learn-2.galvanize.com/cohorts/2836/blocks/1160/content_files/personal-portfolio-site/intro.md), then clone it to your local machine. From here you can begin creating the following pages based on the requirements below.
 
 ### Requirements
 
