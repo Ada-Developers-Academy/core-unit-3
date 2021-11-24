@@ -200,6 +200,10 @@ Standards:
         Path: /functions/arrow-functions.md
       -
         Type: Lesson
+        UID: 61e75028-78e0-4b27-83ca-89a5698504bd
+        Path: /functions/execution-context-and-closures.md
+      -
+        Type: Lesson
         UID: 0bcb2dc513467f0ef65a6bba6635c1ea
         Path: /functions/callback-functions.md
       -
