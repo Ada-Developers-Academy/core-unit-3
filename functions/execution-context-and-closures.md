@@ -6,7 +6,13 @@ Our goals for this lesson is to introduce at a high-level how nested functions c
 
 ## Introduction
 
-Before diving into closures, however, we need to begin with a little context. _Execution_ context, that is!  
+Before diving into closures, however, we need to begin with a little context. _Execution_ context, that is!  Below are a list of terms we will go over in detail throughout this lesson.
+
+| Vocab             | Definition                       | How to Use in a Sentence                                             |
+| ----------------- | -------------------------------- | -------------------------------------------------------------------- |
+| Execution context | The current environment that JavaScript code is being run in. | "Everytime a function is called, an execution context is created that contains the function's variables." |
+| Global execution context | An all-encompassing environment that surrounds every JavaScript code that is run. | "The global execution context comes with two variables already assigned: `window` and `this`." |
+| Closure | Any nested function that has access to its parent function's execution context. | "Closures are commonly seen in callback functions and when calling APIs." |
 
 The **execution context** describes the current environment within which JavaScript code is being run. By its very name, this environment can change depending on when the lines of code are run or where the lines of code are scoped. It's all about the _context_ of when and where JavaScript code is _executed_, which will define the scope of variables and function declarations.  
 
@@ -50,6 +56,66 @@ The current value of `greetingNoor` is a function declaration, specifically a **
 
 The closure goes ahead and prints the string `"Hey there, Noor!"` using a variable from its execution context and one variable from its outer function's execution context. Wowza!
 
+## Making a Closure
+
+To create a closure in JavaScript, we need to do three things:
+
+1. Nest a function inside a function
+1. Reference a variable from the outer function in the inner function
+1. Make the inner function available outside the outer function
+  * Usually this means we return the inner function to a variable
+
+Let's take a deeper dive into the example below:
+
+```JavaScript
+// Here is the outer function
+const buildIncrementer = () => {
+  // callCount is defined in the outer function
+  let callCount = 0;
+
+  // Here is the inner function
+  const callCountingFunction = () => {
+    // callCount is used in the inner function
+    callCount += 1;
+    console.log(`This is call number ${callCount}`);
+  }
+
+  // Here we return the inner function, creating
+  // a closure.
+  return callCountingFunction;
+};
+
+const incrementer = buildIncrementer();
+
+               // Each call prints out:
+incrementer(); // This is call number 1
+incrementer(); // This is call number 2
+incrementer(); // This is call number 3
+```
+
+## Multiple Closures
+
+The usefulness of this closure becomes especially clear when we need multiple incrementers:
+
+```JavaScript
+const buildIncrementer = () => {
+  // ...same as before...
+};
+
+const firstInc = buildIncrementer();
+const secondInc = buildIncrementer();
+
+firstInc();  // This is call number 1
+firstInc();  // This is call number 2
+firstInc();  // This is call number 3
+
+secondInc(); // This is call number 1
+secondInc(); // This is call number 2
+
+firstInc();  // This is call number 4
+```
+
+The two functions track their counts separately. Not only can we use a closure to attach extra information, but we can attach different information to each function.
 
 ## Practical Uses
 
