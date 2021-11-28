@@ -10,7 +10,7 @@ Our goal is to practice looking up JavaScript features and boiling them down int
 Each group of 3-4 students will investigate **one** of the following features of JavaScript or coding concepts:
 
 1. [Default parameters](https://wesbos.com/javascript/02-functions/functions-parameters-and-arguments) and the [forEach loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-1. [Hoisting](https://wesbos.com/javascript/02-functions/different-ways-to-declare-functions/#hoisting)
+1. [for-in and for-of loops](https://wesbos.com/javascript/09-gettin-loopy/54-looping-and-iterating-for-for-in-for-off-and-while-loops#for-in-loop)
 1. [Switch Statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
 1. [null & undefined](https://wesbos.com/javascript/01-the-basics/types-null-and-undefined) and [Truthyness in JavaScript](https://wesbos.com/javascript/07-logic-and-flow-control/if-statements-function-returns-truthy-falsy)
 1. [The Ternary Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
