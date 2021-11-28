@@ -507,8 +507,33 @@ When we need to solve problems with API calls, we should anticipate these scenar
 
 ### !callout-info
 
-## Give Me More About Handling Asynchronous Code!
+## Alternative Syntax
 
-JavaScript features a lot of ways to work with asynchronous code. Different search terms to use to research more could be "JavaScript Promises" and "JavaScript async await." Follow your curiosity!
+The `axios` library returns a promise when making a `GET` or other request. Modern JavaScript also offers an alternative syntax for writing asynchronous code.
+
+Using the `async` keyword we can write an asynchronous function in a way which *appears* synchronous.
+
+  <details><summary>You can see an example here</summary>
+
+  <!-- prettier-ignore-start -->
+```js
+  const makeApiCallUsingAsync = async () => {
+    try {
+      const response = await axios.get('https://dog.ceo/api/breeds/list/all');
+      // Code which normally appears in the `then` block.
+      console.log(response.data);
+    } catch (error) {
+      // Code which normally appears in the `catch` block.
+      console.log(error);
+    }
+  };
+```
+  <!-- prettier-ignore-end -->
+
+  </details>
+
+  This alternative syntax can be more readable and easier to understand, but it obscures the promise which runs behind the scenes.  The async/await syntax is syntactical sugar allowing us to write asynchronous code in a manner which looks synchronous.
+
+  You can read more about this syntax on the [MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await).
 
 ### !end-callout
