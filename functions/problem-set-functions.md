@@ -182,7 +182,7 @@ Implement the following three functions:
 `'Miranda'` | `'Howdy, Miranda!'`
 `'Jonathan'` | `'Howdy, Jonathan!'`
 
-`givesFormalGreeting` takes in one parameter, `name`.
+`giveFormalGreeting` takes in one parameter, `name`.
 
 `name` | Expected Return Value
 --- | ---
