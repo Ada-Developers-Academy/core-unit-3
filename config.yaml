@@ -2,7 +2,7 @@
 Standards:
   -
     Title: Web Browsers and Structuring Content
-    Description: "Browsers and Dev Tools, The DOM and HTML, Intro to HTML, Content Elements, Sectioning Elements, Problem Set: Structuring Content"
+    Description: "Browsers and Dev Tools, The DOM and HTML, Intro to HTML, Content Elements, Sectioning Elements, Problem Set: Structuring Content, Problem Set: Book Review Site - Wave 1"
     UID: 1d2da6520164121263e592310e0f6f48
     SuccessCriteria:
       - success criteria
@@ -37,7 +37,7 @@ Standards:
         Path: /structuring-content/problem-set-book-review-wave-1.md
   -
     Title: Styles And Presentation
-    Description: "Intro to CSS, CSS Walk-through, Classes and IDs, Problem Set: Book Review Site"
+    Description: "Intro to CSS, CSS Walk-through, Classes and IDs, Problem Set: Book Review Site - Wave 2"
     UID: b977acaff4fff984306b10fc63996e2a
     SuccessCriteria:
       - success criteria
@@ -58,10 +58,6 @@ Standards:
         Type: Lesson
         UID: 691cf03f-d814-4693-9d4d-4561ac7529b0
         Path: /styles-and-presentation/problem-set-book-review-site-wave-2.md
-      -
-        Type: Lesson
-        UID: 486b598b-b798-4bfa-b183-1587d43e162e
-        Path: /styles-and-presentation/activity-personal-portfolio-2.md
   -
     Title: More Neat CSS Things
     Description: "Cascade & Inheritance, More Selectors, Problem Set: More Neat CSS Things, Activity: Group Selector Fun"
