@@ -2,7 +2,7 @@
 Standards:
   -
     Title: Web Browsers and Structuring Content
-    Description: "Browsers and Dev Tools, The DOM and HTML, Intro to HTML, Content Elements, Sectioning Elements, Problem Set: Structuring Content"
+    Description: "Browsers and Dev Tools, The DOM and HTML, Intro to HTML, Content Elements, Sectioning Elements, Problem Set: Structuring Content, Problem Set: Book Review Site - Wave 1"
     UID: 1d2da6520164121263e592310e0f6f48
     SuccessCriteria:
       - success criteria
@@ -29,15 +29,15 @@ Standards:
         Path: /structuring-content/sectioning-elements.md
       -
         Type: Lesson
-        UID: e7d337a4-d6a0-40bc-91a7-5db5c962a902
+        UID: 555d72f2-ba21-4d5b-ba8b-5cfd8859b596
         Path: /structuring-content/problem-set-structuring-content.md
       -
         Type: Lesson
-        UID: 3b4d6a85-0a83-49bd-ad08-e130d72674ed
-        Path: /structuring-content/activity-personal-portfolio-1.md
+        UID: e7d337a4-d6a0-40bc-91a7-5db5c962a902
+        Path: /structuring-content/problem-set-book-review-wave-1.md
   -
     Title: Styles And Presentation
-    Description: "Intro to CSS, CSS Walk-through, Classes and IDs, Problem Set: Book Review Site"
+    Description: "Intro to CSS, CSS Walk-through, Classes and IDs, Problem Set: Book Review Site - Wave 2"
     UID: b977acaff4fff984306b10fc63996e2a
     SuccessCriteria:
       - success criteria
@@ -56,12 +56,8 @@ Standards:
         Path: /styles-and-presentation/classes-and-ids.md
       -
         Type: Lesson
-        UID: 8d9e7bed804601f09191517e81507275
-        Path: /styles-and-presentation/problem-set-book-review-site.md
-      -
-        Type: Lesson
-        UID: 486b598b-b798-4bfa-b183-1587d43e162e
-        Path: /styles-and-presentation/activity-personal-portfolio-2.md
+        UID: 691cf03f-d814-4693-9d4d-4561ac7529b0
+        Path: /styles-and-presentation/problem-set-book-review-site-wave-2.md
   -
     Title: More Neat CSS Things
     Description: "Cascade & Inheritance, More Selectors, Problem Set: More Neat CSS Things, Activity: Group Selector Fun"
@@ -69,6 +65,10 @@ Standards:
     SuccessCriteria:
       - success criteria
     ContentFiles:
+      -
+        Type: Instructor
+        UID: 77a387f9
+        Path: /more-neat-css-things/activity-group-selector-fun.instructor.md
       -
         Type: Lesson
         UID: adcdf467194e0b8312fdce1bd8862f54
@@ -81,10 +81,6 @@ Standards:
         Type: Lesson
         UID: 4c7e71500b7afe53862df291daf6255c
         Path: /more-neat-css-things/problem-set-more-neat-css-things.md
-      -
-        Type: Instructor
-        UID: 77a387f9
-        Path: /more-neat-css-things/activity-group-selector-fun.instructor.md
       -
         Type: Lesson
         UID: c4ad833159bae79a445d1f742822b1f2
@@ -129,10 +125,6 @@ Standards:
         Type: Lesson
         UID: e3e0334d5b0354d5be0af200c4893a85
         Path: /layout/problem-set-layout.md
-      -
-        Type: Lesson
-        UID: ef9f62eb-4c1c-4c42-91b4-84338046e425
-        Path: /layout/activity-personal-portfolio-3.md
   -
     Title: Learning Another Language
     Description: "Our Path; Hello, World!; FizzBuzz; Summary, Resources, and Next Steps; Semicolons; Variables; Objects; Intro to Functions; Classes; Additional Topics; Problem Set: Intro to JavaScript"
