@@ -1,4 +1,4 @@
-# Problem Set: Tool Library
+# Tool Library - Wave 01
 
 ## Directions
 
@@ -189,7 +189,7 @@ Donate Tool!
 ### !end-hint
 ### !explanation
 
-An example of a working implementation:
+An example of a working implementation using `reduce`:
 
 ```js
 const formatToolList = (toolsData) => {

@@ -227,6 +227,10 @@ Standards:
       - success criteria
     ContentFiles:
       -
+        Type: Instructor
+        UID: bbd59159
+        Path: /tool-library/tool-library.instructor.md
+      -
         Type: Lesson
         UID: a40cb618a5471bef09a22c78348b4547
         Path: /tests/reading-tests.md
@@ -242,25 +246,14 @@ Standards:
         Type: Lesson
         UID: 8c3b4251-61da-44cb-a2d9-6a3cd5d46237
         Path: /tests/problem-set-tests.md
-  -
-    Title: "Problem Set: Tool Library"
-    Description: "Practice with Functions, Research OOP"
-    UID: 46d7ee8a
-    SuccessCriteria:
-      - success criteria
-    ContentFiles:
       -
-        Type: Instructor
-        UID: bbd59159
-        Path: /problem-set-tool-library/tool-library.instructor.md
-      -
-        Type: Lesson
+        Type: Resource
         UID: 80f0a0cd
-        Path: /problem-set-tool-library/problem-set-tool-library.md
+        Path: /tool-library/problem-set-tool-library.md
       -
-        Type: Lesson
+        Type: Resource
         UID: aae0de8d
-        Path: /problem-set-tool-library/problem-set-tool-library-wave-2.md
+        Path: /tool-library/problem-set-tool-library-wave-2.md
   -
     Title: Adding Behavior
     Description: "Connecting HTML, CSS, and JS; Changing the DOM"

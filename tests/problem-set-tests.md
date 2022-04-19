@@ -117,3 +117,10 @@ const mystery = (text) => {
 ##### !end-explanation
 ### !end-challenge
 <!-- prettier-ignore-end -->
+
+## Optional Additional Practice
+
+For additional practice writing javascript and reading jest tests, you may complete an **optional** promblem set, _Tool Library_.
+- [Tool Library - Wave 01](../tool-library/problem-set-tool-library.md): Javascript functions, loops, and nested data structures.
+- [Tool Library - Wave 02](../tool-library/problem-set-tool-library-wave-2.md): Javascript classes.
+
