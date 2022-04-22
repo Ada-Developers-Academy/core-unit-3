@@ -127,7 +127,7 @@ Standards:
         Path: /layout/problem-set-layout.md
   -
     Title: Learning Another Language
-    Description: "Our Path; Hello, World!; FizzBuzz; Summary, Resources, and Next Steps; Semicolons; Variables; Objects; Intro to Functions; Classes; Additional Topics; Problem Set: Intro to JavaScript"
+    Description: "Our Path; Hello, World!; FizzBuzz; Summary, Resources, and Next Steps; Semicolons; Variables; Objects; Intro to Functions; Problem Set: Intro to JavaScript"
     UID: 9199ff6adef8940bbdbaa1cc4649bd9b
     SuccessCriteria:
       - success criteria
@@ -170,6 +170,16 @@ Standards:
         Path: /learning-another-language/intro-to-functions.md
       -
         Type: Lesson
+        UID: 36e4d945
+        Path: /learning-another-language/problem-set-intro-to-javascript.md
+  - Title: Javascript, Cont.
+    Description: "Object-Oriented Classes in Javascript; Writing Javascript Locally; Additional Topics; Activity: Exploring Javascript"
+    UID: c044b5e5-3161-47ec-a1a1-cb55f3b902d9
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
         UID: dc804b1c-8bb0-4b72-95f0-080a3b9b9552
         Path: /learning-another-language/classes.md
       -
@@ -182,12 +192,8 @@ Standards:
         Path: /learning-another-language/additional-topics.md
       -
         Type: Lesson
-        UID: 36e4d945
-        Path: /learning-another-language/problem-set-intro-to-javascript.md
-      -
-        Type: Lesson
         UID: f29ce62d-1fa4-4e88-93af-fb751e2dbb6d
-        Path: /learning-another-language/activity-exploring-javascript.md
+        Path: /learning-another-language/activity-exploring-javascript.md  
   -
     Title: Functions
     Description: "Arrow Functions, Callback Functions, Anonymous Functions, Problem Set: Functions"
