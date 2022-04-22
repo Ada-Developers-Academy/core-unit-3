@@ -1,4 +1,4 @@
-# Problem Set: Tool Library Wave 2
+# Tool Library - Wave 02
 
 ## Directions
 
@@ -190,7 +190,27 @@ The tests are visible in the first hint. (Moved into hints to prevent this text 
 ##### !end-question
 ### !explanation
 
-An example of a working implementation:
+An example of a working implementation using a `for ... of` loop:
+```js
+class ToolLibrary {
+    constructor(tools) {
+        this.tools = tools
+    }
+    
+    listTools() {
+        let toolList = 'Tool List:'
+        for (const tool of this.tools) {
+            toolList += `\n${tool.render()}`
+            toolList += "\nReserve Now!"
+            toolList += "\nDonate Tool!"
+            toolList += "\n---"
+        }
+        return toolList
+    }
+}
+```
+
+An example of a working implementation using `reduce`:
 
 ```js
 class ToolLibrary {

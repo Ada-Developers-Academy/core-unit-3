@@ -1,4 +1,4 @@
-# Problem Set: Tool Library
+# Tool Library - Wave 01
 
 ## Directions
 
@@ -189,7 +189,23 @@ Donate Tool!
 ### !end-hint
 ### !explanation
 
-An example of a working implementation:
+An example of a working implementation using `forEach`:
+
+```js
+const formatToolList = (toolsData) => {
+    let toolList = 'Tool List:'
+    toolsData.forEach((toolData) => {
+        toolList += `\nTool: ${toolData['name']}\n`
+        toolList += `Quantity: ${toolData['quantity']}\n`
+        toolList += "Reserve Now!\n"
+        toolList += "Donate Tool!\n"
+        toolList += "---"
+    })
+    return toolList
+};
+```
+
+An example of a working implementation using `reduce`:
 
 ```js
 const formatToolList = (toolsData) => {
@@ -339,7 +355,19 @@ describe("formatReservations", () => {
 ### !end-hint
 ### !explanation
 
-An example of a working implementation:
+An example of a working implementation using `forEach`:
+
+```js
+const formatReservations = (toolData) => {
+    let reservations = `Reservations for ${toolData.tool}:`
+    toolData.reservations.forEach((reservation) => {
+        reservations += `\n- Return Date: ${reservation.returnDate}`
+    })
+    return reservations
+};
+```
+
+An example of a working implementation using `reduce`:
 
 ```js
 const formatReservations = (toolData) => {
@@ -556,7 +584,7 @@ Will output this:
 ### !end-hint
 ### !explanation
 
-An example of a working implementation:
+An example of a working implementation using `forEach`:
 
 ```js
 const formatLibrary = (libraryData) => {
@@ -568,6 +596,20 @@ const formatLibrary = (libraryData) => {
   });
   return formattedLibrary;
 };
+```
+
+An example of a working implementation using a `for ... of` loop:
+
+```js
+const formatLibrary = function(data){
+    let toolLibrary = "Tool Library:"
+    let i = 1
+    for (tool of data){
+        toolLibrary += `\n${i}. ${tool.name} (Available: ${tool.totalQuantity - tool.reservations.length})`
+        i += 1
+    }
+    return toolLibrary
+}
 ```
 
 ### !end-explanation
