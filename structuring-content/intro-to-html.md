@@ -9,7 +9,7 @@
 | HTML Element  | A unit of content on an HTML page. One element is represented as one node in the DOM.               | Element  | "When I want to add paragraph text into my website, I put each paragraph in a separate paragraph HTML element," "That `<section>` element contains three other HTML elements."                       |
 | HTML Tag      | A piece of syntax that defines an HTML element. Most HTML elements have an opening and closing tag. | Tag      | "I forgot to put the closing tag to my `<ul>` element, so the list kept going and my site was broken."                                                                                               |
 | Semantic HTML | The practice of intentionally using HTML tags that are descriptive to the content itself            | -        | "The `<section>` tag follows semantic HTML principles, because the tag describes the content. The `<div>` tag doesn't follow semantic HTML principles, because `div` does not describe the content." |
-| Attributes    | Additional pieces of information attached to an HTML element. Comes in attribute-value pairs.       | Property | All `<img>` tags should have an `alt` attribute an a `src` attribute."                                                                                                                               |
+| Attributes    | Additional pieces of information attached to an HTML element. Comes in attribute-value pairs.       | Property | All `<img>` tags should have an `alt` attribute and a `src` attribute."                                                                                                                               |
 
 ## Introduction
 
@@ -186,7 +186,7 @@ We usually nest HTML elements in `<head>` that describe this metadata, including
 - `<title>`
 - `<script>`
 
-`<head>` tags may have few zero nested tags, or a lot, depending on the situation and context! Details on these tags is lower priority for this curriculum, so follow your curiosity!
+`<head>` tags may have zero nested tags, or a lot, depending on the situation and context! Details on these tags is lower priority for this curriculum, so follow your curiosity!
 
 ### The `<body>` Tag
 
@@ -216,7 +216,9 @@ The `<h1>` element is a child element to the `<nav>` element, because it's neste
 
 The DOM would represent this HTML like this:
 
-<!-- TODO -->
+![Diagram of a DOM that has a root node that is a `nav` element. The following elements are present: nav, h1.](../assets/structuring-content_intro-to-html/dom-example-nav.png)   
+_Fig. A `nav` tag with a child `h1` tag._
+
 
 We can nest HTML elements several layers deep!
 
@@ -270,29 +272,32 @@ HTML elements who share a parent element are siblings. For example:
 
 <!-- prettier-ignore-start -->
 ```html
-<nav>
-  <a href="https://adadevelopersacademy.org/">Visit Ada's Homepage</a>
-</nav>
-<section>
-  <h1>Ada's Recipe Blog</h1>
-  <p>
-    Coffee, that, froth a wings dark whipped. Grounds, beans whipped, coffee carajillo french press so, half and half robusta siphon and robust.
-  </p>
-  <p>
-    Decaffeinated, sweet, con panna lungo, instant siphon at ut espresso sweet trifecta doppio. Doppio crema, white trifecta redeye aroma single shot grounds saucer. 
-  </p>
-</section>
+<body>
+  <nav>
+    <a href="https://adadevelopersacademy.org/">Visit Ada's Homepage</a>
+  </nav>
+  <section>
+    <h1>Ada's Recipe Blog</h1>
+    <p>
+      Coffee, that, froth a wings dark whipped. Grounds, beans whipped, coffee carajillo french press so, half and half robusta siphon and robust.
+    </p>
+    <p>
+      Decaffeinated, sweet, con panna lungo, instant siphon at ut espresso sweet trifecta doppio. Doppio crema, white trifecta redeye aroma single shot grounds saucer. 
+    </p>
+  </section>
+</body>
 ```
 <!-- prettier-ignore-end -->
 
 In this case:
 
 - The `<h1>`, `<p>`, and second `<p>` elements are siblings. They share the parent element `<section>`.
-- The `<nav>` and `<section>` elements are siblings, whose shared parent is the implied `<html>` element.
+- The `<nav>` and `<section>` elements are siblings, whose shared parent is the `<body>` element.
 
 The DOM would likely represent this HTML like this:
 
-<!-- TODO -->
+![Diagram of a DOM that has a root node that is a `body` element. The following elements are present: body, nav, section, a, h1, p, p.](../assets/structuring-content_intro-to-html/dom-example-nav-and-section.png)   
+_Fig. A more complex collection of HTML elements._
 
 ## Comments in HTML
 

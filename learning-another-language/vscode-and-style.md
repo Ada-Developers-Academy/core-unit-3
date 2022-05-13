@@ -155,7 +155,7 @@ The `node_modules` folder holds packages installed with a package manager like `
 
 The `package.json` file will contain information about the project including the dependencies (libraries required) and scripts to run the app.
 
-The (optional) `.prettierrc` file will contain information about the Prettier plugin will format our code.
+The (optional) `.prettierrc` file will contain information about how the Prettier plugin will format our code.
 
 The `.eslintrc.json` file will contain information about the linting rules. Essentially they tell the Eslint plugin in VS Code what code style rules to enforce.
 
