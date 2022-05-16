@@ -388,9 +388,9 @@ Standards:
         UID: b64be794
         Path: /props/proptypes.md
       -
-        Type: Checkpoint
+        Type: Lesson
         UID: 235188b7
-        Path: /props/problem-set-timeline.checkpoint.md
+        Path: /props/problem-set-timeline.md
   -
     Title: State and Event Handling
     Description: "Event Handling, Using State, Updating State, Problem Set: Recreate Weather Report"
