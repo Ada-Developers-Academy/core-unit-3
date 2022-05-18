@@ -30,10 +30,10 @@ In your projects folder, create a new React app named `timeline`:
 $ npx create-react-app timeline
 ```
 
-Add the [`moment` package](https://momentjs.com/) to your project using this command:
+Add the [`luxon` package](https://moment.github.io/luxon/#/) to your project using this command:
 
 ```bash
-$ yarn add moment
+$ yarn add luxon
 ```
 
 ## Required Files
@@ -43,7 +43,7 @@ This project uses four components:
 1. `App`
 1. `Timeline`
 1. `TimelineEvent`
-1. `Timestamp`
+1. `TimeStamp`
 
 And one JSON file: `src/data/timeline.json`.
 
@@ -194,7 +194,7 @@ export default Timeline;
 <!-- prettier-ignore-start -->
 ```js
 import './TimelineEvent.css';
-import Timestamp from './Timestamp';
+import TimeStamp from './TimeStamp';
 
 const TimelineEvent = () => {};
 
@@ -245,22 +245,22 @@ export default TimelineEvent;
 <details>
 
 <summary>
-    <code>src/components/Timestamp.js</code>
+    <code>src/components/TimeStamp.js</code>
 </summary>
 
 <!-- prettier-ignore-start -->
 ```js
-import moment from 'moment';
+import { DateTime } from "luxon";
 
-const Timestamp = (props) => {
-  const time = moment(props.time);
-  const absolute = time.format('MMMM Do YYYY, h:mm:ss a');
-  const relative = time.fromNow();
+const TimeStamp = (props) => {
+  const time = DateTime.fromISO(props.time);
+  const absolute = time.toFormat("MMMM Do YYYY, h:mm:ss a");
+  const relative = time.toRelative();
 
   return <span title={absolute}>{relative}</span>;
 };
 
-export default Timestamp;
+export default TimeStamp;
 ```
 <!-- prettier-ignore-end -->
 
@@ -274,7 +274,7 @@ In this assignment, modify the following three components:
 1. `Timeline`
 1. `TimelineEvent`
 
-The `Timestamp` component is **_already fully implemented_**. You will _not_ need to modify it during this assignment.
+The `TimeStamp` component is **_already fully implemented_**. You will _not_ need to modify it during this assignment.
 
 ![Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has the timestamp "3 days ago." They also include a person's name and a status message.](../assets/props_problem-set-timeline_example.png)  
 _Fig. The timeline output reproduced here for convenience_
@@ -311,11 +311,11 @@ The `TimelineEvent` component is a presentational component. Its responsibilitie
 - Rendering the event's author (person)
 - Rendering the event's timestamp
 
-#### The `Timestamp` Component
+#### The `TimeStamp` Component
 
-The `TimelineEvent` component should use an instance of the `Timestamp` component.
+The `TimelineEvent` component should use an instance of the `TimeStamp` component.
 
-The `Timestamp` component expects one `prop`: `time`.
+The `TimeStamp` component expects one `prop`: `time`.
 
 If this component receives `time` through `props` correctly, it will render the time in a nice format!
 
@@ -343,7 +343,7 @@ You are **_encouraged_** to use these class names in your project.
 
 In this assignment, which components were container components, and which components were presentational components? What are the similarities and differences of the container components and presentational components?
 
-What was the `Timestamp` component, and why?
+What was the `TimeStamp` component, and why?
 
 ##### !end-question
 ### !end-challenge
@@ -364,7 +364,7 @@ In your own notes, create a diagram where there are four boxes labeled:
 1. `App`
 1. `Timeline`
 1. `TimelineEvent`
-1. `Timestamp`
+1. `TimeStamp`
 
 Every time a `ComponentA` renders and instance of a `ComponentB`, draw an arrow between `ComponentA` and `ComponentB`. 
 
