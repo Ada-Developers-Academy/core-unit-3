@@ -10,6 +10,16 @@ She knows that React will help her create the UI of her attendance webapp. But h
 
 This lesson will follow the story of Sofia, who will learn the syntax to create and use two components.
 
+### !callout-info
+
+## Student App
+
+We will use Sofia's web app throughout the Learn React lessons. There is a companion [Student App repository](https://github.com/AdaGold/student-app) with branches for each of the features added in the Learn lessons. This repository allows us to see all the parts working together.
+
+There are a couple **Check For Understanding** prompts in the React lessons that ask us to recreate Sofia's app. We may complete these in a new react app, or using a fork of the [Student App repository](https://github.com/AdaGold/student-app) as a baseline.
+
+### !end-callout
+
 ## Our Current Definition of Component
 
 **Components** in React are the building blocks of our UI.
