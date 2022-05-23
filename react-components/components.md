@@ -12,11 +12,12 @@ This lesson will follow the story of Sofia, who will learn the syntax to create 
 
 ### !callout-info
 
-## Student App
+## Sofia's React App
 
-We will use Sofia's web app throughout the Learn React lessons. There is a companion [Student App repository](https://github.com/AdaGold/student-app) with branches for each of the features added in the Learn lessons. This repository allows us to see all the parts working together.
-
-There are a couple **Check For Understanding** prompts in the React lessons that ask us to recreate Sofia's app. We may complete these in a new react app, or using a fork of the [Student App repository](https://github.com/AdaGold/student-app) as a baseline.
+We will use Sofia's web app throughout the Learn React lessons. There is a companion [Student App repository](https://github.com/AdaGold/student-app) with branches for each of the features added in the Learn lessons. This repository allows us to see all the parts working together. 
+</br>
+</br>
+There are a couple **Check For Understanding** prompts in the React lessons that ask us to recreate Sofia's app and add new features. We may complete these **Check For Understanding** prompts in a brand new React app or by using a fork of the [Student App repository](https://github.com/AdaGold/student-app) as a baseline.
 
 ### !end-callout
 
