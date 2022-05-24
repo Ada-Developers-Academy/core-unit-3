@@ -240,12 +240,12 @@ console.log(chefZine.totalPrice());
       this.sound = sound;
     }
     speak() {
-      print(sound);
+      console.log(this.sound);
     }
   }
 
-  const hyena = Animal('heehehehehe hehehe hehehehe!')
-  heyna.speak();
+  const hyena = new Animal('heehehehehe hehehe hehehehe!')
+  hyena.speak();
   ```
 </details>
 
