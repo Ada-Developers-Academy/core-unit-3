@@ -294,7 +294,7 @@ Just like a Python class method, the above example calls the static method on th
     // speak() removed for brevity
     static createAnimals(sounds) {
       const animals = [];
-      for(const s in sounds) {
+      for(const s of sounds) {
         animals.push(new Animal(s));
       }
       return animals;
