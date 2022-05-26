@@ -180,12 +180,12 @@ Standards:
     ContentFiles:
       -
         Type: Lesson
-        UID: dc804b1c-8bb0-4b72-95f0-080a3b9b9552
-        Path: /learning-another-language/classes.md
-      -
-        Type: Lesson
         UID: 71c286a7-12b3-48e3-9e19-816ff8f2d9d4
         Path: /learning-another-language/vscode-and-style.md
+      -
+        Type: Lesson
+        UID: dc804b1c-8bb0-4b72-95f0-080a3b9b9552
+        Path: /learning-another-language/classes.md
       -
         Type: Lesson
         UID: cfd5f597d9a76eaf406cb4125063e0fb
