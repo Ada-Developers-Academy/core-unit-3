@@ -36,6 +36,8 @@ $ npx create-react-app hello-world
 
 If `npx` isn't available, we should follow directions to install the latest version of [Node.js](https://nodejs.org/en/). Node.js includes `npm`. `npm` 5.2+ includes `npx`.
 
+Package managers can be tricky. We can encourage you to work with your instructors is `npx` gives you trouble. There is also the option to use [`npm` or `yarn` to create a React app].
+
 ### !callout-info
 
 ## Node.js Is JavaScript
