@@ -18,9 +18,24 @@ We'll take the following steps:
 
 ## Using a Toolchain
 
-We will use a specific tool to help us begin a minimal React app: the [Create React App](https://create-react-app.dev/) tool.
+We will use a specific tool to help us begin a minimal React app: the [Create React App](https://create-react-app.dev/docs/getting-started/) tool.
 
 Create React App creates a new project, which includes starter HTML, CSS, and JS files, the React library, a recommended folder structure, and useful packages.
+
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-danger
+
+## Installation Woes
+
+The instructions below are the idealized version of the instructions for creating a React app. They used to work. Currently, you will need to use the following command to create a react app:
+<br/>
+```bash 
+yarn create react-app app-name
+```
+<br/>
+For any place where the curriculum says to run <code>npx create-react-app</code> we should use <code>yarn create react-app</code>.
+
+### !end-callout
 
 To use Create React App, we use this command:
 
@@ -33,8 +48,6 @@ $ npx create-react-app hello-world
 | `npx`                                               | A CLI tool that runs packages. In this curriculum, we will use this infrequently, mostly only in this scenario when we are creating a new React project.                                                |
 | `create-react-app`                                  | A package that includes the command for Create React App, which creates a minimal React app.                                     |
 | `hello-world`                                       | **Replace this** with the name of your new React project. This will be the name of the project and the generated project folder. |
-
-If `npx` isn't available, we should follow directions to install the latest version of [Node.js](https://nodejs.org/en/). Node.js includes `npm`. `npm` 5.2+ includes `npx`.
 
 ### !callout-info
 
