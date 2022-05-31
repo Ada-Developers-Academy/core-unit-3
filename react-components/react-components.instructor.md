@@ -2,7 +2,7 @@
 
 ## Recommended Structure for React Topics
 
-1. Livecode during roundtables [Flasky Front End](https://github.com/AdaGold/flasky-front-end) (Branches for each wave will be completed by Friday June 3, 2022)
+1. Livecode during roundtables [Flasky Front End](https://github.com/AdaGold/flasky-front-end)
 2. After livecode, students work in pairs on corresponding wave of [Task List Front End](https://github.com/adaGold/task-list-front-end) --> See Core Projects
 
 | Flasky Front End | Task List Front End |
