@@ -180,7 +180,7 @@ Examine the `.eslintrc.json` file and look at the key-value pairs in the json fi
 
 Yarn is not the only package manager in the JavaScript world. Another common command you will see (and comes with Node.js) is `npm`. It is a package manager for JavaScript. It functions very similarly to `yarn` in that it can download packages for you to use and places them in the `node_modules` folder.
 
-Because `create-react-app` uses `yarn` to manage dependencies, we will stick to using `yarn` in our examples, but you can use `npm` if you prefer and you will see many examples of the `npm` command online.
+Because `create react-app` uses `yarn` to manage dependencies, we will stick to using `yarn` in our examples, but you can use `npm` if you prefer and you will see many examples of the `npm` command online.
 
 ### !end-callout
 

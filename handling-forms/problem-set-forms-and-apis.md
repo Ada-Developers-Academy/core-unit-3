@@ -7,7 +7,7 @@ Create a small, practice React app named `react-geocoder`.
 Run this command to create the practice project.
 
 ```
-$ npx create-react-app react-geocoder
+$ yarn create react-app react-geocoder
 ```
 
 Change into the `react-geocoder` directory created by `create-react-app`, and run the server.

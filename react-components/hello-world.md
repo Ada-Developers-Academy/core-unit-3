@@ -25,18 +25,17 @@ Create React App creates a new project, which includes starter HTML, CSS, and JS
 To use Create React App, we use this command:
 
 ```bash
-$ npx create-react-app hello-world
+$ yarn create react-app hello-world
 ```
 
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                            |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `npx`                                               | A CLI tool that runs packages. In this curriculum, we will use this infrequently, mostly only in this scenario when we are creating a new React project.                                                |
-| `create-react-app`                                  | A package that includes the command for Create React App, which creates a minimal React app.                                     |
+| `yarn`                                               | The `yarn` package manager which will set up the initial application.                                               |
+| `create`                                  | The command we want `yarn` to run. Here, we are creating a new application.                                     |
+| `react-app`                                  | The kind of application we are creating. `yarn` will use this information to identify that it needs the `create-react-app` package, which creates a minimal React app.                                     |
 | `hello-world`                                       | **Replace this** with the name of your new React project. This will be the name of the project and the generated project folder. |
 
-If `npx` isn't available, we should follow directions to install the latest version of [Node.js](https://nodejs.org/en/). Node.js includes `npm`. `npm` 5.2+ includes `npx`.
-
-Package managers can be tricky. We can encourage you to work with your instructors if `npx` gives you trouble. There is also the option to use [`npm` or `yarn` to create a React app].
+Package managers can be tricky. We can encourage you to work with your instructors if `yarn create react-app` gives you trouble. Follow your curiosity to read about other methods to [create react apps](https://create-react-app.dev/docs/getting-started/#creating-an-app).
 
 ### !callout-info
 
@@ -46,11 +45,11 @@ We have seen JavaScript running in the browser, and in editing environments such
 
 <br />
 
-To start our project we use `npx`, which eXecutes Node Packages. Node packages are the primary way that JavaScript libraries are shared, and we will learn more about installing and using them ourselves in later lessons!
+To start our project we use `yarn`, which eXecutes Node Packages. Node packages are the primary way that JavaScript libraries are shared, and we will learn more about installing and using them ourselves in later lessons!
 
 ### !end-callout
 
-After running `create-react-app`, we'll have a new project folder. We should `cd` into our project folder before we do anything else!
+After running `create react-app`, we'll have a new project folder. We should `cd` into our project folder before we do anything else!
 
 ```bash
 $ cd hello-world
@@ -85,7 +84,7 @@ When working with React, or other autoloading programs, it's a good idea to disa
 ### !end-callout
 
 ![A web browser displaying the default React application. It consists of the React logo, a note to "Edit src/App.js and save to reload," and a link to additional resources for learning about React.](../assets/react-components_hello-world-landing.png)  
-_Fig. The default React application created by `npx create-react-app`_
+_Fig. The default React application created by `yarn create react-app`_
 
 <!-- Question 1 -->
 <!-- prettier-ignore-start -->
