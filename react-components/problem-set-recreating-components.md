@@ -7,7 +7,7 @@ This problem set will ask you to create several components. To do this, we will 
 Run this command to create this practice project.
 
 ```bash
-$ yarn create react-app recreate-github
+$ npx create-react-app recreate-github
 ```
 
 Change into this directory, and run the server.

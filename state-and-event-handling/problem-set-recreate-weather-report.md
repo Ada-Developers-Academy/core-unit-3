@@ -7,7 +7,7 @@ Create a small, practice React app named `react-weather-report`.
 Run this command to create this practice project.
 
 ```
-$ yarn create react-app react-weather-report
+$ npx create-react-app react-weather-report
 ```
 
 Change into this directory, and run the server.

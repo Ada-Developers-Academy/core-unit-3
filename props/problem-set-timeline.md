@@ -27,7 +27,7 @@ This document covers:
 In your projects folder, create a new React app named `timeline`:
 
 ```bash
-$ yarn create react-app timeline
+$ npx create-react-app timeline
 ```
 
 Add the [`luxon` package](https://moment.github.io/luxon/#/) to your project using this command:
