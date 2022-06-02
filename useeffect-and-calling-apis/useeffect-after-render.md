@@ -181,7 +181,7 @@ In this example, we've clicked on the "apples" button seven times, but we don't 
 
 If we wanted `useEffect` to run when _either_ `apples` or `oranges` updates, we should pass in `[apples, oranges]`.
 
-You can experiment with this code in a [Code Sandbox](https://codesandbox.io/s/apples-and-oranges-xwr8w?file=/src/App.js).
+You can experiment with this code in a [Code Sandbox](https://codesandbox.io/s/apples-and-oranges-mxje7h?file=/src/App.js).
 
 ### Executing `useEffect` Only After Mounting, Not After Updating
 
@@ -529,7 +529,7 @@ function App() {
 
 In this example we define a `ComponentWithCleanup` component, which logs a message to the console in its cleanup function. The `App` component has a button that toggles whether to include the `ComponentWithCleanup` in the rendered output.
 
-You can see a running example of this app in [CodeSandbox](https://codesandbox.io/s/green-violet-pwksu?file=/src/App.js).
+You can see a running example of this app in [CodeSandbox](https://codesandbox.io/s/green-violet-39snkn?file=/src/App.js).
 
 <br/>
 
