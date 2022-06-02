@@ -298,7 +298,7 @@ To summarize, this second test expects the value of `fizzBuzz(25)` to equal `'Bu
 
 ## Example on CodeSandbox.io
 
-We can run a version of this test suite on [this CodeSandbox project](https://codesandbox.io/s/fizzbuzz-with-tests-488sq?file=/test/fizzbuzz.test.js).
+We can run a version of this test suite on [this CodeSandbox project](https://codesandbox.io/s/fizzbuzz-with-tests-riytqu?file=/test/fizzbuzz.test.js).
 
 CodeSandbox.io is a platform for creating projects. We'll use this platform to read, write, and run our FizzBuzz unit tests.
 
@@ -319,7 +319,7 @@ We should feel comfortable exploring this environment until we feel like we have
 
 ### !end-callout
 
-These projects need to be configured to use the Jest package. Let's purposely skip over those details in order to focus on the tests. The tests in [this CodeSandbox project](https://codesandbox.io/s/fizzbuzz-with-tests-488sq?file=/test/fizzbuzz.test.js) are already set up.
+These projects need to be configured to use the Jest package. Let's purposely skip over those details in order to focus on the tests. The tests in [this CodeSandbox project](https://codesandbox.io/s/fizzbuzz-with-tests-riytqu?file=/test/fizzbuzz.test.js) are already set up.
 
 ![CodeSandbox UI that shows the overall structure of the FizzBuzz project, including project files, editing views, and test output](../assets/tests_tests_sandbox-overview.png)  
 _Fig. CodeSandbox UI that shows the overall structure of the FizzBuzz project_
