@@ -37,7 +37,7 @@ const findLatitudeAndLongitude = (query) => {
   {
     params: {
       key: LOCATIONIQ_KEY,
-      q: 'Seattle, Washington, USA',
+      q: query,
       format: 'json'
     }
   })
