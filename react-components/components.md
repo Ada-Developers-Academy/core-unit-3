@@ -18,6 +18,10 @@ We will use Sofia's web app throughout the Learn React lessons. There is a compa
 
 <br>
 
+The Student App already has the React project structure created by running `yarn create react-app student-app`. To run the app, we first need to install the dependencies using `yarn install`, and then we can run the app using `yarn start`.
+
+<br>
+
 There are a few **Check For Understanding** prompts in the React lessons that ask us to recreate Sofia's app and add new features. We can either complete these **Check For Understanding** prompts in a brand new React app that we make ourself, or by using a fork of the [Student App repository](https://github.com/AdaGold/student-app) as a baseline.
 
 ### !end-callout
