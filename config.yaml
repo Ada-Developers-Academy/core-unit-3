@@ -184,6 +184,10 @@ Standards:
         Path: /learning-another-language/vscode-and-style.md
       -
         Type: Lesson
+        UID: e99b585f-062b-46ab-8bc4-9f0d00ebebb0
+        Path: /learning-another-language/js-loops.md
+      -
+        Type: Lesson
         UID: dc804b1c-8bb0-4b72-95f0-080a3b9b9552
         Path: /learning-another-language/classes.md
       -
