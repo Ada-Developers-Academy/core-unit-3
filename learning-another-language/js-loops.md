@@ -49,7 +49,7 @@ for (let i = 1; i <= 5; i++) {
 	if (i == 4) {
 		break;
 	}
-	console.log(i)
+	console.log(i);
 }
 
 // Output:
@@ -78,7 +78,7 @@ for (let i = 0; i <= arr.length; i++) {
 
 When iterating over an array, it is possible to accidentally exceed the bounds of the array. One thing to note about the indices of an array: 
 
-- The first element of an array is stored at index 0. This is true for JavaScript as well as most other programming languages. Therefore, the index of the last element of an array is equal to `arr.length - 1`.
+- As with most other languages, JavaScript arrays are zero indexed meaning the first element of an array is stored at index 0. Therefore, the index of the last element of an array is equal to `arr.length - 1`.
 
 When constructing a `for-loop`, there are a couple ways to handle exceeding the bounds of an array. They both involve altering the conditional statement in the `for-loop` to either:
 
@@ -142,7 +142,7 @@ for (let monster of monsters) {
 ```js
 const m = new Map();
 m.set(1, "red");
-m.set(2, "black")
+m.set(2, "black");
 
 for (let item of m) {
 	console.log(item);
@@ -182,7 +182,7 @@ for (let key in movies) {
 
 ### Common Pitfall: Unexpected Behavior When Iterating over an Array
 
-While you can use the `for … in` to iterate over an array, it is recommended to use one of the aforementioned for-loops instead. 
+While we can use the `for … in` to iterate over an array, it is recommended we use one of the aforementioned for-loops instead. 
 
 The reason for this is because the `for … in` loop iterates over **all** of the enumerable properties in an object, including any that may be inherited.
 
@@ -221,7 +221,7 @@ while (condition) {
 
 The `while` loop will evaluate the `condition` before the loop is run each time. If the `condition` evaluates to `true`, the loop executes the statement(s) in the block. Otherwise, the loop exits and stops executing the statement(s) in the block.
 
-The `while` loop is known as a pre-test loop because it evaluates the `condition` *before* each iteration. The loop will never execute if the condition evaluates to `false` before entering the loop.
+`While` loops evaluate the `condition` *before* each iteration. The loop will never execute if the condition evaluates to `false` before entering the loop.
 
 ### Example
 
@@ -277,7 +277,7 @@ do {
 
 The `do...while` statement creates a loop that executes a block of code until a condition evaluates to `false`.
 
-The statements in the block will **always** be executed once before the condition is checked. This is what differentiates a `do...while` loop from a `while` loop. The `do...while` loop is sometimes called a post-test loop.
+In contrast to a `while` loop, a `do...while` loop will **always** execute the statements in the block once _before_ the condition is checked. 
 
 ### Example
 ```js
@@ -297,7 +297,7 @@ do {
 
 ### Common Pitfall: Indefinite Loop
 
-It’s important to ensure the variable(s) used in the statement are updated such that the `while(condition)` evaluates to false. Otherwise, you may crash your program due to an infinite loop.
+It’s important to ensure the variable(s) used in the condition are updated such that the `while(condition)` evaluates to false. Otherwise, our program may crash due to an infinite loop.
 
 Spot the bug below:
 ```js
@@ -307,8 +307,8 @@ let sum = 0
 do {
 	sum = x + y;
 	console.log(sum);
-	x = x * x
-	y = y * y
+	x = x * x;
+	y = y * y;
 } while(sum >= 0);
 ```
 
@@ -356,7 +356,7 @@ function addHello(instructor, index, arr) {
 
 instructors.forEach(addHello);
 
-console.log(instructors)
+console.log(instructors);
 
 // Output:
 // ['Hello, Auberon', 'Hello, Char', 'Hello, Claire', 'Hello, Kyra']
