@@ -18,51 +18,28 @@ Similar to Python, Javascript also provides flow control statements such as `bre
 ### `for` loop
 
 ```js
-for (initialization; condition; finalExpression) {
-  // do stuff
-}
-```
-
-The `for-loop` consists of three optional expressions, followed by a block of code:
-
-- **initialization** - This expression runs before the execution of the first loop. The initialization expression is usually used to create a counter.
-- **condition** - This expression is checked each time before the loop runs. If it evaluates to true, the code in the loop is executed. If it evaluates to false, the loop stops. If this expression is omitted, it automatically evaluates to true, and the code block is executed.
-- **finalExpression** - This expression is executed after each iteration of the loop. This is usually used to increment (or increase) a counter, but can also be used to decrement (or decrease) a counter.
-
-#### Examples
-
-**1. Print integers 1 .. 5**
-```js
 for (let i = 1; i <= 5; i++) {
 	console.log(i);
 }
-
-// Output:
-// 1
-// 2
-// 3
-// 4
-// 5
-
-// intialization statement: let i = 1
-// condition statement: i <= 5
-// final expression: i++, equivalent to i = i + 1
 ```
 
-**2. Use a break statement to exit the loop immediately**
-```js
-for (let i = 1; i <= 5; i++) {
-	if (i == 4) {
-		break;
-	}
-	console.log(i);
-}
-
-// Output:
-// 1
-// 2
-// 3
+When we run our code, we should see this output:
 ```
+1
+2
+3
+4
+5
+```
+
+| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                   |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `for`                                    | The keyword used to begin the loop |
+| `let i = 1`                                                 | This expression runs before the execution of the first loop. The initialization expression is usually used to create a counter. |
+| `i <= 5`                                          | This expression is checked each time before the loop runs. If it evaluates to true, the code in the loop is executed. If it evaluates to false, the loop stops. If this expression is omitted, it automatically evaluates to true, and the code block is executed. |
+| `i++`                                             | This expression is executed after each iteration of the loop. This is usually used to increment (or increase) a counter, but can also be used to decrement (or decrease) a counter.   |
+| `{ console.log(i) }`                                                 | This is the body of the loop. This is the code that is executed.  |
+
 
 #### Common Pitfall: Exceeding the Bounds of an Array
 ```js
