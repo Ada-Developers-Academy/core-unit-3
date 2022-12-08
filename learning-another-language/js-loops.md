@@ -2,14 +2,20 @@
 ### Learning Goals
 * Understand several different looping mechanisms in JS
 * By the end of this, you should be able to:
-    * Iterate over data in a list, set, or map using several different types of loops
+    * Iterate over data in a list, set, or map using several different types of `for` and `while` loops
     * Understand how to terminate a loop early or skip a loop iteration using the `break` and `continue` keywords
 
-### What is a loop?
+### How JS loops are different than (& similar to) other loops we've seen
 
-Loops are used to perform repeated tasks based on a condition. A condition is a statement which can evaluate to either **true** or **false**. A loop will continue running until the condition returns false.
+Javascript has several variations of the basic `for` and `while` loops. The `for` family of loops includes the `for` loop, `for ... of` loop and `for ... in` loop. The `while` family of loops includes both the `while` loop and `do-while` loop.
 
-## 1. `for` loop
+These loops work similarly to the loops we have seen in Python, but with syntax and quirks that are particular to Javascript.
+
+Similar to Python, Javascript also provides flow control statements such as `break` and `continue`.
+
+## For Loop Family
+
+### `for` loop
 
 ```js
 for (initialization; condition; finalExpression) {
@@ -23,12 +29,12 @@ The `for-loop` consists of three optional expressions, followed by a block of co
 - **condition** - This expression is checked each time before the loop runs. If it evaluates to true, the code in the loop is executed. If it evaluates to false, the loop stops. If this expression is omitted, it automatically evaluates to true, and the code block is executed.
 - **finalExpression** - This expression is executed after each iteration of the loop. This is usually used to increment (or increase) a counter, but can also be used to decrement (or decrease) a counter.
 
-### Examples
+#### Examples
 
 **1. Print integers 1 .. 5**
 ```js
 for (let i = 1; i <= 5; i++) {
-	console.log(i)
+	console.log(i);
 }
 
 // Output:
@@ -58,7 +64,7 @@ for (let i = 1; i <= 5; i++) {
 // 3
 ```
 
-### Common Pitfall: Exceeding the Bounds of an Array
+#### Common Pitfall: Exceeding the Bounds of an Array
 ```js
 const arr = [ "foo", "bar", "baz" ];
 
@@ -109,7 +115,7 @@ for (let i = 0; i <= arr.length - 1; i++) {
 // baz
 ```
 
-## 2.`for … of` loop
+### `for … of` loop
 ```js
 for (variable of object) {
 	// do something
@@ -118,7 +124,7 @@ for (variable of object) {
 
 The `for … of` loop can be used to iterate over arrays, sets, and maps. When using the `for … of` loop, there’s no danger of going out of bounds! The loop will go over each item in the iterable object.
 
-### Examples
+#### Examples
 
 **1. Iterate over items in a list**
 ```js
@@ -153,7 +159,7 @@ for (let item of m) {
 // [2, black]
 ```
 
-## 3. `for … in` loop
+### `for … in` loop
 ```js
 for (property in object) {
 	// do stuff
@@ -180,7 +186,7 @@ for (let key in movies) {
 // 2010: Toy Story 3
 ```
 
-### Common Pitfall: Unexpected Behavior When Iterating over an Array
+#### Common Pitfall: Unexpected Behavior When Iterating over an Array
 
 While we can use the `for … in` to iterate over an array, it is recommended we use one of the aforementioned for-loops instead. 
 
@@ -206,13 +212,15 @@ for (const i in arr) {
 
 It is also worth mentioning that the `for … in` loop is meant for objects, and thus will be slower than other loops which are better suited for arrays.
 
-### Practical Usage
+#### Practical Usage
 
 So, wait, why use the `for … in` loop at all?
 
 The `for … in` loop may be most practically used as a tool to debug. It is an easy way to check the properties of an object. 
 
-## 4. while loop
+## While Loop Family
+
+### while loop
 ```js
 while (condition) {
 	// do some repetitive task
@@ -223,7 +231,7 @@ The `while` loop will evaluate the `condition` before the loop is run each time.
 
 `While` loops evaluate the `condition` *before* each iteration. The loop will never execute if the condition evaluates to `false` before entering the loop.
 
-### Example
+#### Example
 
 ```js
 let count = 5;
@@ -268,7 +276,7 @@ for (int i = 0; i <= 20; i += 5) {
   ```
 </details>
 
-## 5. do…while loop
+### do…while loop
 ```js
 do {
 	// perform repetitive task at least once
@@ -279,7 +287,7 @@ The `do...while` statement creates a loop that executes a block of code until a 
 
 In contrast to a `while` loop, a `do...while` loop will **always** execute the statements in the block once _before_ the condition is checked. 
 
-### Example
+#### Example
 ```js
 let i = 1
 do {
@@ -295,7 +303,7 @@ do {
 // 5
 ```
 
-### Common Pitfall: Indefinite Loop
+#### Common Pitfall: Indefinite Loop
 
 It’s important to ensure the variable(s) used in the condition are updated such that the `while(condition)` evaluates to false. Otherwise, our program may crash due to an infinite loop.
 
@@ -318,7 +326,8 @@ do {
   The program will run indefinitely because the condition `sum >= 0` will always evaluate to `true`. We can fix this by changing the condition to `sum <= 100` or anything that will eventually evaluate to `false`.
 </details>
 
-## 6. Additional Statements
+## Additional Statements
+
 ### forEach
 ```js
 myArray.forEach(myFunction(currentValue, index, arr))
@@ -334,7 +343,7 @@ The syntax  for the `forEach` method has multiple parts, some of them being opti
 - `index` is an **optional** variable used to indicate the index of the current element in the array which is being iterated upon.
 - `arr` is an **optional** variable which is the array of the current elements.
 
-### Example
+#### Example
 ```js
 let instructors = ["Auberon", "Char", "Claire", "Kyra"];
 
@@ -366,7 +375,7 @@ console.log(instructors);
 
 The `break` statement can be used to terminate a loop early, before the condition evaluates to `false` and exits the loop.
 
-### Example
+#### Example
 ```js
 let arr = [5, 10, 15, 20, 25, 30];
 
@@ -387,7 +396,7 @@ for (let i = 0; i < arr.length; i++) {
 
 The `continue` statement is used to skip the current iteration and go to the next iteration.
 
-### Example
+#### Example
 ```js
 let arr = [5, 10, 15, 20, 25, 30];
 
