@@ -121,7 +121,7 @@ Freddy Krueger
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | `for` | The keyword used to declare the loop. |
 | `let monster of monsters`  | Assigns the variable `monster` to each item in the array `monsters` as the iteration through the loop occurs.     |
-| `console.log(monster)` | The block of code executed each time the loop runs. This line logs out the `monster` in the current iteration.   |
+| `{ console.log(monster) }` | The block of code executed each time the loop runs. This line logs out the `monster` in the current iteration.   |
 
 ### !callout-info
 
@@ -187,7 +187,7 @@ The above code block will have the following output:
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | `for` | The keyword used to declare the loop. |
 | `let key in movies` | Assigns the variable `key` to each property in the object `movies` as the iteration through the loop occurs.     |
-| `console.log(...)` | The block of code executed each time the loop runs. This line logs out the object's property key and the resulting value for the property.   |
+| `{ console.log(...) }` | The block of code executed each time the loop runs. This line logs out the object's property key and the resulting value for the property.   |
 
 #### Common Pitfall: Unexpected Behavior When Iterating over an Array
 
@@ -227,32 +227,35 @@ The `for … in` loop may be most practically used as a tool to debug. It is an 
 
 ### while loop
 ```js
-while (condition) {
-	// do some repetitive task
-}
-```
-
-The `while` loop will evaluate the `condition` before the loop is run each time. If the `condition` evaluates to `true`, the loop executes the statement(s) in the block. Otherwise, the loop exits and stops executing the statement(s) in the block.
-
-`While` loops evaluate the `condition` *before* each iteration. The loop will never execute if the condition evaluates to `false` before entering the loop.
-
-#### Example
-
-```js
 let count = 5;
 while (count > 0) {
 	console.log(count);
 	count -= 1;
 }
-
-// Output:
-// 5
-// 4
-// 3
-// 2
-// 1
 ```
 
+The above code block will have the following output:
+```
+5
+4
+3
+2
+1
+```
+
+| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                   |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `while` | The keyword used to declare the `while` loop. |
+| `while` | The keyword used to declare the `while` loop. |
+| `count > 0` | The condition evaluated each time before the loop is run    |
+| `console.log(...)` | The block of code executed each time the loop runs. This line logs out the value of `count`.   |
+| `count -= 1` | Decrements the value of the `count` variable. This is needed to avoid an infinite loop.   |
+
+The `while` loop will evaluate the condition `count > 0` before the loop is run each time. If the condition evaluates to `true`, the loop executes the statement(s) in the block. Otherwise, the loop exits and stops executing the statement(s) in the block.
+
+`While` loops evaluate the condition *before* each iteration. The loop will never execute if the condition evaluates to `false` before entering the loop.
+
+#### For practice
 Try converting the following `for-loop` into a `while` loop:
 ```js
 for (int i = 0; i <= 20; i += 5) {
@@ -271,42 +274,40 @@ for (int i = 0; i <= 20; i += 5) {
         console.log(i);
         i += 5;
     }
-
-    // Output:
-    // 0
-    // 5
-    // 10
-    // 15
-    // 20
+  ```
+  The output:
+  ```
+  0
+  5
+  10
+  15
+  20
   ```
 </details>
 
 ### do…while loop
-```js
-do {
-	// perform repetitive task at least once
-} while(condition)
-```
-
 The `do...while` statement creates a loop that executes a block of code until a condition evaluates to `false`.
 
 In contrast to a `while` loop, a `do...while` loop will **always** execute the statements in the block once _before_ the condition is checked. 
 
-#### Example
 ```js
 let i = 1
 do {
 	console.log(i);
 	i += 1;
 } while (i <= 5)
-
-// Output:
-// 1
-// 2
-// 3
-// 4
-// 5
 ```
+
+The output for the above block of code:
+```
+1
+2
+3
+4
+5
+```
+
+
 
 #### Common Pitfall: Indefinite Loop
 
