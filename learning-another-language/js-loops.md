@@ -7,7 +7,9 @@
 
 ### How JS loops are different than (& similar to) other loops we've seen
 
-Javascript has several variations of the basic `for` and `while` loops. The `for` family of loops includes the `for` loop, `for ... of` loop and `for ... in` loop. The `while` family of loops includes both the `while` loop and `do-while` loop.
+Javascript has several variations of the basic `for` and `while` loops.
+
+The `for` family of loops includes the `for` loop, `for ... of` loop and `for ... in` loop. The `while` family of loops includes both the `while` loop and `do-while` loop.
 
 These loops work similarly to the loops we have seen in Python, but with syntax and quirks that are particular to Javascript.
 
@@ -38,7 +40,7 @@ When we run our code, we should see this output:
 | `let i = 1`                                                 | This expression runs before the execution of the first loop. The initialization expression is usually used to create a counter. |
 | `i <= 5`                                          | This expression is checked each time before the loop runs. If it evaluates to true, the code in the loop is executed. If it evaluates to false, the loop stops. If this expression is omitted, it automatically evaluates to true, and the code block is executed. |
 | `i++`                                             | This expression is executed after each iteration of the loop. This is usually used to increment (or increase) a counter, but can also be used to decrement (or decrease) a counter.   |
-| `{ console.log(i) }`                                                 | This is the body of the loop. This is the code that is executed.  |
+| `{ console.log(i) }`                                                 | This is the body of the loop. This is the code that is executed each time the loop is run.  |
 
 
 #### Common Pitfall: Exceeding the Bounds of an Array
@@ -48,20 +50,19 @@ const arr = [ "foo", "bar", "baz" ];
 for (let i = 0; i <= arr.length; i++) {
 	console.log(arr[i]);
 }
+```
 
-// Output:
-// foo
-// bar
-// baz
-// undefined
-
-// In the above example, arr.length = 3, 
-// so accessing arr[3] leads to an undefined element
+When the code above is run, we will see this output:
+```
+foo
+bar
+baz
+undefined
 ```
 
 When iterating over an array, it is possible to accidentally exceed the bounds of the array. One thing to note about the indices of an array: 
 
-- As with most other languages, JavaScript arrays are zero indexed meaning the first element of an array is stored at index 0. Therefore, the index of the last element of an array is equal to `arr.length - 1`.
+- As with most other languages, JavaScript arrays are zero indexed meaning the first element of an array is stored at index 0. Therefore, the index of the last element of an array is equal to `arr.length - 1`. In the code block above, `arr.length` = 3, so accessing `arr[3]` leads to an `undefined` element.
 
 When constructing a `for-loop`, there are a couple ways to handle exceeding the bounds of an array. They both involve altering the conditional statement in the `for-loop` to either:
 
@@ -71,39 +72,32 @@ When constructing a `for-loop`, there are a couple ways to handle exceeding the 
 ```js
 const arr = [ "foo", "bar", "baz" ];
 
-// Replace the <= with < in the condition statement
+// Replace <= with < in the condition statement
 for (let i = 0; i < arr.length; i++) {
 	console.log(arr[i]);
 }
+```
 
-// Output:
-// foo
-// bar
-// baz
+```js
+const arr = [ "foo", "bar", "baz" ];
 
 // Replace arr.length with arr.length - 1
 for (let i = 0; i <= arr.length - 1; i++) {
 	console.log(arr[i]);
 }
+```
 
-// Output:
-// foo
-// bar
-// baz
+Both of the above code blocks will give us the following output:
+```
+foo
+bar
+baz
 ```
 
 ### `for … of` loop
-```js
-for (variable of object) {
-	// do something
-}
-```
 
-The `for … of` loop can be used to iterate over arrays, sets, and maps. When using the `for … of` loop, there’s no danger of going out of bounds! The loop will go over each item in the iterable object.
+The `for … of` loop can be used to iterate over arrays, sets, and [maps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) (or dictionaries). When using the `for … of` loop, there’s no danger of going out of bounds! The loop will go over each item in the iterable object.
 
-#### Examples
-
-**1. Iterate over items in a list**
 ```js
 const monsters = [
 	"Michael Myers", 
@@ -114,26 +108,50 @@ const monsters = [
 for (let monster of monsters) {
 	console.log(monster);
 }
-
-// Output:
-// Michael Myers
-// Jason Voorhees
-// Freddy Krueger
 ```
 
-**2. Iterate over items in a map**
+When the code block above is run, we will see this output:
+```
+Michael Myers
+Jason Voorhees
+Freddy Krueger
+```
+
+| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                   |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `for` | The keyword used to declare the loop. |
+| `let monster of monsters`  | Assigns the variable `monster` to each item in the array `monsters` as the iteration through the loop occurs.     |
+| `console.log(monster)` | The block of code executed each time the loop runs. This line logs out the `monster` in the current iteration.   |
+
+### !callout-info
+
+#### let vs var vs const
+
+We use `let` to declare the variable `monster` in the above code block because `let` allows us to block-scope the variable. In contrast, if we were to use `var`, we may inadvertently leak the variable `monster` into a parent scope, which may not be something we necessarily want. Similarly, we would not want to use `const` here as the variable needs to overwrite itself, and we cannot assign the same variable twice.
+
+If curious, you may learn more about why we want to use `let` for loops in Javascript [here](https://wesbos.com/for-of-es6).
+
+### !end-callout
+
+#### Alternative Example
+
+**Iterate over items in a map**
 ```js
 const m = new Map();
 m.set(1, "red");
 m.set(2, "black");
+m.set(3, "green");
 
 for (let item of m) {
 	console.log(item);
 }
+```
 
-// Output:
-// [1, red]
-// [2, black]
+We'll get the following output for the code block above:
+```
+[1, red]
+[2, black]
+[3, green]
 ```
 
 ### `for … in` loop
@@ -156,20 +174,28 @@ const movies = {
 for (let key in movies) {
 	console.log(key + ": " + movies[key]);
 }
-
-// Ouput:
-// 2008: The Dark Knight
-// 2009: Avatar
-// 2010: Toy Story 3
 ```
+
+The above code block will have the following output:
+```
+2008: The Dark Knight
+2009: Avatar
+2010: Toy Story 3
+```
+
+| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                   |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `for` | The keyword used to declare the loop. |
+| `let key in movies` | Assigns the variable `key` to each property in the object `movies` as the iteration through the loop occurs.     |
+| `console.log(...)` | The block of code executed each time the loop runs. This line logs out the object's property key and the resulting value for the property.   |
 
 #### Common Pitfall: Unexpected Behavior When Iterating over an Array
 
 While we can use the `for … in` to iterate over an array, it is recommended we use one of the aforementioned for-loops instead. 
 
-The reason for this is because the `for … in` loop iterates over **all** of the enumerable properties in an object, including any that may be inherited.
+The reason for this is because the `for … in` loop iterates over **all** of the enumerable properties in an object, including any that may be inherited. This particular loop is not always recommended to use due to the ability to modify object prototypes in JS libraries. Details about prototypes are out of scope for this lesson, but the reader is invited to follow their curiosity, if interested in learning more: [Object Prototypes in Javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 
-If, for instance, a JS library modifies the `Array` prototype, the loop will iterate over any additional properties as well. Check out the example below for a potentially non-intuitive demonstration.
+Check out the example below for a potentially non-intuitive demonstration.
 
 ```js
 const arr = [1, 2, 3];
@@ -179,15 +205,17 @@ Array.prototype.newMethod = true;
 for (const i in arr) {
 	console.log(i);
 }
-
-// Output:
-// 1
-// 2
-// 3
-// newMethod
 ```
 
-It is also worth mentioning that the `for … in` loop is meant for objects, and thus will be slower than other loops which are better suited for arrays.
+The above code block will have the following output:
+```
+1
+2
+3
+newMethod
+```
+
+It is also worth mentioning that the `for … in` loop is meant for _objects_, and thus will be slower than other loops (such as the aforementioned for-loops or the upcoming while loop) which are better suited for arrays.
 
 #### Practical Usage
 
