@@ -245,11 +245,11 @@ The above code block will have the following output:
 
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                   |
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `while` | The keyword used to declare the `while` loop. |
+| `let count = 5` | Declares the variable `count`, used to control the logic of how many times the loop is run. |
 | `while` | The keyword used to declare the `while` loop. |
 | `count > 0` | The condition evaluated each time before the loop is run    |
-| `console.log(...)` | The block of code executed each time the loop runs. This line logs out the value of `count`.   |
-| `count -= 1` | Decrements the value of the `count` variable. This is needed to avoid an infinite loop.   |
+| `console.log(...)` | The first line in the block of code executed each time the loop runs. This line logs out the value of `count`.   |
+| `count -= 1` | The second line in the block of code executed each time the loop runs. This line decrements the value of the `count` variable. This line is needed to avoid an infinite loop.   |
 
 The `while` loop will evaluate the condition `count > 0` before the loop is run each time. If the condition evaluates to `true`, the loop executes the statement(s) in the block. Otherwise, the loop exits and stops executing the statement(s) in the block.
 
@@ -291,7 +291,7 @@ The `do...while` statement creates a loop that executes a block of code until a 
 In contrast to a `while` loop, a `do...while` loop will **always** execute the statements in the block once _before_ the condition is checked. 
 
 ```js
-let i = 1
+let i = 1;
 do {
 	console.log(i);
 	i += 1;
@@ -306,7 +306,13 @@ The output for the above block of code:
 4
 5
 ```
-
+| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                   |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `let i = 1` | Declares the variable `i`, which is later used to control the logic of how many times the loop is run. |
+| `do` | The keyword used to declare the `do-while` loop. |
+| `console.log(i)` | The first line in the block of code executed each time the loop runs. Logs out the value of `i` to the console.    |
+| `i += 1` | The second line in the block of code executed each time the loop runs. This line increments the value of the `i` variable. This line is needed to avoid an infinite loop.   |
+| `while (i <= 5)` | This line is the conditional statement. It is used to check whether or not the loop will run again. Once `i` evaluates to a number that is greater than 5, the loop will terminate.   |
 
 
 #### Common Pitfall: Indefinite Loop
@@ -335,35 +341,10 @@ do {
 ## Additional Statements
 
 ### forEach
-```js
-myArray.forEach(myFunction(currentValue, index, arr))
-```
-
 The `forEach` method calls a function and iterates over the elements of an array, map, or set. 
 
-The syntax  for the `forEach` method has multiple parts, some of them being optional:
-
-- `myArray` is the name of the array through which items you would like to iterate.
-- `myFunction` is the name of the function you would like to run for each of the elements in the array.
-- `currentValue` an element in the array which is currently being iterated upon. It is the only variable which is required to be passed into the function `myFunction`. This is the variable that will represent each element in the array.
-- `index` is an **optional** variable used to indicate the index of the current element in the array which is being iterated upon.
-- `arr` is an **optional** variable which is the array of the current elements.
-
-#### Example
 ```js
 let instructors = ["Auberon", "Char", "Claire", "Kyra"];
-
-function sayHello(instructor) {
-	console.log(`Hello, ${instructor}!`);
-}
-
-instructors.forEach(sayHello);
-
-// Output:
-// Hello, Auberon!
-// Hello, Char!
-// Hello, Claire!
-// Hello, Kyra!
 
 function addHello(instructor, index, arr) {
 	arr[index] = 'Hello, ' + instructor;
@@ -372,10 +353,21 @@ function addHello(instructor, index, arr) {
 instructors.forEach(addHello);
 
 console.log(instructors);
-
-// Output:
-// ['Hello, Auberon', 'Hello, Char', 'Hello, Claire', 'Hello, Kyra']
 ```
+
+The above code block will have the following output:
+```
+['Hello, Auberon', 'Hello, Char', 'Hello, Claire', 'Hello, Kyra']
+```
+
+| <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                   |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `function addHello(...)` | The declaration and name of the function which will be executed for each element in our array. |
+| `instructor` | The current value in the array being iterated upon. |
+| `index` | An **optional** variable used to indicate the index of the current element in the array which is being iterated upon.    |
+| `arr` | An **optional** variable. It is the array of the current elements.   |
+| `arr[index] = ...` | This line will be executed for each element in the array. It modifies the element at the `index` by adding 'Hello, ' prior to the value of the variable `instructor`.  |
+| `instructors.forEach(addHello)` | This line is used to call the function `addHello` on each element in the array `instructors`.  |
 
 ### break
 
@@ -391,11 +383,13 @@ for (let i = 0; i < arr.length; i++) {
 		break;
 	}
 }
+```
 
-// Output:
-// 5
-// 10
-// 15
+The above code block will have the following output:
+```
+5
+10
+15
 ```
 
 ### continue
@@ -412,13 +406,23 @@ for (let i = 0; i < arr.length; i++) {
 	}
 	console.log(arr[i]);
 }
-
-// Output:
-// 5
-// 10
-// 20
-// 25
 ```
+
+The above code block will have the following output:
+```
+5
+10
+20
+25
+```
+
+### !callout-info
+
+#### Minimize usage of break and continue
+
+We often want to minimize the usage of the keywords `break` and `continue` because they can make the execution flow unpredictable or difficult to follow. If possible, it is advised to formulate our loops such that we can avoid over-using them.
+
+### !end-callout
 
 ## Summary
 In this lesson, we have seen the following loops and loop control statements:
