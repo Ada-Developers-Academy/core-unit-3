@@ -413,7 +413,7 @@ The above code block will have the following output:
 
 #### Minimize usage of break and continue
 
-We often want to minimize the usage of the keywords `break` and `continue` because they can make the execution flow unpredictable or difficult to follow. If possible, it is advised to formulate our loops such that we can avoid over-using them.
+We often want to minimize the usage of the keywords `break` and `continue` because they can make the execution flow unpredictable or difficult to follow. If possible, it is advised to formulate our loops such that we avoid over-using them.
 
 ### !end-callout
 
