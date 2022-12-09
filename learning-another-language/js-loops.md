@@ -155,15 +155,8 @@ We'll get the following output for the code block above:
 ```
 
 ### `for … in` loop
-```js
-for (property in object) {
-	// do stuff
-}
-```
-
 The `for … in` loop iterates over all enumerable properties of an object. The code in the loop is executed for each property in the object. 
 
-### Example
 ```js
 const movies = {
 	2008: "The Dark Knight",
