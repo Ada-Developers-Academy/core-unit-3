@@ -79,13 +79,13 @@ You should install the following extensions:
 
 After installing the extension you can set it up to run automatically as the default formatter for JavaScript.
 
-To have Prettier run automatically hit `cmd-,` (command-comma) and click on the Configuation File icon. 
+To have Prettier run automatically hit `cmd-,` (command-comma) and click on the Configuration File icon. 
 
 ![VS Code Config file icon](../assets/learning-another-language__writing-javascript-locally__vscode-config-file-icon.png)
 
-Then add the following `[javascrpt]` section:
+Then add the following `[javascript]` section:
 
-```
+```json
   "[javascript]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
@@ -96,6 +96,11 @@ Then add the following `[javascrpt]` section:
 
 This just tells VS Code to use Prettier as the default formatter for JavaScript and to indent with 2 spaces. It will also run Prettier on each save. 
 
+We must be sure to add the snippet so that the configuration file remains valid JSON. The entire file is enclosed within braces `{}`, making an object. The configuration values in the object are key-value pairs. In our snippet, the key is the string `"[javascript]"`, and the value is the nested object with four keys.
+
+To maintain valid JSON syntax, key-value pairs must be separated by commas, and we are not allowed to have a trailing comma after the final pair. So if our configuration object has other values already, we can safely place this snippet as the first value in the configuration object (due to the trailing comma), or between two other values (since the value above should already have a trailing comma). We will probably _not_ be able to place the snippet at the end of the configuration object, unless we add a trailing comma to the line that precedes the snippet, and remove the comma at the end of the snippet.
+
+In short, make sure that if there is a key-value pair above where we paste in the snippet, that line must have a trailing comma to be syntactically correct. And if there are no other key-value pairs below where we paste in the snippet, then we must remove the trailing comma from our snippet.
 
 ### Eslint
 
@@ -151,7 +156,7 @@ A typical Node.js project will have the following structure:
 
 The `src` directory will contain our application code.
 
-The `node_modules` folder holds packages installed with a package manager like `yarn`. Similar to how `pip` downloads and installs packages in Python, `yarn` can download packages for you to use and places them in the `node_modules` folder. This folder can grow very large as you install more packages. Make sure to add it to a `.gitingore` file so that it is ignored by Git.
+The `node_modules` folder holds packages installed with a package manager like `yarn`. Similar to how `pip` downloads and installs packages in Python, `yarn` can download packages for you to use and places them in the `node_modules` folder. This folder can grow very large as you install more packages. Make sure to add it to a `.gitignore` file so that it is ignored by Git.
 
 The `package.json` file will contain information about the project including the dependencies (libraries required) and scripts to run the app.
 
@@ -179,6 +184,8 @@ Examine the `.eslintrc.json` file and look at the key-value pairs in the json fi
 ## npm command
 
 Yarn is not the only package manager in the JavaScript world. Another common command you will see (and comes with Node.js) is `npm`. It is a package manager for JavaScript. It functions very similarly to `yarn` in that it can download packages for you to use and places them in the `node_modules` folder.
+
+<br />
 
 Because `create-react-app` uses `yarn` to manage dependencies, we will stick to using `yarn` in our examples, but you can use `npm` if you prefer and you will see many examples of the `npm` command online.
 
@@ -232,4 +239,4 @@ Congratulations!  You have created a Node.js project. You can now run your appli
 
 - [ESLint Rules](https://eslint.org/docs/rules/)
 - [Prettier Options](https://prettier.io/docs/en/options.html)
-- [Youtube Video Traversty Media on Linting](https://www.youtube.com/watch?v=SydnKbGc7W8)
+- [Youtube Video Traversy Media on Linting](https://www.youtube.com/watch?v=SydnKbGc7W8)
