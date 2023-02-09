@@ -133,7 +133,7 @@ testObj[keyToGetSomeValue];
 ```
 <!-- prettier-ignore-end -->
 
-We declared a `const` variable named `keyToGetSomeValue`, and assigned it the value `'someStr'`. When we use `keyToGetSomeValue` in square brackets while accessing `testObj`, this variable evaluates to `'someStr'`.
+We declared a `const` variable named `keyToGetSomeValue`, and assigned it the value `'someStr'`. When we use `keyToGetSomeValue` in square brackets while accessing `testObj`, this variable evaluates to `'this is a test string'`.
 
 ### Nested Objects
 
