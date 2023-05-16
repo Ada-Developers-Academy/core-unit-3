@@ -5,4 +5,4 @@ cp "$submission_file" index.js
 echo >> index.js
 echo "module.exports = formatReservations" >> index.js
 
-npm test
+yarn test

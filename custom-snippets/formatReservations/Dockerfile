@@ -8,4 +8,4 @@ WORKDIR /app
 COPY . ./
 
 # Install dependencies
-RUN npm install
+RUN yarn install
