@@ -18,26 +18,26 @@ Complete all questions below.
 
 Complete the function `isOdd` using arrow function syntax.
 
-`isOdd` should take in one number, `num`. It returns a truthy value if `num` is an odd number. It returns a falsy value if `num` is an even number.
+`isOdd` should take in one number, `num`. It returns `true` if `num` is an odd number. It returns `false` if `num` is an even number.
 
 | `num`   | Expected Return Value |
 | ------- | --------------------- |
-| `1`     | truthy                |
-| `3`     | truthy                |
-| `5`     | truthy                |
-| `999`   | truthy                |
-| `2`     | falsy                 |
-| `4`     | falsy                 |
-| `6`     | falsy                 |
-| `1000`  | falsy                 |
-| `-1`    | truthy                |
-| `-3`    | truthy                |
-| `-5`    | truthy                |
-| `-999`  | truthy                |
-| `-2`    | falsy                 |
-| `-4`    | falsy                 |
-| `-6`    | falsy                 |
-| `-1000` | falsy                 |
+| `1`     | `true`                |
+| `3`     | `true`                |
+| `5`     | `true`                |
+| `999`   | `true`                |
+| `2`     | `false`               |
+| `4`     | `false`               |
+| `6`     | `false`               |
+| `1000`  | `false`               |
+| `-1`    | `true`                |
+| `-3`    | `true`                |
+| `-5`    | `true`                |
+| `-999`  | `true`                |
+| `-2`    | `false`               |
+| `-4`    | `false`               |
+| `-6`    | `false`               |
+| `-1000` | `false`               |
 
 ##### !end-question
 ### !explanation
@@ -85,7 +85,7 @@ Consider trying:
 - Making the function longer
 - Writing the conditional logic differently
 
-`isOdd` should take in one number, `num`. It returns a truthy value if `num` is an odd number. It returns a falsy value if `num` is an even number.
+`isOdd` should take in one number, `num`. It returns `true` if `num` is an odd number. It returns `false` if `num` is an even number.
 
 ##### !end-question
 ### !explanation
@@ -120,17 +120,17 @@ const isOdd = num => num % 2;
 
 Implement the function `isOddNumber`.
 
-`isOddNumber` should take in one number, `num`. It returns a truthy value if `num` is an odd number. It returns a falsy value if `num` is an even number.
+`isOddNumber` should take in one number, `num`. It returns `true` if `num` is an odd number. It returns `false` if `num` is an even number.
 
 If `num` is not a number, the function should return a falsy value.
 
 | `num`   | Expected Return Value |
 | ------- | --------------------- |
-| `1`     | truthy                |
-| `2`     | falsy                 |
-| `hello` | falsy                 |
-| `[]`    | falsy                 |
-| `{}`    | falsy                 |
+| `1`     | `true`                |
+| `2`     | `false`               |
+| `hello` | `false`               |
+| `[]`    | `false`               |
+| `{}`    | `false`               |
 
 ##### !end-question
 ### !explanation
