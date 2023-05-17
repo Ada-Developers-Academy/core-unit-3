@@ -85,7 +85,7 @@ Consider trying:
 - Making the function longer
 - Writing the conditional logic differently
 
-`isOdd` should take in one number, `num`. It returns `true` if `num` is an odd number. It returns `false` value if `num` is an even number.
+`isOdd` should take in one number, `num`. It returns `true` if `num` is an odd number. It returns `false` if `num` is an even number.
 
 ##### !end-question
 ### !explanation
