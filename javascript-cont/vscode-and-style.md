@@ -69,38 +69,9 @@ Hello Naya Spence!
 
 ## Setting Up VS Code
 
-Like Python, Visual Studio Code can be used to write and run JavaScript. VS Code also has a number of great extension for use with JavaScript.
+Like Python, Visual Studio Code can be used to write and run JavaScript. VS Code also has a number of great extensions for use with JavaScript.
 
-You should install the following extensions:
-
-### Prettier
-
-[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) is an automatic code formatter for JavaScript. It is useful for formatting your code consistently. It can take some getting used to, but once you get used to it you will find it very useful.
-
-After installing the extension you can set it up to run automatically as the default formatter for JavaScript.
-
-To have Prettier run automatically hit `cmd-,` (command-comma) and click on the Configuration File icon. 
-
-![VS Code Config file icon](../assets/learning-another-language__writing-javascript-locally__vscode-config-file-icon.png)
-
-Then add the following `[javascript]` section:
-
-```json
-  "[javascript]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-```
-
-This just tells VS Code to use Prettier as the default formatter for JavaScript and to indent with 2 spaces. It will also run Prettier on each save. 
-
-We must be sure to add the snippet so that the configuration file remains valid JSON. The entire file is enclosed within braces `{}`, making an object. The configuration values in the object are key-value pairs. In our snippet, the key is the string `"[javascript]"`, and the value is the nested object with four keys.
-
-To maintain valid JSON syntax, key-value pairs must be separated by commas, and we are not allowed to have a trailing comma after the final pair. So if our configuration object has other values already, we can safely place this snippet as the first value in the configuration object (due to the trailing comma), or between two other values (since the value above should already have a trailing comma). We will probably _not_ be able to place the snippet at the end of the configuration object, unless we add a trailing comma to the line that precedes the snippet, and remove the comma at the end of the snippet.
-
-In short, make sure that if there is a key-value pair above where we paste in the snippet, that line must have a trailing comma to be syntactically correct. And if there are no other key-value pairs below where we paste in the snippet, then we must remove the trailing comma from our snippet.
+You should install the following extension:
 
 ### Eslint
 
@@ -135,7 +106,7 @@ Some common style guides include:
 - [AirBNB](https://github.com/airbnb/javascript) has a well documented coding standard that is very popular.
 - [Google](https://google.github.io/styleguide/jsguide.html) also has a popular coding style guide.
 
-We will use the linting setting [ESLint Standard](https://eslint.org/docs/rules/), [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) and [ESLint-react](https://github.com/yannickcr/eslint-plugin-react) which have a rather minimal set of linting rules to highlight common JavaScript problems and will continue to apply when we begin working with React.
+We will use the linting setting [ESLint Standard](https://eslint.org/docs/rules/) and [ESLint-react](https://github.com/yannickcr/eslint-plugin-react) which have a rather minimal set of linting rules to highlight common JavaScript problems and will continue to apply when we begin working with React.
 
 ## Typical Node Project Structure
 
@@ -150,7 +121,6 @@ A typical Node.js project will have the following structure:
 │   ├── [folders with dependencies]
 ├── README.md
 ├── package.json
-├── .prettierrc
 └── .eslintrc.json
 ```
 
@@ -159,8 +129,6 @@ The `src` directory will contain our application code.
 The `node_modules` folder holds packages installed with a package manager like `yarn`. Similar to how `pip` downloads and installs packages in Python, `yarn` can download packages for you to use and places them in the `node_modules` folder. This folder can grow very large as you install more packages. Make sure to add it to a `.gitignore` file so that it is ignored by Git.
 
 The `package.json` file will contain information about the project including the dependencies (libraries required) and scripts to run the app.
-
-The (optional) `.prettierrc` file will contain information about how the Prettier plugin will format our code.
 
 The `.eslintrc.json` file will contain information about the linting rules. Essentially they tell the Eslint plugin in VS Code what code style rules to enforce.
 
@@ -209,10 +177,10 @@ $ yarn add underscore
 
 You can also add dependencies which will only be used during development with `yarn add --dev <dependency>`
 
-For example adding prettier and eslint libraries:
+For example adding the eslint library:
 
 ```bash
-$ yarn add --dev eslint eslint-config-prettier eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-prettier eslint-plugin-react prettier
+$ yarn add --dev eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-react 
 ```
 
 If you want to use Eslint, you would need to do the following to create the `.eslintrc.json` file:
@@ -238,5 +206,4 @@ Congratulations!  You have created a Node.js project. You can now run your appli
 ## Resources
 
 - [ESLint Rules](https://eslint.org/docs/rules/)
-- [Prettier Options](https://prettier.io/docs/en/options.html)
 - [Youtube Video Traversy Media on Linting](https://www.youtube.com/watch?v=SydnKbGc7W8)
