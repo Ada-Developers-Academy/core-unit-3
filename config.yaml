@@ -181,19 +181,19 @@ Standards:
       -
         Type: Lesson
         UID: 71c286a7-12b3-48e3-9e19-816ff8f2d9d4
-        Path: /learning-another-language/vscode-and-style.md
+        Path: /javascript-cont/vscode-and-style.md
       -
         Type: Lesson
         UID: dc804b1c-8bb0-4b72-95f0-080a3b9b9552
-        Path: /learning-another-language/classes.md
+        Path: /javascript-cont/classes.md
       -
         Type: Lesson
         UID: cfd5f597d9a76eaf406cb4125063e0fb
-        Path: /learning-another-language/additional-topics.md
+        Path: /javascript-cont/additional-topics.md
       -
         Type: Lesson
         UID: f29ce62d-1fa4-4e88-93af-fb751e2dbb6d
-        Path: /learning-another-language/activity-exploring-javascript.md  
+        Path: /javascript-cont/activity-exploring-javascript.md  
   -
     Title: Functions
     Description: "Arrow Functions, Callback Functions, Anonymous Functions, Problem Set: Functions"
