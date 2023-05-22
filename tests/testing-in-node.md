@@ -4,7 +4,7 @@
 
 ## Goal
 
-When writing any software, it is important to have confidence in the quality of the code. Tests can help you verify that your code is working as expected.
+When writing any software, it is important to have confidence in the quality of the code. Tests can help us verify that our code is working as expected.
 
 We have looked at Jest and experimented with tests in CodeSandbox.  However, we have not yet used them in Node.js. In this section, we will learn how to use tests in Node.js and debugging tests with VS Code.
 
