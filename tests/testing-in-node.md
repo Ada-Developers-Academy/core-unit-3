@@ -4,7 +4,7 @@
 
 ## Goal
 
-When writing any software, it is important to have confidence in the quality of the code. Tests can help you verify that your code is working as expected.
+When writing any software, it is important to have confidence in the quality of the code. Tests can help us verify that our code is working as expected.
 
 We have looked at Jest and experimented with tests in CodeSandbox.  However, we have not yet used them in Node.js. In this section, we will learn how to use tests in Node.js and debugging tests with VS Code.
 
@@ -106,17 +106,9 @@ Notice that the flask icon does not automatically detect our tests.
 
 We can fix this by installing the [Jest Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest). This will allow us to see the tests using the Flask icon in the editor.
 
-After installing the extension type `command-shift-p` and select `Jest start all runners`.  You may be asked to *Run Setup Wizard* when running a test. If so, the Jest commandline command is `yarn test`. Then follow the instructions and enter `yarn test` for the Jest command line.
+After installing the extension, we should now see that the Jest extension detected our tests when we click on the flask icon. 
 
-![Jest start all runners](../assets/tests__testing-in-node__test-runners.png)
-
-![Jest Run Setup Wizard](../assets/tests__testing-in-node__run-wizard.png)
-
-![Jest setup command line](../assets/tests__testing-in-node__setup-jest-commandline.png)
-
-![Are you able to run jest from cmd line](../assets/tests__testing-in-node__able-to-run-from-cmd.png)
-
-![Jest command line](../assets/tests__testing-in-node__enter-jest-cmd.png)
+![Flask icon displays Fizzbuzz tests](../assets/tests__testing-in-node__tests-detected-by-jest-extension.png)
 
 Just like with Python we can now use VS Code to run our tests and even use breakpoints to inspect and debug the tests.
 
