@@ -2,32 +2,33 @@
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=a7fe5712-e072-472c-867a-adda011baa7c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
-Most of our initial examples of JavaScript will reside in the browser running in [repl.it](https://replit.com/). However JavaScript can also be written locally, and run using the [Node.js](https://nodejs.org/en/) runtime environment. This is useful for writing code that is not dependent on the browser, and can be run on a server, but our focus will remain on front-end web development.
+Many of our initial JavaScript examples are either written specifically to run in a browser, or make use of coding exercises on [repl.it](https://replit.com/). However JavaScript can also be written locally, and run using the [Node.js](https://nodejs.org/en/) runtime environment. This is useful for writing code that is not dependent on the browser, such as running backend logic on a server.
 
-## Installing Node
+Even with our focus remaining primarily on front-end web development, we'll eventually make use of tools and libraries that require being processed with Node.js before the browser will be able to run it.
 
-To install Node.js, we can use Homebrew. 
+## Installing Node.js
+
+We can use Homebrew to install Node.js.
 
 ```bash
 $ brew install node
-$ brew install yarn
 ```
 
-With these commands we can now run Node.js and `yarn`. Node.js is a framework for running JavaScript in the terminal and `yarn` is a package manager for Node.js, similar to `pip` for Python.
+Running this command installs Node.js on our computer, including a tool called `npm`. Node.js is a framework for running JavaScript in the terminal, while `npm` is a package manager for Node.js, similar to `pip` for Python.
 
-By installing node we can now run the following command to run the Node.js REPL:
+After installing Node.js we can now use the following command to run the Node.js REPL:
 
 ```bash
-$ node       
+$ node
 Welcome to Node.js v16.8.0.
 Type ".help" for more information.
-> 
+>
 ```
 
-Just like the Python REPL we can now write and run JavaScript code. For example:
+Just like when using the Python REPL, we can now interactively write and run JavaScript code. For example:
 
 ```javascript
-node       
+$ node
 Welcome to Node.js v16.8.0.
 Type ".help" for more information.
 > const x = 42;
@@ -35,34 +36,33 @@ undefined
 > console.log(x);
 42
 undefined
-> 
+>
 ```
 
-The REPL will execute each JavaScript statement as we enter them and print the result to the console. 
+The REPL executes each JavaScript statement as we enter them and prints the result to the console. We see the two `undefined` values in the output because variable declaration doesn't evaluate to a value, and the `console.log` function doesn't return a value. Python ascribes a value of `None` to functions with no return, while JavaScript uses `undefined`.
 
-The REPL will continue to run until we exit it. We can exit the REPL by typing `Ctrl-D` or `.exit`.
-
+The REPL continues to run until we exit it. We exit the REPL by typing `Ctrl-D` or `.exit`.
 
 ### Running JavaScript Files
 
-We can also create and run JavaScript files. For example we can create this file and name it `hello.js`.
+We can also create and run JavaScript files. For example we can create a new file called `hello.js` and add the following code:
 
 ```javascript
-const helloWorld = function(name) {
-    if (name === undefined) {
-        name = "World";
-    }
-    console.log(`Hello ${name}!`)
+const helloWorld = function (name) {
+  if (name === undefined) {
+    name = "World";
+  }
+  console.log(`Hello ${name}!`);
 };
 
 helloWorld(); // Hello World!
-helloWorld('Naya Spence'); // Hello Naya Spence!
+helloWorld("Naya Spence"); // Hello Naya Spence!
 ```
 
 We can then run the file with
 
 ```bash
-$ node hello.js 
+$ node hello.js
 Hello World!
 Hello Naya Spence!
 ```
@@ -71,139 +71,260 @@ Hello Naya Spence!
 
 Like Python, Visual Studio Code can be used to write and run JavaScript. VS Code also has a number of great extensions for use with JavaScript.
 
-You should install the following extension:
+We'll install the following extension:
 
 ### Eslint
 
-[Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) is an extension that can be used to check your JavaScript code for errors. It is useful for ensuring that your code is well-written and follows best practices. You can give Eslint a configuration file to have it enforce a specific style guide, more on this later.
+[Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) is an extension that allows VS Code to use a separately-installed `eslint` command line tool to check our JavaScript code for errors. Such a tool, which checks for code issues but isn't the actual language interpreter or compiler, is often called a [linter](<https://en.wikipedia.org/wiki/Lint_(software)>). Linters are useful for ensuring that our code is well-written and follows best practices. Recall that the name for the JavaScript standard is ECMAScript, so Eslint is a linter for JavaScript (ECMAScript).
 
 ### !callout-info
 
 ## There Are A LOT of Extensions
 
-The JavaScript community is very active. There are many extensions for JavaScript. You are encouraged to experiment and explore, but we will only be requiring these extensions.
+The JavaScript community is very active. There are many extensions for JavaScript. You are encouraged to experiment and explore, but we will only be requiring Eslint.
+
+<br/>
+
+Be aware that the Eslint extension only provides the connection between VS Code and the Eslint command line package. The Eslint command line package must be installed separately in each project. This is often handled by having an appropriate line in a project's configuration file, called the `package.json` file for Node.js projects. If starting our own project from scratch, we can add Eslint ourselves as we'll see below.
 
 ### !end-callout
 
+We can give Eslint a configuration file to have it enforce a specific style guide. When an entire team uses the same style guide, this can ensure consistency and readability across an entire codebase even when many individuals are contributing to it.
+
 ## Style Guides
 
-![How Coding Standards Proliferate](../assets/learning-another-language__vscode-and-style__coding-stanards.png)
-
-*Source: [XKCD](https://xkcd.com/927/)*
+![How Coding Standards Proliferate](../assets/learning-another-language__vscode-and-style__coding-stanards.png)  
+_Source: [XKCD](https://xkcd.com/927/)_
 
 Many software teams adhere to a set of rules which serve as guidelines for how to write and organize code. Linters can be an integral part of a team's style conventions.
 
-### Why use a style guide?
+### Why Use a Style Guide?
 
-Style guides are a common way for a group of people to create consistently formatted documents. Like MLA or the Chicago Manual of Style, a code style guide helps us find the information we are looking for as quickly as possible.
+Style guides are a common way for a group of people to create consistently formatted documents. Similar to how the MLA Guide or the Chicago Manual of Style helps authors clearly present their ideas in writing, a code style guide helps us express our intentions in code in a way that others on our team will be able to understand more easily.
 
-In a large team, with programmers from a lot of different language backgrounds, it's easy to fall into whatever habits your first programming language encouraged. A Python whiz might default to using indentation alone to show where a code block begins and ends, where a C programmer at heart might feel more comfortable surrounding code blocks in curly braces. With small differences like these, one slight difference between two programmers may go unnoticed, but as teams get bigger and more and more styles mix, code becomes increasingly ugly and unreadable. 
+As programmers, it's easy to fall into whatever habits our first programming language or learning materials encouraged. But small differences among programmers on concerns even as minor as spacing around operators, where to place curly braces, or how to name variables can make code more difficult to read. Each time we encounter a difference in style, we have to stop and think about it. Was this done intentionally? Is there a reason for it? Following a style guide helps us avoid these unnecessary context switches.
 
-Simply put, style guides help us keep code formatted consistently between developers, making for fewer context switches, and hopefully fewer silly mistakes.
+For a small team with only a few programmers, slight differences may go unnoticed. But as teams get bigger and more and more styles mix, code becomes increasingly ugly and unreadable. In the most extreme cases it can even lead to conflicts among team members, with time wasted arguing over the "right" way to do things, and needless churn as individuals try to "fix" each other's code, which itself can lead to the introduction of new bugs.
+
+Simply put, style guides help us keep code formatted consistently between developers, resulting in fewer context switches, less conflict, and hopefully fewer silly mistakes.
 
 Some common style guides include:
 
 - [AirBNB](https://github.com/airbnb/javascript) has a well documented coding standard that is very popular.
 - [Google](https://google.github.io/styleguide/jsguide.html) also has a popular coding style guide.
 
-We will use the linting setting [ESLint Standard](https://eslint.org/docs/rules/) and [ESLint-react](https://github.com/yannickcr/eslint-plugin-react) which have a rather minimal set of linting rules to highlight common JavaScript problems and will continue to apply when we begin working with React.
+We will use the linting setting [ESLint Standard](https://eslint.org/docs/rules/) and [ESLint-React](https://github.com/yannickcr/eslint-plugin-react) (after introducing the React framework), which have a fairly minimal set of linting rules to highlight common JavaScript problems.
 
-## Typical Node Project Structure
+### Applying Style Rules to Our Code
 
-A typical Node.js project will have the following structure:
+Eslint reports violations of a style guide. We can then fix our code to follow our style rules. We encourage actively watching for Eslint errors, which appear both as wavy underlines and in the Problems VS Code tab, and fixing them as we write code. This trains our eyes to see style issue before they arise, while helping us develop a clean, consistent personal coding style.
 
-```
-.
-├── src
-│   ├── index.js
-│   ├── [other files & folders]
-├── node_modules
-│   ├── [folders with dependencies]
-├── README.md
-├── package.json
-└── .eslintrc.json
-```
+On teams, however, this manual approach can lead to problems. It's possible to overlook errors, allowing style guide violations to be checked in to our codebase. To help with this, code formatters exist that can automatically reformat our code any time we save. When starting out, this can be jarring and frustrating. But it's often worth it when working with others to ensure that everyone really is working according to the style guide.
 
-The `src` directory will contain our application code.
+On our own, it's not as necessary to go completely automated. We can still use a code formatter, but we can also choose to run it manually when we want to. This can be a good way to learn about the style guide and how it works, and to see how our code changes as we apply the formatter.
 
-The `node_modules` folder holds packages installed with a package manager like `yarn`. Similar to how `pip` downloads and installs packages in Python, `yarn` can download packages for you to use and places them in the `node_modules` folder. This folder can grow very large as you install more packages. Make sure to add it to a `.gitignore` file so that it is ignored by Git.
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
 
-The `package.json` file will contain information about the project including the dependencies (libraries required) and scripts to run the app.
+### !callout-danger
 
-The `.eslintrc.json` file will contain information about the linting rules. Essentially they tell the Eslint plugin in VS Code what code style rules to enforce.
+## Use the Same Style Guide as Your Team!
 
+If automatically applying style guides when saving, it's _essential_ that everyone work from the same style guide. Otherwise, the conflicting style guides will cause the formatter to repeatedly reformat code that was written according to a different style guide, and we'll be back to the same problem of unnecessary churn and conflict.
 
-### An Example Node Project
+<br/>
 
-Clone the [node-example](https://github.com/AdaGold/node-example) repository. Then run `yarn install` to install the dependencies.
-
-Examine the `package.json` file and look at the key-value pairs in the json file. 
-
-![Example package.json](../assets/learning-another-language__vscode-and-style__package-json.png)
-
-The `scripts` key contains a list of commands that can be run from the command line. For example, `yarn run start` will run the `start` script.
-
-Examine the `.eslintrc.json` file and look at the key-value pairs in the json file. These are the rules that Eslint will enforce and information about what version of JavaScript to use.
-
-![Example eslintrc.json](../assets/learning-another-language__vscode-and-style__eslintrc.json.png)
-
-### !callout-secondary
-
-## npm command
-
-Yarn is not the only package manager in the JavaScript world. Another common command you will see (and comes with Node.js) is `npm`. It is a package manager for JavaScript. It functions very similarly to `yarn` in that it can download packages for you to use and places them in the `node_modules` folder.
-
-<br />
-
-Because `create-react-app` uses `yarn` to manage dependencies, we will stick to using `yarn` in our examples, but you can use `npm` if you prefer and you will see many examples of the `npm` command online.
+Changes caused by a formatter can make it difficult to track changes in version control, as the important part of a commit can be hard to distinguish from the noise introduced by the formatter. If we notice that previously committed code isn't following the style guide, it's better to put any logic changes in one commit, and the style fixes in a separate commit that is clearly labeled as a styling pass commit. This makes it easier to see what's going on in the commit history.
 
 ### !end-callout
 
-### [Optional] Setting Up A Node Project From Scratch
+[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) is a popular code formatter. It's referred to as being "opinionated," meaning it has a specific way that it wants to format the code, with only a limited number of options that can be changed. This can be a problem if we have particular style rules that we want to enforce. On the other hand, by removing many decisions from coders, it can help reduce arguments over particular style choices.
 
-To create a `package.json` file you can create a folder to house the project and use `yarn init` to create a `package.json` file:
+There's also a code formatter built in to VS Code, without the need to install any further extensions.
+
+To run either formatter, we can use the `Format Document` command. Use the keyboard shortcut ⇧⌘P (Shift-Command-P) to open the command palette, then type "format" to see the available commands. Select `Format Document` to run the formatter.
+
+If there are multiple formatters installed, we can open the command palette, again search for "format", then pick `Format Document With...`. This lists the formatters available for the current file type, allowing us to choose which one to use.
+
+When using a formatter, it's very important that the formatter and linter agree on the style guide to be used. Otherwise, the formatter will change the code to match its own style rules rather than those the linter is checking for, leading to the linter reporting errors caused by the formatter! Eslint can be configured to work smoothly with Prettier; there's a video linked in the Resources with more information. If you wish to try this, follow your curiosity!
+
+## Typical Node.js Project Structure
+
+A typical Node.js project has the following structure:
+
+```
+<project-root>
+├── node_modules
+│   ├── [folders with dependencies]
+│   └── ...
+├── src
+│   ├── index.js
+│   ├── [other files & folders]
+│   └── ...
+├── .eslintrc.json
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+The `node_modules` folder contains packages installed with a package manager like `npm`. Similar to how `pip` downloads and installs packages in Python, `npm` downloads packages for us to use and places them in the `node_modules` folder. `npm` also adds the dependency information to our `package.json` file automatically, unlike `pip` which requires us to update our `requirements.txt` file in a separate step. The `node_modules` folder can grow very large as we install more packages. Make sure to add the `node_modules` directory to a project's `.gitignore` file so Git will ignore it when we make commits.
+
+The `src` directory contains our application code.
+
+The `.eslintrc.json` file contains the linting rules that tell Eslint what code style rules to enforce. Depending on how the linting rules file is created, we may see this called any of the following: `.eslintrc`, `.eslintrc.json`, `.eslintrc.js`, `.eslintrc.cjs`, and potentially others. The `.eslintrc.json` file is among the most common.
+
+The `package.json` file contains information about the project including the dependencies (libraries required) and scripts to run the app.
+
+The `package-lock.json` file primarily records the explicit version of each dependency installed. For example, if the `package.json` requests package `really-useful-package` of at least version 3, then the `package-lock.json` would record whether it was version 3.1, 3.2, or some other sub-version that was actually installed. Especially for projects involving more than one developer, this ensures that the same versions of dependencies are installed on all machines, minimizing isolated issues due to different versions of dependencies.
+
+### An Example Node.js Project
+
+Clone the [node-example](https://github.com/AdaGold/node-example) repository. Then run `npm install` or `npm i` to install the dependencies. There's no need to fork first, unless you would like to try making changes and then be able to commit your work to your own repo.
+
+Examine the `package.json` file and look at the key-value pairs in the json file.
+
+![Example package.json highlighting several areas of the file. "name" and "version" are described as "Name and version number". "scripts" is described as "Scripts to run the application. In this case, we can run the app with: npm start". "devDependencies" is described as "Dependencies for the development process, not for production." "dependencies" is described as "Dependencies used in production".](../assets/learning-another-language__vscode-and-style__package-json.png)  
+*Fig. Several important areas of the `package.json` file.* [*(Full size image)*](../assets/learning-another-language__vscode-and-style__package-json.png)
+
+The `scripts` key contains a list of commands that can be run from the command line. For example, `npm run start` runs the `start` script. A few script names are considered "well-known" and can be run without the `run` keyword. For example, `npm start` runs the `start` script. Other well-known scripts are `stop`, `restart`, and `test`. If we add a custom script entry not matching one of these names, then we must include the `run` keyword when running it.
+
+Examine the `.eslintrc.json` file and look at the key-value pairs in the json file. These are the rules that Eslint enforces and information about what version of JavaScript to use.
+
+![Example eslintrc.json highlighting several areas of the file. "env" is described as "The JavaScript environment to use (browser, node, language version)." "extends" is described as "Pre-made rules to use as a starting point." "rules" is described as "Specific rules to enforce or ignore".](../assets/learning-another-language__vscode-and-style__eslintrc.json.png)  
+*Fig. Several important areas of the `.eslintrc.json` file.* [*(Full size image)*](../assets/learning-another-language__vscode-and-style__eslintrc.json.png)
+
+### !callout-warning
+
+## Alternative Node.js Package Managers
+
+`npm` is not the only package manager in the JavaScript world. Another command we commonly see is `yarn`. It's an alternative package manager for Node.js. It functions very similarly to `npm` in that it can download packages for us to use in Node.js projects. It has a similar command line interface, but with some differences. We won't go into the details here, but if we run into a tutorial or package documentation that uses `yarn`, that would be a good time to have a closer look.
+
+<br />
+
+For now, the main thing for us to be aware of is that we should use only a single package manager in a project. If we use `yarn` to install packages, we should use `yarn` to run scripts and manage dependencies. Likewise, if we use `npm`, we should use `npm` for everything. Mixing the two can lead to problems. Some deployment hosts look for signs that a project has used both `npm` and `yarn` and will refuse to deploy it until we clean up the project files.
+
+### !end-callout
+
+### [Optional] Setting Up A Node.js Project From Scratch
+
+To create a fresh Node.js project from scratch, we start by creating a new, empty directory, then add the project files we need, such as the `package.json` file. Note that in the steps below, names surrounded by angle brackets, such as `<project-folder-name>`, are placeholders for names we choose. We should replace the angle brackets and the text inside them with the name we want to use.
 
 ```bash
 $ mkdir <project-folder-name>
+```
+
+To create a `package.json` file, `cd` into the project folder, then run `npm init`.
+
+```bash
 $ cd <project-folder-name>
-$ yarn init
+$ npm init
 ```
 
-Yarn will take you through a series of questions to generate a `package.json` file. You can then add dependencies with `yarn add <dependency>` for example you can add the [underscore](https://underscorejs.org/) library (a common utility library) with:
+`npm` will take us through a series of questions to generate a `package.json` file. For a small project such as this sample, we can accept the default values for each question by pressing `Enter`, with the exception of the location of the "entry point". For that, we should input `src/index.js`. We'll see why later.
+
+For a larger project, we may want to provide more information. If we make a mistake or change our minds about something, we can always edit the `package.json` file later!
+
+Creating a `package.json` file is the only thing required for a Node.js project. Unlike Python, we don't need to create or activate a virtual environment. Instead, we can install dependencies directly into the project folder. `npm` looks for the "nearest" `package.json` file it can find, and orients all its actions relative to that file.
+
+So now that we have our `package.json` file, we can add dependencies with `npm install <dependency>`. For example, we can add the [underscore](https://underscorejs.org/) library (a common utility library) with:
 
 ```bash
-$ yarn add underscore
+$ npm install underscore
 ```
 
-You can also add dependencies which will only be used during development with `yarn add --dev <dependency>`
+After running the command above, we'll see a new `node_modules` folder in our project directory. This folder contains the `underscore` library and any other dependencies we install. `npm` will also automatically add the dependency to our `package.json` file. Finally, it creates a `package-lock.json` file to record the exact version of each dependency installed.
 
-For example adding the eslint library:
+Both the `package.json` and `package-lock.json` files _should_ be checked into version control. The `node_modules` folder, however, _should not_ be checked in. It's a good idea to add `node_modules` to a project's `.gitignore` file to ensure it's not accidentally checked in.
+
+We can also add dependencies that will only be used during development with `npm install <dependency> --save-dev`. Development dependencies typically include things like linters, code formatters, and testing libraries.
+
+For example, we can add the Eslint library, along with a few plugins, with:
 
 ```bash
-$ yarn add --dev eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-react 
+$ npm install eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-react --save-dev
 ```
 
-If you want to use Eslint, you would need to do the following to create the `.eslintrc.json` file:
+Notice the version information for the development dependencies is added to the `package.json` file under the `devDependencies` key.
+
+To use Eslint, we need to set up a `.eslintrc.json` file to provide the rules we want to enforce.
 
 In the project directory type:
 
 ```bash
-$ npx eslint --init
+$ npx -y eslint@latest --init
 ```
 
-Eslint will take you through several options to set up your project for linting. You can then edit the `.eslintrc.json` file to add the rules you want to enforce.
+Eslint will take us through several options to set up our project for linting. A basic project setup could respond to the prompts as follows:
 
-Now you have the basic building blocks of a Node.js project. You can start working on your project by creating a `src` directory and a `index.js` file. You can also create scripts in the `package.json` file to run your application. For example, you can create a `start` script to run your application:
+<!-- The following was initially laid out using bullets, but it got very tall and
+dominated this part of the material. The text layout is more concise and less
+interrupts the flow of the surrounding material. -->
+
+```text  
+How would you like to use ESLint?
+  > To check syntax, find problems, and enforce code style
+What type of modules does your project use?
+  > JavaScript modules (import/export)
+Which framework does your project use?
+  > None of these
+Does your project use TypeScript?
+  > No
+Where does your code run?
+  > Node
+How would you like to define a style for your project?
+  > Use a popular style guide
+Which style guide do you want to follow?
+  > Standard
+What format do you want your config file to be in?
+  > JSON
+Would you like to install dependencies?
+  > Yes
+Which package manager do you want to use?
+  > npm
+```
+
+In consultation with the Eslint [rules documentation](https://eslint.org/docs/latest/rules/), we can then edit the `.eslintrc.json` file to add any additional rules we want to enforce.
+
+Now we have the basic building blocks of a Node.js project. We can start working on our project by creating a `src` directory and an `index.js` file. It's due to this project structure (placing our `index.js` within the `src` directory) that we specified `src/index.js` as the entry point when we ran `npm init` earlier.
+
+The following commands will create a `src` directory containing an `index.js` file with a simple `console.log` statement. Feel free to open the `index.js` file  in VS Code and add your own code!
+
+```bash
+$ mkdir src
+$ echo "console.log('Hello World!')" > src/index.js
+```
+
+We can also create scripts in the `package.json` file to run our application. For example, a `start` script for our project could look like:
 
 ```json
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/index.js"
   }
 ```
 
-Congratulations!  You have created a Node.js project. You can now run your application with `yarn start`. 
+Keep in mind that the `package.json` file is a JSON file, so we need to use double quotes around the keys and values, commas between entries, but no trailing comma after the final entry in an object. The `npm init` command should have created a `scripts` section for us with a `test` line, so we can add our `start` script to that existing section as long as we're careful to follow the JSON syntax.
+
+<br/>
+
+<details>
+<summary>Click here to see part of the <code>package.json</code> file with our <code>start</code> script added.</summary>
+
+```json
+  (additional lines above)
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "author": "",
+  (additional lines below)
+```
+
+</details>
+
+Congratulations! We have created a Node.js project. We can now run our application with `npm start`, which will display `Hello World!` in the terminal.
 
 ## Resources
 
 - [ESLint Rules](https://eslint.org/docs/rules/)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - an opinionated code formatter
 - [Youtube Video Traversy Media on Linting](https://www.youtube.com/watch?v=SydnKbGc7W8)
