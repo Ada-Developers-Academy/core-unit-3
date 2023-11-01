@@ -188,7 +188,20 @@ Examine the `package.json` file and look at the key-value pairs in the json file
 ![Example package.json highlighting several areas of the file. "name" and "version" are described as "Name and version number". "scripts" is described as "Scripts to run the application. In this case, we can run the app with: npm start". "devDependencies" is described as "Dependencies for the development process, not for production." "dependencies" is described as "Dependencies used in production".](../assets/learning-another-language__vscode-and-style__package-json.png)  
 *Fig. Several important areas of the `package.json` file.* [*(Full size image)*](../assets/learning-another-language__vscode-and-style__package-json.png)
 
-The `scripts` key contains a list of commands that can be run from the command line. For example, `npm run start` runs the `start` script. A few script names are considered "well-known" and can be run without the `run` keyword. For example, `npm start` runs the `start` script. Other well-known scripts are `stop`, `restart`, and `test`. If we add a custom script entry not matching one of these names, then we must include the `run` keyword when running it.
+The `scripts` key contains a list of commands that can be run from the command line. The `start` script is run when we issue the command `npm start`.
+
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## Running Custom Scripts Requires <code>run</code>
+
+Generally, scripts in the `scripts` key must be run as `npm run <script-name>`. However, a few script names are considered "well-known" and can be run without the `run` keyword. `start` is one of these well-known script names, which is why it can be run as `npm start` rather than `npm run start`.
+
+<br/>
+
+Other well-known scripts are `stop`, `restart`, and `test`. If we add a custom script entry not matching one of these names, then we must include the `run` keyword when running it.
+
+### !end-callout
 
 Examine the `.eslintrc.json` file and look at the key-value pairs in the json file. These are the rules that Eslint enforces and information about what version of JavaScript to use.
 
