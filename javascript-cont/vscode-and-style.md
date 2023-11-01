@@ -239,7 +239,7 @@ $ npm init
 
 For a larger project, we may want to provide more information. If we make a mistake or change our minds about something, we can always edit the `package.json` file later!
 
-Creating a `package.json` file is the only thing required for a Node.js project. Unlike Python, we don't need to create or activate a virtual environment. Instead, we can install dependencies directly into the project folder. `npm` looks for the "nearest" `package.json` file it can find, and orients all its actions relative to that file.
+Creating a `package.json` file is the only thing required for a Node.js project. Unlike Python, we don't need to create or activate a virtual environment. Instead, we can install dependencies directly into the project folder. `npm` looks for the "nearest" `package.json` file it can find, and performs all its actions relative to that file.
 
 So now that we have our `package.json` file, we can add dependencies with `npm install <dependency>`. For example, we can add the [underscore](https://underscorejs.org/) library (a common utility library) with:
 
