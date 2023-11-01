@@ -119,6 +119,9 @@ We will use the linting setting [ESLint Standard](https://eslint.org/docs/rules/
 
 Eslint reports violations of a style guide. We can then fix our code to follow our style rules. We encourage actively watching for Eslint errors, which appear both as wavy underlines and in the Problems VS Code tab, and fixing them as we write code. This trains our eyes to see style issue before they arise, while helping us develop a clean, consistent personal coding style.
 
+![A style error being reported by Eslint. A string is using double quotes, but an active style rule requires single quotes. The double-quoted string is underlined with a wavy, red line. The Problems tab is also visible, and details about the error are displayed there with the text "Strings must use single quote. eslint(quotes)"](../assets/learning-another-language__vscode-and-style__error-display.png)  
+*Fig. Keep an eye out for errors in the display!* [*(Full size image)*](../assets/learning-another-language__vscode-and-style__error-display.png)
+
 On teams, however, this manual approach can lead to problems. It's possible to overlook errors, allowing style guide violations to be checked in to our codebase. To help with this, code formatters exist that can automatically reformat our code any time we save. When starting out, this can be jarring and frustrating. But it's often worth it when working with others to ensure that everyone really is working according to the style guide.
 
 On our own, it's not as necessary to go completely automated. We can still use a code formatter, but we can also choose to run it manually when we want to. This can be a good way to learn about the style guide and how it works, and to see how our code changes as we apply the formatter.
