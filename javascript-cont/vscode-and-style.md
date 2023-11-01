@@ -104,7 +104,7 @@ Style guides are a common way for a group of people to create consistently forma
 
 As programmers, it's easy to fall into whatever habits our first programming language or learning materials encouraged. But small differences among programmers on concerns even as minor as spacing around operators, where to place curly braces, or how to name variables can make code more difficult to read. Each time we encounter a difference in style, we have to stop and think about it. Was this done intentionally? Is there a reason for it? Following a style guide helps us avoid these unnecessary context switches.
 
-For a small team with only a few programmers, slight differences may go unnoticed. But as teams get bigger and more and more styles mix, code becomes increasingly ugly and unreadable. In the most extreme cases it can even lead to conflicts among team members, with time wasted arguing over the "right" way to do things, and needless churn as individuals try to "fix" each other's code, which itself can lead to the introduction of new bugs.
+For a small team with only a few programmers, slight differences may go unnoticed. But as teams get bigger and more and more styles mix, code becomes increasingly inconsistent and unreadable. In the most extreme cases it can even lead to conflicts among team members, with time wasted arguing over the "right" way to do things, and needless churn as individuals try to "fix" each other's code, which itself can lead to the introduction of new bugs.
 
 Simply put, style guides help us keep code formatted consistently between developers, resulting in fewer context switches, less conflict, and hopefully fewer silly mistakes.
 
