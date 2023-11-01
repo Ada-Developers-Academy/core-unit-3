@@ -286,7 +286,7 @@ In consultation with the Eslint [rules documentation](https://eslint.org/docs/la
 
 Now we have the basic building blocks of a Node.js project. We can start working on our project by creating a `src` directory and an `index.js` file. It's due to this project structure (placing our `index.js` within the `src` directory) that we specified `src/index.js` as the entry point when we ran `npm init` earlier.
 
-The following commands will create a `src` directory containing an `index.js` file with a simple `console.log` statement. Feel free to open the `index.js` file  in VS Code and add your own code!
+The following commands will create a `src` directory containing an `index.js` file with a simple `console.log` statement. Feel free to open the `index.js` file in VS Code and add your own code!
 
 ```bash
 $ mkdir src
