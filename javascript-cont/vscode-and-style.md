@@ -136,7 +136,7 @@ If automatically applying style guides when saving, it's _essential_ that everyo
 
 <br/>
 
-Changes caused by a formatter can make it difficult to track changes in version control, as the important part of a commit can be hard to distinguish from the noise introduced by the formatter. If we notice that previously committed code isn't following the style guide, it's better to put any logic changes in one commit, and the style fixes in a separate commit that is clearly labeled as a styling pass commit. This makes it easier to see what's going on in the commit history.
+Changes caused by a formatter can make it difficult to track changes in version control, as the important part of a commit can be hard to distinguish from the noise introduced by the formatter. If we notice that previously committed code isn't following the style guide, it's better to put any logic changes in one commit, and the style fixes in a separate commit that is clearly labeled to indicate that the changes were made to comply with styling rules. This makes it easier to see what's going on in the commit history.
 
 ### !end-callout
 
