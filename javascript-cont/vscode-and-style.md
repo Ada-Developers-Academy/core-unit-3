@@ -322,7 +322,7 @@ Keep in mind that the `package.json` file is a JSON file, so we need to use doub
 <br/>
 
 <details>
-<summary>Click here to see part of the <code>package.json</code> file with our <code>start</code> script added.</summary>
+<summary>Click to see part of the <code>package.json</code> file with our <code>start</code> script added.</summary>
 
 ```json
   (additional lines above)
