@@ -18,7 +18,7 @@ Our goal for this lesson is to:
 
 Earlier in this lesson, we looked at a [CodeSandbox](https://codesandbox.io/s/fizzbuzz-with-tests-riytqu?file=/test/fizzbuzz.test.js) application testing the `fizzBuzz` function. We will use the same project as a `Node.js` application.  
 
-To follow this lesson clone the [FizzBuzz-JavaScript](https://github.com/AdaGold/fizzbuzz_javascript) repository.
+To follow this lesson, clone the [FizzBuzz-JavaScript](https://github.com/AdaGold/fizzbuzz_javascript) repository. Forking isn't required unless you would like to be able to make changes, then push them up to your own repo.
 
 ### Install Dependencies
 
