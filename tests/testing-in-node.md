@@ -1,4 +1,4 @@
-# Testing In Node
+# Testing In Node.js
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=669a9f30-b65b-47ce-b80d-ade101895c32&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
@@ -28,7 +28,7 @@ Examine the `package.json` file.  Under the key `"devDependencies"` you can find
 - @babel/node
 - @babel/preset-env
 
-By default Node handles importing and exporting of JavaScript files differently, but using Babel we can use the modern JavaScript features.
+By default Node.js handles importing and exporting of JavaScript files differently, but using Babel we can use the modern JavaScript features.
 
 We have also included `jest` as a dependency.  This is our testing framework.
 
