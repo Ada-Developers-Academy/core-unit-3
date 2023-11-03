@@ -154,6 +154,19 @@ If none of the above tips help, restarting VS Code sometimes fixes the problem (
 
 Just like with Python, we can now use VS Code to run our tests, and even use breakpoints to inspect and debug them.
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-warning
+
+## Debug Tests from the Testing Panel, Not the Debug Panel
+
+Remember when running a test with the debugger to use the Debug button that gets displayed when hovering over a test name on the Testing panel, or by right-clicking the test status icon beside the test definition in the test code file.
+
+<br/>
+
+Do not use the Debug button on the Debug panel.
+
+### !end-callout
+
 ## Exercise
 
 Try using the debugger to inspect the tests and identify the problem.  Then fix the `fizzBuzz` function so that it returns the correct value.  Lastly run all the tests again to make sure they pass.
