@@ -73,7 +73,7 @@ To run the tests in the terminal we use following command:
 $ npm test
 ```
 
-We should get the following output:
+We should get output similar to the following:
 
 ```
  FAIL  test/fizzbuzz.test.js
