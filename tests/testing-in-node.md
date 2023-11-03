@@ -116,7 +116,7 @@ To get all our tests to pass, it will help to take a closer look at that single 
 
 Let's open our project in VS Code with the `code .` command (remember to run it in the project root).  Our tests are in the `test` directory. Open the `fizzbuzz.test.js` file and inspect the tests.
 
-Notice that the flask icon does not automatically detect our tests.  
+If this is our first time viewing JavaScript tests in VS Code, the tests will probably not be automatically detected. If they aren't detected, we won't see the flask icon of the Testing panel in icon bar on the left.
 
 ![Flask icon for inspecting tests](../assets/tests__testing-in-node__flask-icon.png)
 
