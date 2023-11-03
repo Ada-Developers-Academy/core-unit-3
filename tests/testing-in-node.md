@@ -126,6 +126,32 @@ After installing the extension, we should now see that the Jest extension has de
 
 ![Flask icon displays Fizzbuzz tests](../assets/tests__testing-in-node__tests-detected-by-jest-extension.png)
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-warning
+
+## Troubleshooting Tests in VS Code
+
+It's possible our tests won't appear even after installing the Jest extension. Or sometimes tests that had been previously shown in VS Code will no longer appear.
+
+<br/>
+
+<details>
+<summary>Expand this section for some troubleshooting tips.</summary>
+
+We should first ensure there are no syntax errors in our code, either in the tests or in the code being used by the tests. Check the Problems tab in VS Code to see if there are any errors. If there are, fix them and try again. If nothing is jumping out at us, we can try running the tests from the terminal with `npm test` to see if there are any syntax errors reported there.
+
+<br/>
+
+If the tests are running from the terminal, but VS Code still doesn't see them, we may need to start the "test runner" manually. Open the Command Palette (⇧⌘P) and type `runner`. Look for the option `Jest: Start All Runners` and select it. This should start the runner and display the tests.
+
+<br/>
+
+If none of the above tips help, restarting VS Code sometimes fixes the problem (be sure to quit _all_ running instances with ⌘Q, not just the current window), as can reinstalling the Jest extension.
+
+</details>
+
+### !end-callout
+
 Just like with Python, we can now use VS Code to run our tests, and even use breakpoints to inspect and debug them.
 
 ## Exercise
