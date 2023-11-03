@@ -51,10 +51,15 @@ $ npm install
 
 Open the `test/fizzbuzz.test.js` file.  This is a simple test file that tests the `fizzBuzz` function.  
 
-<details>
-  <summary>How does the test import the fizzBuzz function?</summary>
+<br/>
 
-  The test imports the `fizzBuzz` function with the statement import fizzBuzz from '../src/fizzbuzz';
+<details>
+<summary>How does the test import the <code>fizzBuzz</code> function?</summary>
+
+The test imports the `fizzBuzz` function with the statement
+```js  
+import fizzBuzz from '../src/fizzbuzz';
+```
 
 </details>
 
