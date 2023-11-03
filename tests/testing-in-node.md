@@ -107,7 +107,9 @@ Time:        0.246 s, estimated 1 s
 Ran all test suites.
 ```
 
-Yay! The tests run!  We are on the **RED** stage of our red-green-refactor cycle.  We will now look at how to inspect and run the tests individually.
+Yay!  The tests run!  Three tests are passing, and one is failing.  This means we are on the **RED** stage of our red-green-refactor cycle.
+
+To get all our tests to pass, it will help to take a closer look at that single failing test. This can be easier without the additional output from the passing tests. Let's see how to inspect and run individual JavaScript tests using VS Code.
 
 
 ## Running Tests in VS Code
