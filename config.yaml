@@ -173,7 +173,7 @@ Standards:
         UID: 36e4d945
         Path: /learning-another-language/problem-set-intro-to-javascript.md
   - Title: Javascript, Cont.
-    Description: "Object-Oriented Classes in Javascript; Writing Javascript Locally; Additional Topics; Activity: Exploring Javascript"
+    Description: "Writing Javascript Locally; Object-Oriented Classes in Javascript; Additional Topics; Activity: Exploring Javascript"
     UID: c044b5e5-3161-47ec-a1a1-cb55f3b902d9
     SuccessCriteria:
       - success criteria
