@@ -22,7 +22,7 @@ To follow this lesson, clone the [FizzBuzz-JavaScript](https://github.com/AdaGol
 
 ### Install Dependencies
 
-Examine the `package.json` file.  Under the key `"devDependencies"` you can find a list of dependencies for the project.  Most of these simply involve getting the tests to run with the modern JavaScript features.
+Examine the `package.json` file.  Under the key `"devDependencies"` we find a list of dependencies for the project.  Most of these are required for getting the tests to run with the modern JavaScript features.
 
 - @babel/core
 - @babel/node
@@ -32,7 +32,7 @@ By default Node.js handles importing and exporting of JavaScript files different
 
 We have also included `jest` as a dependency.  This is our testing framework.
 
-To install these dependencies, run the following command in the project home directory:
+To install these dependencies, we run the following command in the project home directory:
 
 ```bash
 $ npm install
@@ -51,9 +51,9 @@ Open the `test/fizzbuzz.test.js` file.  This is a simple test file that tests th
 
 ### Running The Tests
 
-Under the `"scripts"` key in the `package.json` file we can find a command to run the tests.  This command is `"test"`.
+Under the `"scripts"` key in the `package.json` file we find a command to run the tests.  This command is `"test"`.
 
-To run the tests in the terminal we can use following command:
+To run the tests in the terminal we use following command:
 
 ```bash
 $ npm test
@@ -98,15 +98,15 @@ Yay! The tests run!  We are on the **RED** stage of our red-green-refactor cycle
 
 ## Running Tests in VS Code
 
-We can open our project in VS Code with the `code .` command (remember to run it in the project root).  Our tests are in the `test` directory. We can open the `fizzbuzz.test.js` file and inspect the tests.
+Let's open our project in VS Code with the `code .` command (remember to run it in the project root).  Our tests are in the `test` directory. Open the `fizzbuzz.test.js` file and inspect the tests.
 
 Notice that the flask icon does not automatically detect our tests.  
 
 ![Flask icon for inspecting tests](../assets/tests__testing-in-node__flask-icon.png)
 
-We can fix this by installing the [Jest Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest). This will allow us to see the tests using the Flask icon in the editor.
+Let's fix this by installing the [Jest Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest). This will allow us to see the tests by clicking the flask icon in the editor, which switches us to the Testing panel.
 
-After installing the extension, we should now see that the Jest extension detected our tests when we click on the flask icon. 
+After installing the extension, we should now see that the Jest extension has detected our tests, so click the flask icon to switch to the Testing panel.
 
 ![Flask icon displays Fizzbuzz tests](../assets/tests__testing-in-node__tests-detected-by-jest-extension.png)
 
