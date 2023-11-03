@@ -6,7 +6,7 @@
 
 When writing any software, it is important to have confidence in the quality of the code. Tests can help us verify that our code is working as expected.
 
-We have looked at Jest and experimented with tests in CodeSandbox.  However, we have not yet used them in Node.js. In this section, we will learn how to use tests in Node.js and debugging tests with VS Code.
+We have looked at Jest and experimented with tests in CodeSandbox.  However, we have not yet used them in Node.js. In this section, we will learn how to use tests in Node.js, and how to debug JavaScript tests with VS Code.
 
 Our goal for this lesson is to:
 
@@ -22,13 +22,13 @@ To follow this lesson, clone the [FizzBuzz-JavaScript](https://github.com/AdaGol
 
 ### Install Dependencies
 
-Examine the `package.json` file.  Under the key `"devDependencies"` we find a list of dependencies for the project.  Most of these are required for getting the tests to run with the modern JavaScript features.
+Examine the `package.json` file.  Under the key `"devDependencies"` we find a list of dependencies needed to build the project.  Most of these are required for getting the tests to run with newer JavaScript features.
 
 - @babel/core
 - @babel/node
 - @babel/preset-env
 
-By default Node.js handles importing and exporting JavaScript files using an older approach, but using Babel we can use more modern features of JavaScript.
+By default Node.js handles importing and exporting JavaScript files using an older method, but using Babel we can use more modern features of JavaScript.
 
 <!-- available callout types: info, success, warning, danger, secondary, star  -->
 ### !callout-info
@@ -58,8 +58,10 @@ Open the `test/fizzbuzz.test.js` file.  This is a simple test file that tests th
 
 The test imports the `fizzBuzz` function with the statement
 ```js  
-import fizzBuzz from '../src/fizzbuzz';
+import { fizzBuzz } from '../src/fizzbuzz';
 ```
+
+This code looks for an exported symbol in `src/fizzbuzz.js` named `fizzBuzz` and imports it into the test file under the name `fizzBuzz`. Destructuring syntax, as shown here, is the usual way to write this, since it expresses all of that in a clear and concise fashion.
 
 </details>
 
@@ -122,7 +124,7 @@ If this is our first time viewing JavaScript tests in VS Code, the tests will pr
 
 Let's fix this by installing the [Jest Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest). This will allow us to see the tests by clicking the flask icon in the editor, which switches us to the Testing panel.
 
-After installing the extension, we should now see that the Jest extension has detected our tests, so click the flask icon to switch to the Testing panel.
+After installing the extension, we should now see the flask icon, indicating that the Jest extension has detected our tests. Click the flask icon to switch to the Testing panel.
 
 ![Flask icon displays Fizzbuzz tests](../assets/tests__testing-in-node__tests-detected-by-jest-extension.png)
 
@@ -131,7 +133,7 @@ After installing the extension, we should now see that the Jest extension has de
 
 ## Troubleshooting Tests in VS Code
 
-It's possible our tests won't appear even after installing the Jest extension. Or sometimes tests that had been previously shown in VS Code will no longer appear.
+It's possible our tests won't appear even after installing the Jest extension. And sometimes tests that had previously been showing in VS Code will no longer appear.
 
 <br/>
 
@@ -159,7 +161,7 @@ Just like with Python, we can now use VS Code to run our tests, and even use bre
 
 ## Debug Tests from the Testing Panel, Not the Debug Panel
 
-Remember when running a test with the debugger to use the Debug button that gets displayed when hovering over a test name on the Testing panel, or by right-clicking the test status icon beside the test definition in the test code file.
+Remember to use the Debug button that gets displayed when hovering over a test name on the Testing panel to run a test with the debugger. Alternatively, we can right-click the test status icon beside the test definition in the test code file and pick Debug Test.
 
 <br/>
 
@@ -182,9 +184,9 @@ The test expected the string `'Fizz'`, but it received the number `9`. The name 
 
 So now we turn our attention to the `fizzBuzz` function itself. For a small function like this, it's certainly possible that a visual inspection of the code will reveal the problem. But we can also use the debugger to step through the function and see what it's doing.
 
-To do this, we can set a breakpoint on the first line _inside_ the `fizzBuzz` function. Click in the gutter area to the left of the line number of the first line of code in `fizzBuzz`, line two. A red dot will appear, indicating a breakpoint has been set.
+To do this, we set a breakpoint on the first line _inside_ the `fizzBuzz` function. Click in the gutter area to the left of the line number of the first line of code in `fizzBuzz`, line two. A red dot will appear, indicating a breakpoint has been set.
 
-Next, we can run the failing test under the debugger. With the Testing panel open, hover over the failing test name, and click the Debug button that appears. Now when the test calls `fizzBuzz`, it will encounter the breakpoint and pause execution just before running any of the code within the function. If we ran the test with the Run button as usual, the breakpoint would be ignored.
+Next, we run the failing test under the debugger. With the Testing panel open, hover over the failing test name, and click the Debug button that appears. Now when the test calls `fizzBuzz`, it will encounter the breakpoint and pause execution just before running any of the code within the function. If we ran the test with the Run button as usual, the breakpoint would be ignored.
 
 With the test execution paused, we can inspect each line of code before it runs, and predict what the behavior will be based on the current variable values. Will a comparison be true or false? Will a condition be met or not? Debugging isn't a passive process of repeatedly clicking the Step Over button and hoping for the best. It's an active process of thinking about what the code is doing, and what we expect it to do, and then stepping through the code to see if our expectations are met.
 
