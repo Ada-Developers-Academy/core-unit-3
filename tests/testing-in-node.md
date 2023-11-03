@@ -126,7 +126,7 @@ After installing the extension, we should now see that the Jest extension has de
 
 ![Flask icon displays Fizzbuzz tests](../assets/tests__testing-in-node__tests-detected-by-jest-extension.png)
 
-Just like with Python we can now use VS Code to run our tests and even use breakpoints to inspect and debug the tests.
+Just like with Python, we can now use VS Code to run our tests, and even use breakpoints to inspect and debug them.
 
 ## Exercise
 
