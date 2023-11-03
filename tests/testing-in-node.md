@@ -198,6 +198,26 @@ Again, for a small example like this, it may not be necessary to fire up the deb
 
 </details>
 
+<br/>
+
+<details>
+<summary>Expand this section to see a possible fix for the <code>fizzBuzz</code> function.</summary>
+
+```js
+export const fizzBuzz = (num) => {
+  if (num % 15 === 0) {
+    return 'FizzBuzz';
+  } else if (num % 3 === 0) {  // check for multiples of three
+    return 'Fizz';             // and return 'Fizz'
+  } else if (num % 5 === 0) {
+    return 'Buzz';
+  } else {
+    return num;
+  }
+};
+```
+
+</details>
 
 ## Summary
 
