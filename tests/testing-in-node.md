@@ -28,7 +28,16 @@ Examine the `package.json` file.  Under the key `"devDependencies"` we find a li
 - @babel/node
 - @babel/preset-env
 
-By default Node.js handles importing and exporting of JavaScript files differently, but using Babel we can use the modern JavaScript features.
+By default Node.js handles importing and exporting JavaScript files using an older approach, but using Babel we can use more modern features of JavaScript.
+
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## Babel Enables Modern JavaScript
+
+Don't worry about the details of configuring Babel for now. It's sufficient to know that it's involved with being able to use newer JavaScript features. Any project in the curriculum requiring it will have it already configured in the `package.json` file. As we work more with JavaScript projects on our own, we can learn more about Babel and how to configure it.
+
+### !end-callout
 
 We have also included `jest` as a dependency.  This is our testing framework.
 
