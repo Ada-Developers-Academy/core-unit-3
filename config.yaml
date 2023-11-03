@@ -227,7 +227,7 @@ Standards:
         Path: /functions/problem-set-functions.md
   -
     Title: Tests
-    Description: "Reading Tests, Test Syntax Detail, Problem Set: Tests"
+    Description: "Reading Tests, Test Syntax Detail, Testing in Node.js, Problem Set: Tests"
     UID: 2d8092a5
     SuccessCriteria:
       - success criteria
