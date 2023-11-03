@@ -22,7 +22,7 @@ To follow this lesson, clone the [FizzBuzz-JavaScript](https://github.com/AdaGol
 
 ### Install Dependencies
 
-Examine the `package.json` file.  Under the key `"devDependencies"` we find a list of dependencies needed to build the project.  Most of these are required for getting the tests to run with newer JavaScript features.
+Examine the `package.json` file.  Under the key `"devDependencies"` we find a list of dependencies needed to build the project.  Several of these are required for getting the tests to run with newer JavaScript features.
 
 - @babel/core
 - @babel/node
