@@ -171,6 +171,34 @@ Do not use the Debug button on the Debug panel.
 
 Try using the debugger to inspect the tests and identify the problem.  Then fix the `fizzBuzz` function so that it returns the correct value.  Lastly run all the tests again to make sure they pass.
 
+<br/>
+
+<details>
+<summary>Expand this section for some debugging tips.</summary>
+
+To start thinking about what might be going wrong with the failing test, we should consider what the test expected and what it received.
+
+The test expected the string `'Fizz'`, but it received the number `9`. The name of the test implies we are testing the behavior when the input is a multiple of three, and nine is in fact a multiple of three. The `fizzBuzz` function is _supposed_ to return `'Fizz'` when given a multiple of three. Taken all together, this suggests that the test is correct (we should always confirm this assumption) and that it's the `fizzBuzz` function which is not returning the correct value when given a multiple of three.
+
+So now we turn our attention to the `fizzBuzz` function itself. For a small function like this, it's certainly possible that a visual inspection of the code will reveal the problem. But we can also use the debugger to step through the function and see what it's doing.
+
+To do this, we can set a breakpoint on the first line _inside_ the `fizzBuzz` function. Click in the gutter area to the left of the line number of the first line of code in `fizzBuzz`, line two. A red dot will appear, indicating a breakpoint has been set.
+
+Next, we can run the failing test under the debugger. With the Testing panel open, hover over the failing test name, and click the Debug button that appears. Now when the test calls `fizzBuzz`, it will encounter the breakpoint and pause execution just before running any of the code within the function. If we ran the test with the Run button as usual, the breakpoint would be ignored.
+
+With the test execution paused, we can inspect each line of code before it runs, and predict what the behavior will be based on the current variable values. Will a comparison be true or false? Will a condition be met or not? Debugging isn't a passive process of repeatedly clicking the Step Over button and hoping for the best. It's an active process of thinking about what the code is doing, and what we expect it to do, and then stepping through the code to see if our expectations are met.
+
+In this case, we're getting back a number from `fizzBuzz` rather than the desired `'Fizz'` string. Which branch results in a number being returned? As the code is currently written, what logical conditions are covered by that branch? Make a prediction about how the code will behave then step through the code to see if your prediction is correct.
+
+We see that there are branches that handle the cases of the input being a multiple of fifteen (that is, a multiple of both three and five), and of the input being a multiple of five. Any other case will be handled by the `else` branch, which returns the original input. `fizzBuzz` is supposed to return `'Fizz'` when the input is a multiple of three, but there is no condition checking for that case.
+
+We can fix this by adding a condition that checks for multiples of three, and returns `'Fizz'`. Be sure to think about the order of the conditions. Does it matter where in the sequence of conditions we add our code checking for multiples of three? Why or why not?
+
+Again, for a small example like this, it may not be necessary to fire up the debugger and step through our code. But as our code grows in complexity, the debugger becomes an invaluable tool for understanding what our code is doing, and for identifying and fixing problems. We can build our comfort with the debugger by using it on small examples like this, where we may already have a fairly good idea about what's going on.
+
+</details>
+
+
 ## Summary
 
 In this lesson we examined how to install dependencies and run tests in Node.js. We also looked at how to configure VS Code to run and debug tests.
