@@ -10,7 +10,7 @@ We have looked at Jest and experimented with tests in CodeSandbox.  However, we 
 
 Our goal for this lesson is to:
 
-- Practice using `yarn` to install dependencies
+- Practice using `npm` to install dependencies
 - Apply our knowledge of Node.js to examine the `package.json` file
 - Use VS Code to examine and debug tests
 
@@ -35,7 +35,7 @@ We have also included `jest` as a dependency.  This is our testing framework.
 To install these dependencies, run the following command in the project home directory:
 
 ```bash
-$ yarn install
+$ npm install
 ```
 
 ### Inspect the `test/fizzbuzz.test.js` file
@@ -56,7 +56,7 @@ Under the `"scripts"` key in the `package.json` file we can find a command to ru
 To run the tests in the terminal we can use following command:
 
 ```bash
-$ yarn test
+$ npm test
 ```
 
 We should get the following output:
