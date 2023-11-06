@@ -12,34 +12,26 @@ Before we start using JSX extensively, let's pause to understand what JSX is and
 
 ## Introduction
 
-In a newly created React app using `create-react-app`, we can see the following code snippets:
+In a newly created React app using Vite, we can see the following code snippets:
 
-`src/index.js`
+`src/main.jsx`
 
 ```js
 <React.StrictMode>
   <App />
-</React.StrictMode>
+</React.StrictMode>,
 ```
 
-`src/App.js`
+`src/App.jsx`
 
 ```js
-<div className="App">
-  <header className="App-header">
-    <img src={logo} className="App-logo" alt="logo" />
-    <p>
-      Edit <code>src/App.js</code> and save to reload.
-    </p>
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Learn React
-    </a>
-  </header>
+<div className="card">
+  <button onClick={() => setCount((count) => count + 1)}>
+    count is {count}
+  </button>
+  <p>
+    Edit <code>src/App.jsx</code> and save to test HMR
+  </p>
 </div>
 ```
 
@@ -106,36 +98,46 @@ In most contexts, we can wrap JavaScript expressions in parentheses `()`, which 
 
 ### !end-callout
 
-### JSX Objects With Children: `App.js`
+### JSX Objects With Children: `App.jsx`
 
-Let's revisit this `src/App.js`:
+Let's revisit this `src/App.jsx`:
 
 ```js
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-      </header>
-    </div>
-  );
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 ```
 
 The `App` function returns one JSX object. This JSX object opens with a `<div>` element.
 
-This `<div>` element has one child: the `<header>` element. The `<header>` element has three children: `<img>`, `<p>`, and `<a>`.
+This first `<div>` element has two children: the `<a>`, or anchor, elements. Each `<a>` element has one child: `<img>` element.
+
+Following the first `<div>` element is it's sibling, which is an `<h1>` element. Read through the rest of the JXS object. What other sibling elements can you identify? What are their children elements?
 
 ### !callout-info
 
@@ -145,7 +147,7 @@ We can modify our `App` function to use more variables. The JSX object can be de
 
 ```js
 function App() {
-  const appElements = <div className="App">... more elements ...</div>;
+  const appElements = <div>... more elements ...</div>;
   return appElements;
 }
 ```
@@ -182,51 +184,63 @@ In this situation, the rendered HTML would look like:
 
 ### Embedding Expressions: `App.js`
 
-Let's revisit this `src/App.js` again!
+Let's revisit this `src/App.jsx` again!
 
 <!-- prettier-ignore-start -->
 ```js
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-      </header>
-    </div>
-  );
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
+
+export default App
 ```
 <!-- prettier-ignore-end -->
 
 We can focus on this part of the JSX:
 
 ```js
-<img src={logo} className="App-logo" alt="logo" />
+<img src={viteLogo} className="logo" alt="Vite logo" />
 ```
 
-The value of the `src` attribute for this element will be the value of `logo`. `logo` was imported from `./logo.svg` at the top of `App.js`!
+The value of the `src` attribute for this element will be the value of `viteLogo`. `viteLogo` was imported from `/vite.svg` at the top of `App.jsx`!
 
 ## Element Attributes in JSX Objects
 
 We can set the element attributes for JSX objects just like we can for the HTML elements they resemble. For most element attributes, the JSX object syntax is identical to what we'd use for HTML elements.
 
 ```js
-<a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-  Learn React
+<a href="https://vitejs.dev" target="_blank">
+  <img src={viteLogo} className="logo" alt="Vite logo" />
 </a>
 ```
 
@@ -234,7 +248,6 @@ This `<a>` element will have the following HTML attributes when it's rendered:
 
 - `href`
 - `target`
-- `rel`
 
 ## CSS Classes in JSX Objects
 
@@ -245,13 +258,17 @@ While HTML elements use the `class` attribute, in JSX we use the `className` att
 For example, this JSX object:
 
 ```js
-<header className="App-header"></header>
+<p className="read-the-docs">
+  Click on the Vite and React logos to learn more
+</p>
 ```
 
 will ultimately be rendered as:
 
 ```html
-<header class="App-header"></header>
+<p class="read-the-docs">
+  Click on the Vite and React logos to learn more
+</p>
 ```
 
 This will be crucial for styling!
@@ -264,20 +281,34 @@ For example:
 
 ```js
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="App">
-      {/* Creates a header tag */}
-      <header className="App-header">
-        {/* Add in the logo */}
-        <img src={logo} className="App-logo" alt="logo" />
+    <>
+      <div>
+        {/* Links for users to learn more about Vite and React */}
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        {/* Clicking the button will increase the count displayed on the page*/}
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/App.jsx</code> and save to test HMR
         </p>
-        {/* Replaced the link with another paragraph */}
-        <p>Learn React</p>
-      </header>
-    </div>
-  );
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 ```
 
