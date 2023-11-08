@@ -4,7 +4,7 @@
 
 ## Goals
 
-Our goal is to practice diving into a new library. By creating a Hello, World! project, we'll gain knowledge about how to start and run a React webapp.
+Our goal is to practice diving into a new library. By creating a Hello, World! project, we'll gain knowledge about how to start and run a React web app.
 
 ## Format
 
@@ -18,50 +18,26 @@ We'll take the following steps:
 
 ## Using a Toolchain
 
-We will use a specific tool to help us begin a minimal React app: the [Create React App](https://create-react-app.dev/docs/getting-started/) tool.
+We will use a specific tool to help us create a minimal React app: the [Vite](https://vitejs.dev/guide/#getting-started) build tool. Vite is a web development framework for building applications with JavaScript or Typescript. We use it in our curriculum to quickly set up a Javascript application with the React framework.
 
-Create React App creates a new project, which includes starter HTML, CSS, and JS files, the React library, a recommended folder structure, and useful packages.
+Vite creates a new project, which includes starter HTML, CSS, and JS files, the React library, a recommended folder structure, and useful packages.
 
-<!-- available callout types: info, success, warning, danger, secondary, star  -->
-### !callout-danger
-
-## Installation Woes
-
-The instructions below are the idealized version of the instructions for creating a React app. They used to work. Currently, you will need to use the following command to create a react app:
-<br/>
-```bash 
-yarn create react-app app-name
-```
-<br/>
-For any place where the curriculum says to run <code>npx create-react-app</code> we should use <code>yarn create react-app</code>.
-
-### !end-callout
-
-To use Create React App, we use this command:
+To use Vite, we use this command:
 
 ```bash
-$ npx create-react-app hello-world
+$ npm create -y vite@latest hello-world -- --template react
 ```
 
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                            |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `npx`                                               | A CLI tool that runs packages. In this curriculum, we will use this infrequently, mostly only in this scenario when we are creating a new React project.                                                |
-| `create-react-app`                                  | A package that includes the command for Create React App, which creates a minimal React app.                                     |
+| `npm create -y vite@latest`                                               | This command directs npm to create a new project using the latest Vite template, automatically accepting any requirements.    This enables us to save time and effort in setting up a new project from scratch so that we can focus on writing code.                   |                                 |
 | `hello-world`                                       | **Replace this** with the name of your new React project. This will be the name of the project and the generated project folder. |
+| `--`                               | It's easy to overlook these extra two dashes, but they separate the arguments that are given to the `npm` command from those that are given to `vite` |
+| `--template react`                               | This command line option is passed to `vite` and indicates that a standard React project template should be used when creating our project. There are also several other supported template presets that can be used in addition to React.|
 
-### !callout-info
+If you're interested in reading more about npm CLI commands, try running `npm help` in your terminal for further investigation.
 
-## Node.js Is JavaScript
-
-We have seen JavaScript running in the browser, and in editing environments such as Replit.com. Now we are going to start working with JavaScript on our own machines. The runtime environment we use for this is called Node.js.
-
-<br />
-
-To start our project we use `npx`, which eXecutes Node Packages. Node packages are the primary way that JavaScript libraries are shared, and we will learn more about installing and using them ourselves in later lessons!
-
-### !end-callout
-
-After running `create-react-app`, we'll have a new project folder. We should `cd` into our project folder before we do anything else!
+After running `npm create -y vite@latest hello-world -- --template react`, we'll have a new project folder. We should `cd` into our project folder before we do anything else!
 
 ```bash
 $ cd hello-world
@@ -69,17 +45,37 @@ $ cd hello-world
 
 ## Running A Server
 
-Let's look at what the `create-react-app` tool has given us!
+Let's look at what Vite has given us!
 
-As part of using Create React App, we'll begin to use the `yarn` CLI tool. With `yarn` CLI, we'll be able to run scripts that are defined in `package.json`, a file also generated by Create React App. These scripts can run servers that load and reload our React app, which simplifies our development workflow.
+As part of using Vite, we'll begin to use `npm` more regularly. With the `npm` CLI, we'll be able to run scripts that are defined in `package.json`, a file also generated by Vite. These scripts can run servers that load and reload our React app, which simplifies our development workflow.
 
-In our project root, we start a server with this command in the terminal:
+In our project root, we'll install our dependencies and then start a server with the following two commands in the terminal:
 
 ```bash
-$ yarn start
+$ npm install
 ```
 
-By default, our front-end is viewable at `localhost:3000`.
+After running `npm install`, we'll see a new directory at the root level called `node_modules` with the installed dependencies. Now we're ready to start the server by running the following command in the terminal:
+
+```bash
+$ npm run dev
+```
+
+After the server has started up, we'll see an address with port `5173` that we can visit in our browser to see our newly generated React app.
+![A screenshot of a terminal that shows what one sees upon successful server startup](../assets/vite-react-server-startup.png) *Fig. Terminal after successful startup* 
+
+To view the app we can right click on `http://localhost:5173` in the terminal and select the option to open the link or copy and paste the address into our browser's address bar.
+
+![A web browser displaying the default React application. It consists of the Vite and React logos, a note to "Edit src/App.jsx and save to test HMR"](../assets/vite-react-home-page.png)  
+*Fig. Default React application created by Vite* 
+
+### !callout-info
+
+## 5173 Spells Vite!
+
+By default, our front-end is viewable at `localhost:5173`. 5 is a letter "V" in Roman numerals and 173 looks like "ITE" so together 5173 spells VITE. 
+
+### !end-callout
 
 Every time we make a change in a file and save it, our server will detect the changes and then reload the app immediately.
 
@@ -95,8 +91,13 @@ When working with React, or other autoloading programs, it's a good idea to disa
 
 ### !end-callout
 
-![A web browser displaying the default React application. It consists of the React logo, a note to "Edit src/App.js and save to reload," and a link to additional resources for learning about React.](../assets/react-components_hello-world-landing.png)  
-_Fig. The default React application created by `npx create-react-app`_
+### !callout-warning
+
+## Server Not Reloading? Stop and Restart It
+
+If the auto-reload feature does not work (we're editing code, but not seeing any changes in the browser) then it might be necessary to completely stop the server with ctrl-C in the terminal window where it's running, then restarting it again with `npm run dev`.
+
+### !end-callout
 
 <!-- Question 1 -->
 <!-- prettier-ignore-start -->
@@ -106,7 +107,7 @@ _Fig. The default React application created by `npx create-react-app`_
 * title: Hello, World!
 ##### !question
 
-In one sentence, describe the _UI elements_ you see on `localhost:3000`.
+In one sentence, describe the _UI elements_ you see on `localhost:5173`.
 
 ##### !end-question
 ##### !answer
@@ -131,57 +132,46 @@ An example list of visible UI elements include:
 Our project should have the following structure:
 
 ```
+├── node_modules
 ├── public
-│   └── index.html
 ├── src
+│   ├── assets
 │   ├── App.css
-│   ├── App.js
-│   ├── App.test.js
+│   ├── App.jsx
 │   ├── index.css
-│   ├── index.js
-│   ├── logo.svg
-│   ├── reportWebVitals.js
-│   └── setupTests.js
+│   └── main.jsx
+├── .eslint.cjs
+├── index.html
+├── package-lock.json
 ├── package.json
 ├── README.md
-└── yarn.lock
+└── vite.config.js
+
 ```
 
-In this curriculum, we will intentionally not cover the following files:
-
-- The contents of `public` besides `index.html`
-- `logo.svg`
-- `reportWebVitals.js`
-- `setupTests.js`
+In this curriculum, we will intentionally not cover every individual file so feel free to follow your curiosity and explore the files and directories that come with a React app created with Vite.
 
 There are two files that are the most important to understand when developing with React for the first time:
 
-1. `src/index.js`
-1. `src/App.js`
+1. `src/main.jsx`
+2. `src/App.jsx`
 
-### Exploring `index.js`
+### Exploring `main.jsx`
 
-Let's go ahead and open this project up in our text editor to examine the files that have been created for us. We'll begin with `src/index.js` and practice our reading skills.
+Let's go ahead and open this project up in our text editor to examine the files that have been created for us. We'll begin with `src/main.jsx` and practice our reading skills.
 
 <!-- prettier-ignore-start -->
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+)
 ```
 <!-- prettier-ignore-end -->
 
@@ -193,25 +183,25 @@ reportWebVitals();
 * title: Hello, World!
 ##### !question
 
-`src/index.js` imports several resources. Select the resources that are imported.
+`src/main.jsx` imports several resources. Select the resources that are imported.
 
 ##### !end-question
 ##### !options
 
 * `React` from `'react'`
-* `ReactDOM` from `'react-dom'`
+* `ReactDOM` from `'react-dom/client'`
 * `'./index.css'`
-* `App` from `'./App'`
-* `logo` from `'./logo.svg'`
-* `'./index.js'`
+* `App` from `'./App.jsx'`
+* `react` from `'./assets/react.svg'`
+* `'../index.html'`
 
 ##### !end-options
 ##### !answer
 
 * `React` from `'react'`
-* `ReactDOM` from `'react-dom'`
+* `ReactDOM` from `'react-dom/client'`
 * `'./index.css'`
-* `App` from `'./App'`
+* `App` from `'./App.jsx'`
 
 ##### !end-answer
 ### !end-challenge
@@ -225,7 +215,7 @@ reportWebVitals();
 * title: Hello, World!
 ##### !question
 
-`ReactDOM.render( ... );` is a...
+`ReactDOM.createRoot( ... );` is a...
 
 ##### !end-question
 ##### !options
@@ -251,12 +241,12 @@ reportWebVitals();
 * title: Hello, World!
 ##### !question
 
-The following code snippet is in `src/index.js`.
+The following code snippet is in `src/main.jsx`.
 
 ```js
 <React.StrictMode>
   <App />
-</React.StrictMode>
+</React.StrictMode>,
 ```
 
 This code is...
@@ -266,21 +256,21 @@ This code is...
 
 * An import statement
 * A comment in React
-* The first argument when calling `ReactDOM.render()`
+* The first argument when calling the `render()` method 
 * An object literal
 
 ##### !end-options
 ##### !answer
 
-* The first argument when calling `ReactDOM.render()`
+* The first argument when calling the `render()` method
 
 ##### !end-answer
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-### `index.js` Is the Starting Point
+### `main.jsx` Is the Starting Point
 
-`index.js` is responsible for being the starting point of our webapp.
+`main.jsx` is responsible for being the starting point of our webapp.
 
 It is the entry point of our project; our app is configured to look for this file first when we run the app.
 
@@ -294,45 +284,89 @@ This file renders our first _JSX_ (described in another lesson).
 
 This code indicates that when we start our React webapp, it will _render_ an `App` component using `<App />`.
 
-Aside from seeing that this is how the `App` component gets loaded, we will rarely visit `src/index.js` in this curriculum, even though there are lines of code in this file that are worth exploring with bigger projects.
+Aside from seeing that this is how the `App` component gets loaded, we will rarely visit `src/main.jsx` in this curriculum, even though there are lines of code in this file that are worth exploring with bigger projects.
 
 Instead, we'll focus on working with the `App` component.
 
-### Exploring `App.js`
+### Exploring `App.jsx`
 
-Consider the contents of `src/App.js`.
+Consider the contents of `src/App.jsx`.
 
 <!-- prettier-ignore-start -->
 ```js
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-      </header>
-    </div>
-  );
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 
-export default App;
+export default App
 ```
 <!-- prettier-ignore-end -->
 
-From reading `src/App.js`, answer the questions below. If a question involves an expression that hasn't been discussed yet, we can hypothesize what it might do based on what we know about other languages, or from what a natural language reading might imply.
+### !callout-warning
+
+## Remember to Use Semicolons!
+
+The default template that Vite provides does not include semicolons. While there are a variety of styles when it comes to writing JavaScript and creating JSX objects, we encourage you to continue using semicolons!
+
+<br />
+
+We can add a line to the `.eslint.cjs` linter rule file to help remind us where they go! Within the `rules` section, add the following after any other rules specified by the template:
+
+```js
+semi: ['warn', 'always'],
+```
+
+<details>
+<summary>Expand for an example of how the rules section could look after modification</summary>
+
+<br />
+
+There could be different rules depending on the version of the Vite tool used during the project setup. We added the semi rule to the end of the rules block.
+
+```js  
+  rules: {
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
+    semi: ['warn', 'always'],
+  },
+```
+</details>
+
+### !end-callout
+
+From reading `src/App.jsx`, answer the questions below. If a question involves an expression that hasn't been discussed yet, we can hypothesize what it might do based on what we know about other languages, or from what a natural language reading might imply.
 
 <!-- Question 5 -->
 <!-- prettier-ignore-start -->
@@ -342,22 +376,23 @@ From reading `src/App.js`, answer the questions below. If a question involves an
 * title: Hello, World!
 ##### !question
 
-`src/App.js` imports several resources. Select the resources that are imported.
+`src/App.jsx` imports several resources. Select the resources that are imported.
 
 ##### !end-question
 ##### !options
 
-* `React` from `'react'`
+* `{ useState }` from `'react'`
 * `'./index.js'`
-* `'./App.js'`
-* `App` from `'./App'`
-* `logo` from `'./logo.svg'`
+* `App from './App.jsx'`
+* `reactLogo` from `'./assets/react.svg'`
+* `viteLogo` from `'/vite.svg'`
 * `'./App.css'`
 
 ##### !end-options
 ##### !answer
-
-* `logo` from `'./logo.svg'`
+* `{ useState }` from `'react'`
+* `reactLogo` from `'./assets/react.svg'`
+* `viteLogo` from `'/vite.svg'`
 * `'./App.css'`
 
 ##### !end-answer
@@ -399,14 +434,14 @@ There is an object named `App`. `App` is a...
 * title: Hello, World!
 ##### !question
 
-Check all options that are true about `src/App.js`.
+Check all options that are true about `src/App.jsx`.
 
 ##### !end-question
 ##### !options
 
 * `App` is a function, and it returns something
-* `App` is an arrow function
-* `logo` is not actually used in this file
+* The `<a>` elements have a `rel` attribute
+* The button element has an `onSubmit` event handler
 * The `export default App;` statement is used to make `App` available to other files
 
 ##### !end-options
@@ -419,7 +454,7 @@ Check all options that are true about `src/App.js`.
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-### `App.js` Defines Our `App` Component
+### `App.jsx` Defines Our `App` Component
 
 The `App` function defines a component named `App`.
 
@@ -433,6 +468,18 @@ Now is a great time to explore our webapp. We can change the headers and text, a
 
 <br />
 
-Notice that `create-react-app` automatically initialized a Git repository in our directory. So if something breaks during our exploration we can always get back to the initial version of the files using our Git skills!
+Notice that Vite created a `.gitignore` file automatically, but it did **not** automatically initialize a Git repository in our directory. We will need to do so ourselves so if something breaks during our exploration we can always get back to the initial version of the files using our Git skills! 
 
+<br />
+
+As a reminder, to initialize a Git repository in a project we run the following command in our project directory:
+```bash
+$ git init
+```
+<br />
+
+To ensure that our default branch is called 'main' instead of 'master', we should run:
+```bash
+$ git init --initial-branch=main
+```
 ### !end-callout
