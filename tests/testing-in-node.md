@@ -167,6 +167,11 @@ Remember to use the Debug button that gets displayed when hovering over a test n
 
 Do not use the Debug button on the Debug panel.
 
+<br/>
+
+![VS Code UI with reminder for debugging tests. The icon for the Debug panel is X'd out and labeled "DON’T use the Debug panel to debug tests". The icon for the Testing panel has a green circle over it, as does the small debug icon that appears on a hovered test, and is labeled "DO use the Testing panel to debug tests".](../assets/tests_testing-in-node-js_debug-from-testing-panel.png)  
+*Fig. All debugging of tests starts from the Testing panel.*
+
 ### !end-callout
 
 ## Exercise
