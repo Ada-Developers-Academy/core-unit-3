@@ -448,8 +448,6 @@ export default App;
 ```
 <!-- prettier-ignore-end -->
 
-Her webapp now looks like this:
-
 <!-- available callout types: info, success, warning, danger, secondary, star  -->
 ### !callout-danger
 
@@ -486,6 +484,7 @@ We should always be careful to make sure our `import` statements are correct to 
 
 ### !end-callout
 
+Sofia's webapp now looks like this:
 
 ![Web browser showing the ClassInfo component and the StudentList component. Attendance. Class Information. Name: Team Semicolons. Number of members: 30. Student List.](../assets/react-components_components_render-classinfo.png)  
 _Fig. Sofia's webapp now shows her `ClassInfo` component and her `StudentList` component_
