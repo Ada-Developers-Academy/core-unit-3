@@ -71,7 +71,6 @@ In order to return only _one_ JSX object, Sofia needs to wrap her expanded conte
 
 <!-- prettier-ignore-start -->
 ```js
-import React from 'react';
 import './StudentList.css';
 
 const StudentList = () => {
@@ -110,7 +109,7 @@ h2 {
 ```
 
 ![Web browser showing the updated CSS styles. The red borders are gone. Now the headers (Class Information, Student List) are shown in dark blue with an oblique style.](../assets/react-components_styling-components_element-selector.png)  
-_Fig. Sophia's webapp with more reasonable styles applied._
+_Fig. Sofia's webapp with more reasonable styles applied._
 
 However, we must be careful of one thing: in order to set the CSS `class` attribute on any HTML element when using JSX, we must use the attribute `className`.
 
