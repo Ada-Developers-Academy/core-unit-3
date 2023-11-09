@@ -77,15 +77,15 @@ To define a component, we will follow these steps:
 
 Sofia anticipates that she'll create many components throughout this project. She'll follow these guidelines:
 
-- Each component definition will have its own `.js` file
-- Each file will be named after the name of the component
+- Each component definition will have its own `.jsx` file
+- Each file will be named using the name of the component
 - All component definitions besides `App` will live in a new folder, `src/components`
 
 In order to make this `components` folder and a new file for the `StudentList` component, she'll run these commands:
 
 ```bash
 $ mkdir src/components
-$ touch src/components/StudentList.js
+$ touch src/components/StudentList.jsx
 ```
 
 ### !callout-info
@@ -175,9 +175,9 @@ export default StudentList;
 
 ### Where to Render `StudentList`
 
-Sofia just began her project by using `create-react-app`. At this moment, when Sofia runs `yarn start`, her webapp at `localhost:3000` looks like the default splash screen.
+Sofia began her project by using `npm create` in the usual fashion (then adding the linter rule to enforce the use of semicolons and updating the template files accordingly). At this moment, when Sofia runs `npm run dev`, her webapp at `localhost:5173` looks like the default splash screen.
 
-She's traced her code through `src/index.js` and `src/App.js`, and Sofia knows that **currently, her webapp renders one component:** one instance of **the `App` component**.
+She's traced her code through `src/main.jsx` and `src/App.jsx`, and Sofia knows that **currently, her webapp renders one component:** one instance of **the `App` component**.
 
 Sofia knows that **a JSX object can contain other elements _and components_**.
 
@@ -187,7 +187,7 @@ She wants her webapp to render the `StudentList` component she just created, so 
 
 In order to use the `StudentList` component in the `App` component, first we need to import `StudentList`.
 
-At the top of `src/App.js`, she'll include:
+At the top of `src/App.jsx`, she'll include:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -270,8 +270,8 @@ Note that Sofia has replaced `App`'s returned JSX with something more minimal an
 
 Sofia can verify that her `App` and `StudentList` components are rendered successfully by:
 
-- Ensuring that the server is running with `yarn start`
-- Checking the appearance of `localhost:3000`
+- Ensuring that the server is running with `npm run dev`
+- Checking the appearance of `localhost:5173`
 
 Success! Sofia successfully renders both the `App` and `StudentList` components once.
 
@@ -357,7 +357,7 @@ export default App;
 ```
 <!-- prettier-ignore-end -->
 
-With this code, `localhost:3000` will display `StudentList` twice.
+With this code, `localhost:5173` will display `StudentList` twice.
 
 ![Web browser showing two copies of the StudentList component. Attendance. Here's the first rendered student list: Student List. Here's the second rendered student list: Student List.](../assets/react-components_components_render-component-twice.png)  
 _Fig. We can add two copies of Sofia's `StudentList` component to the `App`_
@@ -390,18 +390,15 @@ To practice, let's make another component!
 
 ### Defining `ClassInfo`
 
-Sofia creates a new file, `src/components/ClassInfo.js`.
+Sofia creates a new file, `src/components/ClassInfo.jsx`.
 
 Within this file, she will:
 
-1. Import React
 1. Define a function named `ClassInfo`
 1. Export `ClassInfo`
 
 <!-- prettier-ignore-start -->
 ```js
-import React from 'react';
-
 const ClassInfo = () => {
   return (
     <section>
