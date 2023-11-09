@@ -266,26 +266,6 @@ export default App;
 
 Note that Sofia has replaced `App`'s returned JSX to something more minimal and appropriate to her project. She's also deleted any unused import statements.
 
-She could also use a variable and embed the variable:
-
-<!-- prettier-ignore-start -->
-```js
-import StudentList from './components/StudentList';
-
-function App() {
-  const studentList = <StudentList></StudentList>;
-  return (
-    <main>
-      <h1>Attendance</h1>
-      {studentList}
-    </main>
-  );
-}
-
-export default App;
-```
-<!-- prettier-ignore-end -->
-
 ### Verify
 
 Sofia can verify that her `App` and `StudentList` components are rendered successfully by:
