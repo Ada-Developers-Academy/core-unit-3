@@ -47,16 +47,16 @@ In our React projects, we'll write the logic for _how_ to render our components 
 
 We will create _objects_ in JSX.
 
-An object in JSX contains at least one element.
+An object in JSX contains at least one element. 
 
 ```js
-const welcomeMessage = <span>Welcome~</span>;
+const welcomeMessage = <span>Welcome</span>;
 ```
 
 | <div style="min-width:230px;"> Piece of Code </div> | Notes                                                                                                                            |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `const welcomeMessage =`                            | We declare a `const` variable `welcomeMessage`, which will refer to our JSX object.                                              |
-| `<span>Welcome~</span>`                             | A JSX object. When this JSX object is rendered in React, it will become a `<span>` HTML element, with the text `Welcome~` in it. |
+| `<span>Welcome</span>`                             | A JSX object. When this JSX object is rendered in React, it will become a `<span>` HTML element, with the text `Welcome` in it. |
 | `;`                                                 | This variable assignment should end with a semicolon.                                                                            |
 
 ### JSX Objects With Children
@@ -66,7 +66,7 @@ An object in JSX can contain any number of inner elements.
 ```js
 const welcomeMessage = (
   <section>
-    <h1>Welcome~</h1>
+    <h1>Welcome</h1>
     <p>It's nice to hear from you again!</p>
   </section>
 );
@@ -76,7 +76,7 @@ The JSX object `welcomeMessage` will look like this HTML when it's rendered:
 
 ```html
 <section>
-  <h1>Welcome~</h1>
+  <h1>Welcome</h1>
   <p>It's nice to hear from you again!</p>
 </section>
 ```
@@ -133,17 +133,76 @@ function App() {
 }
 ```
 
+<br />
+
+<details>
+<summary>HMR: Hot Module Reloading</summary>
+
+Hot Module Reloading, or HMR, as mentioned in `App.jsx` is a feature that the Vite development server comes with that automatically reloads the app when we edit the source code. 
+
+<br />
+
+This is a useful development feature, but because of how it can interact with editing files in VS Code, this is why we recommend turning off the VSCode Auto Save feature when working with a React project.
+
+</details>
+
+<br />
+
+### !callout-info
+
+## JSX Expressions Must Have One Parent Element!
+
+In JSX, there is a rule that states that a JSX object must always return a single element. This rule applies to React, which means that every component can only return a single root element.
+
+<br />
+
+<details>
+<summary>Fixing Invalid JSX Expressions</summary>
+
+<br />
+
+If a component has two sibling elements, for example, instead of a single root element then we would need to update our code to make the component valid. 
+
+```js
+{/* Example of an invalid component because more than one element is returned*/}
+return (
+  <h1>Understanding Your Cat</h1>
+  <p>Like humans, every cat has unique characteristics that make it different.</p>
+)
+```
+
+<br />
+
+There are a couple of ways to modify this component to make it valid. We can wrap the two elements in a single parent element, like a `<div>`. However, this means we would be modifying the structure of our component by adding another element. 
+
+<br />
+
+If we do not want add a parent element, we can wrap the two sibling elements in a [fragment](https://react.dev/reference/react/Fragment). A fragment is a built-in feature of React that allows you to group a list of children without adding extra nodes to the DOM by using `<>` and `</>`.
+
+```js
+{/* Example of a valid component because two sibling elements are wrapped in a fragment*/}
+return (
+  <>
+    <h1>Understanding Your Cat</h1>
+    <p>Like humans, every cat has unique characteristics that make it different.</p>
+  </>
+)
+```
+</details>
+
+### !end-callout
+
 The `App` function returns one JSX object. This JSX object opens with a `<div>` element.
 
 This first `<div>` element has two children: the `<a>`, or anchor, elements. Each `<a>` element has one child: `<img>` element.
 
-Following the first `<div>` element is it's sibling, which is an `<h1>` element. Read through the rest of the JXS object. What other sibling elements can you identify? What are their children elements?
+Following the first `<div>` element is it's sibling, which is an `<h1>` element. Read through the rest of the JSX object. What other sibling elements can you identify? What are their children elements?
 
 ### !callout-info
 
-## Modifying `App` to Use Variables
+## Creating JSX Objects and Assigning Their Values to Variables
 
-We can modify our `App` function to use more variables. The JSX object can be defined inside the function, and then returned.
+JSX expressions can be defined inside our `App` function and their values can be assigned to variables, just like we would do with any other values in JavaScript. We can then return the variable that refers to the defined JSX expression, see the example below. 
 
 ```js
 function App() {
@@ -152,8 +211,11 @@ function App() {
 }
 ```
 
-Here, we are creating the `const` variable `appElements`, setting it to a JSX object, and then returning it.
+Here, we are creating the `const` variable `appElements`, setting it to a JSX object, and then returning the variable.
 
+<br />
+
+We can modify our `App` function to use more variables if we find that they make working with the layout of a component more convenient. We might not always use variables to reference our JSX object in our own code, but we should be familiar with this syntax because we may encounter it in React code from other sources.
 ### !end-callout
 
 ## Embedding Expressions in JSX
@@ -166,7 +228,7 @@ const guestName = 'Megha';
 
 const welcomeMessage = (
   <section>
-    <h1>Welcome {guestName}~</h1>
+    <h1>Welcome {guestName}</h1>
     <p>It's nice to hear from you again!</p>
   </section>
 );
@@ -177,7 +239,7 @@ In this situation, the rendered HTML would look like:
 
 ```html
 <section>
-  <h1>Welcome Megha~</h1>
+  <h1>Welcome Megha</h1>
   <p>It's nice to hear from you again!</p>
 </section>
 ```
@@ -229,10 +291,10 @@ export default App
 We can focus on this part of the JSX:
 
 ```js
-<img src={viteLogo} className="logo" alt="Vite logo" />
+<img src={reactLogo} className="logo react" alt="React logo" />
 ```
 
-The value of the `src` attribute for this element will be the value of `viteLogo`. `viteLogo` was imported from `/vite.svg` at the top of `App.jsx`!
+The value of the `src` attribute for this element will be the value of `reactLogo`. `reactLogo` was imported from `./assets/react.svg` at the top of `App.jsx`!
 
 ## Element Attributes in JSX Objects
 
@@ -277,7 +339,7 @@ This will be crucial for styling!
 
 A JSX object can contain code comments only if the comments are embedded as a JavaScript expression.
 
-For example:
+Two comments have been embedded in the Vite generated template in the example below:
 
 ```js
 function App() {
