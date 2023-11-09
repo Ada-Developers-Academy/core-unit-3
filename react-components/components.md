@@ -124,7 +124,7 @@ const StudentList = () => {
 };
 ```
 
-She could have defined it using different coding techniques. For example, she could have wrapped the JSX object in parentheses if that helps her see it better:
+She could have defined it using different coding techniques. For example, she could have wrapped the JSX object in parentheses, allowing the `return` expression to be safely spread over several lines:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -136,7 +136,7 @@ const StudentList = () => {
 ```
 <!-- prettier-ignore-end -->
 
-She also could have put the JSX object in a variable:
+She could even have put the JSX object into a variable rather than returning it directly:
 
 <!-- prettier-ignore-start -->
 
@@ -146,6 +146,8 @@ const StudentList = () => {
   return studentListHeader;
 }
 ```
+
+Sophia understands that first storing JSX into a variable is more useful if she needs to conditionally include part of her markup, or if a section of markup is difficult to read when embedded in the rest of the JSX being returned. She most frequently sees React code returning the JSX object directly, so until she needs more than a single line for her markup, she'll stick to the direct, non-wrapped approach. But she's comfortable with all of these techniques, and she'll use them as needed.
 
 ### Export the Component
 
