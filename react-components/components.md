@@ -345,9 +345,9 @@ function App() {
   return (
     <main>
       <h1>Attendance</h1>
-      Here's the first rendered student list:
+      Here&apos;s the first rendered student list:
       <StudentList></StudentList>
-      Here's the second rendered student list:
+      Here&apos;s the second rendered student list:
       <StudentList></StudentList>
     </main>
   );
@@ -364,6 +364,23 @@ _Fig. Sofia's webapp now shows two copies of her `StudentList` component_
 
 ![Web browser with Dev Tools open, showing the HTML rendered for the two StudentList version of the webapp.](../assets/react-components_components_render-component-twice-dev-tools.png)  
 _Fig. The browser Dev Tools showing the rendered HTML now showing two sets of HTML from the `StudentList` component_
+
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## React Linter Rules Prefer HTML Entities
+
+Notice in this example, we used the HTML entity `&apos;` to represent an apostrophe. This is because the React linter rules prefer HTML entities over literal characters in the text content of our components. The linter rules are set up this way because it's easy to "fall out" of a tag or embedded JavaScript expression in the middle of JSX by accidentally writing a closing `>` or `}` character in the wrong place. Using HTML entities when those characters appear in our text helps the linter detect when this occurs and alert us to the problem.
+
+<br/>
+
+If we prefer, we can disable this linter rule by adding the following line to the `rules` section of our `.eslintrc.cjs` file:
+
+```js
+    "react/no-unescaped-entities": 0,
+```
+
+### !end-callout
 
 ## A Second Component: `ClassInfo`
 
