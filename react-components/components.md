@@ -18,11 +18,15 @@ We will use Sofia's web app throughout the Learn React lessons. There is a compa
 
 <br>
 
-The Student App already has the React project structure created by running `yarn create react-app student-app`. To run the app, we first need to install the dependencies using `yarn install`, and then we can run the app using `yarn start`.
+The Student App already has the React project structure created by running `npm create -y vite@latest student-app -- --template react`. The semicolon linting rule has already been added and the template code has been modified accordingly. To run the app, we first need to install the dependencies using `npm install` within the project directory, and then we can run the app using `npm run dev`. The `main` branch contains only the initial template code, but we can switch to other branches to see the app running as new features are added.
 
 <br>
 
 There are a few **Check For Understanding** prompts in the React lessons that ask us to recreate Sofia's app and add new features. We can either complete these **Check For Understanding** prompts in a brand new React app that we make ourself, or by using a fork of the [Student App repository](https://github.com/AdaGold/student-app) as a baseline.
+
+<br/>
+
+When working along with Sophia, our recommendation is to do any work solely in the `main` branch, and to use the other branches as a reference, primarily through the GitHub web interface rather than by switching between branches in our local repository. If a local copy of the completed branches is desired, we can clone a second copy of the repository to another location in which we can switch between branches without affecting our work in our main forked copy. As long as we make no changes to this second clone, we'll be able to switch branches easily.
 
 ### !end-callout
 
