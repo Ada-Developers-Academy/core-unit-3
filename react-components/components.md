@@ -26,7 +26,7 @@ There are a few **Check For Understanding** prompts in the React lessons that as
 
 <br/>
 
-When working along with Sophia, our recommendation is to do any work solely in the `main` branch, and to use the other branches as a reference, primarily through the GitHub web interface rather than by switching between branches in our local repository. If a local copy of the completed branches is desired, we can clone a second copy of the repository to another location in which we can switch between branches without affecting our work in our main forked copy. As long as we make no changes to this second clone, we'll be able to switch branches easily.
+When working along with Sofia, our recommendation is to do any work solely in the `main` branch, and to use the other branches as a reference, primarily through the GitHub web interface rather than by switching between branches in our local repository. If a local copy of the completed branches is desired, we can clone a second copy of the repository to another location in which we can switch between branches without affecting our work in our main forked copy. As long as we make no changes to this second clone, we'll be able to switch branches easily.
 
 ### !end-callout
 
@@ -105,7 +105,7 @@ For the moment, Sofia doesn't need to import any dependencies. Various kinds of 
 - Images
 - Data
 
-As Sophia is just starting out, she doesn't need to import any of these resources at the moment.
+As Sofia is just starting out, she doesn't need to import any of these resources at the moment.
 
 ### Create a Function
 
@@ -147,7 +147,7 @@ const StudentList = () => {
 }
 ```
 
-Sophia understands that first storing JSX into a variable is more useful if she needs to conditionally include part of her markup, or if a section of markup is difficult to read when embedded in the rest of the JSX being returned. She most frequently sees React code returning the JSX object directly, so until she needs more than a single line for her markup, she'll stick to the direct, non-wrapped approach. But she's comfortable with all of these techniques, and she'll use them as needed.
+Sofia understands that first storing JSX into a variable is more useful if she needs to conditionally include part of her markup, or if a section of markup is difficult to read when embedded in the rest of the JSX being returned. She most frequently sees React code returning the JSX object directly, so until she needs more than a single line for her markup, she'll stick to the direct, non-wrapped approach. But she's comfortable with all of these techniques, and she'll use them as needed.
 
 ### Export the Component
 
@@ -275,7 +275,7 @@ Sofia can verify that her `App` and `StudentList` components are rendered succes
 
 Success! Sofia successfully renders both the `App` and `StudentList` components once.
 
-![Web browser showing the result of rendering Sophia's updated App component. Attendance. Student List.](../assets/react-components_components_first-render.png)  
+![Web browser showing the result of rendering Sofia's updated App component. Attendance. Student List.](../assets/react-components_components_first-render.png)  
 _Fig. Sofia's updated webapp making use of her new `StudentList` component_
 
 Let's check what the rendered HTML ultimately looks like using our browser's Dev Tools.
