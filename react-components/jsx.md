@@ -12,34 +12,26 @@ Before we start using JSX extensively, let's pause to understand what JSX is and
 
 ## Introduction
 
-In a newly created React app using `create-react-app`, we can see the following code snippets:
+In a newly created React app using Vite, we can see the following code snippets:
 
-`src/index.js`
+`src/main.jsx`
 
 ```js
 <React.StrictMode>
   <App />
-</React.StrictMode>
+</React.StrictMode>,
 ```
 
-`src/App.js`
+`src/App.jsx`
 
 ```js
-<div className="App">
-  <header className="App-header">
-    <img src={logo} className="App-logo" alt="logo" />
-    <p>
-      Edit <code>src/App.js</code> and save to reload.
-    </p>
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Learn React
-    </a>
-  </header>
+<div className="card">
+  <button onClick={() => setCount((count) => count + 1)}>
+    count is {count}
+  </button>
+  <p>
+    Edit <code>src/App.jsx</code> and save to test HMR
+  </p>
 </div>
 ```
 
@@ -55,16 +47,16 @@ In our React projects, we'll write the logic for _how_ to render our components 
 
 We will create _objects_ in JSX.
 
-An object in JSX contains at least one element.
+An object in JSX contains at least one element. 
 
 ```js
-const welcomeMessage = <span>Welcome~</span>;
+const welcomeMessage = <span>Welcome</span>;
 ```
 
 | <div style="min-width:230px;"> Piece of Code </div> | Notes                                                                                                                            |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `const welcomeMessage =`                            | We declare a `const` variable `welcomeMessage`, which will refer to our JSX object.                                              |
-| `<span>Welcome~</span>`                             | A JSX object. When this JSX object is rendered in React, it will become a `<span>` HTML element, with the text `Welcome~` in it. |
+| `<span>Welcome</span>`                             | A JSX object. When this JSX object is rendered in React, it will become a `<span>` HTML element, with the text `Welcome` in it. |
 | `;`                                                 | This variable assignment should end with a semicolon.                                                                            |
 
 ### JSX Objects With Children
@@ -74,7 +66,7 @@ An object in JSX can contain any number of inner elements.
 ```js
 const welcomeMessage = (
   <section>
-    <h1>Welcome~</h1>
+    <h1>Welcome</h1>
     <p>It's nice to hear from you again!</p>
   </section>
 );
@@ -84,7 +76,7 @@ The JSX object `welcomeMessage` will look like this HTML when it's rendered:
 
 ```html
 <section>
-  <h1>Welcome~</h1>
+  <h1>Welcome</h1>
   <p>It's nice to hear from you again!</p>
 </section>
 ```
@@ -106,52 +98,128 @@ In most contexts, we can wrap JavaScript expressions in parentheses `()`, which 
 
 ### !end-callout
 
-### JSX Objects With Children: `App.js`
+### JSX Objects With Children: `App.jsx`
 
-Let's revisit this `src/App.js`:
+Let's revisit this `src/App.jsx`:
 
 ```js
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-      </header>
-    </div>
-  );
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 ```
 
-The `App` function returns one JSX object. This JSX object opens with a `<div>` element.
+<br />
 
-This `<div>` element has one child: the `<header>` element. The `<header>` element has three children: `<img>`, `<p>`, and `<a>`.
+<details>
+<summary>HMR: Hot Module Reloading</summary>
+
+Hot Module Reloading, or HMR, as mentioned in `App.jsx` is a feature that the Vite development server comes with that automatically reloads the app when we edit the source code. 
+
+<br />
+
+This is a useful development feature, but because of how it can interact with editing files in VS Code, this is why we recommend turning off the VSCode Auto Save feature when working with a React project.
+
+</details>
+
+<br />
 
 ### !callout-info
 
-## Modifying `App` to Use Variables
+## JSX Expressions Must Have One Parent Element!
 
-We can modify our `App` function to use more variables. The JSX object can be defined inside the function, and then returned.
+In JSX, there is a rule that states that a JSX object must always return a single element. This rule applies to React, which means that every component can only return a single root element.
+
+<br />
+
+The Vite template meets this requirement by wrapping its JSX markup in a special [Fragment](https://react.dev/reference/react/Fragment) tag. Keep reading for more about Fragments, and alternative approaches we can use in our own components.
+
+<br />
+
+<details>
+<summary>Using A Fragment to Group Elements</summary>
+
+<br />
+
+If a component has two sibling elements, for example, instead of a single root element then we would need to update our component to make it valid.
+
+```js
+{/* Example of an invalid component because more than one element is returned*/}
+return (
+  <h1>Understanding Your Cat</h1>
+  <p>Like humans, every cat has unique characteristics that make it different.</p>
+)
+```
+
+<br />
+
+There are a couple of ways to modify this component to make it valid. We can wrap the two elements in a single parent element, like a `<div>`. However, this means we would be modifying the structure of our component by adding another element. 
+
+<br />
+
+If we do not want add a parent element, we can use a Fragment to return multiple elements from a React component because the Fragment allows us to group elements without adding extra nodes to the DOM.
+
+```js
+{/* Example of a valid component because two sibling elements are wrapped in a Fragment*/}
+return (
+  <>
+    <h1>Understanding Your Cat</h1>
+    <p>Like humans, every cat has unique characteristics that make it different.</p>
+  </>
+)
+```
+</details>
+
+### !end-callout
+
+The `App` function returns one JSX object that starts with a Fragment, whose first child is the first `<div>` element of the output markup.
+
+This first `<div>` element has two children: the `<a>`, or anchor, elements. Each `<a>` element has one child: `<img>` element.
+
+Following the first `<div>` element is it's sibling, which is an `<h1>` element. Read through the rest of the JSX object. What other sibling elements can you identify? What are their children elements?
+
+### !callout-info
+
+## Creating JSX Objects and Assigning Their Values to Variables
+
+JSX expressions can be defined inside our `App` function and their values can be assigned to variables, just like we would do with any other values in JavaScript. We can then return the variable that refers to the defined JSX expression, see the example below. 
 
 ```js
 function App() {
-  const appElements = <div className="App">... more elements ...</div>;
+  const appElements = <div>... more elements ...</div>;
   return appElements;
 }
 ```
 
-Here, we are creating the `const` variable `appElements`, setting it to a JSX object, and then returning it.
+Here, we are creating the `const` variable `appElements`, setting it to a JSX object, and then returning the variable.
 
+<br />
+
+We can modify our `App` function to use more variables if we find that they make working with the layout of a component more convenient. We might not always use variables to reference our JSX object in our own code, but we should be familiar with this syntax because we may encounter it in React code from other sources.
 ### !end-callout
 
 ## Embedding Expressions in JSX
@@ -164,7 +232,7 @@ const guestName = 'Megha';
 
 const welcomeMessage = (
   <section>
-    <h1>Welcome {guestName}~</h1>
+    <h1>Welcome {guestName}</h1>
     <p>It's nice to hear from you again!</p>
   </section>
 );
@@ -175,58 +243,70 @@ In this situation, the rendered HTML would look like:
 
 ```html
 <section>
-  <h1>Welcome Megha~</h1>
+  <h1>Welcome Megha</h1>
   <p>It's nice to hear from you again!</p>
 </section>
 ```
 
 ### Embedding Expressions: `App.js`
 
-Let's revisit this `src/App.js` again!
+Let's revisit this `src/App.jsx` again!
 
 <!-- prettier-ignore-start -->
 ```js
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-      </header>
-    </div>
-  );
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
+
+export default App
 ```
 <!-- prettier-ignore-end -->
 
 We can focus on this part of the JSX:
 
 ```js
-<img src={logo} className="App-logo" alt="logo" />
+<img src={reactLogo} className="logo react" alt="React logo" />
 ```
 
-The value of the `src` attribute for this element will be the value of `logo`. `logo` was imported from `./logo.svg` at the top of `App.js`!
+The value of the `src` attribute for this element will be the value of `reactLogo`. `reactLogo` was imported from `./assets/react.svg` at the top of `App.jsx`!
 
 ## Element Attributes in JSX Objects
 
 We can set the element attributes for JSX objects just like we can for the HTML elements they resemble. For most element attributes, the JSX object syntax is identical to what we'd use for HTML elements.
 
 ```js
-<a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-  Learn React
+<a href="https://vitejs.dev" target="_blank">
+  <img src={viteLogo} className="logo" alt="Vite logo" />
 </a>
 ```
 
@@ -234,7 +314,6 @@ This `<a>` element will have the following HTML attributes when it's rendered:
 
 - `href`
 - `target`
-- `rel`
 
 ## CSS Classes in JSX Objects
 
@@ -245,13 +324,17 @@ While HTML elements use the `class` attribute, in JSX we use the `className` att
 For example, this JSX object:
 
 ```js
-<header className="App-header"></header>
+<p className="read-the-docs">
+  Click on the Vite and React logos to learn more
+</p>
 ```
 
 will ultimately be rendered as:
 
 ```html
-<header class="App-header"></header>
+<p class="read-the-docs">
+  Click on the Vite and React logos to learn more
+</p>
 ```
 
 This will be crucial for styling!
@@ -260,24 +343,38 @@ This will be crucial for styling!
 
 A JSX object can contain code comments only if the comments are embedded as a JavaScript expression.
 
-For example:
+Two comments have been embedded in the Vite generated template in the example below:
 
 ```js
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="App">
-      {/* Creates a header tag */}
-      <header className="App-header">
-        {/* Add in the logo */}
-        <img src={logo} className="App-logo" alt="logo" />
+    <>
+      <div>
+        {/* Links for users to learn more about Vite and React */}
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        {/* Clicking the button will increase the count displayed on the page*/}
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/App.jsx</code> and save to test HMR
         </p>
-        {/* Replaced the link with another paragraph */}
-        <p>Learn React</p>
-      </header>
-    </div>
-  );
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 ```
 
