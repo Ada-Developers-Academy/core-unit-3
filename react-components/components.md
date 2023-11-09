@@ -69,7 +69,7 @@ Conventionally, React components are named with CapitalCamelCase. Sofia will nam
 To define a component, we will follow these steps:
 
 1. Create a new file
-1. Import React, and any other dependencies
+1. Import any dependencies
 1. Create a function
 1. Export the component
 
@@ -96,15 +96,16 @@ The React library does not require or enforce any sort of folder structure, nami
 
 ### !end-callout
 
-### Import React
+### Import Dependencies
 
-At the top of `src/components/StudentList.js`, Sofia will import the React library. Importing React in this file makes the built-in React functionality available through an object named `React`.
+For the moment, Sofia doesn't need to import any dependencies. Various kinds of resources can be imported into a component, including:
 
-<!-- prettier-ignore-start -->
-```javascript
-import React from 'react';
-```
-<!-- prettier-ignore-end -->
+- Other JavaScript files/components
+- CSS files
+- Images
+- Data
+
+As Sophia is just starting out, she doesn't need to import any of these resources at the moment.
 
 ### Create a Function
 
