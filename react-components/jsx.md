@@ -156,11 +156,7 @@ In JSX, there is a rule that states that a JSX object must always return a singl
 
 <br />
 
-There are a couple of ways to modify this component to make it valid. We can wrap the two elements in a single parent element, like a `<div>`. However, this means we would be modifying the structure of our component by adding another element. 
-
-<br />
-
-If we do not want add a parent element, we can wrap the two sibling elements in a [Fragment](https://react.dev/reference/react/Fragment). A Fragment is a built-in feature of React that allows you to group a list of children without adding extra nodes to the DOM by using `<>` and `</>`.
+The Vite template meets this requirement by wrapping its JSX markup in a special [Fragment](https://react.dev/reference/react/Fragment) tag. Keep reading for more about Fragments, and alternative approaches we can use in our own components.
 
 <br />
 
@@ -181,7 +177,11 @@ return (
 
 <br />
 
-We can use a Fragment to return multiple elements from a React component because the Fragment allows us to group elements without adding extra nodes to the DOM.
+There are a couple of ways to modify this component to make it valid. We can wrap the two elements in a single parent element, like a `<div>`. However, this means we would be modifying the structure of our component by adding another element. 
+
+<br />
+
+If we do not want add a parent element, we can use a Fragment to return multiple elements from a React component because the Fragment allows us to group elements without adding extra nodes to the DOM.
 
 ```js
 {/* Example of a valid component because two sibling elements are wrapped in a Fragment*/}
