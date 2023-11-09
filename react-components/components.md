@@ -181,7 +181,7 @@ She's traced her code through `src/index.js` and `src/App.js`, and Sofia knows t
 
 Sofia knows that **a JSX object can contain other elements _and components_**.
 
-She wants her webapp to render this `StudentList` component, so her plan is to render the `StudentList` component within the existing `App` component.
+She wants her webapp to render the `StudentList` component she just created, so her plan is to render the `StudentList` component within the existing `App` component.
 
 ### Import the Component
 
@@ -264,7 +264,7 @@ function App() {
 export default App;
 ```
 
-Note that Sofia has replaced `App`'s returned JSX to something more minimal and appropriate to her project. She's also deleted any unused import statements.
+Note that Sofia has replaced `App`'s returned JSX with something more minimal and appropriate to her project. She's also deleted any unused import statements.
 
 ### Verify
 
@@ -360,7 +360,7 @@ export default App;
 With this code, `localhost:3000` will display `StudentList` twice.
 
 ![Web browser showing two copies of the StudentList component. Attendance. Here's the first rendered student list: Student List. Here's the second rendered student list: Student List.](../assets/react-components_components_render-component-twice.png)  
-_Fig. Sofia's webapp now shows two copies of her `StudentList` component_
+_Fig. We can add two copies of Sofia's `StudentList` component to the `App`_
 
 ![Web browser with Dev Tools open, showing the HTML rendered for the two StudentList version of the webapp.](../assets/react-components_components_render-component-twice-dev-tools.png)  
 _Fig. The browser Dev Tools showing the rendered HTML now showing two sets of HTML from the `StudentList` component_
