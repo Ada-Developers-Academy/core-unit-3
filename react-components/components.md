@@ -278,6 +278,41 @@ Success! Sofia successfully renders both the `App` and `StudentList` components 
 ![Web browser showing the result of rendering Sofia's updated App component. Attendance. Student List.](../assets/react-components_components_first-render.png)  
 _Fig. Sofia's updated webapp making use of her new `StudentList` component_
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-warning
+
+## Update `index.css` to Remove Default Styling
+
+The Vite template has some "aggressive" styling applied by default. In order to get the same result as shown in the screenshots, we'll need to remove this styling. The modified `index.css` can be copied from any of the other project branches.
+
+<br/>
+
+Alternatively, the modified `index.css` contents are provided here.
+
+<br/>
+
+<details><summary>Expand for the modified <code>index.css</code> contents</summary>
+
+```css
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+```
+</details>
+
+
+### !end-callout
+
 Let's check what the rendered HTML ultimately looks like using our browser's Dev Tools.
 
 ![Web browser with Dev Tools open, showing the HTML rendered for the components.](../assets/react-components_components_first-render-dev-tools.png)  
