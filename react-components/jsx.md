@@ -156,12 +156,20 @@ In JSX, there is a rule that states that a JSX object must always return a singl
 
 <br />
 
-<details>
-<summary>Fixing Invalid JSX Expressions</summary>
+There are a couple of ways to modify this component to make it valid. We can wrap the two elements in a single parent element, like a `<div>`. However, this means we would be modifying the structure of our component by adding another element. 
 
 <br />
 
-If a component has two sibling elements, for example, instead of a single root element then we would need to update our code to make the component valid. 
+If we do not want add a parent element, we can wrap the two sibling elements in a [Fragment](https://react.dev/reference/react/Fragment). A Fragment is a built-in feature of React that allows you to group a list of children without adding extra nodes to the DOM by using `<>` and `</>`.
+
+<br />
+
+<details>
+<summary>Using A Fragment to Group Elements</summary>
+
+<br />
+
+If a component has two sibling elements, for example, instead of a single root element then we would need to update our component to make it valid.
 
 ```js
 {/* Example of an invalid component because more than one element is returned*/}
@@ -173,14 +181,10 @@ return (
 
 <br />
 
-There are a couple of ways to modify this component to make it valid. We can wrap the two elements in a single parent element, like a `<div>`. However, this means we would be modifying the structure of our component by adding another element. 
-
-<br />
-
-If we do not want add a parent element, we can wrap the two sibling elements in a [fragment](https://react.dev/reference/react/Fragment). A fragment is a built-in feature of React that allows you to group a list of children without adding extra nodes to the DOM by using `<>` and `</>`.
+We can use a Fragment to return multiple elements from a React component because the Fragment allows us to group elements without adding extra nodes to the DOM.
 
 ```js
-{/* Example of a valid component because two sibling elements are wrapped in a fragment*/}
+{/* Example of a valid component because two sibling elements are wrapped in a Fragment*/}
 return (
   <>
     <h1>Understanding Your Cat</h1>
@@ -192,7 +196,7 @@ return (
 
 ### !end-callout
 
-The `App` function returns one JSX object. This JSX object opens with a `<div>` element.
+The `App` function returns one JSX object that starts with a Fragment, whose first child is the first `<div>` element of the output markup.
 
 This first `<div>` element has two children: the `<a>`, or anchor, elements. Each `<a>` element has one child: `<img>` element.
 
