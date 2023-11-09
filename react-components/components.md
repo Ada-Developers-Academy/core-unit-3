@@ -151,7 +151,7 @@ Sophia understands that first storing JSX into a variable is more useful if she 
 
 ### Export the Component
 
-In order to use the `StudentList` component in other files, we'll need to _export_ it. To export the component, we make an `export` statement, and specify the name of our component function.
+In order to use the `StudentList` component in other files, we'll need to _export_ it. JavaScript requires that we specifically designate which symbols within a file are available to be imported by other files. To export the component, we make an `export` statement, and specify the name of our component function.
 
 This line goes at the _bottom_ of our file.
 
@@ -163,7 +163,7 @@ export default StudentList;
 
 ## Export `default`
 
-`export default` is one of a few ways to export our `StudentList` component function, and at the moment, it's the most straightforward. Follow your curiosity!
+`export default` is one of a few ways to export our `StudentList` component function, and when we're exporting a single main thing from a file, it's usually the most straightforward. Follow your curiosity!
 
 ### !end-callout
 
