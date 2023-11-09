@@ -92,7 +92,7 @@ $ touch src/components/StudentList.js
 
 ## This is a Recommendation
 
-The React library does not require or enforce any sort of folder structure, naming convention, or rule about how many files there should be in a project. This folder structure is a recommendation, and we should adapt it to whatever best suits our particular situation.
+The React library does not require or enforce any sort of folder structure, how to name our components (other than that they must start with a capital letter), or rule about how many files there should be in a project. This folder structure is a recommendation, and we should adapt it to whatever best suits our particular situation.
 
 ### !end-callout
 
