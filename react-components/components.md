@@ -215,6 +215,18 @@ Need more information about importing and exporting? Follow your curiosity and d
 
 Because the `App` component is located in `src/App.jsx`, and `StudentList` is in `src/components/StudentList.jsx`, the relative path from `App.jsx` to `StudentList.jsx` is `./components/StudentList`.
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-warning
+
+## Local Component Imports Must Begin with a Path Character
+
+Usually, the paths `./path/to/file` and `path/to/file` are equivalent. Both would indicate to start by looking for a directory called `path` within the current directory, then continuing from there. However, when importing a component defined within our project (as opposed to being loaded from another Node.js package), the path must begin with a "path" character, such as `./` (start from the current directory), `../` (start from the parent directory), or `/` (start from the project root).
+
+<br/>
+
+In the example above, this is why we must use `'./components/StudentList'` rather than `'components/StudentList'`.
+
+### !end-callout
 
 ### Use the Component At Least Once
 
