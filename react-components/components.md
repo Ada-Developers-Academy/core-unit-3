@@ -203,8 +203,6 @@ import StudentList from './components/StudentList';
 | `'./components/StudentList'`                        | **Replace this** with a string containing the relative path between _this current file_ and the file we're importing. We can exclude the file extension for JavaScript files. |
 | `;`                                                 | Conclude this import statement with a semicolon.                                                                                                                              |
 
-Because the `App` component is located in `src/App.js`, and `StudentList` is in `src/components/StudentList.js`, the relative path from `App.js` to `StudentList.js` is `./components/StudentList`.
-
 <!-- available callout types: info, success, warning, danger, secondary  -->
 
 ### !callout-info
@@ -214,6 +212,9 @@ Because the `App` component is located in `src/App.js`, and `StudentList` is in 
 Need more information about importing and exporting? Follow your curiosity and do some more research! A great search engine term is "javascript import export."
 
 ### !end-callout
+
+Because the `App` component is located in `src/App.jsx`, and `StudentList` is in `src/components/StudentList.jsx`, the relative path from `App.jsx` to `StudentList.jsx` is `./components/StudentList`.
+
 
 ### Use the Component At Least Once
 
