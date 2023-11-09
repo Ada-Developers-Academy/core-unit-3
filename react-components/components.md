@@ -450,6 +450,43 @@ export default App;
 
 Her webapp now looks like this:
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-danger
+
+## Imports Are a Common Source of Bugs
+
+While using `export default` in our component files is the most common practice, it can lead to puzzling bugs if we're not careful about how we import our components. In the above example, if we had copy-pasted the first `import` line, then accidentally only partially updated the copy to refer to `ClassInfo`, we might have ended up with the following:
+
+```js
+import StudentList from './components/StudentList';
+import ClassInfo from './components/StudentList';
+```
+
+<br/>
+
+What do you think the result of this would be? 
+
+<br/>
+
+<details><summary>Expand this section to find out.</summary>
+
+<br/>
+
+We would receive no indication that anything was amiss, but our display would show two copies of `StudentList` rather than one copy of `ClassInfo` and one copy of `StudentList`. This is because the `import` statement is not actually importing the `ClassInfo` component, but rather importing the same `StudentList` component a second time, and assigning it to a different variable name. In this example, it would be fairly easy to track down the problem, but in a larger project, it could be much more difficult.
+
+<br/>
+
+When we use `export default` to export something from a file, it essentially becomes nameless, and takes on the name that we use in the `import` statement. The `import` name effectively declares a variable and assigns the exported default object to that variable.
+
+<br/>
+
+We should always be careful to make sure our `import` statements are correct to save ourselves from many headaches!
+
+</details>
+
+### !end-callout
+
+
 ![Web browser showing the ClassInfo component and the StudentList component. Attendance. Class Information. Name: Team Semicolons. Number of members: 30. Student List.](../assets/react-components_components_render-classinfo.png)  
 _Fig. Sofia's webapp now shows her `ClassInfo` component and her `StudentList` component_
 
