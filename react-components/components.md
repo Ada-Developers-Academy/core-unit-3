@@ -244,8 +244,8 @@ To include a component once in a JSX object, we use the following syntax:
 | --------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `<...>`                                             | We create something that looks like an opening HTML tag, using angle brackets `<>`. |
 | `ComponentName`                                     | **Replace this** with the name of the component that needs to be rendered.          |
-| `</...>`                                            | Our component in JSX needs a closing tag, too.                                      |
-| `ComponentName`                                     | Valid JSX has a matching closing tag for the component.                             |
+| `</...>`                                            | Valid JSX requires that all tags be closed.                                      |
+| `ComponentName`                                     | Our closing tag uses the name of the component again.                             |
 
 Using this syntax, we can update our `App` component:
 
