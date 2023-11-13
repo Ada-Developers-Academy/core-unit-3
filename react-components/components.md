@@ -22,11 +22,41 @@ The Student App already has the React project structure created by running `npm 
 
 <br>
 
+Switching between branches can be problematic if we are following along with our own implementation. Expand the following section for our recommendations on how to use the sample repository.
+
+<br>
+
+<details><summary>Expand for our <code>student-app</code> repository recommendations</summary>
+
+<br/>
+
 There are a few **Check For Understanding** prompts in the React lessons that ask us to recreate Sofia's app and add new features. We can either complete these **Check For Understanding** prompts in a brand new React app that we make ourself, or by using a fork of the [Student App repository](https://github.com/AdaGold/student-app) as a baseline.
 
 <br/>
 
-When working along with Sofia, our recommendation is to do any work solely in the `main` branch, and to use the other branches as a reference, primarily through the GitHub web interface rather than by switching between branches in our local repository. If a local copy of the completed branches is desired, we can clone a second copy of the repository to another location in which we can switch between branches without affecting our work in our main forked copy. As long as we make no changes to this second clone, we'll be able to switch branches easily.
+When working along with Sofia, our recommendation is to do any work solely in the `main` branch, and to use the other branches as a reference, primarily through the GitHub web interface rather than by switching between branches in our local repository.
+
+<br/>
+
+![Explanation for how to view branch contents within the GitHub web view. The branch dropdown (displaying main by default) is labeled "This dropdown selects the branch contents displayed in the GitHub web view." The list of branches is labeled "Available branches." A general info box states "After selecting a branch, click a file to view it in the GitHub web view."](../assets/react-components_components_branches-in-github.png)  
+_Fig. Use the project branches as a reference viewed through the GitHub web view rather than switching among them while working. ([Full size image](../assets/react-components_components_branches-in-github.png))_
+
+<br/>
+
+If a local copy of the completed branches is desired, we can clone a second copy of the repository to another working directory. As long as we make no changes to this second clone, we'll be able to switch branches easily, and changing branches here will not affect the active branch in our main clone. To clone to a different location, we use
+
+```bash
+$ git clone <repository-url> <directory-name>
+```
+<br/>
+
+where `<repository-url>` is the URL of the repository we want to clone (the Student App repository), and `<directory-name>` is the name of the directory we want to create to hold the repository contents.
+
+<br/>
+
+Typically, we leave off the `<directory-name>` and let `git` create a directory with the same name as the repository. But in this case, we can make another clone adjacent to our working clone, perhaps called `student-app-branches`. Then, we can switch between branches using `git` commands or the VS Code UI in this second clone without affecting our ongoing work in the first clone.
+
+</details>
 
 ### !end-callout
 
