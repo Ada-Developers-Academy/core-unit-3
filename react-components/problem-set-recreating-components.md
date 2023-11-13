@@ -7,19 +7,19 @@ This problem set will ask you to create several components. To do this, we will 
 Run this command to create this practice project.
 
 ```bash
-$ npx create-react-app recreate-github
+$ npm create -y vite@latest recreate-github -- --template react
 ```
 
-Change into this directory, and run the server.
+Change into the created directory, install the dependencies, and run the server, as directed by the output from the setup.
 
 There is no submission for this problem set. Be prepared to share your work in small groups.
 
 ## Practice
 
-Create a simplified version of the GitHub landing page using React components.
+Create a simplified version of the GitHub landing page using React components. The GitHub landing page has changed since this screenshot was taken, but it has a number of interesting pieces to recreate. Please base your work on this screenshot and the accompanying detailed instructions that follow.
 
 ![Web browser displaying the GitHub landing page](../assets/react-components_problem-set-recreating-components_landing.png)  
-_Fig. A recent (c. Jun 2021) GitHub landing page_
+_Fig. A snapshot in time. The GitHub landing page (c. Jun 2021)_
 
 You _must_ create the following components with these names:
 
