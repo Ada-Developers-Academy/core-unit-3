@@ -415,7 +415,7 @@ export default ClassInfo;
 ```
 <!-- prettier-ignore-end -->
 
-Recall that valid JSX objects have _one parent element_. If Sofia's markup didn't already have a single root element (the outer `<section>` element), she would have needed to surround it in a single tag or fragment to avoid getting an error.
+Recall that valid JSX objects have _one parent element_. If Sofia's markup didn't already have a single root element (the outer `<section>` element), she would have needed to surround it in a single tag or Fragment to avoid getting an error.
 
 ### Use `ClassInfo`
 
