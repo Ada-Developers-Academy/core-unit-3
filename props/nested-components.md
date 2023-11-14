@@ -74,13 +74,12 @@ Container components often have presentation components _nested_ inside them.
 
 ## Example: `StudentList` and `Student` Components
 
-Sofia is a teacher creating an attendance app. Her app should display a list of students. Initially, she starts with this implementation of a `StudentList` component in `src/components/StudentList.js`.
+Sofia is a teacher creating an attendance app. Her app should display a list of students. Initially, she starts with this implementation of a `StudentList` component in `src/components/StudentList.jsx`.
 
 > `className` attributes have been omitted from this code snippet for clarity.
 
 <!-- prettier-ignore-start -->
 ```js
-import React from 'react';
 import './StudentList.css';
 
 const StudentList = () => {
@@ -111,12 +110,10 @@ Sofia can apply the container and presentational component design patterns, and:
 
 ### `Student` Component
 
-Sofia's `Student` component should display a student's name and email address. She creates a new file, `src/components/Student.js`, and writes this code:
+Sofia's `Student` component should display a student's name and email address. She creates a new file, `src/components/Student.jsx`, and writes this code:
 
 <!-- prettier-ignore-start -->
 ```js
-import React from 'react';
-
 const Student = () => {
     return (
         <ul>
@@ -134,7 +131,7 @@ export default Student;
 
 Now, Sofia can update her `StudentList` component.
 
-First, she imports the `Student` component into `src/components/StudentList.js` with `import Student from './Student';`.
+First, she imports the `Student` component into `src/components/StudentList.jsx` with `import Student from './Student';`.
 
 Then, she replaces the contents of the `<ul>` element.
 
