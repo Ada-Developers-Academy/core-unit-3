@@ -565,8 +565,6 @@ Then, consider the `App` and `ClassInfo` components.
 
 <!-- prettier-ignore-start -->
 ```js
-import React from 'react';
-
 const ClassInfo = () => {
     return (
         <section>
