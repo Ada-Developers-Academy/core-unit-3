@@ -172,7 +172,7 @@ We can use this same shorthand for our own components, so instead of `<Student><
 
 Sofia's app now looks like this, which includes three rendered `Student` components!
 
-![Sophia's attendance web app with a heading "Student List," and a list of three students. All three students read "Nickname: Ada" and "Email: ada@dev.org."](../assets/props_nested-components_render.png)  
+![Sofia's attendance web app with a heading "Student List," and a list of three students. All three students read "Nickname: Ada" and "Email: ada@dev.org."](../assets/props_nested-components_render.png)  
 _Fig. Updated `StudentList` output. The previously implemented `ClassInfo` component is also displayed._
 
 ## Summary
