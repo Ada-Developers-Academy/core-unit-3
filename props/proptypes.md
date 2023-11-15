@@ -101,7 +101,7 @@ export default ComponentA;
 
 ### Failing PropType Validations
 
-PropTypes give us warnings in the console whenever a component is misused.
+PropTypes give us warnings in the Console tab of the browser's Developer Tools whenever a component is misused. It's important that we consult the Console tab regularly while working on our React code, since that's where the majority of React runtime errors and warnings will appear.
 
 Imagine an `App` component that renders instances of `ComponentA`:
 
@@ -122,7 +122,7 @@ function App() {
 ```
 <!-- prettier-ignore-end -->
 
-When using `ComponentA`, excluding a value for `title` will produce this warning in the console:
+When using `ComponentA`, excluding a value for `title` will produce this warning in the browser's Console tab:
 
 ```
 Warning: Failed prop type: The prop `title` is marked as required in `ComponentA`, but its value is `undefined`.
