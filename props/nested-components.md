@@ -74,13 +74,12 @@ Container components often have presentation components _nested_ inside them.
 
 ## Example: `StudentList` and `Student` Components
 
-Sofia is a teacher creating an attendance app. Her app should display a list of students. Initially, she starts with this implementation of a `StudentList` component in `src/components/StudentList.js`.
+Sofia is a teacher creating an attendance app. Her app should display a list of students. Initially, she starts with this implementation of a `StudentList` component in `src/components/StudentList.jsx`.
 
 > `className` attributes have been omitted from this code snippet for clarity.
 
 <!-- prettier-ignore-start -->
 ```js
-import React from 'react';
 import './StudentList.css';
 
 const StudentList = () => {
@@ -111,12 +110,10 @@ Sofia can apply the container and presentational component design patterns, and:
 
 ### `Student` Component
 
-Sofia's `Student` component should display a student's name and email address. She creates a new file, `src/components/Student.js`, and writes this code:
+Sofia's `Student` component should display a student's name and email address. She creates a new file, `src/components/Student.jsx`, and writes this code:
 
 <!-- prettier-ignore-start -->
 ```js
-import React from 'react';
-
 const Student = () => {
     return (
         <ul>
@@ -134,7 +131,7 @@ export default Student;
 
 Now, Sofia can update her `StudentList` component.
 
-First, she imports the `Student` component into `src/components/StudentList.js` with `import Student from './Student';`.
+First, she imports the `Student` component into `src/components/StudentList.jsx` with `import Student from './Student';`.
 
 Then, she replaces the contents of the `<ul>` element.
 
@@ -175,7 +172,7 @@ We can use this same shorthand for our own components, so instead of `<Student><
 
 Sofia's app now looks like this, which includes three rendered `Student` components!
 
-![Sophia's attendance web app with a heading "Student List," and a list of three students. All three students read "Nickname: Ada" and "Email: ada@dev.org."](../assets/props_nested-components_render.png)  
+![Sofia's attendance web app with a heading "Student List," and a list of three students. All three students read "Nickname: Ada" and "Email: ada@dev.org."](../assets/props_nested-components_render.png)  
 _Fig. Updated `StudentList` output. The previously implemented `ClassInfo` component is also displayed._
 
 ## Summary
