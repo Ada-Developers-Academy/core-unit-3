@@ -267,6 +267,17 @@ const Student = (props) => {
 ```
 <!-- prettier-ignore-end -->
 
+### !callout-info
+
+## ESLint Warnings 
+
+We may notice squiggles in a couple of files as we're working on adding props to our code. ESLint is warning us about unvalidated props. We'll learn about how we can validate our props with PropTypes in the next lesson so we can ignore these warnings for now. Once we add PropTypes to our code, we'll see the squiggles disappear. 
+
+![Code in VSCode with ESLint warnings about unvalidated props. We do not need to be concerned about these warnings because we will learn how to fix the issue in our next lesson on PropTypes](../assets/props_props_proptype_warnings.png)  
+_Fig. ESLint warning about unvalidated props in VSCode_
+
+### !end-callout
+
 Hooray! Her web app now shows Ada, Soo-ah, and Chrissy's names and emails.
 
 ![An attendance web app with a list of three students. One student's information is "Nickname: Ada, Email: ada@dev.org." The second student's information is "Nickname: Soo-ah, Email: sooah@dev.org." The third student's information is "Nickname: Chrissy, Email: chrissy@dev.org"](../assets/props_props_initial-props.png)  

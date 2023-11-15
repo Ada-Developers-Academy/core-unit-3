@@ -101,7 +101,8 @@ export default ComponentA;
 
 ### Failing PropType Validations
 
-PropTypes give us warnings in the console whenever a component is misused.
+PropTypes give us warnings in the console whenever a component is misused. To see these warnings, or any other warnings and errors that may arise while during development, we can open our browser's developer tools (right click and select "Inspect") then select the tab called "Console". The console that is part of the developer 
+tools is not the same terminal console where our server is running. 
 
 Imagine an `App` component that renders instances of `ComponentA`:
 
