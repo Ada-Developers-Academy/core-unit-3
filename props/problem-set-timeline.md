@@ -24,16 +24,30 @@ This document covers:
 
 ## Setup Directions
 
-In your projects folder, create a new React app named `timeline`:
+In our projects folder, we'll create a new React app named `timeline` with the following command:
 
 ```bash
-$ npx create-react-app timeline
+$ npm create -y vite@latest timeline -- --template react
 ```
 
-Add the [`luxon` package](https://moment.github.io/luxon/#/) to your project using this command:
+After we create our project Vite will advise us to do three things: move into our newly created directory, install dependencies, and then start the development server. However, we need to add an additional dependency so we'll want to run the following commands instead. First, move to the `timeline` directory:
 
 ```bash
-$ yarn add luxon
+$ cd timeline
+```
+
+Then we'll add the [`luxon` package](https://moment.github.io/luxon/#/) to our project using this command:
+
+```bash
+$ npm install luxon
+```
+
+This will install the luxon package and all other required dependencies for this project so we won't need to run `npm install` afterwards.
+
+Lastly, we can start the development server with:
+
+```bash
+$ npm run dev
 ```
 
 ## Required Files
@@ -47,14 +61,14 @@ This project uses four components:
 
 And one JSON file: `src/data/timeline.json`.
 
-Read through each code snippet. Then, create these exact same files in your own project.
+Read through each code snippet. Then, we will create these exact same files in our own project.
 
 <br/>
 
 <details>
 
 <summary>
-    Replace your <code>src/App.js</code> with this
+    Replace your <code>src/App.jsx</code> with this
 </summary>
 
 <!-- prettier-ignore-start -->
@@ -87,7 +101,6 @@ export default App;
   background-color: #222;
   padding-bottom: 0.5rem;
   color: white;
-  position: fixed;
   width: 100%;
 }
 
@@ -117,32 +130,32 @@ export default App;
     {
       "person": "Adele Goldberg",
       "status": "In Smalltalk, everything happens somewhere else.",
-      "timestamp": "2021-05-18T22:12:03Z"
+      "timestamp": "2023-05-18T22:12:03Z"
     },
     {
       "person": "Erica Baker",
       "status": "Every once in a while, life affords you the opportunity to have real, authentic, genuine happiness. It's up to you to see it. Pay attention.",
-      "timestamp": "2021-05-18T22:19:40Z"
+      "timestamp": "2023-05-18T22:19:40Z"
     },
     {
-      "person": "Aubrey Tang",
+      "person": "Audrey Tang",
       "status": "The art of computer programming is a blend of mathematics and poetry.",
-      "timestamp": "2021-05-18T22:41:19Z"
+      "timestamp": "2023-05-18T22:41:19Z"
     },
     {
       "person": "Julia Evans",
       "status": "no seriously what if we replaced tech books with informative concise 30 page zines though",
-      "timestamp": "2021-05-18T23:02:44Z"
+      "timestamp": "2023-05-18T23:02:44Z"
     },
     {
       "person": "Stephanie Hurlburt",
       "status": "I don’t think you can do good work if you’re not at least occasionally talking to a person you’re building for.",
-      "timestamp": "2021-05-18T23:09:38Z"
+      "timestamp": "2023-05-18T23:09:38Z"
     },
     {
       "person": "Yan Zhu",
       "status": "//for a good time, paste this into twitter page console: c=new AudioContext;n=setInterval(\"for(n+=7,i=k,P='▲.\\\n';i-=1/k;P+=P[i%2?(i%2*j-j+n/k^j)&1:2])j=k/i;doc.innerHTML=P;with(c.createOscillator())frequency.value=200*(j+n/k^j),connect(c.destination),start(),stop(n/k)\",k=64)",
-      "timestamp": "2021-05-18T23:51:01Z"
+      "timestamp": "2023-05-18T23:51:01Z"
     }
   ]
 }
@@ -153,15 +166,20 @@ export default App;
 <details>
 
 <summary>
-    <code>src/components/Timeline.js</code>
+    <code>src/components/Timeline.jsx</code>
 </summary>
 
 <!-- prettier-ignore-start -->
 ```js
 import './Timeline.css';
 import TimelineEvent from './TimelineEvent';
+import PropTypes from 'prop-types';
 
 const Timeline = () => {};
+
+Timeline.propTypes = {
+  {/* Define PropTypes here*/}
+};
 
 export default Timeline;
 ```
@@ -180,6 +198,7 @@ export default Timeline;
   width: 30%;
   margin: auto;
   text-align: left;
+  list-style-type: none;
 }
 ```
 
@@ -188,15 +207,20 @@ export default Timeline;
 <details>
 
 <summary>
-    <code>src/components/TimelineEvent.js</code>
+  <code>src/components/TimelineEvent.jsx</code>
 </summary>
 
 <!-- prettier-ignore-start -->
 ```js
 import './TimelineEvent.css';
 import TimeStamp from './TimeStamp';
+import PropTypes from 'prop-types';
 
 const TimelineEvent = () => {};
+
+TimelineEvent.propTypes = {
+  {/* Define PropTypes here*/}
+};
 
 export default TimelineEvent;
 ```
@@ -207,7 +231,7 @@ export default TimelineEvent;
 <details>
 
 <summary>
-    <code>src/components/TimelineEvent.css</code>
+  <code>src/components/TimelineEvent.css</code>
 </summary>
 
 ```css
@@ -245,12 +269,13 @@ export default TimelineEvent;
 <details>
 
 <summary>
-    <code>src/components/TimeStamp.js</code>
+  <code>src/components/TimeStamp.jsx</code>
 </summary>
 
 <!-- prettier-ignore-start -->
 ```js
 import { DateTime } from "luxon";
+import PropTypes from 'prop-types';
 
 const TimeStamp = (props) => {
   const time = DateTime.fromISO(props.time);
@@ -258,6 +283,10 @@ const TimeStamp = (props) => {
   const relative = time.toRelative();
 
   return <span title={absolute}>{relative}</span>;
+};
+
+TimeStamp.propTypes = {
+  time: PropTypes.string.isRequired,
 };
 
 export default TimeStamp;
@@ -399,3 +428,12 @@ In 1-3 sentences, write advice and tips for this assignment. Address it to your 
 ##### !end-question
 ### !end-challenge
 <!-- prettier-ignore-end -->
+
+<details>
+
+<summary>Here's an example solution that we can review when we've completed the problem set</summary>
+
+[Timeline Problem Set Solution](https://github.com/AdaAnswers/props_timeline_problem_set)
+
+It's ok if this solution looks different than what you came up with. Consider discussing your approach with a classmate to see how others tackled this problem set.
+</details>
