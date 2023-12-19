@@ -119,9 +119,9 @@ In one sentence, describe the _UI elements_ you see on `localhost:5173`.
 
 An example list of visible UI elements include:
 
-- One spinning logo ⚛️ in the center
-- The text `Edit src/App.js and save to reload.`
-- A link labeled "Learn React" that directs us to the React website
+- The Vite and React logos next to each other
+- The text `Edit src/App.jsx and save to test HMR.`
+- A button that says "count is 0" 
 
 ##### !end-explanation
 ### !end-challenge
