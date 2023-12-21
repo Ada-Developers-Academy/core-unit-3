@@ -1,5 +1,26 @@
 # Instructor: State and Event Handling
 
+## Sample screenshot styles
+
+The same modified `index.css` used for the `student-app` was used for the code sample renders, replacing the default Vite-generated styles.
+
+`index.css`
+```css
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+```
+
 ## Initializing state from props
 
 There was originally a note in this lesson hinting at initializing state from props. This has to be done carefully and with great intention, or else it can become an anti-pattern: https://medium.com/@justintulk/react-anti-patterns-props-in-initial-state-28687846cc2e
