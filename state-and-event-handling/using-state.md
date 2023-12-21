@@ -147,7 +147,7 @@ If we drop some of the code samples in this section into a fresh Vite-created Re
 | `pieceOfState`                                      | **Replace this** with a name for the piece of state we are managing. Examples include `isCollapsed` or `likesCount`.                                                                                                    |
 | `setPieceOfState`                                   | **Replace this** with a name for `pieceOfState`'s update function. Conventionally, this is named "`set<piece of state>`". Examples include `setIsCollapsed` or `setLikesCount`.                                         |
 | `useState(...);`                                    | We invoke `useState`. This function takes in one argument: an initial value for the piece of state. This value is used _only the first_ time the component renders.                                                                                                                      |
-| `'Initial value for pieceOfState.'`                 | **Replace this** with an initial value for `pieceOfState`. This can be a string, boolean, number, object, etc.                                                                                                          |
+| `'Initial value for pieceOfState.'`                 | **Replace this** with an initial value for `pieceOfState`. This can be a string, boolean, number, object, etc. React also allows for a function reference to be passed, which will only be called during the first render. It's return value is then used as the initial value. |
 
 ### Example: `useState`
 
