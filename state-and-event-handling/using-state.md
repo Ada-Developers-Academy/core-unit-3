@@ -126,6 +126,8 @@ import { useState } from 'react';
 function App() {
     const [pieceOfState, setPieceOfState] = useState('Initial value for pieceOfState.');
 }
+
+export default App;
 ```
 <!-- prettier-ignore-end -->
 
