@@ -131,6 +131,15 @@ export default App;
 ```
 <!-- prettier-ignore-end -->
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-warning
+
+## Ignore ESLint errors in snippets
+
+If we drop some of the code samples in this section into a fresh Vite-created React application, we'll see errors underlining the destructured variables. The default ESLint rules used by Vite report errors for unused variables, and in these brief examples not all of the variables are used. It's safe to ignore those errors when they appear in sample code, but we should be sure to fix them in real application code.
+
+### !end-callout
+
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                                                                                                   |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `import { useState } from "react";`                 | In order to use `useState`, our code must import `useState` from React. This syntax uses object destructuring.                                                                                                          |
