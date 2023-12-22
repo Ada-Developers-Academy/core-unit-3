@@ -350,7 +350,19 @@ This line is in the `Student` component function, before the return statement:
 ```
 <!-- prettier-ignore-end -->
 
-### 2. Create the Toggle Presence Button in `Student`
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-warning
+
+## State representing application data rarely lives in UI components
+
+In the next topic, we'll look more critically about where the pieces of state should be stored in a React application. For now, we're keeping things more basic by having the state live near the events that modify it, but soon we'll see that this is atypical.
+
+<br />
+
+Because of how `props` flow down the React component tree, we'll find that state more commonly lives near the *top* of the application. We'll be moving this state shortly!
+
+### !end-callout
+
 
 Sofia updates the returned JSX in `Student`. She adds this `<button>` just after the `</ul>` tag, with an appropriate label.
 
