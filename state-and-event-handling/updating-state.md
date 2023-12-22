@@ -662,5 +662,13 @@ Create a generic list of steps we can follow to add event-handling to _any_ comp
 1. In the component, import...
 
 ##### !end-placeholder
+##### !explanation
+
+1. If the effect of the event will be to cause a state change that will be reflected in the UI, add a piece of state to the application to track it.
+   1. Perform a calculation using the state data in some way to effect the desired change in the UI.
+2. Add an event handler that updates the piece of state or carries out any other desired action in response to the event.
+3. Set the event handler for the appropriate event on the desired element. For example, use it for the `onClick` of a `button` or other element.
+
+##### !end-explanation
 ### !end-challenge
 <!-- prettier-ignore-end -->
