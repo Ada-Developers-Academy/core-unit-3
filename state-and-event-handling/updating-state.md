@@ -423,6 +423,32 @@ She modifies her `<button>` JSX to include this click event listener:
 ```
 <!-- prettier-ignore-end -->
 
+
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## An opportunity to practice function-passing style updates!
+
+After completing this lesson, consider refactoring the `togglePresence` function to use a function-passing style call to `setIsPresent`.
+
+<br />
+
+<details>
+
+<summary>Click here to see our refactor.</summary>
+
+```js
+    const togglePresence = () => {
+        setIsPresent(isPresent => !isPresent);
+    };
+```
+
+<br />
+
+Notice that the only change we needed to make was to add the `isPresent =>`, converting the expression into an anonymous arrow function. Recall that for arrow functions, a body made of a single expression is implicitly returned..
+
+### !end-callout
+
 ### 5. Modify the JSX to Use Conditional CSS Classes
 
 Now, Sofia needs to conditionally select which CSS class to apply to the student's name.
