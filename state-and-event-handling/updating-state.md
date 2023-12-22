@@ -117,6 +117,114 @@ Clicking on the "like" button four more times continues to update the component 
 ![An app that reads "The number of likes is 5." and a "like" button. The browser Dev Tools are open. The console reads "We're inside increaseLikes!" with a count of 5 beside.](../assets/state-and-event-handling_updating-state_five-likes.png)  
 _Fig. The like count is up to five, and the console message was also printed 5 times, denoted by the 5 beside it._
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## We can pass functions to React update methods
+
+If we closely review the default `App.jsx` that Vite provides in a new application, we'll see a slightly different way to make use of the update method for a piece of state, one that that involves passing a function reference rather than a value to the update method.
+
+<br />
+
+To summarize the discussion, it's a little less confusing to use our update functions with a value, as shown in the example above. However, it's a little safer to call update methods as shown by the Vite template code (passing a function). We can use the value-passing style shown above as we're gaining comfort with React overall, but we should look for opportunities to practice using the function-passing style discussed here to write more robust code.
+
+<br />
+
+<details>
+
+<summary>Expand this section for a look at the function-passing approach.</summary>
+
+<br /> 
+
+The code in question is in the default Vite-supplied `App.jsx`
+
+```js
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    /* markup omitted */
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+    /* markup omitted */
+  );
+};
+
+export default App;
+```
+
+<br /> 
+
+One difference we observe is that an anonymous method is being supplied as the `onClick` handler. We've seen this before, being more a choice of style when the logic of our handler is very short, rather than a difference of substance. Instead, we can focus on the call to `setCount` as compared to the call to `setLikesCount` in our example above.
+
+<br />
+
+In the case of `setLikesCount`, we passed the result of a calculation, that of adding `1` to the current value of `likesCount`. This yields a number, which is passed to `setLikesCount` and will update the value of our piece of state. Note, this does *not* update the value of `likesCount`. It updates the piece of state from which `likesCount` was initialized during the current render. `likesCount` will not appear to change until after the event handler completes, React re-renders the component, and the updated value of the piece of state is assigned to `likesCount` when the  `useState` assignment runs again.
+
+<br />
+
+In the Vite-supplied call to `setCount` we are *not* passing a number, we are passing a function. It happens to be anonymous (not a requirement), has one parameter `count` and returns (implicitly, due to arrow function semantics) the result of adding `1` to the `count` parameter. The value passed in for the parameter (the name did not need to be `count`, but it's not uncommon to use the same name for the parameter as the variable we used in the `useState` destructuring assignment) is the current value of the piece of state this update function `setCount` is related to, *not* the value it had at the time of the most recent render. The value we return is used to update the value of the piece of state. As with `setLikesCount` above, this will not immediately update the `count` destructured variable. But *unlike* with `setLikesCount`, this updated value *would* be passed in to any other function-based calls to `setCount`.
+
+<br />
+
+For simple cases like these examples, there won't be much difference in how these two calling styles behave. However, in more complex scenarios where a single piece of state ends up being updated multiple times in the same area of logic, or if asynchronous API calls result in the possibility of additional renders occurring between when the API call started and when it completes, then the function style is preferred.
+
+<br />
+
+
+Consider the following examples and compare their results.
+
+```js
+// value-passing style
+// assume likesCount started the current render with a value of 1
+
+// sets the piece of state value to 2, likesCount is still 1
+setLikesCount(likesCount + 1);
+
+// sets the piece of state value to 2, likesCount is still 1
+setLikesCount(likesCount + 1);
+
+// sets the piece of state value to 2, likesCount is still 1
+setLikesCount(likesCount + 1);
+
+// after this code, React will re-render, and likesCount
+// will get the value 2 at its useState assignment.
+```
+
+```js
+// function-passing style
+// assume count started the current render with a value of 1
+
+// sets the piece of state value to 2, count is still 1
+setCount(count => count + 1);
+
+// sets the piece of state value to 3, count is still 1
+setCount(count => count + 1);
+
+// sets the piece of state value to 4, count is still 1
+setCount(count => count + 1);
+
+// after this code, React will re-render, and count
+// will get the value 4 at its useState assignment.
+```
+
+<br />
+
+Since `likesCount` only gets updated at the `useState` assignment, each of the `likesCount + 1` expressions evaluates to `1 + 1` each time, resulting in calling `setLikesCount(2)` three times. This has the effect of setting the value of the piece of state to `2`. This will cause the component to re-render after our code has completed, and finally, `likesCount` will get the value `2` from the piece of state on that render.
+
+<br />
+
+On the other hand, the `count` parameter to the anonymous functions is *not* the same `count` as the variable that was assigned at its `useState` call. It's a parameter that receives the current value of its piece of state. In the first call, the piece of state is still `1`, still agreeing with the value of the `count` variable anywhere else it might appear in the code emitted during the current render. In the second call, the piece of state has already been set to `2` (the return value from the previous call), so `2` is the value received by the `count` parameter, with `3` being returned. And in the third call, `3` is passed in, and `4` is returned, updating the piece of state value accordingly. So at the end of these three calls, the `count` variable would *still* have the value `1`, while the piece of state itself has been updated to `4`. On the render that runs after our code completes, the `count` variable will get the updated value.
+
+<br />
+
+In general, there's very little reason *not* to use the Vite style (function style) other than it taking a little more time to become comfortable with the syntax. For that reason, we can continue to use the value-based approach for the time being, but we should make sure we at least recognize the function-based approach as well, and gradually start practicing it so that we can use it ourselves.
+
+</details>
+
+### !end-callout
+
 ### Seeing Multiple `Post`s Manage Their Own State
 
 Each instance of a component manages its own state, separate from other components.
