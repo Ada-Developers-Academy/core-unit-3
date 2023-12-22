@@ -333,6 +333,7 @@ If we were working with Sofia on this project, we might provide feedback that wh
 
 ### !end-callout
 
+### 2. Create `isPresent` State in `Student`
 
 In `src/components/Student.js`, Sofia adds these two lines to create `isPresent` state:
 
@@ -363,6 +364,7 @@ Because of how `props` flow down the React component tree, we'll find that state
 
 ### !end-callout
 
+### 3. Create the Toggle Presence Button in `Student`
 
 Sofia updates the returned JSX in `Student`. She adds this `<button>` just after the `</ul>` tag, with an appropriate label.
 
@@ -399,7 +401,7 @@ To deal with the enclosing tag requirement, Sofia decides to wrap the `Student` 
     );
 ```
 
-### 3. Create the Event Handler
+### 4. Create the Event Handler
 
 Sofia now creates the event handler, which updates the `isPresent` state. This function is in the `Student` component function, before the return statement.
 
@@ -412,7 +414,7 @@ Sofia now creates the event handler, which updates the `isPresent` state. This f
 ```
 <!-- prettier-ignore-end -->
 
-#### 4. Attach the Event Handler to the Button
+#### Attach the Event Handler to the Button
 
 She modifies her `<button>` JSX to include this click event listener:
 
