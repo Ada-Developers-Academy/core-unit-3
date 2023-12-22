@@ -126,17 +126,28 @@ import { useState } from 'react';
 function App() {
     const [pieceOfState, setPieceOfState] = useState('Initial value for pieceOfState.');
 }
+
+export default App;
 ```
 <!-- prettier-ignore-end -->
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-warning
+
+## Ignore ESLint errors in snippets
+
+If we drop some of the code samples in this section into a fresh Vite-created React application, we'll see errors underlining the destructured variables. The default ESLint rules used by Vite report errors for unused variables, and in these brief examples not all of the variables are used. It's safe to ignore those errors when they appear in sample code, but we should be sure to fix them in real application code.
+
+### !end-callout
+
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                                                                                                                                   |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `import { useState } from "react";`                 | In order to use `useState`, our code must import `useState` from React. This syntax uses object destructuring.                                                                                                          |
+| `import { useState } from 'react';`                 | In order to use `useState`, our code must import `useState` from React. This syntax uses object destructuring to extract a reference to the `useState` function from the `react` library. |
 | `const [..., ...] =`                                | This is the syntax for array [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). This single line of code will assign a value to two variables. |
 | `pieceOfState`                                      | **Replace this** with a name for the piece of state we are managing. Examples include `isCollapsed` or `likesCount`.                                                                                                    |
 | `setPieceOfState`                                   | **Replace this** with a name for `pieceOfState`'s update function. Conventionally, this is named "`set<piece of state>`". Examples include `setIsCollapsed` or `setLikesCount`.                                         |
 | `useState(...);`                                    | We invoke `useState`. This function takes in one argument: an initial value for the piece of state. This value is used _only the first_ time the component renders.                                                                                                                      |
-| `'Initial value for pieceOfState.'`                 | **Replace this** with an initial value for `pieceOfState`. This can be a string, boolean, number, object, etc.                                                                                                          |
+| `'Initial value for pieceOfState.'`                 | **Replace this** with an initial value for `pieceOfState`. This can be a string, boolean, number, object, etc. React also allows for a function reference to be passed, which will only be called during the first render. It's return value is then used as the initial value. |
 
 ### Example: `useState`
 
