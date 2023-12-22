@@ -621,6 +621,28 @@ Create a list of steps or pseudocode to implement this feature in `Temperature`.
 1. In the Temperature component, import...
 
 ##### !end-placeholder
+##### !explanation
+
+Possible steps:
+1. Create a style file `Temperature.css` to hold the styles for the component
+   1. Add a class selector called `.hot` with a rule to set the `color` to `red`.
+   2. Add a class selector called `.cold` with a rule to set the `color` to `blue`.
+2. Create a component file `Temperature.jsx` to hold the implementation of the component.
+   1. Declare the `Temperature` component as an arrow function accepting no parameters (we don't yet have a `props` requirement).
+   2. Use `useState` (after importing it from `react`) to create a piece of state called `temp`, its update function called `setTemp`, with an initial value of `0`.
+   3. Add a `return` statement with the component layout expressed as JSX. Key markup includes:
+      1. A `button` labeled `Warm` where we will attach a click handler
+      2. A `span` (or other HTML element) where we will attach the appropriate style based on the temperature value which will display the current temperature value as its contents by using `{}` notation to access the `temp` variable.
+      3. An enclosing tag or `Fragment` so that the JSX has a single root element.
+   4. Add an event handler function `warmClicked`.
+      1. In the body, use `setTemp` to increase the value of `temp` by `1`. This can be done either using value-passing `setTemp(temp + 1);` or function passing `setTemp(temp => temp + 1);`.
+   5. Set `warmClicked` as the handler for the `onClick` attribute of the `Warm` button.
+   6. Add a local `const` variable to the component function `tempStyle` which will get the value `"cold"` if `temp` is less than or equal to `32`, otherwise `"hot"`.
+   7. Set the `className` of the `span` to read from the `tempStyle` variable.
+
+Try creating a new empty React application and implementing this functionality!
+
+##### !end-explanation
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
