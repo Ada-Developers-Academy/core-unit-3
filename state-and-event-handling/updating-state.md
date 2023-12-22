@@ -324,7 +324,15 @@ In `src/components/Student.css`, Sofia adds these two classes:
 }
 ```
 
-### Create `isPresent` State in `Student`
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-warning
+
+## Prefer style names that describe their role, not their appearance
+
+If we were working with Sofia on this project, we might provide feedback that while the CSS class names `green` and `red` are descriptive, what they describe is the appearance itself rather than the reason for applying them to an element. Names more descriptive of their role in the application might be `present` and `absent`, rather than `green` and `red`.
+
+### !end-callout
+
 
 In `src/components/Student.js`, Sofia adds these two lines to create `isPresent` state:
 
