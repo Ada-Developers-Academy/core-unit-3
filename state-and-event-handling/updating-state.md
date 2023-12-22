@@ -41,7 +41,19 @@ Recall that pieces of state are responsible for managing how one piece of the co
 
 ## Working With State and Re-Rendering
 
-Re-rendering a component is hard work! Firstly, setting state is _asynchronous_. Secondly, to repeat, _every time that state updates, the component re-renders_. These two facts will aid us when debugging state.
+Wrapping our heads around state and rendering can be challenging!
+
+<br />
+
+Firstly, setting state is _asynchronous_. Not asynchronous in exactly the same way as making `axios` calls, but asynchronous in the sense that setting the value won't be visible to our logic until after React re-renders. For example, logging the value of a piece of state variable immediately after calling its set function will look like nothing has changed, because it hasn't. And it won't until React re-renders.
+
+<br />
+
+Secondly, to repeat, _updating state causes a component to re-render_, but not until our logic completes. If we update multiple pieces of state, the component will not get to render until our code that contained those updates fully completes. Each time the component re-renders, any values and functions defined within the component will be re-initialized. Only values read from state persist between the renders.
+
+<br />
+
+Remembering these two facts will aid us when debugging state. After we become comfortable with these ideas, our debugging of React code will be much less confusing, though this will take time. Be patient!
 
 ### !end-callout
 
