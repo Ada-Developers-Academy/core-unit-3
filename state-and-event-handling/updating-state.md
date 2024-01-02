@@ -45,7 +45,7 @@ Wrapping our heads around state and rendering can be challenging!
 
 <br />
 
-Firstly, setting state is _asynchronous_. Not asynchronous in exactly the same way as making `axios` calls, but asynchronous in the sense that setting the value won't be visible to our logic until after React re-renders. For example, logging the value of a piece of state variable immediately after calling its set function will look like nothing has changed, because it hasn't. And it won't until React re-renders.
+Firstly, setting state is _asynchronous_. Not asynchronous in exactly the same way as making `axios` calls, but asynchronous in the sense that [setting the value won't be visible to our logic until after React re-renders](https://react.dev/reference/react/useState#ive-updated-the-state-but-logging-gives-me-the-old-value). For example, logging the value of a piece of state variable immediately after calling its set function will look like nothing has changed, because it hasn't. And it won't until React re-renders.
 
 <br />
 
@@ -447,7 +447,7 @@ After completing this lesson, consider refactoring the `togglePresence` function
 
 <br />
 
-Notice that the only change we needed to make was to add the `isPresent =>`, converting the expression into an anonymous arrow function. Recall that for arrow functions, a body made of a single expression is implicitly returned..
+Notice that the only change we needed to make was to add the `isPresent =>`, converting the expression into an anonymous arrow function. Recall that for arrow functions, a body made of a single expression is implicitly returned.
 
 ### !end-callout
 
