@@ -41,7 +41,19 @@ Recall that pieces of state are responsible for managing how one piece of the co
 
 ## Working With State and Re-Rendering
 
-Re-rendering a component is hard work! Firstly, setting state is _asynchronous_. Secondly, to repeat, _every time that state updates, the component re-renders_. These two facts will aid us when debugging state.
+Wrapping our heads around state and rendering can be challenging!
+
+<br />
+
+Firstly, setting state is _asynchronous_. Not asynchronous in exactly the same way as making `axios` calls, but asynchronous in the sense that [setting the value won't be visible to our logic until after React re-renders](https://react.dev/reference/react/useState#ive-updated-the-state-but-logging-gives-me-the-old-value). For example, logging the value of a piece of state variable immediately after calling its set function will look like nothing has changed, because it hasn't. And it won't until React re-renders.
+
+<br />
+
+Secondly, to repeat, _updating state causes a component to re-render_, but not until our logic completes. If we update multiple pieces of state, the component will not get to render until our code that contained those updates fully completes. Each time the component re-renders, any values and functions defined within the component will be re-initialized. Only values read from state persist between the renders.
+
+<br />
+
+Remembering these two facts will aid us when debugging state. After we become comfortable with these ideas, our debugging of React code will be much less confusing, though this will take time. Be patient!
 
 ### !end-callout
 
@@ -104,6 +116,114 @@ Clicking on the "like" button four more times continues to update the component 
 
 ![An app that reads "The number of likes is 5." and a "like" button. The browser Dev Tools are open. The console reads "We're inside increaseLikes!" with a count of 5 beside.](../assets/state-and-event-handling_updating-state_five-likes.png)  
 _Fig. The like count is up to five, and the console message was also printed 5 times, denoted by the 5 beside it._
+
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## We can pass functions to React update methods
+
+If we closely review the default `App.jsx` that Vite provides in a new application, we'll see a slightly different way to make use of the update method for a piece of state, one that that involves passing a function reference rather than a value to the update method.
+
+<br />
+
+To summarize the discussion, it's a little less confusing to use our update functions with a value, as shown in the example above. However, it's a little safer to call update methods as shown by the Vite template code (passing a function). We can use the value-passing style shown above as we're gaining comfort with React overall, but we should look for opportunities to practice using the function-passing style discussed here to write more robust code.
+
+<br />
+
+<details>
+
+<summary>Expand this section for a look at the function-passing approach.</summary>
+
+<br /> 
+
+The code in question is in the default Vite-supplied `App.jsx`
+
+```js
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    /* markup omitted */
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+    /* markup omitted */
+  );
+};
+
+export default App;
+```
+
+<br /> 
+
+One difference we observe is that an anonymous method is being supplied as the `onClick` handler. We've seen this before, being more a choice of style when the logic of our handler is very short, rather than a difference of substance. Instead, we can focus on the call to `setCount` as compared to the call to `setLikesCount` in our example above.
+
+<br />
+
+In the case of `setLikesCount`, we passed the result of a calculation, that of adding `1` to the current value of `likesCount`. This yields a number, which is passed to `setLikesCount` and will update the value of our piece of state. Note, this does *not* update the value of `likesCount`. It updates the piece of state from which `likesCount` was initialized during the current render. `likesCount` will not appear to change until after the event handler completes, React re-renders the component, and the updated value of the piece of state is assigned to `likesCount` when the  `useState` assignment runs again.
+
+<br />
+
+In the Vite-supplied call to `setCount` we are *not* passing a number, we are passing a function. It happens to be anonymous (not a requirement), has one parameter `count` and returns (implicitly, due to arrow function semantics) the result of adding `1` to the `count` parameter. The value passed in for the parameter (the name did not need to be `count`, but it's not uncommon to use the same name for the parameter as the variable we used in the `useState` destructuring assignment) is the current value of the piece of state this update function `setCount` is related to, *not* the value it had at the time of the most recent render. The value we return is used to update the value of the piece of state. As with `setLikesCount` above, this will not immediately update the `count` destructured variable. But *unlike* with `setLikesCount`, this updated value *would* be passed in to any other function-based calls to `setCount`.
+
+<br />
+
+For simple cases like these examples, there won't be much difference in how these two calling styles behave. However, in more complex scenarios where a single piece of state ends up being updated multiple times in the same area of logic, or if asynchronous API calls result in the possibility of additional renders occurring between when the API call started and when it completes, then the function style is preferred.
+
+<br />
+
+
+Consider the following examples and compare their results.
+
+```js
+// value-passing style
+// assume likesCount started the current render with a value of 1
+
+// sets the piece of state value to 2, likesCount is still 1
+setLikesCount(likesCount + 1);
+
+// sets the piece of state value to 2, likesCount is still 1
+setLikesCount(likesCount + 1);
+
+// sets the piece of state value to 2, likesCount is still 1
+setLikesCount(likesCount + 1);
+
+// after this code, React will re-render, and likesCount
+// will get the value 2 at its useState assignment.
+```
+
+```js
+// function-passing style
+// assume count started the current render with a value of 1
+
+// sets the piece of state value to 2, count is still 1
+setCount(count => count + 1);
+
+// sets the piece of state value to 3, count is still 1
+setCount(count => count + 1);
+
+// sets the piece of state value to 4, count is still 1
+setCount(count => count + 1);
+
+// after this code, React will re-render, and count
+// will get the value 4 at its useState assignment.
+```
+
+<br />
+
+Since `likesCount` only gets updated at the `useState` assignment, each of the `likesCount + 1` expressions evaluates to `1 + 1` each time, resulting in calling `setLikesCount(2)` three times. This has the effect of setting the value of the piece of state to `2`. This will cause the component to re-render after our code has completed, and finally, `likesCount` will get the value `2` from the piece of state on that render.
+
+<br />
+
+On the other hand, the `count` parameter to the anonymous functions is *not* the same `count` as the variable that was assigned at its `useState` call. It's a parameter that receives the current value of its piece of state. In the first call, the piece of state is still `1`, still agreeing with the value of the `count` variable anywhere else it might appear in the code emitted during the current render. In the second call, the piece of state has already been set to `2` (the return value from the previous call), so `2` is the value received by the `count` parameter, with `3` being returned. And in the third call, `3` is passed in, and `4` is returned, updating the piece of state value accordingly. So at the end of these three calls, the `count` variable would *still* have the value `1`, while the piece of state itself has been updated to `4`. On the render that runs after our code completes, the `count` variable will get the updated value.
+
+<br />
+
+In general, there's very little reason *not* to use the Vite style (function style) other than it taking a little more time to become comfortable with the syntax. For that reason, we can continue to use the value-based approach for the time being, but we should make sure we at least recognize the function-based approach as well, and gradually start practicing it so that we can use it ourselves.
+
+</details>
+
+### !end-callout
 
 ### Seeing Multiple `Post`s Manage Their Own State
 
@@ -204,7 +324,16 @@ In `src/components/Student.css`, Sofia adds these two classes:
 }
 ```
 
-### Create `isPresent` State in `Student`
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-warning
+
+## Prefer style names that describe their role, not their appearance
+
+If we were working with Sofia on this project, we might provide feedback that while the CSS class names `green` and `red` are descriptive, what they describe is the appearance itself rather than the reason for applying them to an element. Names more descriptive of their role in the application might be `present` and `absent`, rather than `green` and `red`.
+
+### !end-callout
+
+### 2. Create `isPresent` State in `Student`
 
 In `src/components/Student.js`, Sofia adds these two lines to create `isPresent` state:
 
@@ -222,7 +351,20 @@ This line is in the `Student` component function, before the return statement:
 ```
 <!-- prettier-ignore-end -->
 
-### 2. Create the Toggle Presence Button in `Student`
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-warning
+
+## State representing application data rarely lives in UI components
+
+In the next topic, we'll look more critically about where the pieces of state should be stored in a React application. For now, we're keeping things more basic by having the state live near the events that modify it, but soon we'll see that this is atypical.
+
+<br />
+
+Because of how `props` flow down the React component tree, we'll find that state more commonly lives near the *top* of the application. We'll be moving this state shortly!
+
+### !end-callout
+
+### 3. Create the Toggle Presence Button in `Student`
 
 Sofia updates the returned JSX in `Student`. She adds this `<button>` just after the `</ul>` tag, with an appropriate label.
 
@@ -259,7 +401,7 @@ To deal with the enclosing tag requirement, Sofia decides to wrap the `Student` 
     );
 ```
 
-### 3. Create the Event Handler
+### 4. Create the Event Handler
 
 Sofia now creates the event handler, which updates the `isPresent` state. This function is in the `Student` component function, before the return statement.
 
@@ -272,7 +414,7 @@ Sofia now creates the event handler, which updates the `isPresent` state. This f
 ```
 <!-- prettier-ignore-end -->
 
-#### 4. Attach the Event Handler to the Button
+#### Attach the Event Handler to the Button
 
 She modifies her `<button>` JSX to include this click event listener:
 
@@ -282,6 +424,32 @@ She modifies her `<button>` JSX to include this click event listener:
     <button onClick={togglePresence}>Toggle if {props.name} is present</button>
 ```
 <!-- prettier-ignore-end -->
+
+
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## An opportunity to practice function-passing style updates!
+
+After completing this lesson, consider refactoring the `togglePresence` function to use a function-passing style call to `setIsPresent`.
+
+<br />
+
+<details>
+
+<summary>Click here to see our refactor.</summary>
+
+```js
+    const togglePresence = () => {
+        setIsPresent(isPresent => !isPresent);
+    };
+```
+
+<br />
+
+Notice that the only change we needed to make was to add the `isPresent =>`, converting the expression into an anonymous arrow function. Recall that for arrow functions, a body made of a single expression is implicitly returned.
+
+### !end-callout
 
 ### 5. Modify the JSX to Use Conditional CSS Classes
 
@@ -453,6 +621,28 @@ Create a list of steps or pseudocode to implement this feature in `Temperature`.
 1. In the Temperature component, import...
 
 ##### !end-placeholder
+##### !explanation
+
+Possible steps:
+1. Create a style file `Temperature.css` to hold the styles for the component
+   1. Add a class selector called `.hot` with a rule to set the `color` to `red`.
+   2. Add a class selector called `.cold` with a rule to set the `color` to `blue`.
+2. Create a component file `Temperature.jsx` to hold the implementation of the component.
+   1. Declare the `Temperature` component as an arrow function accepting no parameters (we don't yet have a `props` requirement).
+   2. Use `useState` (after importing it from `react`) to create a piece of state called `temp`, its update function called `setTemp`, with an initial value of `0`.
+   3. Add a `return` statement with the component layout expressed as JSX. Key markup includes:
+      1. A `button` labeled `Warm` where we will attach a click handler
+      2. A `span` (or other HTML element) where we will attach the appropriate style based on the temperature value which will display the current temperature value as its contents by using `{}` notation to access the `temp` variable.
+      3. An enclosing tag or `Fragment` so that the JSX has a single root element.
+   4. Add an event handler function `warmClicked`.
+      1. In the body, use `setTemp` to increase the value of `temp` by `1`. This can be done either using value-passing `setTemp(temp + 1);` or function passing `setTemp(temp => temp + 1);`.
+   5. Set `warmClicked` as the handler for the `onClick` attribute of the `Warm` button.
+   6. Add a local `const` variable to the component function `tempStyle` which will get the value `"cold"` if `temp` is less than or equal to `32`, otherwise `"hot"`.
+   7. Set the `className` of the `span` to read from the `tempStyle` variable.
+
+Try creating a new empty React application and implementing this functionality!
+
+##### !end-explanation
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
@@ -472,5 +662,13 @@ Create a generic list of steps we can follow to add event-handling to _any_ comp
 1. In the component, import...
 
 ##### !end-placeholder
+##### !explanation
+
+1. If the effect of the event will be to cause a state change that will be reflected in the UI, add a piece of state to the application to track it.
+   1. Perform a calculation using the state data in some way to effect the desired change in the UI.
+2. Add an event handler that updates the piece of state or carries out any other desired action in response to the event.
+3. Set the event handler for the appropriate event on the desired element. For example, use it for the `onClick` of a `button` or other element.
+
+##### !end-explanation
 ### !end-challenge
 <!-- prettier-ignore-end -->
