@@ -99,19 +99,75 @@ export default App;
 ```css
 .App-header {
   background-color: #222;
-  padding-bottom: 0.5rem;
+  padding-top: 7rem;
+  padding-bottom: 1rem;
   color: white;
   width: 100%;
+  margin: 0rem;
 }
-
+​
 .App-title {
   text-align: center;
   font-size: 1.5em;
 }
-
+​
 .App-main {
-  padding-top: 7rem;
   background-color: #e6ecf0;
+}
+```
+
+</details>
+
+<details>
+
+<summary>
+    Replace your <code>src/index.css</code> with this
+</summary>
+
+```css
+:root {
+  font-family: sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+​
+body {
+  margin: 0;
+}
+```
+
+</details>
+
+<details>
+
+<summary>
+    Replace your <code>.eslintrc.cjs</code> with this
+</summary>
+
+```json
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
+  ],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  settings: { react: { version: '18.2' } },
+  plugins: ['react-refresh'],
+  rules: {
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
+    'semi': ['warn', 'always'], // added semicolon warning
+  },
 }
 ```
 
