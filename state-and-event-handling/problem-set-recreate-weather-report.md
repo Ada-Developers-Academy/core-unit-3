@@ -7,7 +7,7 @@ Create a small, practice React app named `react-weather-report`.
 Run this command to create this practice project.
 
 ```
-$ npx create-react-app react-weather-report
+$ npm create -y vite@latest react-weather-report -- --template react
 ```
 
 Change into this directory, and run the server.
@@ -34,3 +34,14 @@ When the temperature displayed is within certain ranges, the color of the temper
 | 15-19           | 60-69           | Yellow |
 | 10-14           | 50-59           | Green  |
 | 9 or below      | 49 or below     | Teal   |
+
+<br />
+
+<details>
+
+<summary>Here's an example solution for review after completing the problem set</summary>
+
+[React Weather Report Problem Set Solution](https://github.com/AdaAnswers/react-weather-report)
+
+It's ok if this solution looks different than what you came up with. Consider discussing your approach with a classmate to see how others tackled this problem set.
+</details>
