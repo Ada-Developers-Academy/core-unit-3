@@ -7,7 +7,7 @@ Create a small, practice React app named `react-weather-report`.
 Run this command to create this practice project.
 
 ```
-$ npx create-react-app react-weather-report
+$ npm create -y vite@latest react-weather-report -- --template react
 ```
 
 Change into this directory, and run the server.
