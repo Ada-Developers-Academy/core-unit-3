@@ -172,8 +172,8 @@ Let's use the Dev Tools to inspect the state and `props` of Sofia's current web 
 
 After installing the React Dev Tools, we can visit our running React app at `localhost:5173`. Clicking on the "React Developer Tools" extension icon, a prompt reminds us that in order to access the extension functionality, we need to "Open the developer tools, and "Components" and "Profiler" tabs will appear to the right."
 
-![Web browser displaying Sofia's attendance app and a status message after clicking the React Developer Tools. It reads: Open the developer tools, and "Components" and "Profiler" tabs will appear to the right.](../assets/lifting-state-up_inspecting-react-state_extension-modal.png)  
-_Fig. React Develop Tools extension telling us to access its functionality through the developer tools_
+![The usage message displayed after clicking the React Developer Tools extension icon. It reads: Open the developer tools, and "Components" and "Profiler" tabs will appear to the right.](../assets/lifting-state-up_inspecting-react-state_extension-modal.png)  
+_Fig. React Developer Tools extension telling us to access its functionality through the developer tools_
 
 When we open our Dev Tools, we can indeed see the new tabs, "Components" and "Profiler."
 
