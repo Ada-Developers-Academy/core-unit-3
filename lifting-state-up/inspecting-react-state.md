@@ -175,7 +175,9 @@ After installing the React Dev Tools, we can visit our running React app at `loc
 ![The usage message displayed after clicking the React Developer Tools extension icon. It reads: Open the developer tools, and "Components" and "Profiler" tabs will appear to the right.](../assets/lifting-state-up_inspecting-react-state_extension-modal.png)  
 _Fig. React Developer Tools extension telling us to access its functionality through the developer tools_
 
-When we open our Dev Tools, we can indeed see the new tabs, "Components" and "Profiler."
+When we open our Dev Tools, we can indeed see the new tabs, "Components" and "Profiler." If they are not immediately visible, then we might not have the correct browser location open (verify the browser is open to a running React application), or the additional tabs may be grouped under the overflow tab group, usually displayed as a double right chevron `»`.
+
+Going forward, we can always start using the React Developer Tools through the Dev Tools. There's not really any reason we will need to access the React Developer Tools extension icon itself.
 
 ![The list of tabs available in the developer tools, which now includes Components and Profiler from the React Developer Tools.](../assets/lifting-state-up_inspecting-react-state_components-profile-tabs.png)  
 _Fig. React Developer Tools added to the browser developer tools_
