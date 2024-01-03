@@ -12,7 +12,7 @@ Answer the Check for Understanding questions at the end of this lesson.
 
 Our goal is to create a social media web app. In this web app, there is a timeline, which lists many timeline events. Timeline events are small posts that include a status message, an author, and a timestamp.
 
-![Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has the timestamp "3 days ago." They also include a person's name and a status message.](../assets/props_problem-set-timeline_example.png)  
+![Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has a timestamp, a person's name and a status message.](../assets/props_problem-set-timeline_example.png)  
 _Fig. Social media feed where a few influential folx have come together to share some wisdom!_
 
 This document covers:
@@ -361,7 +361,7 @@ In this assignment, modify the following three components:
 
 The `TimeStamp` component is **_already fully implemented_**. You will _not_ need to modify it during this assignment.
 
-![Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has the timestamp "3 days ago." They also include a person's name and a status message.](../assets/props_problem-set-timeline_example.png)  
+![Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has a timestamp, a person's name and a status message.](../assets/props_problem-set-timeline_example.png)  
 _Fig. The timeline output reproduced here for convenience_
 
 ### `App` Component
