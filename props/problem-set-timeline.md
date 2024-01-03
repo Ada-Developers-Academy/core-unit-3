@@ -12,7 +12,7 @@ Answer the Check for Understanding questions at the end of this lesson.
 
 Our goal is to create a social media web app. In this web app, there is a timeline, which lists many timeline events. Timeline events are small posts that include a status message, an author, and a timestamp.
 
-![Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has the timestamp "3 days ago." They also include a person's name and a status message.](../assets/props_problem-set-timeline_example.png)  
+![Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has a timestamp, a person's name and a status message.](../assets/props_problem-set-timeline_example.png)  
 _Fig. Social media feed where a few influential folx have come together to share some wisdom!_
 
 This document covers:
@@ -99,9 +99,11 @@ export default App;
 ```css
 .App-header {
   background-color: #222;
-  padding-bottom: 0.5rem;
+  padding-top: 7rem;
+  padding-bottom: 1rem;
   color: white;
   width: 100%;
+  margin: 0rem;
 }
 
 .App-title {
@@ -110,8 +112,62 @@ export default App;
 }
 
 .App-main {
-  padding-top: 7rem;
   background-color: #e6ecf0;
+}
+```
+
+</details>
+
+<details>
+
+<summary>
+    Replace your <code>src/index.css</code> with this
+</summary>
+
+```css
+:root {
+  font-family: sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+```
+
+</details>
+
+<details>
+
+<summary>
+    Replace your <code>.eslintrc.cjs</code> with this
+</summary>
+
+```json
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
+  ],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  settings: { react: { version: '18.2' } },
+  plugins: ['react-refresh'],
+  rules: {
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
+    'semi': ['warn', 'always'], // added semicolon warning
+  },
 }
 ```
 
@@ -305,7 +361,7 @@ In this assignment, modify the following three components:
 
 The `TimeStamp` component is **_already fully implemented_**. You will _not_ need to modify it during this assignment.
 
-![Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has the timestamp "3 days ago." They also include a person's name and a status message.](../assets/props_problem-set-timeline_example.png)  
+![Social media timeline web app. The top header reads "Ada Lovelace's social media feed." There are three different timeline events. Each timeline event has a timestamp, a person's name and a status message.](../assets/props_problem-set-timeline_example.png)  
 _Fig. The timeline output reproduced here for convenience_
 
 ### `App` Component
