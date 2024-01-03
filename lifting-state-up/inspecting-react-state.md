@@ -161,7 +161,7 @@ React Developer Tools is a browser extension available for several browsers.
 - [React Developer Tools for Google Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 - [React Developer Tools for Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil)
 
-We can use the browser-specific links above to install the extension our browser. After installing, the extension will appear under the browser Extensions toolbar. If the icon appears in color, this indicates that the extension has detected a React application at the current browser location. A grayed-out icon indicates the browser location does not refer to a React application.
+We can use the browser-specific links above to install the extension to our browser. After installing, the extension will appear under the browser Extensions toolbar. If the icon appears in color, this indicates that the extension has detected a React application at the current browser location. A grayed-out icon indicates the browser location does not refer to a React application.
 
 ![Web browser showing the installed React Developer Tools extension.](../assets/lifting-state-up_inspecting-react-state_extension-active.png)  
 _Fig. React Developer Tools extension visible under the Extensions toolbar. It appears in color, indicating the extension has detected a React application at the current browser location._
