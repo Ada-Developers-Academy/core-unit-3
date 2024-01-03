@@ -105,12 +105,12 @@ export default App;
   width: 100%;
   margin: 0rem;
 }
-​
+
 .App-title {
   text-align: center;
   font-size: 1.5em;
 }
-​
+
 .App-main {
   background-color: #e6ecf0;
 }
@@ -133,7 +133,7 @@ export default App;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-​
+
 body {
   margin: 0;
 }
