@@ -14,7 +14,7 @@ She has been working hard and learning a lot! She has built the following compon
 
 <summary>An <code>App</code> component that holds student data and renders a <code>StudentList</code> component</summary>
 
-`src/App.js`
+`src/App.jsx`
 
 <!-- prettier-ignore-start -->
 ```js
@@ -24,16 +24,16 @@ function App() {
     const studentData = [
         {
             nameData: 'Ada',
-            emailData: 'ada@dev.org'
+            emailData: 'ada@dev.org',
         },
         {
             nameData: 'Soo-ah',
-            emailData: 'sooah@dev.org'
+            emailData: 'sooah@dev.org',
         },
         {
             nameData: 'Chrissy',
-            emailData: 'chrissy@dev.org'
-        }
+            emailData: 'chrissy@dev.org',
+        },
     ];
 
     return (
@@ -54,11 +54,11 @@ export default App;
 
 <summary>A <code>StudentList</code> component that renders a <code>Student</code> component for each student in the student data</summary>
 
-`src/components/StudentList.js`
-
 Notice the PropTypes declared for this component. `StudentList` expects a prop named `students`.
 
 The `students` prop should be an array of objects. Each object in this array should have a `nameData` and an `emailData` field.
+
+`src/components/StudentList.jsx`
 
 <!-- prettier-ignore-start -->
 ```js
@@ -67,7 +67,6 @@ import PropTypes from 'prop-types';
 import Student from './Student';
 
 const StudentList = (props) => {
-
     const studentComponents = props.students.map((student, index) => {
         return (
             <li key={index}>
@@ -78,19 +77,19 @@ const StudentList = (props) => {
 
     return (
         <section>
-            <h2>Student List</h2>
-            <ul>
-                {studentComponents}
-            </ul>
+            <h2 className="student-list__heading">Student List</h2>
+            <ul>{studentComponents}</ul>
         </section>
     );
 };
 
 StudentList.propTypes = {
-    students: PropTypes.arrayOf(PropTypes.shape({
-        nameData: PropTypes.string.isRequired,
-        emailData: PropTypes.string.isRequired
-    }))
+    students: PropTypes.arrayOf(
+        PropTypes.shape({
+            nameData: PropTypes.string.isRequired,
+            emailData: PropTypes.string.isRequired,
+        })
+    ),
 };
 
 export default StudentList;
@@ -103,7 +102,7 @@ export default StudentList;
 
 <summary>A <code>Student</code> component that renders student information, and contains a button that toggles the student's attendance</summary>
 
-`src/components/Student.js`
+`src/components/Student.jsx`
 
 <!-- prettier-ignore-start -->
 ```js
@@ -126,14 +125,16 @@ const Student = (props) => {
                 <li className={nameColor}>Nickname: {props.name}</li>
                 <li>Email: {props.email}</li>
             </ul>
-            <button onClick={togglePresence}>Toggle if {props.name} is present</button>
+            <button onClick={togglePresence}>
+                Toggle if {props.name} is present
+            </button>
         </div>
     );
 };
 
 Student.propTypes = {
     name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired
+    email: PropTypes.string.isRequired,
 };
 
 export default Student;
