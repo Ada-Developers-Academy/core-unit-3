@@ -184,20 +184,20 @@ _Fig. React Developer Tools added to the browser developer tools_
 
 When we view the Components tab, we see the component structure of our web app! We see an `App` component, a `StudentList` component, and three `Student` components.
 
-![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. It shows the component hierarchy. App is at the top. It has StudentList as a child. The StudentList has three Student component children.](../assets/lifting-state-up_inspecting-react-state_components-tab-overview.png)  
+![Sofia's attendance app and the React Developer Tools Components tab. It shows the component hierarchy. App is at the top. It has StudentList as a child. The StudentList has three Student component children.](../assets/lifting-state-up_inspecting-react-state_components-tab-overview.png)  
 _Fig. Component view of Sofia's attendance app_
 
 We can select any of the components. The panels will update to reflect the `props` and state of each component.
 
-![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. The application has been set to show Ada and Chrissy as present, while Soo-ah is still absent. In the the component hierarchy, the first Student component (Ada) is selected. The props display "email: ada@dev.og" and "name: Ada". Under the section titled Hooks, we see a State value set to true.](../assets/lifting-state-up_inspecting-react-state_student-detail.png)  
+![Sofia's attendance app and the React Developer Tools Components tab. The application has been set to show Ada and Chrissy as present, while Soo-ah is still absent. In the the component hierarchy, the first Student component (Ada) is selected. The props display "email: ada@dev.og" and "name: Ada". Under the section titled Hooks, we see a State value set to true.](../assets/lifting-state-up_inspecting-react-state_student-detail.png)  
 _Fig. Displaying the `props` and state of the component holding Ada's data. Notice that React doesn't actually know the name of the state variable. It only knows that there is a state value set to true._
 
 We can use the arrows to expand or collapse the different pieces of information.
 
-![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. All three students are absent. In the the component hierarchy, the StudentList component is selected. The value of the students prop is heavily condensed, and a message is displayed that we can Expand prop value.](../assets/lifting-state-up_inspecting-react-state_studentlist-expand-tooltip.png)  
+![Sofia's attendance app and the React Developer Tools Components tab. All three students are absent. In the the component hierarchy, the StudentList component is selected. The value of the students prop is heavily condensed, and a message is displayed that we can Expand prop value.](../assets/lifting-state-up_inspecting-react-state_studentlist-expand-tooltip.png)  
 _Fig. The `students` prop in the `StudentList` component is collapsed_
 
-![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. All three students are absent. In the the component hierarchy, the StudentList component is selected. The students prop was expanded by clicking the arrow to the left of the label. The full JavaScript object data for the three students: Ada, Soo-ah, and Chrissy, is displayed.](../assets/lifting-state-up_inspecting-react-state_studentlist-expanded.png)  
+![Sofia's attendance app and the React Developer Tools Components tab. All three students are absent. In the the component hierarchy, the StudentList component is selected. The students prop was expanded by clicking the arrow to the left of the label. The full JavaScript object data for the three students: Ada, Soo-ah, and Chrissy, is displayed, though the data for Chrissy is beyond the bottom of the scroll region.](../assets/lifting-state-up_inspecting-react-state_studentlist-expanded.png)  
 _Fig. The `students` prop in the `StudentList` component is expanded_
 
 After playing around with these Dev Tools, we can observe:
@@ -205,7 +205,7 @@ After playing around with these Dev Tools, we can observe:
 - When we press the attendance button, the styles indeed change...
 - But our student data does not!
 
-![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. All three students are absent. In the the component hierarchy, the StudentList component is selected, with its students prop expanded. The application has been configured to show Ada and Chrissy as present, but data stored in the students prop looks the same.](../assets/lifting-state-up_inspecting-react-state_unchanged-student-data.png)  
+![Sofia's attendance app and the React Developer Tools Components tab. All three students are absent. In the the component hierarchy, the StudentList component is selected, with its students prop expanded. The application has been configured to show Ada and Chrissy as present, but data stored in the students prop looks the same.](../assets/lifting-state-up_inspecting-react-state_unchanged-student-data.png)  
 _Fig. Changes to the `isPresent` status of each `Student` component have no effect on the original data_
 
 Sofia would like any user interactions to actually update the student data.
