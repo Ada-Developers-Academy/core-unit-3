@@ -243,3 +243,62 @@ Our goal is to ensure that `App` is managing each student's `isPresent` data.
 Whenever we need to remember what we're doing and why during this process, we should recall this bigger picture.
 
 ### !end-callout
+
+<!-- >>>>>>>>>>>>>>>>>>>>>> BEGIN CHALLENGE >>>>>>>>>>>>>>>>>>>>>> -->
+
+### !challenge
+
+* type: multiple-choice
+* id: ec3596bc-ef20-4eef-a5cf-17b1ad82a3e7
+* title: Inspecting React State
+
+##### !question
+
+The React Developer Tools are
+
+##### !end-question
+
+##### !options
+
+a| a VS Code extension to help us write clean JSX and use hooks appropriately
+b| a browser extension to help us debug our component hierarchy and state
+c| a development environment with tools to visually design React applications
+
+##### !end-options
+
+##### !answer
+
+b|
+
+##### !end-answer
+
+### !end-challenge
+
+<!-- ======================= END CHALLENGE ======================= -->
+
+<!-- >>>>>>>>>>>>>>>>>>>>>> BEGIN CHALLENGE >>>>>>>>>>>>>>>>>>>>>> -->
+<!-- Replace everything in square brackets [] and remove brackets  -->
+
+### !challenge
+
+* type: tasklist
+* id: 038fe13b-804f-4aa9-b2aa-023b27f07e3b
+* title: Inspecting React State
+
+##### !question
+
+Following Sofia's journey, I have
+
+##### !end-question
+
+##### !options
+
+* installed the React Developer Tools for my preferred browser
+* confirmed the React Developer Tools are active when I visit a running React application
+* observed the change in pieces of state while interacting with the React application
+
+##### !end-options
+
+### !end-challenge
+
+<!-- ======================= END CHALLENGE ======================= -->
