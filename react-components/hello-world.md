@@ -66,7 +66,7 @@ After the server has started up, we'll see an address with port `5173` that we c
 
 To view the app we can right click on `http://localhost:5173` in the terminal and select the option to open the link or copy and paste the address into our browser's address bar.
 
-![A web browser displaying the default React application. It consists of the Vite and React logos, a note to "Edit src/App.jsx and save to test HMR"](../assets/vite-react-home-page.png)  
+![A web browser displaying the default React application. It consists of the Vite and React logos, a note to "Edit src/App.jsx and save to test HMR"](../assets/react-components_hello-world-landing.png)  
 *Fig. Default React application created by Vite* 
 
 ### !callout-info
