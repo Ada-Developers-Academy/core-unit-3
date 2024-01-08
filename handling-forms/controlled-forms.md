@@ -67,7 +67,7 @@ This default behavior can be changed by setting either the `<form>` tag's `metho
 
 ## Controlled Forms Control `<input>` Values
 
-[**Controlled components**](https://reactjs.org/docs/forms.html#controlled-components) follow a design pattern that states that a form's values should be controlled by _the component's state_, **not** by user interaction.
+[**Controlled components**](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components) follow a design pattern that states that a form's values should be controlled by _the component's state_, **not** by user interaction.
 
 Instead, user interaction will update _the component's state_, which will in turn be reflected in the form input's value.
 
