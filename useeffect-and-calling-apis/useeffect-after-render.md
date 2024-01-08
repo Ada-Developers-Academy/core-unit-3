@@ -53,7 +53,7 @@ Targeted questions will bring us back to this topic when we need to. Imagine deb
 
 ## `useEffect` Executes After Render
 
-The [**`useEffect` hook**](https://reactjs.org/docs/hooks-effect.html) is a hook function that runs during these lifecycle steps:
+The [**`useEffect` hook**](https://react.dev/reference/react/useEffect) is a hook function that runs during these lifecycle steps:
 
 - `Mounting Stage`
 - `Updating Stage` - When specific props or state variables change
@@ -328,7 +328,7 @@ Try thinking of a different way we could have updated the heading content in the
 
 <br/>
 
-There are still times where we might need a reference to an element that our control renders. In that case, we'd likely use a different hook, [`useRef`](https://reactjs.org/docs/hooks-reference.html#useref). Follow your curiosity!
+There are still times where we might need a reference to an element that our control renders. In that case, we'd likely use a different hook, [`useRef`](https://react.dev/reference/react/useRef). Follow your curiosity!
 
 ### !end-callout
 
