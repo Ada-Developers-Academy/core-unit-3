@@ -33,10 +33,10 @@ Two common situations when we make HTTP requests in a React app are:
 In order to call APIs in React, we can use the [axios package](https://github.com/axios/axios). To add axios into our project, we can run this command:
 
 ```bash
-$ yarn add axios
+$ npm install axios
 ```
 
-The first time we run this command, it will modify the `package.json` and `yarn.lock` files. These two files facilitate dependencies (much like a `requirements.txt` in Python projects). Since we just added a dependency to our project, we should expect these two files to change! When these files are updated, we should be sure to commit them to our repository!
+The first time we run this command, it will modify the `package.json` and `package-lock.json` files. These two files facilitate dependencies (much like a `requirements.txt` in Python projects). Since we just added a dependency to our project, we should expect these two files to change! When these files are updated, we should be sure to commit them to our repository!
 
 Every file that uses axios should be sure to import it:
 
