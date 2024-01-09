@@ -75,7 +75,7 @@ To use the `useEffect` hook, we call the `useEffect` function with two parameter
 1. A "dependency" array. This array contains references to any _props or state_ we want to _listen for_. Then whenever any of those props or state update, `useEffect` will run.
 ### !callout-danger
 
-## Watch Out for Infinite Loop
+## Watch Out for Infinite Loops
 
    - If we don't define this array, `useEffect` will be called during _every_ `Update Stage`. That is, every time the component re-renders. That can turn into an endless re-rendering loop.
    - This array can be empty `[]` to indicate we are not watching for any updates.
@@ -323,6 +323,8 @@ _Fig. The DOM is successfully updated after moving the manipulation into an effe
 ## Manipulating `document` in `useEffect`?
 
 Our above example successfully manipulated the DOM using the `useEffect` hook. This isn't a realistic example! In practice, we'd likely _not_ manipulate the DOM directly. With React, we do not directly access the DOM. Instead, we use the `ReactDOM` API and React components to add, update, and delete DOM elements.
+
+<br />
 
 Try thinking of a different way we could have updated the heading content in the previous examples _without_ getting a DOM element reference.
 
