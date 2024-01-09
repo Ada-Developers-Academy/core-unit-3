@@ -158,7 +158,7 @@ const StudentList = (props) => {
 
 ## Refactoring Opportunity: `key=student.id`
 
-In a later commit, Sofia could update the `map` call so that the `key` pulls the ID from the student data, not from the list index.
+In a later commit, Sofia will update the `map` call so that the `key` pulls the ID from the student data, not from the list index.
 
 <!-- prettier-ignore-start -->
 ```js
