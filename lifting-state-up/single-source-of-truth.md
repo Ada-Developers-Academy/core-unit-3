@@ -41,7 +41,7 @@ Sofia chooses to move the data to the `App` component. She chooses the `App` com
 
 First, Sofia adds `isPresent` to the student data in `App`.
 
-While she's there, she also adds `id` data to each student. This helps the data feel a little more realistic, as if it were coming from a database or API.
+While she's there, she also adds `id` data to each student. This helps the data feel a little more realistic, as if it were coming from a database or API. Having a unique value we can use to identify a particular student record will also be important when we need to figure out which student is having their presence data updated.
 
 <!-- prettier-ignore-start -->
 ```js
