@@ -104,7 +104,7 @@ StudentList.propTypes = {
         id: PropTypes.number.isRequired,
         nameData: PropTypes.string.isRequired,
         emailData: PropTypes.string.isRequired,
-        isPresentData: PropTypes.bool
+        isPresentData: PropTypes.bool.isRequired,
     }))
 };
 ```
@@ -118,7 +118,7 @@ Student.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    isPresent: PropTypes.bool
+    isPresent: PropTypes.bool.isRequired,
 };
 ```
 <!-- prettier-ignore-end -->
