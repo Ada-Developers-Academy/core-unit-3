@@ -183,6 +183,10 @@ const StudentList = (props) => {
 
 She decides to do this in a later commit, so that she can concentrate on working on only one task at a time.
 
+<br />
+
+Any time we have a unique identifier for a record, we should use that as the `key` value. In the long run, using the list index as the `key` value can lead to unexpected behavior.
+
 ### !end-callout
 
 ### Use `isPresent` as a `prop` in `Student`
