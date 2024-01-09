@@ -400,6 +400,15 @@ In order to make an API call from a component once when it's mounted, we should.
 * Set the dependency list of `useEffect` to an empty array
 
 ##### !end-options
+### !hint
+* Does `axios` need to be imported in order to make an API call?
+* Were we directed to modify a piece of state in response to the API call?
+* Do we need `useEffect` to make our call at the moment directed by the prompt?
+* When do functions registered with `useEffect` get run? Under what circumstances?
+* When does code embedded in JSX run? On first render? On every render?
+* Does the value of `axios` ever change? Is there any need to list a value that doesn't change in the dependency array?
+* If there are no values in the dependency array, when will the `useEffect` logic run?
+### !end-hint
 ##### !answer
 
 * Import axios
@@ -433,6 +442,15 @@ In order to make an API call after an event happens, such as a button click, we 
 * Set the dependency list of `useEffect` to an empty array
 
 ##### !end-options
+### !hint
+* Does `axios` need to be imported in order to make an API call?
+* Were we directed to modify a piece of state in response to the API call?
+* Do we need `useEffect` to make our call at the moment directed by the prompt?
+* When do functions registered with `useEffect` get run? Under what circumstances?
+* What should happen before the code within event-handling logic runs? According to the prompt, when should the API call occur?  
+* Does the value of `axios` ever change? Is there any need to list a value that doesn't change in the dependency array?
+* If there are no values in the dependency array, when will the `useEffect` logic run?
+### !end-hint
 ##### !answer
 
 * Import axios
