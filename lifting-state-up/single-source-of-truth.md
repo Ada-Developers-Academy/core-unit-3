@@ -242,14 +242,14 @@ Which of the following options best describes why this step is called "Create a 
 ##### !end-question
 ##### !options
 
-* The "single source of truth" of student data is in `App`. We need to make `isPresent` in `Student` a read-only prop.
-* The "single source of truth" of student data is in `StudentList`. We need to make `isPresent` in `Student` a read-only prop.
-* The "single source of truth" of student data is in `Student`. We need to make `isPresentData` in `App` a read-only prop.
+a| The "single source of truth" of student data is in `App`. We need to make `isPresent` in `Student` a read-only prop.
+b| The "single source of truth" of student data is in `StudentList`. We need to make `isPresent` in `Student` a read-only prop.
+c| The "single source of truth" of student data is in `Student`. We need to make `isPresentData` in `App` a read-only prop.
 
 ##### !end-options
 ##### !answer
 
-* The "single source of truth" of student data is in `App`. We need to make `isPresent` in `Student` a read-only prop.
+a|
 
 ##### !end-answer
 ### !end-challenge
@@ -268,13 +268,13 @@ Which of the following options best describes the role of `StudentList` in this 
 ##### !end-question
 ##### !options
 
-* `StudentList` receives the student data in a `prop` named `studentData`. `StudentList` passes pieces of the student data into each `Student` component.
-* `StudentList` receives the student data in a `prop` named `students`. `StudentList` passes pieces of the student data into each `Student` component.
+a| `StudentList` receives the student data in a `prop` named `studentData`. `StudentList` passes pieces of the student data into each `Student` component.
+b| `StudentList` receives the student data in a `prop` named `students`. `StudentList` passes pieces of the student data into each `Student` component.
 
 ##### !end-options
 ##### !answer
 
-* `StudentList` receives the student data in a `prop` named `students`. `StudentList` passes pieces of the student data into each `Student` component.
+b|
 
 ##### !end-answer
 ### !end-challenge
