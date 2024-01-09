@@ -77,7 +77,17 @@ function App() {
 ```
 <!-- prettier-ignore-end -->
 
-Sofia chose the name `isPresentData` rather than simply `isPresent` to help clarify that this value is coming from the student dataset. If we don't like that name, we can choose to give it any other name that helps us keep track of the data!
+### !callout-info
+
+## <code>Data</code> used as a visual aid
+
+The data uses the name `isPresentData` rather than simply `isPresent` to match the existing data field naming pattern, which was done to help clarify that these values are coming from the student dataset. If we don't like that name, we can choose to give it any other name that helps us keep track of the data! Our chosen name would need to be used in configuring the `PropTypes` for the components that receive this data (see next section), as well as anywhere else we use the data.
+
+<br />
+
+In a production application, using `isPresent` alone would be more common than having `Data` as part of the name. But for this example, having this distinction may be helpful in keeping track of whether we're working with a data record (`Data` in the name) or `Student` props (lacking `Data` in the name).
+
+### !end-callout
 
 ### Update PropTypes
 
