@@ -144,10 +144,10 @@ We did it! 🎉🎉
 
 Let's observe two more things:
 
-`StudentList` indeed has two `props`: a `students` array with the student data, and `onUpdateStudent`, which is a function reference, indicated by the curly 𝑓.
+`StudentList` indeed has two `props`: a `students` array with the student data, and `onStudentPresenceToggle`, which is a function reference, indicated by the curly 𝑓.
 
-![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. In the the component hierarchy, the StudentList component is selected. Under the section titled Props, we see onUpdateStudents, which holds a function reference to updateStudentData. We also see students, which holds the array of studentData.](../assets/lifting-state-up_lifting-state-up_studentlist-detail.png)  
-_Fig. `StudentList` has both `onUpdateStudents` and `students` listed in its `props`_
+![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. In the the component hierarchy, the StudentList component is selected. Under the section titled Props, we see onStudentPresenceToggle, which holds a function reference to toggleStudentPresence. We also see students, which holds the array of studentData.](../assets/lifting-state-up_lifting-state-up_studentlist-detail.png)  
+_Fig. `StudentList` has both `onStudentPresenceToggle` and `students` listed in its `props`_
 
 Each `Student` component has five props:
 
@@ -155,9 +155,9 @@ Each `Student` component has five props:
 1. `id`, a number
 1. `isPresent`, a boolean
 1. `name`, another string
-1. `onUpdate`, a reference to a function, again indicated by the curly 𝑓, originally named `updateStudentData`
+1. `onPresenceToggle`, a reference to a function, again indicated by the curly 𝑓, originally named `toggleStudentPresence`
 
-![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. In the the component hierarchy, the first Student component is selected. Under the section titled Props, we see email, id, isPresent, and name, all with the expected values for the first student, Ada. We also see that onUpdate contains a function reference to updateStudentData.](../assets/lifting-state-up_lifting-state-up_student-detail.png)  
+![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. In the the component hierarchy, the first Student component is selected. Under the section titled Props, we see email, id, isPresent, and name, all with the expected values for the first student, Ada. We also see that onPresenceToggle contains a function reference to toggleStudentPresence.](../assets/lifting-state-up_lifting-state-up_student-detail.png)  
 _Fig. `Student` showing all expected `props`, present and accounted for!_
 
 ## Did We Accomplish "Single Source of Truth"?
