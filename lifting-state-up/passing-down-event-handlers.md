@@ -52,7 +52,7 @@ This code:
 - Sets the initial value of `studentData` to our array of student records
 - Passes the value of `studentData` to `StudentList` in the `prop` `students`
 
-## Create a Function to Update `studentData` in `App`
+## Create a Function to Toggle Student Presence in `App`
 
 We can create as many functions and helper functions inside our React components as we want!
 
