@@ -39,9 +39,9 @@ Sofia chooses to move the data to the `App` component. She chooses the `App` com
 
 ### New Student Data Shape in `App`
 
-First, Sofia adds `isPresent` to the student data in `App`.
+First, Sofia adds `isPresent` to the student data in `App`, using the slightly modified name `isPresentData`.
 
-While she's there, she also adds `id` data to each student. This helps the data feel a little more realistic, as if it were coming from a database or API.
+While she's there, she also adds `id` data to each student. This helps the data feel a little more realistic, as if it were coming from a database or API. Having a unique value we can use to identify a particular student record will also be important when we need to figure out which student is having their `isPresentData` value updated.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -51,19 +51,19 @@ function App() {
       id: 1,
       nameData: 'Ada',
       emailData: 'ada@dev.org',
-      isPresentData: false
+      isPresentData: false,
     },
     {
       id: 2,
       nameData: 'Soo-ah',
       emailData: 'sooah@dev.org',
-      isPresentData: false
+      isPresentData: false,
     },
     {
       id: 3,
       nameData: 'Chrissy',
       emailData: 'chrissy@dev.org',
-      isPresentData: true
+      isPresentData: true,
     }
   ];
 
@@ -77,7 +77,17 @@ function App() {
 ```
 <!-- prettier-ignore-end -->
 
-Sofia chose the name `isPresentData` rather than simply `isPresent` to help clarify that this value is coming from the student dataset. If we don't like that name, we can choose to give it any other name that helps us keep track of the data!
+### !callout-info
+
+## <code>Data</code> used as a visual aid
+
+The data uses the name `isPresentData` rather than simply `isPresent` to match the existing data field naming pattern, which was done to help clarify that these values are coming from the student dataset. If we don't like that name, we can choose to give it any other name that helps us keep track of the data! Our chosen name would need to be used in configuring the `PropTypes` for the components that receive this data (see next section), as well as anywhere else we use the data.
+
+<br />
+
+In a production application, using `isPresent` alone would be more common than having `Data` as part of the name. But for this example, having this distinction may be helpful in keeping track of whether we're working with a data record (`Data` in the name) or `Student` props (lacking `Data` in the name).
+
+### !end-callout
 
 ### Update PropTypes
 
@@ -94,7 +104,7 @@ StudentList.propTypes = {
         id: PropTypes.number.isRequired,
         nameData: PropTypes.string.isRequired,
         emailData: PropTypes.string.isRequired,
-        isPresentData: PropTypes.bool
+        isPresentData: PropTypes.bool.isRequired,
     }))
 };
 ```
@@ -108,7 +118,7 @@ Student.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    isPresent: PropTypes.bool
+    isPresent: PropTypes.bool.isRequired,
 };
 ```
 <!-- prettier-ignore-end -->
@@ -148,7 +158,7 @@ const StudentList = (props) => {
 
 ## Refactoring Opportunity: `key=student.id`
 
-In a later commit, Sofia could update the `map` call so that the `key` pulls the ID from the student data, not from the list index.
+In a later commit, Sofia will update the `map` call so that the `key` pulls the ID from the student data, not from the list index.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -172,6 +182,10 @@ const StudentList = (props) => {
 <!-- prettier-ignore-end -->
 
 She decides to do this in a later commit, so that she can concentrate on working on only one task at a time.
+
+<br />
+
+Any time we have a unique identifier for a record, we should use that as the `key` value. In the long run, using the list index as the `key` value can lead to unexpected behavior.
 
 ### !end-callout
 
@@ -207,9 +221,11 @@ Here, Sofia:
 - Modified how `nameColor` is set: the conditional logic now reads from `props.isPresent`
 - _Commented out_ the `onClick` event handler of the button
 
-Sofia removed the `togglePresence` event handler, so she can't register it with the button anymore. So then what should the button do when it's clicked?
+Sofia removed the `togglePresence` event handler, so she can't register it with the button anymore. So then what should the button do when it's clicked? And what piece of state can the `Student` component update since it no longer contains `isPresent`?
 
-She'll pass down an event handler!
+Sofia had previously defined `togglePresence` in `Student` since that was where the piece of state being managed was located. Now that `isPresent` for each student has been moved to `App` (as `isPresentData`), Sofia needs to move the event handler to `App` as well, providing this new handler to each `Student` component via props as a way to modify the student data. Additionally, she'll need to store the student data itself in a piece of state so that React can be notified when the data changes, and then re-render.
+
+Next stop on Sofia's journey: the revised event handler!
 
 ## Check for Understanding
 
@@ -226,14 +242,14 @@ Which of the following options best describes why this step is called "Create a 
 ##### !end-question
 ##### !options
 
-* The "single source of truth" of student data is in `App`. We need to make `isPresent` in `Student` a read-only prop.
-* The "single source of truth" of student data is in `StudentList`. We need to make `isPresent` in `Student` a read-only prop.
-* The "single source of truth" of student data is in `Student`. We need to make `isPresentData` in `App` a read-only prop.
+a| The "single source of truth" of student data is in `App`. We need to make `isPresent` in `Student` a read-only prop.
+b| The "single source of truth" of student data is in `StudentList`. We need to make `isPresent` in `Student` a read-only prop.
+c| The "single source of truth" of student data is in `Student`. We need to make `isPresentData` in `App` a read-only prop.
 
 ##### !end-options
 ##### !answer
 
-* The "single source of truth" of student data is in `App`. We need to make `isPresent` in `Student` a read-only prop.
+a|
 
 ##### !end-answer
 ### !end-challenge
@@ -252,13 +268,13 @@ Which of the following options best describes the role of `StudentList` in this 
 ##### !end-question
 ##### !options
 
-* `StudentList` receives the student data in a `prop` named `studentData`. `StudentList` passes pieces of the student data into each `Student` component.
-* `StudentList` receives the student data in a `prop` named `students`. `StudentList` passes pieces of the student data into each `Student` component.
+a| `StudentList` receives the student data in a `prop` named `studentData`. `StudentList` passes pieces of the student data into each `Student` component.
+b| `StudentList` receives the student data in a `prop` named `students`. `StudentList` passes pieces of the student data into each `Student` component.
 
 ##### !end-options
 ##### !answer
 
-* `StudentList` receives the student data in a `prop` named `students`. `StudentList` passes pieces of the student data into each `Student` component.
+b|
 
 ##### !end-answer
 ### !end-challenge
