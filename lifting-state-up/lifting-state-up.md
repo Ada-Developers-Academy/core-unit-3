@@ -184,22 +184,23 @@ Now is a great time to read through our code and delete any unused imports. In p
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: multiple-choice
-* id: 8ffcf3b5
+* id: 42c4e728
 * title: Lifting State Up
 ##### !question
 
-Which of the following options best describes why this step is called "Lifting State Up"?
+Which of the following options best describes why we refer to the set of refactors performed over the last few lessons as "Lifting State Up"?
 
 ##### !end-question
 ##### !options
 
-* The button for changing a student's attendance is rendered in the `Student` component, but the student data is managed in the state of the `App` component. Event handling that happens in `Student` needs to "bubble up" and affect the `App` component.
-* The `Student` component stores the state of `isPresent`. The state of `isPresent` needs to be synchronized with the state of `isPresent` in the `App` component.
+a| When we click the attendance button in one `Student` component instance, the event is "lifted up" and transformed into a function call in the `App` component.
+b| The `isPresent` piece of state that started out in the `Student` component was "lifted up" through the component tree to the `App` component to become a part of the overall `studentData`. While this required plumbing logic to update the state back down to the `Student` component, in the end, the `App` component became the "single source of truth" for the `studentData`.
+c| The logic required to toggle the presence value for a student was "lifted up" from the `Student` component to a new function in the `App` component.
 
 ##### !end-options
 ##### !answer
 
-* The button for changing a student's attendance is rendered in the `Student` component, but the student data is managed in the state of the `App` component. Event handling that happens in `Student` needs to "bubble up" and affect the `App` component.
+b|
 
 ##### !end-answer
 ### !end-challenge
