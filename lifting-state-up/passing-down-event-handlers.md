@@ -134,18 +134,18 @@ import { kInitialStudentData } from './data/studentData';
 
 We can create as many functions and helper functions inside our React components as we want!
 
-In `App`, let's create a function named `updateStudentData`. It will be responsible for taking in the updated data for one student, and updating `studentData` in state.
+In `App`, let's create a function named `toggleStudentPresence`. It will be responsible for taking in the student ID for one student, and toggling the `isPresentData` value for that student in the `studentData` piece of state.
 
-Since this function updates _one_ student, it needs to receive the updated student data. This function should accept a parameter, `updatedStudent`.
+Since this function updates _one_ student, it needs to know _which_ student to update. This function should accept a parameter, `studentId`.
 
-This function should go inside the `App` component, after `studentData` is defined, and before the `return` statement.
+This function should go inside the `App` component, after `studentData` is defined, and before the `return` statement. It needs to be defined inside the `App` component so that it can access the `studentData` state, as well as the `setStudentData` function, both of which are scoped to the `App` component function.
 
 <!-- prettier-ignore-start -->
 ```js
-  const updateStudentData = updatedStudent => {
+  const toggleStudentPresence = (studentId) => {
     const students = studentData.map(student => {
-      if (student.id === updatedStudent.id) {
-        return updatedStudent;
+      if (student.id === studentId) {
+        return { ...student, isPresentData: !student.isPresentData };
       } else {
         return student;
       }
@@ -158,17 +158,17 @@ This function should go inside the `App` component, after `studentData` is defin
 
 | <div style="min-width:275px;"> Piece of Code </div> | Notes                                                                                                                                                                |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `const updateStudentData = `                        | We're creating a function named `updateStudentData`.                                                                                                                 |
-| `updatedStudent`                                    | This function accepts one argument: an object that holds updated student data. Notice that since we use this data to update our student data list, the object should match the structure of our student data that we pass through `props`.                        |
-| `const students = ;`                                | For this function, we create a helper array, `students` to contain the updated student data.                                                                      |
-| `studentData.map(...)`                              | We map over `studentData`...                                                                                                                                      |
-| `student => {...}`                                 | Inside `map`, we reference each item with `student`...                                                                                                            |
-| `if (student.id === updatedStudent.id) {`           | If we find the student that our `updatedStudent` is updating...                                                                                                     |
-| `return updatedStudent`                             | The item we should map into our `students` array is the updated student data!                                                                                          |
-| `else { return student; }`                          | Otherwise, we should map the unchanged `student` into `students`.                                                                                                    |
-| `setStudentData(students);`                         | Ultimately, we want to update the `studentData` in our state. We use our state update function, `setStudentData`, and we update it to our newly formed `students` array. |
+| `const toggleStudentPresence = `                    | We're creating a function named `toggleStudentPresence`. |
+| `(studentId)`                                       | This function accepts one parameter: the ID of the student whose presence to toggle. Because there is only a single parameter, the parentheses may be omitted if desired. |
+| `const students = ;`                                | For this function, we create a temporary array, `students` to contain the updated student array. |
+| `studentData.map(...)`                              | We map over `studentData`, applying the function supplied as an argument to each student record in the array. `map` creates a new array with the result of each iterated function call being used to populate its values. |
+| `student => {...}`                                  | `student` is the name of the parameter to the function we supplied to `map`. Within the function, we reference each iterated item as `student`...                                                                                                            |
+| `if (student.id === studentId) {`                   | If we find the student that `studentId` indicates we should update... |
+| `return { ...student, isPresentData: !student.isPresentData }` | Copy the student (with object spread notation) and update the copy's `isPresentData` to be the opposite value of what it had (toggle it). By returning this copy, it will replace the previous version of the data for this student record. The original student record in the original array of student records is unmodified. |
+| `else { return student; }`                          | Otherwise, we should use the unchanged `student` in our new array of students. Since no change was made to the record, it's safe to use it in the new array of students. |
+| `setStudentData(students);`                         | Ultimately, we want to update the `studentData` in our state. We use our state update function, `setStudentData`, and we update it to our newly created `students` array. |
 
-Our `App` now defines and holds a function that can update our `studentData`, named `updateStudentData`.
+Our `App` now defines and holds a function that can toggle the presence of a student in our `studentData`, named `toggleStudentPresence`.
 
 ### !callout-info
 
