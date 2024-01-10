@@ -41,7 +41,7 @@ Sofia chooses to move the data to the `App` component. She chooses the `App` com
 
 First, Sofia adds `isPresent` to the student data in `App`.
 
-While she's there, she also adds `id` data to each student. This helps the data feel a little more realistic, as if it were coming from a database or API. Having a unique value we can use to identify a particular student record will also be important when we need to figure out which student is having their presence data updated.
+While she's there, she also adds `id` data to each student. This helps the data feel a little more realistic, as if it were coming from a database or API. Having a unique value we can use to identify a particular student record will also be important when we need to figure out which student is having their `isPresentData` value updated.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -223,7 +223,7 @@ Here, Sofia:
 
 Sofia removed the `togglePresence` event handler, so she can't register it with the button anymore. So then what should the button do when it's clicked? And what piece of state can the `Student` component update since it no longer contains `isPresent`?
 
-Sofia had previously defined `togglePresence` in `Student` since that was where the piece of state being managed was located. Now that `isPresent` for each student has been moved to `App` (as `isPresentData`), Sofia needs to move the event handler to `App` as well, providing this new handler to each `Student` component as a way to modify the student data. Additionally, she'll need to store the student data itself in a piece of state so that React can be notified when the data changes, and then re-render.
+Sofia had previously defined `togglePresence` in `Student` since that was where the piece of state being managed was located. Now that `isPresent` for each student has been moved to `App` (as `isPresentData`), Sofia needs to move the event handler to `App` as well, providing this new handler to each `Student` component via props as a way to modify the student data. Additionally, she'll need to store the student data itself in a piece of state so that React can be notified when the data changes, and then re-render.
 
 Next stop on Sofia's journey: the revised event handler!
 
