@@ -47,9 +47,9 @@ function App() {
 
 This code:
 
-- Creates a new piece of state named `studentData`
-- Creates a new update function named `setStudentData`
-- Sets the initial value of `studentData`
+- Creates a new piece of state and refers to is as `studentData`
+- Creates a new update function and refers to is as `setStudentData`
+- Sets the initial value of `studentData` to our array of student records
 - Passes the value of `studentData` to `StudentList` in the `prop` `students`
 
 ## Create a Function to Update `studentData` in `App`
