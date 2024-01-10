@@ -378,14 +378,14 @@ Which of the following options best describes why this step is called "Pass Down
 ##### !end-question
 ##### !options
 
-* `App` needs a function that updates the student data, because the student data is managed in `App`'s state. In order to use this function, we need to pass this function to `StudentList` and `Student` through `props`.
-* `StudentList` needs a function that updates student data, because it's between `App` and `Student`. In order to use this function, the `StudentList` component needs to pass down an event handler.
-* `Student` needs a function that updates the student data, because `isPresent` is managed in `Student`'s state. The initial student data is passed to `StudentList` and `Student` through `props`.
+a| `App` needs a function that updates the student data, because the student data is managed in `App`'s state. In order to use this function, we need to pass this function to `StudentList` and `Student` through `props`.
+b| `StudentList` needs a function that updates student data, because it's between `App` and `Student`. In order to use this function, the `StudentList` component needs to pass down an event handler.
+c| `Student` needs a function that updates the student data, because `isPresent` is managed in `Student`'s state. The initial student data is passed to `StudentList` and `Student` through `props`.
 
 ##### !end-options
 ##### !answer
 
-* `App` needs a function that updates the student data, because the student data is managed in `App`'s state. In order to use this function, we need to pass this function to `StudentList` and `Student` through `props`.
+a|
 
 ##### !end-answer
 ### !end-challenge
