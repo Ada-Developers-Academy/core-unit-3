@@ -229,6 +229,46 @@ So to get React to notice that a value in our array or object has changed, we ne
 
 ### !end-callout
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## Refactoring Opportunity: Using Function-Passing State Updates
+
+We can update arrays using the function-passing style of calling state update functions. Recall that the function we pass to the updater will be called with the current value of the state (our students array) as its first parameter. Our function should return a new value (a new students array) that React will use to update the related piece of state.
+
+<br />
+
+Think about what changes we would need to make to `toggleStudentPresence`, then expand the section below to see a possible solution.
+
+<br />
+
+<details>
+<summary>Click here to see a possible solution</summary>
+
+```js
+  const toggleStudentPresence = (studentId) => {
+    setStudentData(students => {
+      return students.map(student => {
+        if (student.id === studentId) {
+          return { ...student, isPresentData: !student.isPresentData };
+        } else {
+          return student;
+        }
+      });
+    });
+  };
+```
+
+<br />
+
+While the behavior of both this version and the previous version are the same at present. If we extended the application to work with data from a server, this version would be more robust. It would ensure that the data we are updating is the most recent version of the data, rather than the version that was in state when the function was defined, avoiding potential bugs.
+
+<br />
+
+So while this code may appear more dense or hard to read, it's actually more robust and easy to maintain, making it well worth spending the time to learn to read and write code in this style.
+
+</details>
+
 ### !end-callout
 
 ## Send This Function to `StudentList`
