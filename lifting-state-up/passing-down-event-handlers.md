@@ -204,17 +204,30 @@ Our `App` now defines and holds a function that can toggle the presence of a stu
 
 ### !callout-info
 
-## Helping React Notice That `studentData` Changed
+## Help React Notice That `studentData` Changed
 
-Notice that during the update, we made a helper array that is more or less a copy of the data we already had. For every student whose ID does not match the `updatedStudent`, we reuse the student data that was previously in our state. So why couldn't we simply find the matching student data in our existing state and update that?
+Notice that during the update, we made a temporary array that is more or less a copy of the data we already had. For every student whose ID does not match the `updatedStudent`, we reuse the student data that was previously in our state. So why couldn't we simply find the matching student data in our existing state and update that?
 
 <br/>
 
-Because React wouldn't notice the change! For container types, like arrays and objects, if we update an inner value (an item in an array, or a field in an object) and then call the relevant set function, React will see that the reference to the object currently in state is the same reference as the object being passed into the set function. For performance reasons, it assumes that if the same reference is passed in to a set function, it _is_ the same object. It will not look within the array or object for changes!
+Think about why we need a whole new array. Then expand the section below to see an explanation.
+
+<br/>
+
+<details>
+<summary>Click here to see an explanation</summary>
+
+<br />
+
+We need to use a whole new array because otherwise React wouldn't notice the change! For container types, like arrays and objects, if we update an inner value (an item in an array, or a field in an object) and then call the relevant set function, React will see that the reference to the object currently in state is the same reference as the object being passed into the set function. For performance reasons, it assumes that if the same reference is passed in to a set function, it _is_ the same object. It will not look within the array or object for changes!
 
 <br/>
 
 So to get React to notice that a value in our array or object has changed, we need to make a new outer reference, and copy the existing values into it. Then when we call a set function, it will see the change and trigger a re-render.
+
+</details>
+
+### !end-callout
 
 ### !end-callout
 
