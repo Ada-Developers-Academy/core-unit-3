@@ -7,7 +7,7 @@
 In the `App` component, we know we want these two things:
 
 1. We should be able to modify and update `studentData`
-1. Every time `studentData` is updated, it should affect the UI, and the `App` component should re-render
+1. Every time `studentData` is updated, it should affect the UI, and the `App` component should re-render so that the UI reflects the updated `studentData`
 
 These two qualities make it _perfect_ to turn into state.
 
