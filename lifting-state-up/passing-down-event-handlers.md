@@ -271,7 +271,7 @@ So while this code may appear more dense or hard to read, it's actually more rob
 
 ### !end-callout
 
-## Send This Function to `StudentList`
+## Pass This Function to `StudentList`
 
 Now that we've defined `updateStudentData`, imagine if other components could _use_ this function.
 
@@ -311,16 +311,16 @@ StudentList.propTypes = {
 ```
 <!-- prettier-ignore-end -->
 
-## Send This Function to `Student`
+## Pass This Function to `Student`
 
-Now, let's send this _exact same function reference_ from the `StudentList` component to the `Student` component.
+Now, let's pass this _exact same function reference_ from the `StudentList` component to each of the `Student` components it renders.
 
-We access this function through `props`, and we send it to `Student` through `props`.
+We access this function through `StudentList`'s `props`, and we pass it to `Student` through `Student`'s `props`.
 
 The keys to reading and writing this code are to:
 
 1. Check that we're _reading_ the correct `prop` that was passed in
-2. Recognize that we can use any name for any `prop` we send to `Student`
+2. Recognize that we can use any name for any `prop` we pass to `Student`, so long as we use the same name when we _read_ the `prop` in `Student`
 
 <!-- prettier-ignore-start -->
 ```js
