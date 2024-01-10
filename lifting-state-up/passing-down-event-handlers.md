@@ -52,6 +52,84 @@ This code:
 - Sets the initial value of `studentData` to our array of student records
 - Passes the value of `studentData` to `StudentList` in the `prop` `students`
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## Refactoring Opportunity: Moving large initial values out of components
+
+In the code above, the largest number of lines is the initial value of `studentData`. This is a great opportunity to refactor our code to make it more readable. By moving large data values out of our components, we can make our code more readable and easier to maintain by keeping more related code closer together.
+
+<br />
+
+In app such as this, it's likely that we would eventually want to fetch the initial student data from a server rather than having it hard coded into the app, as we'll see in later lessons. But for now, we could at least move the initial data out of the component function body.
+
+<br />
+
+Think about how we might do this. Then compare your idea to the possible solution below.
+
+<br />
+
+<details>
+<summary>Click here to see a possible solution</summary>
+
+```js
+const kInitialStudentData = [
+  {
+    id: 1,
+    nameData: 'Ada',
+    emailData: 'ada@dev.org',
+    isPresentData: false,
+  },
+  {
+    id: 2,
+    nameData: 'Soo-ah',
+    emailData: 'sooah@dev.org',
+    isPresentData: false,
+  },
+  {
+    id: 3,
+    nameData: 'Chrissy',
+    emailData: 'chrissy@dev.org',
+    isPresentData: true,
+  }
+];
+
+function App() {
+  const [studentData, setStudentData] = useState(kInitialStudentData);
+
+  return (
+    <main>
+      <h1>Attendance</h1>
+      <StudentList students={studentData}></StudentList>
+    </main>
+  );
+}
+```
+
+<br />
+
+Notice how this allows the logic of the `App` component to be more condensed. Our eyes no longer need to jump over the large array of student data to find the logic of the component. And imagine still how much more difficult it would be to read if there were *multiple* large arrays of data in the component! Much of the art to arranging code is to do so in a way that makes it easy to *ignore* the parts that we don't need to pay attention to at the moment.
+
+<br />
+
+On your own, try moving the `kInitialStudentData` array into a separate file, and importing it into `App`. If moving it to a JavaScript file, Don't forget to export it from the file where you define it! This may resemble the following:
+
+```js
+export const kInitialStudentData = [ /* array contents */ ];
+```
+
+<br />
+
+Assuming that definition were in a file under the `src` folder named `data/studentData.js`, we could import it into `App` like this:
+
+```js
+import { kInitialStudentData } from './data/studentData';
+```
+
+</details>
+
+### !end-callout
+
 ## Create a Function to Toggle Student Presence in `App`
 
 We can create as many functions and helper functions inside our React components as we want!
