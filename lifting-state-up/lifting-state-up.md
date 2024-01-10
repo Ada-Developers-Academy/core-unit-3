@@ -87,7 +87,7 @@ const Student = (props) => {
 ```
 <!-- prettier-ignore-end -->
 
-| <div style="min-width:250px;"> Piece of Code </div> | Notes                                                                                                                                                                                                                                                          |
+| <div style="min-width:260px;"> Piece of Code </div> | Notes                                                                                                                                                                                                                                                          |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `const onAttendanceButtonClick = () => { ... };`     | We're creating an event-handling function named `onAttendanceButtonClick`. We don't need any details about the event, so we don't list `event` as a parameter.                                                                                                                                                                                    |
 | `const updatedStudent = { ... };`                    | We create a variable, `updatedStudent`, to hold our updated student data.                                                                                                                                                                                      |
