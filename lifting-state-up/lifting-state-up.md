@@ -103,17 +103,10 @@ We need to register our function with the attendance button's `onClick` attribut
 ```js
 const Student = (props) => {
 
-    const onAttendanceButtonClick = () => {
-        const updatedStudent = {
-            id: props.id,
-            nameData: props.name,
-            emailData: props.email,
-            isPresentData: !props.isPresent
-        };
-
-        // Invoke the function passed in through the prop named "onUpdate"
-        // This function is referenced by the name "updateStudentData" in App
-        props.onUpdate(updatedStudent);
+    const attendanceButtonClicked = () => {
+        // Invoke the function passed in through the prop named "onPresenceToggle"
+        // This function refers to the toggleStudentPresence function in App
+        props.onPresenceToggle(props.id);
     };
 
     const nameColor = props.isPresent ? 'green' : 'red';
@@ -124,7 +117,7 @@ const Student = (props) => {
                 <li className={nameColor}>Nickname: {props.name}</li>
                 <li>Email: {props.email}</li>
             </ul>
-            <button onClick={onAttendanceButtonClick}>Toggle if {props.name} is present</button>
+            <button onClick={attendanceButtonClicked}>Toggle if {props.name} is present</button>
         </div>
     );
 };
