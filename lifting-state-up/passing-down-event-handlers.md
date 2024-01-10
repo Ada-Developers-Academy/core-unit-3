@@ -402,10 +402,10 @@ a|
 Which of the following options best describes this function, `updateStudentData`?
 
 ```js
-  const updateStudentData = updatedStudent => {
+  const toggleStudentPresence = (studentId) => {
     const students = studentData.map(student => {
-      if (student.id === updatedStudent.id) {
-        return updatedStudent;
+      if (student.id === studentId) {
+        return { ...student, isPresentData: !student.isPresentData };
       } else {
         return student;
       }
@@ -418,14 +418,14 @@ Which of the following options best describes this function, `updateStudentData`
 ##### !end-question
 ##### !options
 
-* This function creates an array `studentData`, which shares the same name as `studentData` in state, but it isn't the same.
-* This function creates an array `students`, which contains objects of student data. It updates `studentData` in state by invoking `setStudentData`.
-* This function updates `studentData` by invoking `setStudentData`, and passing in the single object `updatedStudent`.
+a| This function creates an array `studentData`, which shares the same name as `studentData` in state, but it isn't the same.
+b| This function creates an array `students`, which contains objects of student data. It updates `studentData` in state by invoking `setStudentData`.
+c| This function updates `studentData` by invoking `setStudentData`, and passing in the student ID `studentId`.
 
 ##### !end-options
 ##### !answer
 
-* This function creates an array `students`, which contains objects of student data. It updates `studentData` in state by invoking `setStudentData`.
+b|
 
 ##### !end-answer
 ### !end-challenge
