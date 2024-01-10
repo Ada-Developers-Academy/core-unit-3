@@ -447,7 +447,7 @@ In order to make an API call after an event happens, such as a button click, we 
 * Were we directed to modify a piece of state in response to the API call?
 * Do we need `useEffect` to make our call at the moment directed by the prompt?
 * When do functions registered with `useEffect` get run? Under what circumstances?
-* What should happen before the code within event-handling logic runs? According to the prompt, when should the API call occur?  
+* What kinds of things can we do in event-handling logic? When does event-handling logic run? In what situation does the prompt indicate the API call should occur?  
 * Does the value of `axios` ever change? Is there any need to list a value that doesn't change in the dependency array?
 * If there are no values in the dependency array, when will the `useEffect` logic run?
 ### !end-hint
