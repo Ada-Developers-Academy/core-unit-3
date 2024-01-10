@@ -33,10 +33,12 @@ Two common situations when we make HTTP requests in a React app are:
 In order to call APIs in React, we can use the [axios package](https://github.com/axios/axios). To add axios into our project, we can run this command:
 
 ```bash
-$ yarn add axios
+$ npm install axios
 ```
 
-The first time we run this command, it will modify the `package.json` and `yarn.lock` files. These two files facilitate dependencies (much like a `requirements.txt` in Python projects). Since we just added a dependency to our project, we should expect these two files to change! When these files are updated, we should be sure to commit them to our repository!
+The first time we run this command, it will modify the `package.json` and `package-lock.json` files. Since we just added a dependency to our project, we should expect these two files to change! When these files are updated, we should be sure to commit them to our repository!
+
+These two files facilitate dependencies (much like a `requirements.txt` in Python projects). However, unlike the `requirements.txt` file, which we must update ourselves, in Node projects, installing a package will automatically update these dependency files. 
 
 Every file that uses axios should be sure to import it:
 
@@ -317,7 +319,7 @@ After these changes, whenever a user clicks on the button, `onButtonClick` runs.
 ![Belinda's My Dog Log app, showing a small, fuzzy dog.](../assets/useeffect-and-calling-apis_calling-apis-from-components_button-verify.png)  
 _Fig. Clicking the button loads a new random dog_
 
-![Belinda's My Dog Log app, showing a chihuahua on a blanket. The developer tools Network tab is open, showing the recent requests made by the browser. There is a request to the random dog endpoint, which returned a 200 status code. This is followed by a request to get the new image, also retuning a 200 status code.](../assets/useeffect-and-calling-apis_calling-apis-from-components_button-verify-dev-tools.png)  
+![Belinda's My Dog Log app, showing a chihuahua on a blanket. The developer tools Network tab is open, showing the recent requests made by the browser. There is a request to the random dog endpoint, which returned a 200 status code. This is followed by a request to get the new image, also returning a 200 status code.](../assets/useeffect-and-calling-apis_calling-apis-from-components_button-verify-dev-tools.png)  
 _Fig. Viewing the network request in the browser Dev Tools Network tab_
 
 ### !callout-info
@@ -398,6 +400,15 @@ In order to make an API call from a component once when it's mounted, we should.
 * Set the dependency list of `useEffect` to an empty array
 
 ##### !end-options
+### !hint
+* Does `axios` need to be imported in order to make an API call?
+* Were we directed to modify a piece of state in response to the API call?
+* Do we need `useEffect` to make our call at the moment directed by the prompt?
+* When do functions registered with `useEffect` get run? Under what circumstances?
+* When does code embedded in JSX run? On first render? On every render?
+* Does the value of `axios` ever change? Is there any need to list a value that doesn't change in the dependency array?
+* If there are no values in the dependency array, when will the `useEffect` logic run?
+### !end-hint
 ##### !answer
 
 * Import axios
@@ -431,6 +442,15 @@ In order to make an API call after an event happens, such as a button click, we 
 * Set the dependency list of `useEffect` to an empty array
 
 ##### !end-options
+### !hint
+* Does `axios` need to be imported in order to make an API call?
+* Were we directed to modify a piece of state in response to the API call?
+* Do we need `useEffect` to make our call at the moment directed by the prompt?
+* When do functions registered with `useEffect` get run? Under what circumstances?
+* What kinds of things can we do in event-handling logic? When does event-handling logic run? In what situation does the prompt indicate the API call should occur?  
+* Does the value of `axios` ever change? Is there any need to list a value that doesn't change in the dependency array?
+* If there are no values in the dependency array, when will the `useEffect` logic run?
+### !end-hint
 ##### !answer
 
 * Import axios
