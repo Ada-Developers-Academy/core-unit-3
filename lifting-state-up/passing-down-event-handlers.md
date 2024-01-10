@@ -359,7 +359,9 @@ Student.propTypes = {
 ```
 <!-- prettier-ignore-end -->
 
-Now, what do we do with this new `onUpdate` `prop` in `Student`?
+Now, what do we do with this new `onPresenceToggle` `prop` in `Student`? We still need to complete re-enabling our toggle behavior by adding a click handler in our `Student` component. And now we have a function that we can use to update the `studentData` in `App`!
+
+We'll finish putting this together in the next lesson.
 
 ## Check for Understanding
 
