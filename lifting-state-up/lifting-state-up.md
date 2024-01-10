@@ -76,18 +76,11 @@ export default App;
 ```js
 const Student = (props) => {
 
-    const onAttendanceButtonClick = () => {
-        const updatedStudent = {
-            id: props.id,
-            nameData: props.name,
-            emailData: props.email,
-            isPresentData: !props.isPresent
-        };
-
-        // Invoke the function passed in through the prop named "onUpdate"
-        // This function is referenced by the name "updateStudentData" in App
-        props.onUpdate(updatedStudent);
-    };
+    const attendanceButtonClicked = () => {
+        // Invoke the function passed in through the prop named "onPresenceToggle"
+        // This function refers to the toggleStudentPresence function in App
+        props.onPresenceToggle(props.id);
+};
 
     // ... other rendering logic
 };
