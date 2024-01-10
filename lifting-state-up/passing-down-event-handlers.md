@@ -273,13 +273,13 @@ So while this code may appear more dense or hard to read, it's actually more rob
 
 ## Pass This Function to `StudentList`
 
-Now that we've defined `updateStudentData`, imagine if other components could _use_ this function.
+Now that we've defined `toggleStudentPresence`, imagine if other components could _use_ this function.
 
 If other components could use this function, they'd have the ability to update the `studentData` in `App`! We want _the `Student` component_ to update the `studentData` in `App`.
 
-Other components _can_ use the `updateStudentData` function if they can reference it... and they can, _using props_. We can pass a reference to the `updateStudentData` down to a component through its `props`!
+Other components _can_ use the `toggleStudentPresence` function if they can reference it... and they can, _using props_. We can pass a reference to the `toggleStudentPresence` function down to a component through its `props`!
 
-First, let's change `App` so that it sends this function to `StudentList` through a new prop named `onUpdateStudent`.
+First, let's change `App` so that it passes this function to `StudentList` through a new prop named `onStudentPresenceToggle`. Notice that we indicate that this is related to a single student by including Student in the name, even though the component takes a list of students. We also mimic the DOM event naming style of `onEventName` for this prop. In the same way that we can pass a function to the `onClick` prop of a button to say how to handle when a click occurs, we can pass a function to the `onStudentPresenceToggle` prop of `StudentList` to indicate how to handle when a student has their presence toggled.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -288,14 +288,14 @@ First, let's change `App` so that it sends this function to `StudentList` throug
       <h1>Attendance</h1>
       <StudentList
         students={studentData}
-        onUpdateStudent={updateStudentData}
+        onStudentPresenceToggle={toggleStudentPresence}
       ></StudentList>
     </main>
   );
 ```
 <!-- prettier-ignore-end -->
 
-Let's update the PropTypes for `StudentList`. Our `StudentList` component now expects a `prop` named `onUpdateStudent`, whose value is a _reference to a function_.
+Let's update the PropTypes for `StudentList`. Our `StudentList` component now expects a `prop` named `onStudentPresenceToggle`, whose value is a _reference to a function_.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -304,9 +304,9 @@ StudentList.propTypes = {
         id: PropTypes.number.isRequired,
         nameData: PropTypes.string.isRequired,
         emailData: PropTypes.string.isRequired,
-        isPresentData: PropTypes.bool
+        isPresentData: PropTypes.bool.isRequired,
     })),
-    onUpdateStudent: PropTypes.func.isRequired
+    onStudentPresenceToggle: PropTypes.func.isRequired,
 };
 ```
 <!-- prettier-ignore-end -->
@@ -333,7 +333,7 @@ const StudentList = (props) => {
                     name={student.nameData}
                     email={student.emailData}
                     isPresent={student.isPresentData}
-                    onUpdate={props.onUpdateStudent}
+                    onPresenceToggle={props.onStudentPresenceToggle}
                 ></Student>
             </li>
         );
@@ -343,7 +343,7 @@ const StudentList = (props) => {
 ```
 <!-- prettier-ignore-end -->
 
-Here, we're saying that each `Student` component has a `prop` named `onUpdate`. The value of `onUpdate` will be whatever was passed in `props.onUpdateStudent`, which we expect to be a reference to our `updateStudentData` function.
+Here, we're saying that each `Student` component has a `prop` named `onPresenceToggle`. There's no longer any need to have `Student` included in the name of the `prop`, since we're working directly with the `Student` component now. The value of `onPresenceToggle` will be whatever was passed in `StudentList`'s `props.onStudentPresenceToggle`, which we expect to be a reference to our `toggleStudentPresence` function. More generally, we expect it to be a reference to a function that takes a single parameter, the ID of a student, and returns nothing.
 
 Let's update the PropTypes for `Student`:
 
@@ -353,8 +353,8 @@ Student.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    isPresent: PropTypes.bool,
-    onUpdate: PropTypes.func.isRequired
+    isPresent: PropTypes.bool.isRequired,
+    onPresenceToggle: PropTypes.func.isRequired,
 };
 ```
 <!-- prettier-ignore-end -->
