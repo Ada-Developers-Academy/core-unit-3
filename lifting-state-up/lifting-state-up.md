@@ -6,9 +6,9 @@ Again, our goal is to make the attendance button in `Student` update the `studen
 
 ## Creating a New `onClick` Handler in `Student`
 
-When we click the attendance button in one `Student` component, we should update that student's data.
+When we click the attendance button in one `Student` component, we should update that student's data by toggling whether they are present.
 
-The `prop` named `onUpdate` references a function that updates a student's data. We can look at `App`'s `updateStudentData` function if we need to see the implementation.
+Because of how we are passing down the `toggleStudentPresence` function from `App`, the `prop` named `onPresenceToggle` references a function that does exactly this!
 
 <br/>
 
