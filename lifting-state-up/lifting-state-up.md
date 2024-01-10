@@ -93,11 +93,11 @@ const Student = (props) => {
 | `props.onPresenceToggle(...);`                              | The value of `props.onPresenceToggle` is a function reference. We invoke this function using parentheses `()`.                                                                                                                                                                   |
 | `props.id`                                    | The function referenced by `props.onPresenceToggle` ultimately accepts one argument, the ID of the student whose presence data should be toggled. The ID of the student this `Student` component is showing is passed in through the `id` `props` value. |
 
-## Attaching `onAttendanceButtonClick` to the Attendance Button
+## Registering `attendanceButtonClicked` with the Attendance Button
 
 Now that we have defined an event handler, let's ensure that we're _using_ this event handler!
 
-We need to attach our function to the attendance button's `onClick` attribute:
+We need to register our function with the attendance button's `onClick` attribute:
 
 <!-- prettier-ignore-start -->
 ```js
