@@ -14,7 +14,7 @@ Because of how we are passing down the `toggleStudentPresence` function from `Ap
 
 <details>
 
-<summary>Review our current implementation of <code>App</code>.</summary>
+<summary>Review our current implementation of <code>App</code>, including <code>toggleStudentPresence</code>.</summary>
 
 <!-- prettier-ignore-start -->
 ```js
@@ -27,26 +27,26 @@ function App() {
       id: 1,
       nameData: 'Ada',
       emailData: 'ada@dev.org',
-      isPresentData: false
+      isPresentData: false,
     },
     {
       id: 2,
       nameData: 'Soo-ah',
       emailData: 'sooah@dev.org',
-      isPresentData: false
+      isPresentData: false,
     },
     {
       id: 3,
       nameData: 'Chrissy',
       emailData: 'chrissy@dev.org',
-      isPresentData: true
-    }
+      isPresentData: true,
+    },
   ]);
 
-  const updateStudentData = updatedStudent => {
+  const toggleStudentPresence = (studentId) => {
     const students = studentData.map(student => {
-      if (student.id === updatedStudent.id) {
-        return updatedStudent;
+      if (student.id === studentId) {
+        return { ...student, isPresentData: !student.isPresentData };
       } else {
         return student;
       }
@@ -60,7 +60,7 @@ function App() {
       <h1>Attendance</h1>
       <StudentList
         students={studentData}
-        onUpdateStudent={updateStudentData}
+        onStudentPresenceToggle={toggleStudentPresence}
       ></StudentList>
     </main>
   );
