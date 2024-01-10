@@ -168,6 +168,38 @@ This function should go inside the `App` component, after `studentData` is defin
 | `else { return student; }`                          | Otherwise, we should use the unchanged `student` in our new array of students. Since no change was made to the record, it's safe to use it in the new array of students. |
 | `setStudentData(students);`                         | Ultimately, we want to update the `studentData` in our state. We use our state update function, `setStudentData`, and we update it to our newly created `students` array. |
 
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## Use Object Spread and Object Shorthand to Update a Single Student
+
+In the code above, we use object spread notation to create a copy of the student record, and combined that with object shorthand notation to update the `isPresentData` field of the copy. For a reminder of what the object spread code above would be equivalent to written out long hand, expand the section below.
+
+<br/>
+
+<details>
+<summary>Click here to see the long hand version of the code above</summary>
+
+```js
+  // return { ...student, isPresentData: !student.isPresentData };
+  const updatedStudent = {
+    id: student.id,
+    nameData: student.nameData,
+    emailData: student.emailData,
+    isPresentData: student.isPresentData,
+  };
+
+  updatedStudent.isPresentData = !student.isPresentData;
+
+  return updatedStudent;
+```
+<br />
+
+This is why we like to use object spread notation! It's much more concise, and it becomes easier to read with practice.
+</details>
+
+### !end-callout
+
 Our `App` now defines and holds a function that can toggle the presence of a student in our `studentData`, named `toggleStudentPresence`.
 
 ### !callout-info
