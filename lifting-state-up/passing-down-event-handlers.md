@@ -7,7 +7,7 @@
 In the `App` component, we know we want these two things:
 
 1. We should be able to modify and update `studentData`
-1. Every time `studentData` is updated, it should affect the UI, and the `App` component should re-render so that the UI reflects the updated `studentData`
+1. Every time `studentData` is updated, it should affect the UI, and the `App` component should re-render so that the UI reflects the updated values from `studentData`
 
 These two qualities make it _perfect_ to turn into state.
 
@@ -164,7 +164,7 @@ This function should go inside the `App` component, after `studentData` is defin
 | `studentData.map(...)`                              | We map over `studentData`, applying the function supplied as an argument to each student record in the array. `map` creates a new array with the result of each iterated function call being used to populate its values. |
 | `student => {...}`                                  | `student` is the name of the parameter to the function we supplied to `map`. Within the function, we reference each iterated item as `student`...                                                                                                            |
 | `if (student.id === studentId) {`                   | If we find the student that `studentId` indicates we should update... |
-| `return { ...student, isPresentData: !student.isPresentData }` | Copy the student (with object spread notation) and update the copy's `isPresentData` to be the opposite value of what it had (toggle it). By returning this copy, it will replace the previous version of the data for this student record. The original student record in the original array of student records is unmodified. |
+| `return { ...student, isPresentData: !student.isPresentData }` | Copy the student (with object spread notation) and update the copy's `isPresentData` to be the opposite value of what it was before (toggle it). By returning this copy, it will replace the previous version of the data for this student record. The original student record in the original array of student records is unmodified. |
 | `else { return student; }`                          | Otherwise, we should use the unchanged `student` in our new array of students. Since no change was made to the record, it's safe to use it in the new array of students. |
 | `setStudentData(students);`                         | Ultimately, we want to update the `studentData` in our state. We use our state update function, `setStudentData`, and we update it to our newly created `students` array. |
 
@@ -261,7 +261,7 @@ Think about what changes we would need to make to `toggleStudentPresence`, then 
 
 <br />
 
-While the behavior of both this version and the previous version are the same at present. If we extended the application to work with data from a server, this version would be more robust. It would ensure that the data we are updating is the most recent version of the data, rather than the version that was in state when the function was defined, avoiding potential bugs.
+While the behavior of both this version and the previous version are the same at present, if we extended the application to work with data from a server, this version would be more robust. It would ensure that the data we are updating is the most recent version of the data, rather than the version that was in state when the function was defined, avoiding potential bugs.
 
 <br />
 
