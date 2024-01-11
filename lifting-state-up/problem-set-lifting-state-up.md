@@ -18,7 +18,12 @@ Complete this user story:
 
 > As a teacher, I want to be able to delete all student data and see zero students listed, so that I can prepare for a new class.
 
-Consider an implementation of `App` that also renders a `ClassInfo` component:
+## Resources
+
+For most of the excerpts from Sofia's journey, we've left out the `ClassInfo` component that was originally a part of the application. If you would like to reincorporate that component into your solution, feel free to use the sample code below.
+
+If focusing on the new feature feels like the best way to engage with this material, then you may wish to refer to the [`05-lifting-state-up`](https://github.com/AdaGold/student-app/tree/05-lifting-state-up) branch of the `student-app` repo as a starting point.
+
 
 <!-- prettier-ignore-start -->
 ```js
