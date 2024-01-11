@@ -12,9 +12,9 @@ To help reinforce the concepts from the lesson, we strongly encourage recreating
 
 Getting a "feel" for the code required, where it goes, and how it works, will help us build confidence as we continue using React in new applications.
 
-### Add a Delete Button
+## Goal
 
-Consider this user story:
+Complete this user story:
 
 > As a teacher, I want to be able to delete all student data and see zero students listed, so that I can prepare for a new class.
 
