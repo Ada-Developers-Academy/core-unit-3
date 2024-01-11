@@ -133,5 +133,13 @@ export default ClassInfo;
 
 </details>
 
+## Implement
+
+### Add a Delete Button
+
+Create a delete button that will clear all student data. For now we don't have a way to add additional students, but Sofia will be implementing that feature soon. For now, if we need to being back the list of students as we work on the feature, we can refresh the browser.
+
+A possible implementation might look like this:
+
 ![Web browser displaying Sofia's attendance app, displaying the following output: the heading Attendance; the sub-heading Class Information; a bulleted list showing Name: Team Semicolons, and Number of members: 0; a button labelled Delete All Students!; and the sub-heading Student List with no students listed.](../assets/lifting-state-up_problem-set-lifting-state-up_delete-example.png)  
 _Fig. After clicking the Delete All Students! button, the app no longer displays any students._
