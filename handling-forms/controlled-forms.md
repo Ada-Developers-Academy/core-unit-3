@@ -67,7 +67,7 @@ This default behavior can be changed by setting either the `<form>` tag's `metho
 
 ## Controlled Forms Control `<input>` Values
 
-[**Controlled components**](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components) follow a design pattern that states that a form's values should be controlled by _the component's state_, **not** by user interaction.
+[**Controlled components**](https://legacy.reactjs.org/docs/forms.html#controlled-components) follow a design pattern that states that a form's values should be controlled by _the component's state_, **not** by user interaction.
 
 Instead, user interaction will update _the component's state_, which will in turn be reflected in the form input's value.
 
@@ -184,7 +184,7 @@ In this example, we added the attribute `onChange` to our text field. Then, we c
 
 Recall that every event-handling function is automatically passed [an Event object](https://developer.mozilla.org/en-US/docs/Web/API/Event), whether we use it or not!
 
-We rarely need any additional information for a click event, so we tend to leave off the event parameter for click handlers. But we can use a change event to get information about the input that was changed.
+We rarely need additional information for a click event, so we tend to leave off the event parameter for click handlers, but we can use a change event to get information about the input that changed.
 
 Event objects include all sorts of details about the event, and we can look through [the Event documentation](https://developer.mozilla.org/en-US/docs/Web/API/Event/target) to find anything we need.
 
@@ -226,50 +226,61 @@ Sofia's app currently has the following components:
 ```js
 import { useState } from 'react';
 import StudentList from './components/StudentList';
+import ClassInfo from './components/ClassInfo';
 
 function App() {
-    const [studentData, setStudentData] = useState([
-        {
-            id: 1,
-            nameData: 'Ada',
-            emailData: 'ada@dev.org',
-            isPresentData: false
-        },
-        {
-            id: 2,
-            nameData: 'Soo-ah',
-            emailData: 'sooah@dev.org',
-            isPresentData: false
-        },
-        {
-            id: 3,
-            nameData: 'Chrissy',
-            emailData: 'chrissy@dev.org',
-            isPresentData: true
-        }
-    ]);
+  const [studentData, setStudentData] = useState([
+    {
+      id: 1,
+      nameData: 'Ada',
+      emailData: 'ada@dev.org',
+      isPresentData: false,
+    },
+    {
+      id: 2,
+      nameData: 'Soo-ah',
+      emailData: 'sooah@dev.org',
+      isPresentData: false,
+    },
+    {
+      id: 3,
+      nameData: 'Chrissy',
+      emailData: 'chrissy@dev.org',
+      isPresentData: true,
+    },
+  ]);
 
-    const updateStudentData = updatedStudent => {
-        const students = studentData.map(student => {
-            if (student.id === updatedStudent.id) {
-                return updatedStudent;
-            } else {
-                return student;
-            }
-        });
+  const toggleStudentPresence = (studentId) => {
+    // calculate the updated student data by finding the student that matches
+    // the passed id, making a copy with object spreading, then overwriting
+    // the presence value with its inverse
+    const students = studentData.map(student => {
+      if (student.id === studentId) {
+        // this was the toggled student, so make a new record with the updated
+        // presence value
+        return { ...student, isPresentData: !student.isPresentData };
+      } else {
+        // this was not the student who was toggled, so we can use the existing
+        // data in the new student array
+        return student;
+      }
+    });
 
-        setStudentData(students);
-    };
+    // uses value-passing style to update the student data, but could be
+    // refactored to use function-passing style
+    setStudentData(students);
+  };
 
-    return (
-        <main>
-            <h1>Attendance</h1>
-            <StudentList
-                students={studentData}
-                onUpdateStudent={updateStudentData}
-                ></StudentList>
-        </main>
-    );
+  return (
+    <main>
+      <h1>Attendance</h1>
+      <ClassInfo memberCount={studentData.length}></ClassInfo>
+      <StudentList
+        students={studentData}
+        onStudentPresenceToggle={toggleStudentPresence}
+      ></StudentList>
+    </main>
+  );
 }
 
 export default App;
@@ -284,43 +295,43 @@ export default App;
 
 <!-- prettier-ignore-start -->
 ```js
+import Student from './Student';
 import './StudentList.css';
 import PropTypes from 'prop-types';
-import Student from './Student';
 
 const StudentList = (props) => {
-    const studentComponents = props.students.map((student, index) => {
-        return (
-            <li key={index}>
-                <Student
-                    id={student.id}
-                    name={student.nameData}
-                    email={student.emailData}
-                    isPresent={student.isPresentData}
-                    onUpdate={props.onUpdateStudent}
-                ></Student>
-            </li>
-        );
-    });
-
+  const studentComponents = props.students.map(student => {
     return (
-        <section>
-            <h2>Student List</h2>
-            <ul>
-                {studentComponents}
-            </ul>
-        </section>
+      <li key={student.id}>
+        <Student
+          id={student.id}
+          name={student.nameData}
+          email={student.emailData}
+          isPresent={student.isPresentData}
+          onPresenceToggle={props.onStudentPresenceToggle}
+        ></Student>
+      </li>
     );
+  });
+
+  return (
+    <section>
+      <h2 className="student-list__heading">Student List</h2>
+      <ul>{studentComponents}</ul>
+    </section>
+  );
 };
 
 StudentList.propTypes = {
-    students: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        nameData: PropTypes.string.isRequired,
-        emailData: PropTypes.string.isRequired,
-        isPresentData: PropTypes.bool
-    })),
-    onUpdateStudent: PropTypes.func
+  students: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      nameData: PropTypes.string.isRequired,
+      emailData: PropTypes.string.isRequired,
+      isPresentData: PropTypes.bool.isRequired,
+    })
+  ),
+  onStudentPresenceToggle: PropTypes.func.isRequired,
 };
 
 export default StudentList;
@@ -335,43 +346,37 @@ export default StudentList;
 
 <!-- prettier-ignore-start -->
 ```js
-import PropTypes from 'prop-types';
 import './Student.css';
+import PropTypes from 'prop-types';
 
 const Student = (props) => {
+  const attendanceButtonClicked = () => {
+    // Invoke the function passed in through the prop named "onPresenceToggle"
+    // This function refers to the toggleStudentPresence function in App
+    props.onPresenceToggle(props.id);
+};
 
-    const onAttendanceButtonClick = () => {
-        const updatedStudent = {
-            id: props.id,
-            nameData: props.name,
-            emailData: props.email,
-            isPresentData: !props.isPresent
-        };
+  const nameColor = props.isPresent ? 'green' : 'red';
 
-        // Invoke the function passed in through the prop named "onUpdate"
-        // This function is referenced by the name "updateStudentData" in App
-        props.onUpdate(updatedStudent);
-    }
-
-    const nameColor = props.isPresent ? 'green' : 'red';
-
-    return (
-        <div>
-            <ul>
-                <li className={nameColor}>Nickname: {props.name}</li>
-                <li>Email: {props.email}</li>
-            </ul>
-            <button onClick={onAttendanceButtonClick}>Toggle if {props.name} is present</button>
-        </div>
-    );
+  return (
+    <div>
+      <ul>
+        <li className={nameColor}>Nickname: {props.name}</li>
+        <li>Email: {props.email}</li>
+      </ul>
+      <button onClick={attendanceButtonClicked}>
+        Toggle if {props.name} is present
+      </button>
+    </div>
+  );
 };
 
 Student.propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    isPresent: PropTypes.bool,
-    onUpdate: PropTypes.func.isRequired
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  isPresent: PropTypes.bool.isRequired,
+  onPresenceToggle: PropTypes.func.isRequired,
 };
 
 export default Student;
@@ -639,22 +644,53 @@ export default NewStudentForm;
 
 ## Check for Understanding
 
-
-<!-- Question Takeaway -->
+<!-- Question 1 -->
 <!-- prettier-ignore-start -->
 ### !challenge
-* type: paragraph
-* id: 73c92061
+* type: multiple-choice
+* id: 2c36b6ce-cc23-455c-b6f5-41de229d3a05 
 * title: Controlled Forms
 ##### !question
 
-What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
+Controlled components follow a design pattern that states that...
 
 ##### !end-question
-##### !placeholder
+##### !options
 
-My biggest takeaway from this lesson is...
+a| A form's values should be controlled by the component's state, not by user interaction.
+b| A form's values should be controlled by user interaction, not by the component's state.
+c| A form's values should be controlled by what a user types into a form's input element.
 
-##### !end-placeholder
+##### !end-options
+##### !answer
+
+a|
+
+##### !end-answer
 ### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question 2 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: ordering
+* id: 114a72bf-6850-4e12-aae7-3195d372fc5d
+* title: Controlled Forms
+##### !question
+
+You are helping a dog rescue organization add a form to their website to collect applicants' information. Arrange the following steps for creating a controlled component called `AdoptionApplicationForm`.
+
+##### !end-question
+##### !answer
+
+
+1. Create a new component called AdoptionApplicationForm.jsx that has a form element. The form has input elements (along with label elements) for an applicant's first name, last name, and email.
+1. Add a piece of state `formFields` that is an object that will hold first name, last name and email as key-value pairs.
+1. Make the input fields read from the `formFields` state
+1. Create three event handlers (onFirstNameChange, onLastNameChange, and onEmailChange) that will read the current value inside the input field and update state to that current value.
+
+
+##### !end-answer
+### !end-challenge
+
 <!-- prettier-ignore-end -->
