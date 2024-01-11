@@ -121,5 +121,17 @@ export default ClassInfo;
 
 </details>
 
+<details>
+<summary><code>src/components/ClassInfo.css</code></summary>
+
+```css
+.class-info__heading {
+    color: darkblue;
+    font-style: oblique;
+}
+```
+
+</details>
+
 ![Web browser displaying Sofia's attendance app, displaying the following output: the heading Attendance; the sub-heading Class Information; a bulleted list showing Name: Team Semicolons, and Number of members: 0; a button labelled Delete All Students!; and the sub-heading Student List with no students listed.](../assets/lifting-state-up_problem-set-lifting-state-up_delete-example.png)  
 _Fig. After clicking the Delete All Students! button, the app no longer displays any students._
