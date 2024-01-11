@@ -8,7 +8,9 @@ There is no submission for this problem set. Be prepared to share your work in s
 
 ## Practice
 
-Recreate Sofia's app, so that a user can mark a student as present or not present.
+To help reinforce the concepts from the lesson, we strongly encourage recreating Sofia's app individually from scratch, up to the point where she left off in the last lesson. A user should be able to mark a student as present or not present.
+
+Getting a "feel" for the code required, where it goes, and how it works, will help us build confidence as we continue using React in new applications.
 
 ### Add a Delete Button
 
