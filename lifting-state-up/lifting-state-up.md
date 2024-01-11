@@ -6,15 +6,15 @@ Again, our goal is to make the attendance button in `Student` update the `studen
 
 ## Creating a New `onClick` Handler in `Student`
 
-When we click the attendance button in one `Student` component, we should update that student's data.
+When we click the attendance button in one `Student` component, we should update that student's data by toggling whether they are present.
 
-The `prop` named `onUpdate` references a function that updates a student's data. We can look at `App`'s `updateStudentData` function if we need to see the implementation.
+Because of how we are passing down the `toggleStudentPresence` function from `App`, the `prop` named `onPresenceToggle` references a function that does exactly this!
 
 <br/>
 
 <details>
 
-<summary>Review our current implementation of <code>App</code>.</summary>
+<summary>Review our current implementation of <code>App</code>, including <code>toggleStudentPresence</code>.</summary>
 
 <!-- prettier-ignore-start -->
 ```js
@@ -27,26 +27,26 @@ function App() {
       id: 1,
       nameData: 'Ada',
       emailData: 'ada@dev.org',
-      isPresentData: false
+      isPresentData: false,
     },
     {
       id: 2,
       nameData: 'Soo-ah',
       emailData: 'sooah@dev.org',
-      isPresentData: false
+      isPresentData: false,
     },
     {
       id: 3,
       nameData: 'Chrissy',
       emailData: 'chrissy@dev.org',
-      isPresentData: true
-    }
+      isPresentData: true,
+    },
   ]);
 
-  const updateStudentData = updatedStudent => {
+  const toggleStudentPresence = (studentId) => {
     const students = studentData.map(student => {
-      if (student.id === updatedStudent.id) {
-        return updatedStudent;
+      if (student.id === studentId) {
+        return { ...student, isPresentData: !student.isPresentData };
       } else {
         return student;
       }
@@ -60,7 +60,7 @@ function App() {
       <h1>Attendance</h1>
       <StudentList
         students={studentData}
-        onUpdateStudent={updateStudentData}
+        onStudentPresenceToggle={toggleStudentPresence}
       ></StudentList>
     </main>
   );
@@ -76,54 +76,37 @@ export default App;
 ```js
 const Student = (props) => {
 
-    const onAttendanceButtonClick = () => {
-        const updatedStudent = {
-            id: props.id,
-            nameData: props.name,
-            emailData: props.email,
-            isPresentData: !props.isPresent
-        };
-
-        // Invoke the function passed in through the prop named "onUpdate"
-        // This function is referenced by the name "updateStudentData" in App
-        props.onUpdate(updatedStudent);
-    };
+    const attendanceButtonClicked = () => {
+        // Invoke the function passed in through the prop named "onPresenceToggle"
+        // This function refers to the toggleStudentPresence function in App
+        props.onPresenceToggle(props.id);
+};
 
     // ... other rendering logic
 };
 ```
 <!-- prettier-ignore-end -->
 
-| <div style="min-width:250px;"> Piece of Code </div> | Notes                                                                                                                                                                                                                                                          |
+| <div style="min-width:260px;"> Piece of Code </div> | Notes                                                                                                                                                                                                                                                          |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `const onAttendanceButtonClick = () => { ... };`     | We're creating an event-handling function named `onAttendanceButtonClick`. We don't need any details about the event, so we don't list `event` as a parameter.                                                                                                                                                                                    |
-| `const updatedStudent = { ... };`                    | We create a variable, `updatedStudent`, to hold our updated student data.                                                                                                                                                                                      |
-| `id: props.id, ... emailData: props.email,`         | The key-value pairs in this object should match exactly what is required in `App`'s `updateStudentData` function. In that function, we're looking for the keys `id`, `nameData`, `emailData`, and `isPresentData`, to match the existing `studentData` format. |
-| `isPresentData: !props.isPresent`                   | When we click on the attendance button, we want to toggle the student's present status. So the value of `isPresentData` should be the opposite of the current `props.isPresent`.                                                                                                                                              |
-| `props.onUpdate(...);`                              | The value of `props.onUpdate` is a function reference. We invoke this function using parentheses `()`.                                                                                                                                                                   |
-| `updatedStudent`                                    | The function referenced by `props.onUpdate` ultimately accepts one argument, an updated student object. We can pass in our new `updatedStudent` object here.                                                                                                                 |
+| `const attendanceButtonClicked = () => { ... };`     | We're creating an event-handling function named `attendanceButtonClicked`. We don't need any details about the event, so we don't list `event` as a parameter.                                                                                                                                                                                    |
+| `props.onPresenceToggle(...);`                              | The value of `props.onPresenceToggle` is a function reference. We invoke this function using parentheses `()`.                                                                                                                                                                   |
+| `props.id`                                    | The function referenced by `props.onPresenceToggle` ultimately accepts one argument, the ID of the student whose presence data should be toggled. The ID of the student this `Student` component is showing is passed in through the `id` `props` value. |
 
-## Attaching `onAttendanceButtonClick` to the Attendance Button
+## Registering `attendanceButtonClicked` with the Attendance Button
 
 Now that we have defined an event handler, let's ensure that we're _using_ this event handler!
 
-We need to attach our function to the attendance button's `onClick` attribute:
+We need to register our function with the attendance button's `onClick` attribute:
 
 <!-- prettier-ignore-start -->
 ```js
 const Student = (props) => {
 
-    const onAttendanceButtonClick = () => {
-        const updatedStudent = {
-            id: props.id,
-            nameData: props.name,
-            emailData: props.email,
-            isPresentData: !props.isPresent
-        };
-
-        // Invoke the function passed in through the prop named "onUpdate"
-        // This function is referenced by the name "updateStudentData" in App
-        props.onUpdate(updatedStudent);
+    const attendanceButtonClicked = () => {
+        // Invoke the function passed in through the prop named "onPresenceToggle"
+        // This function refers to the toggleStudentPresence function in App
+        props.onPresenceToggle(props.id);
     };
 
     const nameColor = props.isPresent ? 'green' : 'red';
@@ -134,7 +117,7 @@ const Student = (props) => {
                 <li className={nameColor}>Nickname: {props.name}</li>
                 <li>Email: {props.email}</li>
             </ul>
-            <button onClick={onAttendanceButtonClick}>Toggle if {props.name} is present</button>
+            <button onClick={attendanceButtonClicked}>Toggle if {props.name} is present</button>
         </div>
     );
 };
@@ -161,10 +144,10 @@ We did it! 🎉🎉
 
 Let's observe two more things:
 
-`StudentList` indeed has two `props`: a `students` array with the student data, and `onUpdateStudent`, which is a function reference, indicated by the curly 𝑓.
+`StudentList` indeed has two `props`: a `students` array with the student data, and `onStudentPresenceToggle`, which is a function reference, indicated by the curly 𝑓.
 
-![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. In the the component hierarchy, the StudentList component is selected. Under the section titled Props, we see onUpdateStudents, which holds a function reference to updateStudentData. We also see students, which holds the array of studentData.](../assets/lifting-state-up_lifting-state-up_studentlist-detail.png)  
-_Fig. `StudentList` has both `onUpdateStudents` and `students` listed in its `props`_
+![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. In the the component hierarchy, the StudentList component is selected. Under the section titled Props, we see onStudentPresenceToggle, which holds a function reference to toggleStudentPresence. We also see students, which holds the array of studentData.](../assets/lifting-state-up_lifting-state-up_studentlist-detail.png)  
+_Fig. `StudentList` has both `onStudentPresenceToggle` and `students` listed in its `props`_
 
 Each `Student` component has five props:
 
@@ -172,9 +155,9 @@ Each `Student` component has five props:
 1. `id`, a number
 1. `isPresent`, a boolean
 1. `name`, another string
-1. `onUpdate`, a reference to a function, again indicated by the curly 𝑓, originally named `updateStudentData`
+1. `onPresenceToggle`, a reference to a function, again indicated by the curly 𝑓, originally named `toggleStudentPresence`
 
-![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. In the the component hierarchy, the first Student component is selected. Under the section titled Props, we see email, id, isPresent, and name, all with the expected values for the first student, Ada. We also see that onUpdate contains a function reference to updateStudentData.](../assets/lifting-state-up_lifting-state-up_student-detail.png)  
+![Web browser displaying Sofia's attendance app and the React Developer Tools Components tab. In the the component hierarchy, the first Student component is selected. Under the section titled Props, we see email, id, isPresent, and name, all with the expected values for the first student, Ada. We also see that onPresenceToggle contains a function reference to toggleStudentPresence.](../assets/lifting-state-up_lifting-state-up_student-detail.png)  
 _Fig. `Student` showing all expected `props`, present and accounted for!_
 
 ## Did We Accomplish "Single Source of Truth"?
@@ -201,22 +184,23 @@ Now is a great time to read through our code and delete any unused imports. In p
 <!-- prettier-ignore-start -->
 ### !challenge
 * type: multiple-choice
-* id: 8ffcf3b5
+* id: 42c4e728
 * title: Lifting State Up
 ##### !question
 
-Which of the following options best describes why this step is called "Lifting State Up"?
+Which of the following options best describes why we refer to the set of refactors performed over the last few lessons as "Lifting State Up"?
 
 ##### !end-question
 ##### !options
 
-* The button for changing a student's attendance is rendered in the `Student` component, but the student data is managed in the state of the `App` component. Event handling that happens in `Student` needs to "bubble up" and affect the `App` component.
-* The `Student` component stores the state of `isPresent`. The state of `isPresent` needs to be synchronized with the state of `isPresent` in the `App` component.
+a| When we click the attendance button in one `Student` component instance, the event is "lifted up" and transformed into a function call in the `App` component.
+b| The `isPresent` piece of state that started out in the `Student` component was "lifted up" through the component tree to the `App` component to become a part of the overall `studentData`. While this required plumbing logic to update the state back down to the `Student` component, in the end, the `App` component became the "single source of truth" for the `studentData`.
+c| The logic required to toggle the presence value for a student was "lifted up" from the `Student` component to a new function in the `App` component.
 
 ##### !end-options
 ##### !answer
 
-* The button for changing a student's attendance is rendered in the `Student` component, but the student data is managed in the state of the `App` component. Event handling that happens in `Student` needs to "bubble up" and affect the `App` component.
+b|
 
 ##### !end-answer
 ### !end-challenge
