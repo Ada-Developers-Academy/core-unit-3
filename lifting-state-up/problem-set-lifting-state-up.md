@@ -143,3 +143,17 @@ A possible implementation might look like this:
 
 ![Web browser displaying Sofia's attendance app, displaying the following output: the heading Attendance; the sub-heading Class Information; a bulleted list showing Name: Team Semicolons, and Number of members: 0; a button labelled Delete All Students!; and the sub-heading Student List with no students listed.](../assets/lifting-state-up_problem-set-lifting-state-up_delete-example.png)  
 _Fig. After clicking the Delete All Students! button, the app no longer displays any students._
+
+<br />
+
+<details>
+<summary>Here's an example solution for review after completing the problem set
+</summary>
+
+<br />
+
+[Lifting State Up Problem Set Solution](https://github.com/AdaAnswers/lifting-state-up-problem-set)
+
+It's ok if this solution looks different than what you came up with. Consider discussing your approach with a classmate to see how others tackled this problem set.
+
+</details>
