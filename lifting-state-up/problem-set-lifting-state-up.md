@@ -24,6 +24,10 @@ For most of the excerpts from Sofia's journey, we've left out the `ClassInfo` co
 
 If focusing on the new feature feels like the best way to engage with this material, then you may wish to refer to the [`05-lifting-state-up`](https://github.com/AdaGold/student-app/tree/05-lifting-state-up) branch of the `student-app` repo as a starting point.
 
+<br />
+
+<details>
+<summary><code>src/App.jsx</code> <i>(using <code>ClassInfo</code>)</i></summary>
 
 <!-- prettier-ignore-start -->
 ```js
@@ -37,26 +41,26 @@ function App() {
             id: 1,
             nameData: 'Ada',
             emailData: 'ada@dev.org',
-            isPresentData: false
+            isPresentData: false,
         },
         {
             id: 2,
             nameData: 'Soo-ah',
             emailData: 'sooah@dev.org',
-            isPresentData: false
+            isPresentData: false,
         },
         {
             id: 3,
             nameData: 'Chrissy',
             emailData: 'chrissy@dev.org',
-            isPresentData: true
-        }
+            isPresentData: true,
+        },
     ]);
 
-    const updateStudentData = updatedStudent => {
+    const toggleStudentPresence = (studentId) => {
         const students = studentData.map(student => {
-            if (student.id === updatedStudent.id) {
-                return updatedStudent;
+            if (student.id === studentId) {
+                return { ...student, isPresentData: !student.isPresentData };
             } else {
                 return student;
             }
@@ -71,7 +75,7 @@ function App() {
             <ClassInfo memberCount={studentData.length}></ClassInfo>
             <StudentList
                 students={studentData}
-                onUpdateStudent={updateStudentData}
+                onStudentPresenceToggle={toggleStudentPresence}
             ></StudentList>
         </main>
     );
@@ -81,16 +85,20 @@ export default App;
 ```
 <!-- prettier-ignore-end -->
 
-In a `src/components/ClassInfo.js`, consider this starter code for a `ClassInfo` component:
+</details>
+
+<details>
+<summary><code>src/components/ClassInfo.jsx</code></summary>
 
 <!-- prettier-ignore-start -->
 ```js
+import './ClassInfo.css';
 import PropTypes from 'prop-types';
 
 const ClassInfo = (props) => {
     return (
         <section>
-            <h2>Class Information</h2>
+            <h2 className="class-info__heading">Class Information</h2>
             <ul>
                 <li>
                     Name: Team Semicolons
@@ -104,16 +112,14 @@ const ClassInfo = (props) => {
 };
 
 ClassInfo.propTypes = {
-    memberCount: PropTypes.number
+    memberCount: PropTypes.number.isRequired,
 };
 
 export default ClassInfo;
 ```
 <!-- prettier-ignore-end -->
 
-Create a delete button that will clear all student data.
-
-An example implementation looks like this:
+</details>
 
 ![Web browser displaying Sofia's attendance app, displaying the following output: the heading Attendance; the sub-heading Class Information; a bulleted list showing Name: Team Semicolons, and Number of members: 0; a button labelled Delete All Students!; and the sub-heading Student List with no students listed.](../assets/lifting-state-up_problem-set-lifting-state-up_delete-example.png)  
 _Fig. After clicking the Delete All Students! button, the app no longer displays any students._
