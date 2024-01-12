@@ -137,7 +137,7 @@ export default ClassInfo;
 
 ### Add a Delete Button
 
-Create a delete button that will clear all student data. For now we don't have a way to add additional students, but Sofia will be implementing that feature soon. For now, if we need to being back the list of students as we work on the feature, we can refresh the browser.
+Create a delete button that will clear all student data. We don't currently have a way to add additional students, but Sofia will be implementing that feature soon. For now, if we need to bring back the list of students as we work on the feature, we can refresh the browser.
 
 A possible implementation might look like this:
 
