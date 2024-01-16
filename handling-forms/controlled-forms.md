@@ -214,6 +214,7 @@ _Fig. The CityNameInput component's state matches the input value_
 
 Sofia is developing some new features to her attendance app. She wants to be able to add a new student to her class whenever she wants!
 
+As in the previous lesson, all subsequent code examples and screen shots will omit the `ClassInfo` component to focus on the `StudentList` part of the application. However, the `ClassInfo` component will still appear in the reference branches found in GitHub. 
 Sofia's app currently has the following components:
 
 <br/>
@@ -226,61 +227,58 @@ Sofia's app currently has the following components:
 ```js
 import { useState } from 'react';
 import StudentList from './components/StudentList';
-import ClassInfo from './components/ClassInfo';
 
 function App() {
-  const [studentData, setStudentData] = useState([
-    {
-      id: 1,
-      nameData: 'Ada',
-      emailData: 'ada@dev.org',
-      isPresentData: false,
-    },
-    {
-      id: 2,
-      nameData: 'Soo-ah',
-      emailData: 'sooah@dev.org',
-      isPresentData: false,
-    },
-    {
-      id: 3,
-      nameData: 'Chrissy',
-      emailData: 'chrissy@dev.org',
-      isPresentData: true,
-    },
-  ]);
+    const [studentData, setStudentData] = useState([
+        {
+            id: 1,
+            nameData: 'Ada',
+            emailData: 'ada@dev.org',
+            isPresentData: false,
+        },
+        {
+            id: 2,
+            nameData: 'Soo-ah',
+            emailData: 'sooah@dev.org',
+            isPresentData: false,
+        },
+        {
+            id: 3,
+            nameData: 'Chrissy',
+            emailData: 'chrissy@dev.org',
+            isPresentData: true,
+        },
+    ]);
 
+  const toggleStudentPresence = (studentId) => {
   const toggleStudentPresence = (studentId) => {
     // calculate the updated student data by finding the student that matches
     // the passed id, making a copy with object spreading, then overwriting
     // the presence value with its inverse
-    const students = studentData.map(student => {
-      if (student.id === studentId) {
-        // this was the toggled student, so make a new record with the updated
-        // presence value
-        return { ...student, isPresentData: !student.isPresentData };
-      } else {
-        // this was not the student who was toggled, so we can use the existing
-        // data in the new student array
-        return student;
-      }
-    });
+    const toggleStudentPresence = (studentId) => {
+    // calculate the updated student data by finding the student that matches
+    // the passed id, making a copy with object spreading, then overwriting
+    // the presence value with its inverse
+        const students = studentData.map(student => {
+            if (student.id === studentId) {
+                return { ...student, isPresentData: !student.isPresentData };
+            } else {
+                return student;
+            }
+        });
 
-    // uses value-passing style to update the student data, but could be
-    // refactored to use function-passing style
-    setStudentData(students);
-  };
+        setStudentData(students);
+    };
 
-  return (
-    <main>
-      <h1>Attendance</h1>
-      <ClassInfo memberCount={studentData.length}></ClassInfo>
-      <StudentList
-        students={studentData}
-        onStudentPresenceToggle={toggleStudentPresence}
-      ></StudentList>
-    </main>
-  );
+    return (
+        <main>
+            <h1>Attendance</h1>
+            <StudentList
+                students={studentData}
+                onStudentPresenceToggle={toggleStudentPresence}
+            ></StudentList>
+        </main>
+    );
 }
 
 export default App;
@@ -295,43 +293,43 @@ export default App;
 
 <!-- prettier-ignore-start -->
 ```js
-import Student from './Student';
 import './StudentList.css';
 import PropTypes from 'prop-types';
+import Student from './Student';
 
 const StudentList = (props) => {
-  const studentComponents = props.students.map(student => {
-    return (
-      <li key={student.id}>
-        <Student
-          id={student.id}
-          name={student.nameData}
-          email={student.emailData}
-          isPresent={student.isPresentData}
-          onPresenceToggle={props.onStudentPresenceToggle}
-        ></Student>
-      </li>
-    );
-  });
+    const studentComponents = props.students.map(student => {
+        return (
+            <li key={student.id}>
+                <Student
+                    id={student.id}
+                    name={student.nameData}
+                    email={student.emailData}
+                    isPresent={student.isPresentData}
+                    onPresenceToggle={props.onStudentPresenceToggle}
+                ></Student>
+            </li>
+        );
+    });
 
-  return (
-    <section>
-      <h2 className="student-list__heading">Student List</h2>
-      <ul>{studentComponents}</ul>
-    </section>
-  );
+    return (
+        <section>
+            <h2 className="student-list__heading">Student List</h2>
+            <ul>{studentComponents}</ul>
+        </section>
+    );
 };
 
 StudentList.propTypes = {
-  students: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      nameData: PropTypes.string.isRequired,
-      emailData: PropTypes.string.isRequired,
-      isPresentData: PropTypes.bool.isRequired,
-    })
-  ),
-  onStudentPresenceToggle: PropTypes.func.isRequired,
+    students: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            nameData: PropTypes.string.isRequired,
+            emailData: PropTypes.string.isRequired,
+            isPresentData: PropTypes.bool.isRequired,
+        })
+    ),
+    onStudentPresenceToggle: PropTypes.func.isRequired,
 };
 
 export default StudentList;
@@ -346,37 +344,41 @@ export default StudentList;
 
 <!-- prettier-ignore-start -->
 ```js
-import './Student.css';
 import PropTypes from 'prop-types';
+import './Student.css';
 
 const Student = (props) => {
   const attendanceButtonClicked = () => {
+  const attendanceButtonClicked = () => {
     // Invoke the function passed in through the prop named "onPresenceToggle"
     // This function refers to the toggleStudentPresence function in App
-    props.onPresenceToggle(props.id);
+    const attendanceButtonClicked = () => {
+    // Invoke the function passed in through the prop named "onPresenceToggle"
+    // This function refers to the toggleStudentPresence function in App
+        props.onPresenceToggle(props.id);
 };
 
-  const nameColor = props.isPresent ? 'green' : 'red';
+    const nameColor = props.isPresent ? 'green' : 'red';
 
-  return (
-    <div>
-      <ul>
-        <li className={nameColor}>Nickname: {props.name}</li>
-        <li>Email: {props.email}</li>
-      </ul>
-      <button onClick={attendanceButtonClicked}>
-        Toggle if {props.name} is present
-      </button>
-    </div>
-  );
+    return (
+        <div>
+            <ul>
+                <li className={nameColor}>Nickname: {props.name}</li>
+                <li>Email: {props.email}</li>
+            </ul>
+            <button onClick={attendanceButtonClicked}>
+                Toggle if {props.name} is present
+            </button>
+        </div>
+    );
 };
 
 Student.propTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  isPresent: PropTypes.bool.isRequired,
-  onPresenceToggle: PropTypes.func.isRequired,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    isPresent: PropTypes.bool.isRequired,
+    onPresenceToggle: PropTypes.func.isRequired,
 };
 
 export default Student;
@@ -389,7 +391,7 @@ export default Student;
 
 Sofia is putting her new student form into its own component: `NewStudentForm`.
 
-Inside `src/components/NewStudentForm.js`, she begins this component:
+Inside `src/components/NewStudentForm.jsx`, she begins this component:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -678,17 +680,15 @@ a|
 * title: Controlled Forms
 ##### !question
 
-You are helping a dog rescue organization add a form to their website to collect applicants' information. Arrange the following steps for creating a controlled component called `AdoptionApplicationForm`.
+You are helping an animal rescue organization add a form to their website to collect applicants' information. Arrange the following steps for creating a controlled component called `AdoptionApplicationForm`.
 
 ##### !end-question
 ##### !answer
 
-
 1. Create a new component called AdoptionApplicationForm.jsx that has a form element. The form has input elements (along with label elements) for an applicant's first name, last name, and email.
 1. Add a piece of state `formFields` that is an object that will hold first name, last name and email as key-value pairs.
 1. Make the input fields read from the `formFields` state
-1. Create three event handlers (onFirstNameChange, onLastNameChange, and onEmailChange) that will read the current value inside the input field and update state to that current value.
-
+2. Create an event handler that will read the current values inside the input fields and use the values to update the corresponding state  variables.
 
 ##### !end-answer
 ### !end-challenge
