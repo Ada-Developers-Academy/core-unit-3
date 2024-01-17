@@ -719,6 +719,12 @@ We can refactor our code to combine `onNameChange` and `onEmailChange` into one 
 
 We can accomplish this refactor by using the spread operator notation with object shorthand notation as we saw in the lesson on "Passing Down Event Handlers". In that lesson, the key being updated was known ahead of time, and could be hard-coded as part of the shorthand notation. Here, the key is read from the event data, and must be computed each time we get a new change event. To do this with shorthand notation, we use [`computed property notation`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names). Essentially, the expression to calculate the key is placed within brackets `[]`.
 
+Since we will use event data in our `handleChange`, we will also need to make a slight update to the attributes for the `label` and `input` elements. When we use the event data to dynamically get the user input, we use `event.target.name` to populate the property for the `formFields` object and we use `event.target.value` to populate what the user typed as the value.
+
+<br/>
+
+If we the attributes for the `label` and `input` elements as `fullName` then `event.target.name` would evaluate to the string `fullName` because the `name` attribute was set to the value "fullName". This is where we run into an issue. The formFields state object has a key "name" not "fullName" so when we use `formFields.name` to have our form input read from the updated state, we would get `undefined` because `handleChange` would have set the property to "fullName". Thus, we need to update `input`'s `name` attribute to be the string "name" instead of "fullName". Additionally, to associate the `input` with the `label` we then need to also change `id` and `for` attributes to be "name" instead of "fullName".
+
 ```js
 import { useState } from 'react';
 
@@ -751,10 +757,12 @@ const NewStudentForm = () => {
     return (
         <form>
             <div>
-                <label htmlFor="fullName">Name:</label>
+                {/* the for attribute is now `name` instead of `fullName` */} 
+                <label htmlFor="name">Name:</label>
                 <input
-                    id="fullName"
-                    name="fullName"
+                     {/* the id and name attributes are also changed to `name` */} 
+                    id="name"
+                    name="name"
                     value={formFields.name}
                     onChange={handleChange} />
             </div>
