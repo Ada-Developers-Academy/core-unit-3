@@ -214,7 +214,7 @@ _Fig. The CityNameInput component's state matches the input value_
 
 Sofia is developing some new features to her attendance app. She wants to be able to add a new student to her class whenever she wants!
 
-As in the previous lesson, all subsequent code examples and screen shots will omit the `ClassInfo` component to focus on the `StudentList` part of the application. However, the `ClassInfo` component will still appear in the reference branches found in GitHub. 
+> As in the previous lesson, all subsequent code examples and screen shots will omit the `ClassInfo` component to focus on the `StudentList` part of the application. However, the `ClassInfo` component will still appear in the reference branches found in GitHub. 
 Sofia's app currently has the following components:
 
 <br/>
@@ -250,15 +250,7 @@ function App() {
         },
     ]);
 
-  const toggleStudentPresence = (studentId) => {
-  const toggleStudentPresence = (studentId) => {
-    // calculate the updated student data by finding the student that matches
-    // the passed id, making a copy with object spreading, then overwriting
-    // the presence value with its inverse
     const toggleStudentPresence = (studentId) => {
-    // calculate the updated student data by finding the student that matches
-    // the passed id, making a copy with object spreading, then overwriting
-    // the presence value with its inverse
         const students = studentData.map(student => {
             if (student.id === studentId) {
                 return { ...student, isPresentData: !student.isPresentData };
@@ -348,13 +340,8 @@ import PropTypes from 'prop-types';
 import './Student.css';
 
 const Student = (props) => {
-  const attendanceButtonClicked = () => {
-  const attendanceButtonClicked = () => {
-    // Invoke the function passed in through the prop named "onPresenceToggle"
-    // This function refers to the toggleStudentPresence function in App
+
     const attendanceButtonClicked = () => {
-    // Invoke the function passed in through the prop named "onPresenceToggle"
-    // This function refers to the toggleStudentPresence function in App
         props.onPresenceToggle(props.id);
 };
 
@@ -422,25 +409,25 @@ Each new student should have a name and an email. Her form contains one text inp
 
 ### !callout-info
 
-## Labels and Inputs and Their Attributes
+## Labels, Inputs, and Their Attributes
 
-What's up with the attributes `name`, `id` , and `for` (mapped in React as `htmlFor`)? These attributes are used by HTML forms when submitting data and for improving a web page's accessibility. 
-
-<br/>
-
-The `id` and `for` attributes enable us to [associate a `<label>` element with its corresponding `<input>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#labels_2) which improves accessibility because assistive technologies can tell what the input is for and the area a user can click is increased from just the input element to include the label element too. 
+What's up with the attributes `name`, `id` , and `for` (mapped in React as `htmlFor`)? These attributes are used by HTML forms when submitting data and for improving a web page's usability. 
 
 <br/>
 
-The [name attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name) on an `<input>` element assigns a name to tit and this name can be used during form submission or as a reference for other purposes.
+The `id` and `for` attributes enable us to [associate a `<label>` element with its corresponding `<input>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#labels_2). This improves usability because the browser can tell which `input` the `label` is for, which allows a user to click the `label` in addition to the `input` elements to start interacting with the `input`. Making click targets larger often makes it easier for users to interact with them.
 
 <br/>
 
-We know that we need to include the `id` attribute for accessibility reasons, but what if we want to use the same component on a page two times? If the same component appears in an application more than once then the `id`, which is meant to be a unique identifier, would also show up more than once. In this scenario, the `id` would not be unique in the entire DOM.
+The [name attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name) on an `<input>` element is primarily used during traditional HTML form submission. It's a little more flexible than `id` though, and while it may seem redundant to set both, we'll see a refactoring opportunity later where we'll use the `name` value. 
 
 <br/>
 
-Expand below to learn how we can ensure `id`s are unique in a React app.
+An `id` attribute is required if we want to associate a label with the `input`, but recall that in an HTML page, all `id`s must be unique across the *entire* DOM. What if we want to use the same component on a page more than once? Perhaps we're building an application that lets a user perform bulk updates on inventory data, and each inventory item has a small embedded form component in its display component. Then any `id` in that form component, would also appear on the page more than once. In this scenario, the `id`s would not be unique across the entire DOM.
+
+<br/>
+
+React provides the [`useId` hook](https://react.dev/reference/react/useId) for cases where we need an `id` in a component that might appear multiple times on a page. Sofia won't need to use this in her app, but feel free to read more about it on your own, or expand the section below for an example!
 
 <br/>
 
@@ -450,15 +437,14 @@ Expand below to learn how we can ensure `id`s are unique in a React app.
 
 <br/>
 
-Since we need to use the `id` attribute when we have `<label>` and `<input>` elements, we want to ensure that the `id` will be a unique value and avoid hardcoding IDs (which is not a good practice in React). This is especially true for React components since components are meant to be reused. 
+Since we need to use the `id` attribute when we have `<label>` and `<input>` elements, we must ensure that the `id` will be a unique value. In general, React recommends that we avoid hardcoding IDs. This is especially true for components since they are meant to be reused.
+<br/>
+
+React 18 introduced a new [hook for generating unique IDs](https://react.dev/reference/react/useId). We can use this hook to [generate a unique ID for our controlled form](https://react.dev/reference/react/useId#generating-ids-for-several-related-elements), and use that to build a unique ID for each `input` on the form.
 
 <br/>
 
-React 18 introduced a new [hook for generating unique IDs](https://react.dev/reference/react/useId#specifying-a-shared-prefix-for-all-generated-ids) and we can use this hook to [generating unique IDs for accessibility attributes](https://react.dev/reference/react/useId#generating-unique-ids-for-accessibility-attributes).
-
-<br/>
-
-We invoke `useId()` in our component and can append the value returned to our `id`s. See the example below.
+We invoke `useId()` in our component and use the value returned as a prefix for each of our `input` `id`s. See the example below.
 
 ```js
 import { useId } from 'react';
@@ -470,11 +456,11 @@ const NewStudentForm = () => {
         <form>
             <div>
                 <label htmlFor="fullName">Name:</label>
-                <input id={`fullName_${inputId}`} name="fullName" />
+                <input id={`${inputId}-fullName`} name="fullName" />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
-                <input id={`email_${inputId}`} name="email" />
+                <input id={`${inputId}-email`} name="email" />
             </div>
             <input
                 type="submit"
@@ -721,11 +707,17 @@ Notice that the functions `onNameChange` and `onEmailChange` are nearly identica
 
 <br/>
 
-We can refactor our code to combine  `onNameChange` and `onEmailChange` into one event handler called `handleChange` to reduce repetition in the `NewStudentForm` component.
+We can refactor our code to combine `onNameChange` and `onEmailChange` into one event handler called `handleChange` to reduce repetition in the `NewStudentForm` component. `handleChange` will use details from the change event to figure out which part of the state to update! 
 
 <br/>
 
-We can accomplish this by using the spread operator notation with object shorthand notation as we saw in the lesson on "Passing Down Event Handlers".
+<details>
+
+<summary>Expand the section below for more details on our refactor and to see the solution.</summary>
+
+<br/>
+
+We can accomplish this refactor by using the spread operator notation with object shorthand notation as we saw in the lesson on "Passing Down Event Handlers". In that lesson, the key being updated was known ahead of time, and could be hard-coded as part of the shorthand notation. Here, the key is read from the event data, and must be computed each time we get a new change event. To do this with shorthand notation, we use [`computed property notation`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names). Essentially, the expression to calculate the key is placed within brackets `[]`.
 
 ```js
 import { useState } from 'react';
@@ -783,6 +775,7 @@ const NewStudentForm = () => {
 
 export default NewStudentForm;
 ```
+</details>
 
 ### !end-callout
 
