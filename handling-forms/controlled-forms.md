@@ -723,7 +723,15 @@ Since we will use event data in our `handleChange`, we will also need to make a 
 
 <br/>
 
-If we the attributes for the `label` and `input` elements as `fullName` then `event.target.name` would evaluate to the string `fullName` because the `name` attribute was set to the value "fullName". This is where we run into an issue. The formFields state object has a key "name" not "fullName" so when we use `formFields.name` to have our form input read from the updated state, we would get `undefined` because `handleChange` would have set the property to "fullName". Thus, we need to update `input`'s `name` attribute to be the string "name" instead of "fullName". Additionally, to associate the `input` with the `label` we then need to also change `id` and `for` attributes to be "name" instead of "fullName".
+If we the attributes for the `label` and `input` elements as `fullName` then `event.target.name` would evaluate to the string `fullName` because the `name` attribute was set to the value "fullName".
+
+<br/>
+
+This is where we run into an issue. The formFields state object has a key "name" not "fullName" so when we use `formFields.name` to have our form input read from the updated state, we would get `undefined` because `handleChange` would have set the property to "fullName". Thus, we need to update `input`'s `name` attribute to be the string "name" instead of "fullName". 
+
+<br/>
+
+Additionally, to associate the `input` with the `label` we then need to also change `id` and `for` attributes to be "name" instead of "fullName".
 
 ```js
 import { useState } from 'react';
