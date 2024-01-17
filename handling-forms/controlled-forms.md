@@ -401,11 +401,11 @@ const NewStudentForm = () => {
         <form>
             <div>
                 <label htmlFor="fullName">Name:</label>
-                <input name="fullName" />
+                <input id="fullName" name="fullName" />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
-                <input name="email" />
+                <input id="email" name="email" />
             </div>
             <input
                 type="submit"
@@ -422,9 +422,71 @@ Each new student should have a name and an email. Her form contains one text inp
 
 ### !callout-info
 
-## Labels and Names
+## Labels and Inputs and Their Attributes
 
-What's up with the attributes `name` and `for` (mapped in React as `htmlFor`)? These attributes are used by HTML forms when submitting data and for associating labels. They aren't necessary for this curriculum, but they're a great research topic for creating valid HTML.
+What's up with the attributes `name`, `id` , and `for` (mapped in React as `htmlFor`)? These attributes are used by HTML forms when submitting data and for improving a web page's accessibility. 
+
+<br/>
+
+The `id` and `for` attributes enable us to [associate a `<label>` element with its corresponding `<input>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#labels_2) which improves accessibility because assistive technologies can tell what the input is for and the area a user can click is increased from just the input element to include the label element too. 
+
+<br/>
+
+The [name attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name) on an `<input>` element assigns a name to tit and this name can be used during form submission or as a reference for other purposes.
+
+<br/>
+
+We know that we need to include the `id` attribute for accessibility reasons, but what if we want to use the same component on a page two times? If the same component appears in an application more than once then the `id`, which is meant to be a unique identifier, would also show up more than once. In this scenario, the `id` would not be unique in the entire DOM.
+
+<br/>
+
+Expand below to learn how we can ensure `id`s are unique in a React app.
+
+<br/>
+
+<details>
+
+<summary>How to Generate Unique IDs for Components</summary>
+
+<br/>
+
+Since we need to use the `id` attribute when we have `<label>` and `<input>` elements, we want to ensure that the `id` will be a unique value and avoid hardcoding IDs (which is not a good practice in React). This is especially true for React components since components are meant to be reused. 
+
+<br/>
+
+React 18 introduced a new [hook for generating unique IDs](https://react.dev/reference/react/useId#specifying-a-shared-prefix-for-all-generated-ids) and we can use this hook to [generating unique IDs for accessibility attributes](https://react.dev/reference/react/useId#generating-unique-ids-for-accessibility-attributes).
+
+<br/>
+
+We invoke `useId()` in our component and can append the value returned to our `id`s. See the example below.
+
+```js
+import { useId } from 'react';
+
+const NewStudentForm = () => {
+    const inputId = useId();
+
+    return (
+        <form>
+            <div>
+                <label htmlFor="fullName">Name:</label>
+                <input id={`fullName_${inputId}`} name="fullName" />
+            </div>
+            <div>
+                <label htmlFor="email">Email:</label>
+                <input id={`email_${inputId}`} name="email" />
+            </div>
+            <input
+                type="submit"
+                value="Add Student" />
+        </form>
+    );
+};
+
+```
+
+</details>
+
 
 ### !end-callout
 
@@ -481,12 +543,14 @@ Now she needs to make the input fields read from this state. Since `formFields` 
             <div>
                 <label htmlFor="fullName">Name:</label>
                 <input
+                    id="fullName"
                     name="fullName"
                     value={formFields.name} />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
                 <input
+                    id="email"
                     name="email"
                     value={formFields.email} />
             </div>
@@ -552,6 +616,7 @@ Now, Sofia needs to make sure that the input fields use these event handlers whe
             <div>
                 <label htmlFor="fullName">Name:</label>
                 <input
+                    id="fullName"
                     name="fullName"
                     value={formFields.name}
                     onChange={onNameChange} />
@@ -559,6 +624,7 @@ Now, Sofia needs to make sure that the input fields use these event handlers whe
             <div>
                 <label htmlFor="email">Email:</label>
                 <input name="email"
+                    id="email"
                     value={formFields.email}
                     onChange={onEmailChange} />
             </div>
@@ -619,13 +685,16 @@ const NewStudentForm = () => {
             <div>
                 <label htmlFor="fullName">Name:</label>
                 <input
+                    id="fullName"
                     name="fullName"
                     value={formFields.name}
                     onChange={onNameChange} />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
-                <input name="email"
+                <input 
+                    id="email"
+                    name="email"
                     value={formFields.email}
                     onChange={onEmailChange} />
             </div>
@@ -641,6 +710,79 @@ export default NewStudentForm;
 <!-- prettier-ignore-end -->
 
 </details>
+
+### !end-callout
+
+### !callout-info
+
+## Refactoring Opportunity: Combining Multiple Change Handlers into One
+
+Notice that the functions `onNameChange` and `onEmailChange` are nearly identical. The only difference between the two event handlers is that one updates the value for the name property and one updates the value for the email property in the formFields state object.
+
+<br/>
+
+We can refactor our code to combine  `onNameChange` and `onEmailChange` into one event handler called `handleChange` to reduce repetition in the `NewStudentForm` component.
+
+<br/>
+
+We can accomplish this by using the spread operator notation with object shorthand notation as we saw in the lesson on "Passing Down Event Handlers".
+
+```js
+import { useState } from 'react';
+
+const NewStudentForm = () => {
+
+    const [formFields, setFormFields] = useState({
+        name: '',
+        email: ''
+    });
+
+    // two event handlers that can be combined into a single event handler
+    // const onNameChange = (event) => {
+    //     setFormFields({
+    //         ...formFields,
+    //         name: event.target.value
+    //     })
+    // };
+
+    // const onEmailChange = (event) => {
+    //     setFormFields({
+    //         ...formFields,
+    //         email: event.target.value
+    //     })
+    // };
+
+    const handleChange = (event) => {
+        setFormFields({ ...formFields, [event.target.name]: event.target.value });
+    };
+
+    return (
+        <form>
+            <div>
+                <label htmlFor="fullName">Name:</label>
+                <input
+                    id="fullName"
+                    name="fullName"
+                    value={formFields.name}
+                    onChange={handleChange} />
+            </div>
+            <div>
+                <label htmlFor="email">Email:</label>
+                <input 
+                    id="email"
+                    name="email"
+                    value={formFields.email}
+                    onChange={handleChange} />
+            </div>
+            <input
+                type="submit"
+                value="Add Student" />
+        </form>
+    );
+};
+
+export default NewStudentForm;
+```
 
 ### !end-callout
 
@@ -688,7 +830,7 @@ You are helping an animal rescue organization add a form to their website to col
 1. Create a new component called AdoptionApplicationForm.jsx that has a form element. The form has input elements (along with label elements) for an applicant's first name, last name, and email.
 1. Add a piece of state `formFields` that is an object that will hold first name, last name and email as key-value pairs.
 1. Make the input fields read from the `formFields` state
-2. Create an event handler that will read the current values inside the input fields and use the values to update the corresponding state  variables.
+2. Create an event handler that will read the current values inside the input fields and use those values to update the corresponding state  variables.
 
 ##### !end-answer
 ### !end-challenge
