@@ -216,8 +216,6 @@ Sofia is developing some new features to her attendance app. She wants to be abl
 
 > As in the previous lesson, all subsequent code examples and screen shots will omit the `ClassInfo` component to focus on the `StudentList` part of the application. However, the `ClassInfo` component will still appear in the reference branches found in GitHub. 
 
-<br/>
-
 Sofia's app currently has the following components:
 
 <br/>
