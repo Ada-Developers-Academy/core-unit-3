@@ -718,20 +718,14 @@ We can refactor our code to combine `onNameChange` and `onEmailChange` into one 
 <br/>
 
 We can accomplish this refactor by using the spread operator notation with object shorthand notation as we saw in the lesson on "Passing Down Event Handlers". In that lesson, the key being updated was known ahead of time, and could be hard-coded as part of the shorthand notation. Here, the key is read from the event data, and must be computed each time we get a new change event. To do this with shorthand notation, we use [`computed property notation`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names). Essentially, the expression to calculate the key is placed within brackets `[]`.
-
-Since we will use event data in our `handleChange`, we will also need to make a slight update to the attributes for the `label` and `input` elements. When we use the event data to dynamically get the user input, we use `event.target.name` to populate the property for the `formFields` object and we use `event.target.value` to populate what the user typed as the value.
-
+ 
+In the unified `handleChange` function below, we access the `name` attribute of the changed `input` as `event.target.name`. This will be used as the key we update in our `form` state. We used the key `"name"` in our state, but notice that we originally used `"fullName"` as the `name` attribute of our related `input`. This was primarily done to reduce the possibility of confusion between all the things called `name` and the value `"fullName"` in explanations.
+	
 <br/>
 
-If we the attributes for the `label` and `input` elements as `fullName` then `event.target.name` would evaluate to the string `fullName` because the `name` attribute was set to the value "fullName".
+When we use a unified change handler and get the key name from the changed `input` `name`, then we should plan to use the same state key name as the `input` `name` attribute. We would probably then also use similar names for the `id` and `forHtml` attributes for consistency as shown.
 
 <br/>
-
-This is where we run into an issue. The formFields state object has a key "name" not "fullName" so when we use `formFields.name` to have our form input read from the updated state, we would get `undefined` because `handleChange` would have set the property to "fullName". Thus, we need to update `input`'s `name` attribute to be the string "name" instead of "fullName". 
-
-<br/>
-
-Additionally, to associate the `input` with the `label` we then need to also change `id` and `for` attributes to be "name" instead of "fullName".
 
 ```js
 import { useState } from 'react';
@@ -765,10 +759,11 @@ const NewStudentForm = () => {
     return (
         <form>
             <div>
-                {/* the for attribute is now `name` instead of `fullName` */} 
+                {/* the for attribute is now `name` instead of `fullName` for consistency */} 
                 <label htmlFor="name">Name:</label>
                 <input
-                     {/* the id and name attributes are also changed to `name` */} 
+                     {/* name attribute is changed to `name` instead of `fullName` 
+                     and the id attribute is changed too for consistency*/} 
                     id="name"
                     name="name"
                     value={formFields.name}
