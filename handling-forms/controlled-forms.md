@@ -215,6 +215,9 @@ _Fig. The CityNameInput component's state matches the input value_
 Sofia is developing some new features to her attendance app. She wants to be able to add a new student to her class whenever she wants!
 
 > As in the previous lesson, all subsequent code examples and screen shots will omit the `ClassInfo` component to focus on the `StudentList` part of the application. However, the `ClassInfo` component will still appear in the reference branches found in GitHub. 
+
+<br/>
+
 Sofia's app currently has the following components:
 
 <br/>
@@ -577,7 +580,7 @@ She can create two event handlers, `onNameChange` and `onEmailChange`. These eve
 
 Sofia uses [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals) for a quick way to clone the original `formFields` object. Each event handler should add a specific key-value pair. `onNameChange` adds the key-value pair `name: event.target.value`, while `onEmailChange` adds `email: event.target.value`.
 
-Even though both value expressions appear the same, the event handles are registered on different inputs, so the `event.target` will refer to different input elements!
+Even though both value expressions appear the same, the event handlers are registered on different inputs, so the `event.target` will refer to different input elements!
 
 The cloned `formFields` object will already have a `name` and `email` key from the cloning, but listing the new value afterward will overwrite the cloned value.
 
@@ -717,7 +720,7 @@ We can refactor our code to combine `onNameChange` and `onEmailChange` into one 
 
 <br/>
 
-We can accomplish this refactor by using the spread operator notation with object shorthand notation as we saw in the lesson on "Passing Down Event Handlers". In that lesson, the key being updated was known ahead of time, and could be hard-coded as part of the shorthand notation. Here, the key is read from the event data, and must be computed each time we get a new change event. To do this with shorthand notation, we use [`computed property notation`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names). Essentially, the expression to calculate the key is placed within brackets `[]`.
+To combine the event handlers, we'll need to use information about the `input` that was changed, which we can get from the event data. With a reference to the changed `input`, we can access its attribute data specific to that `input`, such as the `name` attribute, and use that as the key we need to update in our form state. To do this with shorthand notation, we use [`computed property notation`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names). Essentially, the expression to calculate the key is placed within brackets `[]`.
  
 In the unified `handleChange` function below, we access the `name` attribute of the changed `input` as `event.target.name`. This will be used as the key we update in our `form` state. We used the key `"name"` in our state, but notice that we originally used `"fullName"` as the `name` attribute of our related `input`. This was primarily done to reduce the possibility of confusion between all the things called `name` and the value `"fullName"` in explanations.
 	
