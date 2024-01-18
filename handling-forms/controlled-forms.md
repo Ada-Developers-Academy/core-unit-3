@@ -67,7 +67,7 @@ This default behavior can be changed by setting either the `<form>` tag's `metho
 
 ## Controlled Forms Control `<input>` Values
 
-[**Controlled components**](https://reactjs.org/docs/forms.html#controlled-components) follow a design pattern that states that a form's values should be controlled by _the component's state_, **not** by user interaction.
+[**Controlled components**](https://legacy.reactjs.org/docs/forms.html#controlled-components) follow a design pattern that states that a form's values should be controlled by _the component's state_, **not** by user interaction.
 
 Instead, user interaction will update _the component's state_, which will in turn be reflected in the form input's value.
 
@@ -184,7 +184,7 @@ In this example, we added the attribute `onChange` to our text field. Then, we c
 
 Recall that every event-handling function is automatically passed [an Event object](https://developer.mozilla.org/en-US/docs/Web/API/Event), whether we use it or not!
 
-We rarely need any additional information for a click event, so we tend to leave off the event parameter for click handlers. But we can use a change event to get information about the input that was changed.
+We rarely need additional information for a click event, so we tend to leave off the event parameter for click handlers, but we can use a change event to get information about the input that changed.
 
 Event objects include all sorts of details about the event, and we can look through [the Event documentation](https://developer.mozilla.org/en-US/docs/Web/API/Event/target) to find anything we need.
 
@@ -214,6 +214,8 @@ _Fig. The CityNameInput component's state matches the input value_
 
 Sofia is developing some new features to her attendance app. She wants to be able to add a new student to her class whenever she wants!
 
+> As in the previous lesson, all subsequent code examples and screen shots will omit the `ClassInfo` component to focus on the `StudentList` part of the application. However, the `ClassInfo` component will still appear in the reference branches found in GitHub. 
+
 Sofia's app currently has the following components:
 
 <br/>
@@ -233,26 +235,26 @@ function App() {
             id: 1,
             nameData: 'Ada',
             emailData: 'ada@dev.org',
-            isPresentData: false
+            isPresentData: false,
         },
         {
             id: 2,
             nameData: 'Soo-ah',
             emailData: 'sooah@dev.org',
-            isPresentData: false
+            isPresentData: false,
         },
         {
             id: 3,
             nameData: 'Chrissy',
             emailData: 'chrissy@dev.org',
-            isPresentData: true
-        }
+            isPresentData: true,
+        },
     ]);
 
-    const updateStudentData = updatedStudent => {
+    const toggleStudentPresence = (studentId) => {
         const students = studentData.map(student => {
-            if (student.id === updatedStudent.id) {
-                return updatedStudent;
+            if (student.id === studentId) {
+                return { ...student, isPresentData: !student.isPresentData };
             } else {
                 return student;
             }
@@ -266,8 +268,8 @@ function App() {
             <h1>Attendance</h1>
             <StudentList
                 students={studentData}
-                onUpdateStudent={updateStudentData}
-                ></StudentList>
+                onStudentPresenceToggle={toggleStudentPresence}
+            ></StudentList>
         </main>
     );
 }
@@ -289,15 +291,15 @@ import PropTypes from 'prop-types';
 import Student from './Student';
 
 const StudentList = (props) => {
-    const studentComponents = props.students.map((student, index) => {
+    const studentComponents = props.students.map(student => {
         return (
-            <li key={index}>
+            <li key={student.id}>
                 <Student
                     id={student.id}
                     name={student.nameData}
                     email={student.emailData}
                     isPresent={student.isPresentData}
-                    onUpdate={props.onUpdateStudent}
+                    onPresenceToggle={props.onStudentPresenceToggle}
                 ></Student>
             </li>
         );
@@ -305,22 +307,22 @@ const StudentList = (props) => {
 
     return (
         <section>
-            <h2>Student List</h2>
-            <ul>
-                {studentComponents}
-            </ul>
+            <h2 className="student-list__heading">Student List</h2>
+            <ul>{studentComponents}</ul>
         </section>
     );
 };
 
 StudentList.propTypes = {
-    students: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        nameData: PropTypes.string.isRequired,
-        emailData: PropTypes.string.isRequired,
-        isPresentData: PropTypes.bool
-    })),
-    onUpdateStudent: PropTypes.func
+    students: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            nameData: PropTypes.string.isRequired,
+            emailData: PropTypes.string.isRequired,
+            isPresentData: PropTypes.bool.isRequired,
+        })
+    ),
+    onStudentPresenceToggle: PropTypes.func.isRequired,
 };
 
 export default StudentList;
@@ -340,18 +342,9 @@ import './Student.css';
 
 const Student = (props) => {
 
-    const onAttendanceButtonClick = () => {
-        const updatedStudent = {
-            id: props.id,
-            nameData: props.name,
-            emailData: props.email,
-            isPresentData: !props.isPresent
-        };
-
-        // Invoke the function passed in through the prop named "onUpdate"
-        // This function is referenced by the name "updateStudentData" in App
-        props.onUpdate(updatedStudent);
-    }
+    const attendanceButtonClicked = () => {
+        props.onPresenceToggle(props.id);
+};
 
     const nameColor = props.isPresent ? 'green' : 'red';
 
@@ -361,7 +354,9 @@ const Student = (props) => {
                 <li className={nameColor}>Nickname: {props.name}</li>
                 <li>Email: {props.email}</li>
             </ul>
-            <button onClick={onAttendanceButtonClick}>Toggle if {props.name} is present</button>
+            <button onClick={attendanceButtonClicked}>
+                Toggle if {props.name} is present
+            </button>
         </div>
     );
 };
@@ -370,8 +365,8 @@ Student.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    isPresent: PropTypes.bool,
-    onUpdate: PropTypes.func.isRequired
+    isPresent: PropTypes.bool.isRequired,
+    onPresenceToggle: PropTypes.func.isRequired,
 };
 
 export default Student;
@@ -384,7 +379,7 @@ export default Student;
 
 Sofia is putting her new student form into its own component: `NewStudentForm`.
 
-Inside `src/components/NewStudentForm.js`, she begins this component:
+Inside `src/components/NewStudentForm.jsx`, she begins this component:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -394,11 +389,11 @@ const NewStudentForm = () => {
         <form>
             <div>
                 <label htmlFor="fullName">Name:</label>
-                <input name="fullName" />
+                <input id="fullName" name="fullName" />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
-                <input name="email" />
+                <input id="email" name="email" />
             </div>
             <input
                 type="submit"
@@ -415,9 +410,70 @@ Each new student should have a name and an email. Her form contains one text inp
 
 ### !callout-info
 
-## Labels and Names
+## Labels, Inputs, and Their Attributes
 
-What's up with the attributes `name` and `for` (mapped in React as `htmlFor`)? These attributes are used by HTML forms when submitting data and for associating labels. They aren't necessary for this curriculum, but they're a great research topic for creating valid HTML.
+What's up with the attributes `name`, `id` , and `for` (mapped in React as `htmlFor`)? These attributes are used by HTML forms when submitting data and for improving a web page's usability. 
+
+<br/>
+
+The `id` and `for` attributes enable us to [associate a `<label>` element with its corresponding `<input>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#labels_2). This improves usability because the browser can tell which `input` the `label` is for, which allows a user to click the `label` in addition to the `input` elements to start interacting with the `input`. Making click targets larger often makes it easier for users to interact with them.
+
+<br/>
+
+The [name attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name) on an `<input>` element is primarily used during traditional HTML form submission. It's a little more flexible than `id` though, and while it may seem redundant to set both, we'll see a refactoring opportunity later where we'll use the `name` value. 
+
+<br/>
+
+An `id` attribute is required if we want to associate a label with the `input`, but recall that in an HTML page, all `id`s must be unique across the *entire* DOM. What if we want to use the same component on a page more than once? Perhaps we're building an application that lets a user perform bulk updates on inventory data, and each inventory item has a small embedded form component in its display component. Then any `id` in that form component, would also appear on the page more than once. In this scenario, the `id`s would not be unique across the entire DOM.
+
+<br/>
+
+React provides the [`useId` hook](https://react.dev/reference/react/useId) for cases where we need an `id` in a component that might appear multiple times on a page. Sofia won't need to use this in her app, but feel free to read more about it on your own, or expand the section below for an example!
+
+<br/>
+
+<details>
+
+<summary>How to Generate Unique IDs for Components</summary>
+
+<br/>
+
+Since we need to use the `id` attribute when we have `<label>` and `<input>` elements, we must ensure that the `id` will be a unique value. In general, React recommends that we avoid hardcoding IDs. This is especially true for components since they are meant to be reused.
+<br/>
+
+React 18 introduced a new [hook for generating unique IDs](https://react.dev/reference/react/useId). We can use this hook to [generate a unique ID for our controlled form](https://react.dev/reference/react/useId#generating-ids-for-several-related-elements), and use that to build a unique ID for each `input` on the form.
+
+<br/>
+
+We invoke `useId()` in our component and use the value returned as a prefix for each of our `input` `id`s. See the example below.
+
+```js
+import { useId } from 'react';
+
+const NewStudentForm = () => {
+    const inputId = useId();
+
+    return (
+        <form>
+            <div>
+                <label htmlFor="fullName">Name:</label>
+                <input id={`${inputId}-fullName`} name="fullName" />
+            </div>
+            <div>
+                <label htmlFor="email">Email:</label>
+                <input id={`${inputId}-email`} name="email" />
+            </div>
+            <input
+                type="submit"
+                value="Add Student" />
+        </form>
+    );
+};
+
+```
+
+</details>
+
 
 ### !end-callout
 
@@ -474,12 +530,14 @@ Now she needs to make the input fields read from this state. Since `formFields` 
             <div>
                 <label htmlFor="fullName">Name:</label>
                 <input
+                    id="fullName"
                     name="fullName"
                     value={formFields.name} />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
                 <input
+                    id="email"
                     name="email"
                     value={formFields.email} />
             </div>
@@ -520,7 +578,7 @@ She can create two event handlers, `onNameChange` and `onEmailChange`. These eve
 
 Sofia uses [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals) for a quick way to clone the original `formFields` object. Each event handler should add a specific key-value pair. `onNameChange` adds the key-value pair `name: event.target.value`, while `onEmailChange` adds `email: event.target.value`.
 
-Even though both value expressions appear the same, the event handles are registered on different inputs, so the `event.target` will refer to different input elements!
+Even though both value expressions appear the same, the event handlers are registered on different inputs, so the `event.target` will refer to different input elements!
 
 The cloned `formFields` object will already have a `name` and `email` key from the cloning, but listing the new value afterward will overwrite the cloned value.
 
@@ -545,6 +603,7 @@ Now, Sofia needs to make sure that the input fields use these event handlers whe
             <div>
                 <label htmlFor="fullName">Name:</label>
                 <input
+                    id="fullName"
                     name="fullName"
                     value={formFields.name}
                     onChange={onNameChange} />
@@ -552,6 +611,7 @@ Now, Sofia needs to make sure that the input fields use these event handlers whe
             <div>
                 <label htmlFor="email">Email:</label>
                 <input name="email"
+                    id="email"
                     value={formFields.email}
                     onChange={onEmailChange} />
             </div>
@@ -612,13 +672,16 @@ const NewStudentForm = () => {
             <div>
                 <label htmlFor="fullName">Name:</label>
                 <input
+                    id="fullName"
                     name="fullName"
                     value={formFields.name}
                     onChange={onNameChange} />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
-                <input name="email"
+                <input 
+                    id="email"
+                    name="email"
                     value={formFields.email}
                     onChange={onEmailChange} />
             </div>
@@ -637,24 +700,144 @@ export default NewStudentForm;
 
 ### !end-callout
 
+### !callout-info
+
+## Refactoring Opportunity: Combining Multiple Change Handlers into One
+
+Notice that the functions `onNameChange` and `onEmailChange` are nearly identical. The only difference between the two event handlers is that one updates the value for the name property and one updates the value for the email property in the formFields state object.
+
+<br/>
+
+We can refactor our code to combine `onNameChange` and `onEmailChange` into one event handler called `handleChange` to reduce repetition in the `NewStudentForm` component. `handleChange` will use details from the change event to figure out which part of the state to update! 
+
+<br/>
+
+<details>
+
+<summary>Expand the section below for more details on our refactor and to see the solution.</summary>
+
+<br/>
+
+To combine the event handlers, we'll need to use information about the `input` that was changed, which we can get from the event data. With a reference to the changed `input`, we can access its attribute data specific to that `input`, such as the `name` attribute, and use that as the key we need to update in our form state. To do this with shorthand notation, we use [`computed property notation`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names). Essentially, the expression to calculate the key is placed within brackets `[]`.
+ 
+<br/>
+
+In the unified `handleChange` function below, we access the `name` attribute of the changed `input` as `event.target.name`. This will be used as the key we update in our `form` state. We used the key `"name"` in our state, but notice that we originally used `"fullName"` as the `name` attribute of our related `input`. This was primarily done to reduce the possibility of confusion between all the things called `name` and the value `"fullName"` in explanations.
+	
+<br/>
+
+When we use a unified change handler and get the key name from the changed `input` `name`, then we should plan to use the same state key name as the `input` `name` attribute. We would probably then also use similar names for the `id` and `forHtml` attributes for consistency as shown.
+
+```js
+import { useState } from 'react';
+
+const NewStudentForm = () => {
+
+    const [formFields, setFormFields] = useState({
+        name: '',
+        email: ''
+    });
+
+    // two event handlers that can be combined into a single event handler
+    // const onNameChange = (event) => {
+    //     setFormFields({
+    //         ...formFields,
+    //         name: event.target.value
+    //     })
+    // };
+
+    // const onEmailChange = (event) => {
+    //     setFormFields({
+    //         ...formFields,
+    //         email: event.target.value
+    //     })
+    // };
+
+    const handleChange = (event) => {
+        setFormFields({ ...formFields, [event.target.name]: event.target.value });
+    };
+
+    return (
+        <form>
+            <div>
+                {/* the for attribute is now `name` instead of `fullName` for consistency */} 
+                <label htmlFor="name">Name:</label>
+                <input
+                    {/* name attribute is changed to `name` instead of `fullName` 
+                    and the id attribute is changed too for consistency*/} 
+                    id="name"
+                    name="name"
+                    value={formFields.name}
+                    onChange={handleChange} />
+            </div>
+            <div>
+                <label htmlFor="email">Email:</label>
+                <input 
+                    id="email"
+                    name="email"
+                    value={formFields.email}
+                    onChange={handleChange} />
+            </div>
+            <input
+                type="submit"
+                value="Add Student" />
+        </form>
+    );
+};
+
+export default NewStudentForm;
+```
+</details>
+
+### !end-callout
+
 ## Check for Understanding
 
-
-<!-- Question Takeaway -->
+<!-- Question 1 -->
 <!-- prettier-ignore-start -->
 ### !challenge
-* type: paragraph
-* id: 73c92061
+* type: multiple-choice
+* id: 2c36b6ce-cc23-455c-b6f5-41de229d3a05 
 * title: Controlled Forms
 ##### !question
 
-What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
+Controlled components follow a design pattern that states that...
 
 ##### !end-question
-##### !placeholder
+##### !options
 
-My biggest takeaway from this lesson is...
+a| A form's values should be controlled by the component's state, not by user interaction.
+b| A form's values should be controlled by user interaction, not by the component's state.
+c| A form's values should be controlled by what a user types into a form's input element.
 
-##### !end-placeholder
+##### !end-options
+##### !answer
+
+a|
+
+##### !end-answer
 ### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- Question 2 -->
+<!-- prettier-ignore-start -->
+### !challenge
+* type: ordering
+* id: 114a72bf-6850-4e12-aae7-3195d372fc5d
+* title: Controlled Forms
+##### !question
+
+You are helping an animal rescue organization add a form to their website to collect applicants' information. Arrange the following steps for creating a controlled component called `AdoptionApplicationForm`.
+
+##### !end-question
+##### !answer
+
+1. Create a new component called AdoptionApplicationForm.jsx that has a form element. The form has input elements (along with label elements) for an applicant's first name, last name, and email.
+1. Add a piece of state `formFields` that is an object that will hold first name, last name and email as key-value pairs.
+1. Make the input fields read from the `formFields` state
+2. Create an event handler that will read the current values inside the input fields and use those values to update the corresponding state  variables.
+
+##### !end-answer
+### !end-challenge
+
 <!-- prettier-ignore-end -->
