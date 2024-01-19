@@ -24,26 +24,26 @@ function App() {
             id: 1,
             nameData: 'Ada',
             emailData: 'ada@dev.org',
-            isPresentData: false
+            isPresentData: false,
         },
         {
             id: 2,
             nameData: 'Soo-ah',
             emailData: 'sooah@dev.org',
-            isPresentData: false
+            isPresentData: false,
         },
         {
             id: 3,
             nameData: 'Chrissy',
             emailData: 'chrissy@dev.org',
-            isPresentData: true
-        }
+            isPresentData: true,
+        },
     ]);
 
-    const updateStudentData = updatedStudent => {
+    const toggleStudentPresence = (studentId) => {
         const students = studentData.map(student => {
-            if (student.id === updatedStudent.id) {
-                return updatedStudent;
+            if (student.id === studentId) {
+                return { ...student, isPresentData: !student.isPresentData };
             } else {
                 return student;
             }
@@ -57,7 +57,7 @@ function App() {
             <h1>Attendance</h1>
             <StudentList
                 students={studentData}
-                onUpdateStudent={updateStudentData}
+                onStudentPresenceToggle={toggleStudentPresence}
                 ></StudentList>
             <NewStudentForm></NewStudentForm>
         </main>
@@ -81,15 +81,15 @@ import PropTypes from 'prop-types';
 import Student from './Student';
 
 const StudentList = (props) => {
-    const studentComponents = props.students.map((student, index) => {
+    const studentComponents = props.students.map(student => {
         return (
-            <li key={index}>
+            <li key={student.id}>
                 <Student
                     id={student.id}
                     name={student.nameData}
                     email={student.emailData}
                     isPresent={student.isPresentData}
-                    onUpdate={props.onUpdateStudent}
+                    onPresenceToggle={props.onStudentPresenceToggle}
                 ></Student>
             </li>
         );
@@ -110,9 +110,9 @@ StudentList.propTypes = {
         id: PropTypes.number.isRequired,
         nameData: PropTypes.string.isRequired,
         emailData: PropTypes.string.isRequired,
-        isPresentData: PropTypes.bool
+        isPresentData: PropTypes.bool.isRequired,
     })),
-    onUpdateStudent: PropTypes.func.isRequired
+    onStudentPresenceToggle: PropTypes.func.isRequired,
 };
 
 export default StudentList;
@@ -131,19 +131,9 @@ import PropTypes from 'prop-types';
 import './Student.css';
 
 const Student = (props) => {
-
-    const onAttendanceButtonClick = () => {
-        const updatedStudent = {
-            id: props.id,
-            nameData: props.name,
-            emailData: props.email,
-            isPresentData: !props.isPresent
-        }
-
-        // Invoke the function passed in through the prop named "onUpdate"
-        // This function is referenced by the name "updateStudentData" in App
-        props.onUpdate(updatedStudent);
-    };
+    const attendanceButtonClicked = () => {
+        props.onPresenceToggle(props.id);
+};
 
     const nameColor = props.isPresent ? 'green' : 'red';
 
@@ -153,7 +143,7 @@ const Student = (props) => {
                 <li className={nameColor}>Nickname: {props.name}</li>
                 <li>Email: {props.email}</li>
             </ul>
-            <button onClick={onAttendanceButtonClick}>Toggle if {props.name} is present</button>
+            <button onClick={attendanceButtonClicked}>Toggle if {props.name} is present</button>
         </div>
     );
 };
@@ -162,8 +152,8 @@ Student.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    isPresent: PropTypes.bool,
-    onUpdate: PropTypes.func.isRequired
+    isPresent: PropTypes.bool.isRequired,
+    onPresenceToggle: PropTypes.func.isRequired,
 };
 
 export default Student;
@@ -179,26 +169,26 @@ export default Student;
 <!-- prettier-ignore-start -->
 ```js
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const NewStudentForm = () => {
-
     const [formFields, setFormFields] = useState({
         name: '',
-        email: ''
+        email: '',
     });
 
     const onNameChange = (event) => {
         setFormFields({
             ...formFields,
-            name: event.target.value
-        })
+            name: event.target.value,
+        });
     };
 
     const onEmailChange = (event) => {
         setFormFields({
             ...formFields,
-            email: event.target.value
-        })
+            email: event.target.value,
+        });
     };
 
     return (
@@ -206,13 +196,16 @@ const NewStudentForm = () => {
             <div>
                 <label htmlFor="fullName">Name:</label>
                 <input
+                    id="fullName"
                     name="fullName"
                     value={formFields.name}
                     onChange={onNameChange} />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
-                <input name="email"
+                <input
+                    id="email"
+                    name="email"
                     value={formFields.email}
                     onChange={onEmailChange} />
             </div>
