@@ -334,11 +334,11 @@ NewStudentForm.propTypes = {
 
 Sofia's next step is to get `NewStudentForm` to call the supplied `onStudentAdd` prop when the form submits.
 
-She starts by creating a new event-handler function, `onFormSubmit`. 
+She starts by creating a new event handler function, `handleSubmit`. 
 
 <!-- prettier-ignore-start -->
 ```js
-    const onFormSubmit = (event) => {
+    const handleSubmit = (event) => {
     };
 ```
 <!-- prettier-ignore-end -->
@@ -348,22 +348,22 @@ And she sets it as the handler for the `onSubmit` event of the control's form.
 <!-- prettier-ignore-start -->
 ```js
     return (
-        <form onSubmit={onFormSubmit}>
+        <form onSubmit={handleSubmit}>
         ...
         </form>
     );
 ```
 <!-- prettier-ignore-end -->
 
-She then returns her attention to `onFormSubmit`.
+She then returns her attention to `handleSubmit`.
 
-`onFormSubmit` is being used as an event handler. This means that an `Event` object will be passed in as the first parameter, which Sofia has named `event`. Since `onFormSubmit` is registered for `onSubmit`, the object in `event` will represent the submit event, which if left alone will allow the form's default submit behavior to occur!
+`handleSubmit` is being used as an event handler. This means that an `Event` object will be passed in as the first parameter, which Sofia has named `event`. Since `handleSubmit` is registered for `onSubmit`, the object in `event` will represent the submit event, which if left alone will allow the form's default submit behavior to occur!
 
-With this in mind, Sofia writes the following implementation for `onFormSubmit`:
+With this in mind, Sofia writes the following implementation for `handleSubmit`:
 
 <!-- prettier-ignore-start -->
 ```js
-    const onFormSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
 
         props.onStudentAdd({
@@ -379,7 +379,7 @@ With this in mind, Sofia writes the following implementation for `onFormSubmit`:
 ```
 <!-- prettier-ignore-end -->
 
-Her implementation of `onFormSubmit` works like this:
+Her implementation of `handleSubmit` works like this:
 
 1. She uses the passed in `event` object and calls `event.preventDefault()`. This prevents the unwanted default behavior of HTML forms.
 1. She invokes the `onStudentAdd` function, which was passed in as part of the `props`, with `props.onStudentAdd()`. This prop was passed in by `App`, and holds a reference to `App`'s `addStudentData` function.
@@ -398,11 +398,11 @@ HTML forms have default behavior: when a form receives a "submit" event, it will
 
 Sofia's app is now ready to handle new student form submissions!
 
-Her `App` is the single source of truth, and passes a callback down to `NewStudentForm` that can be used to add a new student to the student data. `NewStudentForm` creates an event handler, `onFormSubmit`, that it provides to its `<form>` so that it knows when a new submission has occurred.
+Her `App` is the single source of truth, and passes a callback down to `NewStudentForm` that can be used to add a new student to the student data. `NewStudentForm` creates an event handler, `handleSubmit`, that it provides to its `<form>` so that it knows when a new submission has occurred.
 
-When the `<form>` gets submitted, it notifies `NewStudentForm` by calling the passed in event handler, `onFormSubmit`. In the event handler, `NewStudentForm` uses the controlled form data to build a new student object that it passes up to the `App` using the callback it was given in `onStudentAdd`.
+When the `<form>` gets submitted, it notifies `NewStudentForm` by calling the passed in event handler, `handleSubmit`. In the event handler, `NewStudentForm` uses the controlled form data to build a new student object that it passes up to the `App` using the callback it was given in `onStudentAdd`.
 
-![Towards the left, there is a label "props give info to a child component", which has an arrow pointing down. Starting from the top, there are blocks labelled: App, onStudentAdd={addStudentData}, NewStudentForm, onSubmit={onFormSubmit}, <form>. Towards the right, there is a label "callback child → parent", which has an arrow pointing up. Starting from the bottom, there are blocks labelled: <form>, onFormSubmit(event), NewStudentForm, onStudentAdd(newStudent), App.](../assets/handling-forms_submitting-forms_newstudentform-callback-diagram.png)  
+![Towards the left, there is a label "props give info to a child component", which has an arrow pointing down. Starting from the top, there are blocks labelled: App, onStudentAdd={addStudentData}, NewStudentForm, onSubmit={handleSubmit}, <form>. Towards the right, there is a label "callback child → parent", which has an arrow pointing up. Starting from the bottom, there are blocks labelled: <form>, handleSubmit(event), NewStudentForm, onStudentAdd(newStudent), App.](../assets/handling-forms_submitting-forms_newstudentform-callback-diagram.png)  
 _Fig. The flow of callbacks down through `props`, and values back up through the callbacks_
 
 Sofia's last step is to verify her work.
