@@ -177,14 +177,14 @@ const NewStudentForm = () => {
         email: '',
     });
 
-    const onNameChange = (event) => {
+    const handleNameChange = (event) => {
         setFormFields({
             ...formFields,
             name: event.target.value,
         });
     };
 
-    const onEmailChange = (event) => {
+    const handleEmailChange = (event) => {
         setFormFields({
             ...formFields,
             email: event.target.value,
@@ -199,7 +199,7 @@ const NewStudentForm = () => {
                     id="fullName"
                     name="fullName"
                     value={formFields.name}
-                    onChange={onNameChange} />
+                    onChange={handleNameChange} />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
@@ -207,7 +207,7 @@ const NewStudentForm = () => {
                     id="email"
                     name="email"
                     value={formFields.email}
-                    onChange={onEmailChange} />
+                    onChange={handleEmailChange} />
             </div>
             <input
                 type="submit"
