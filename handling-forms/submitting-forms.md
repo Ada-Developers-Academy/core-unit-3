@@ -402,7 +402,7 @@ Her `App` is the single source of truth, and passes a callback down to `NewStude
 
 When the `<form>` gets submitted, it notifies `NewStudentForm` by calling the passed in event handler, `handleSubmit`. In the event handler, `NewStudentForm` uses the controlled form data to build a new student object that it passes up to the `App` using the callback it was given in `onStudentAdd`.
 
-![Towards the left, there is a label "props give info to a child component", which has an arrow pointing down. Starting from the top, there are blocks labelled: App, onStudentAdd={addStudentData}, NewStudentForm, onSubmit={handleSubmit}, <form>. Towards the right, there is a label "callback child → parent", which has an arrow pointing up. Starting from the bottom, there are blocks labelled: <form>, handleSubmit(event), NewStudentForm, onStudentAdd(newStudent), App.](../assets/handling-forms_submitting-forms_newstudentform-callback-diagram.png)  
+![Towards the left, there is a label "props give info to a child component", which has an arrow pointing down. Starting from the top, there are blocks labelled: App, onStudentAdd={addStudentData}, NewStudentForm, onSubmit={handleSubmit}, <form>. Towards the right, there is a label "callback child → parent", which has an arrow pointing up. Starting from the bottom, there are blocks labelled: <form>, handleSubmit(event), NewStudentForm, addStudentData(newStudent), App.](../assets/handling-forms_submitting-forms_newstudentform-callback-diagram.png)  
 _Fig. The flow of callbacks down through `props`, and values back up through the callbacks_
 
 Sofia's last step is to verify her work.
