@@ -501,7 +501,7 @@ Her vision is that `formFields` will be an easy, nice way to organize the differ
 ```js
 {
     name: '',
-    email: ''
+    email: '',
 }
 ```
 <!-- prettier-ignore-end -->
@@ -516,7 +516,7 @@ const NewStudentForm = () => {
 
     const [formFields, setFormFields] = useState({
         name: '',
-        email: ''
+        email: '',
     });
 ```
 <!-- prettier-ignore-end -->
@@ -563,14 +563,14 @@ She can create two event handlers, `onNameChange` and `onEmailChange`. These eve
     const onNameChange = (event) => {
         setFormFields({
             ...formFields,
-            name: event.target.value
+            name: event.target.value,
         })
     };
 
     const onEmailChange = (event) => {
         setFormFields({
             ...formFields,
-            email: event.target.value
+            email: event.target.value,
         })
     };
 ```
@@ -650,20 +650,20 @@ const NewStudentForm = () => {
 
     const [formFields, setFormFields] = useState({
         name: '',
-        email: ''
+        email: '',
     });
 
     const onNameChange = (event) => {
         setFormFields({
             ...formFields,
-            name: event.target.value
+            name: event.target.value,
         })
     };
 
     const onEmailChange = (event) => {
         setFormFields({
             ...formFields,
-            email: event.target.value
+            email: event.target.value,
         })
     };
 
@@ -735,21 +735,21 @@ const NewStudentForm = () => {
 
     const [formFields, setFormFields] = useState({
         name: '',
-        email: ''
+        email: '',
     });
 
     // two event handlers that can be combined into a single event handler
     // const onNameChange = (event) => {
     //     setFormFields({
     //         ...formFields,
-    //         name: event.target.value
+    //         name: event.target.value,
     //     })
     // };
 
     // const onEmailChange = (event) => {
     //     setFormFields({
     //         ...formFields,
-    //         email: event.target.value
+    //         email: event.target.value,
     //     })
     // };
 
