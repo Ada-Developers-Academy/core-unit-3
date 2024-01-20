@@ -325,7 +325,7 @@ const NewStudentForm = (props) => {
 };
 
 NewStudentForm.propTypes = {
-    onStudentAdd: PropTypes.func.isRequired
+    onStudentAdd: PropTypes.func.isRequired,
 };
 ```
 <!-- prettier-ignore-end -->
@@ -368,7 +368,7 @@ With this in mind, Sofia writes the following implementation for `onFormSubmit`:
 
         props.onStudentAdd({
             nameData: formFields.name,
-            emailData: formFields.email
+            emailData: formFields.email,
         });
 
         setFormFields({
