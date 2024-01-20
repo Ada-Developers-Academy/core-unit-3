@@ -553,21 +553,21 @@ Now she needs to make the input fields read from this state. Since `formFields` 
 
 Sofia's next step is to ensure that changes in an input field affect the component state.
 
-She can create two event handlers, `onNameChange` and `onEmailChange`. These event handlers need to do two things:
+She can create two event handlers, `handleNameChange` and `handleEmailChange`. These event handlers need to do two things:
 
 - Read the current value inside the input field
 - Update state to that current value
 
 <!-- prettier-ignore-start -->
 ```js
-    const onNameChange = (event) => {
+    const handleNameChange = (event) => {
         setFormFields({
             ...formFields,
             name: event.target.value,
         })
     };
 
-    const onEmailChange = (event) => {
+    const handleEmailChange = (event) => {
         setFormFields({
             ...formFields,
             email: event.target.value,
@@ -576,7 +576,7 @@ She can create two event handlers, `onNameChange` and `onEmailChange`. These eve
 ```
 <!-- prettier-ignore-end -->
 
-Sofia uses [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals) for a quick way to clone the original `formFields` object. Each event handler should add a specific key-value pair. `onNameChange` adds the key-value pair `name: event.target.value`, while `onEmailChange` adds `email: event.target.value`.
+Sofia uses [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals) for a quick way to clone the original `formFields` object. Each event handler should add a specific key-value pair. `handleNameChange` adds the key-value pair `name: event.target.value`, while `handleEmailChange` adds `email: event.target.value`.
 
 Even though both value expressions appear the same, the event handlers are registered on different inputs, so the `event.target` will refer to different input elements!
 
@@ -606,14 +606,14 @@ Now, Sofia needs to make sure that the input fields use these event handlers whe
                     id="fullName"
                     name="fullName"
                     value={formFields.name}
-                    onChange={onNameChange} />
+                    onChange={handleNameChange} />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
                 <input name="email"
                     id="email"
                     value={formFields.email}
-                    onChange={onEmailChange} />
+                    onChange={handleEmailChange} />
             </div>
             <input
                 type="submit"
@@ -653,14 +653,14 @@ const NewStudentForm = () => {
         email: '',
     });
 
-    const onNameChange = (event) => {
+    const handleNameChange = (event) => {
         setFormFields({
             ...formFields,
             name: event.target.value,
         })
     };
 
-    const onEmailChange = (event) => {
+    const handleEmailChange = (event) => {
         setFormFields({
             ...formFields,
             email: event.target.value,
@@ -675,7 +675,7 @@ const NewStudentForm = () => {
                     id="fullName"
                     name="fullName"
                     value={formFields.name}
-                    onChange={onNameChange} />
+                    onChange={handleNameChange} />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
@@ -683,7 +683,7 @@ const NewStudentForm = () => {
                     id="email"
                     name="email"
                     value={formFields.email}
-                    onChange={onEmailChange} />
+                    onChange={handleEmailChange} />
             </div>
             <input
                 type="submit"
@@ -704,11 +704,11 @@ export default NewStudentForm;
 
 ## Refactoring Opportunity: Combining Multiple Change Handlers into One
 
-Notice that the functions `onNameChange` and `onEmailChange` are nearly identical. The only difference between the two event handlers is that one updates the value for the name property and one updates the value for the email property in the formFields state object.
+Notice that the functions `handleNameChange` and `handleEmailChange` are nearly identical. The only difference between the two event handlers is that one updates the value for the name property and one updates the value for the email property in the formFields state object.
 
 <br/>
 
-We can refactor our code to combine `onNameChange` and `onEmailChange` into one event handler called `handleChange` to reduce repetition in the `NewStudentForm` component. `handleChange` will use details from the change event to figure out which part of the state to update! 
+We can refactor our code to combine `handleNameChange` and `handleEmailChange` into one event handler called `handleChange` to reduce repetition in the `NewStudentForm` component. `handleChange` will use details from the change event to figure out which part of the state to update! 
 
 <br/>
 
@@ -739,14 +739,14 @@ const NewStudentForm = () => {
     });
 
     // two event handlers that can be combined into a single event handler
-    // const onNameChange = (event) => {
+    // const handleNameChange = (event) => {
     //     setFormFields({
     //         ...formFields,
     //         name: event.target.value,
     //     })
     // };
 
-    // const onEmailChange = (event) => {
+    // const handleEmailChange = (event) => {
     //     setFormFields({
     //         ...formFields,
     //         email: event.target.value,
