@@ -226,7 +226,11 @@ The `NewStudentForm` component is off to a good start. It follows the controlled
 
 However, since all student data is managed in the `App` component, our new student form doesn't have a way to add an actual student yet!
 
-<!-- TODO: It would be great to have a screenshot here of the aftermath of trying to click the add button, only to have the form submission occur. -->
+When Sofia currently clicks the Add Student button, default browser form behaviors occur. The browser tries to send the form data as query parameters. She can see this in the URL bar, which updates to 
+```txt
+http://localhost:5173/?fullName=Sofia%21&email=sofia%40dev.org
+```
+when she tests the form using her own information (`%21` is the URL encoding for `!`, while `%40` is an `@`). The app also reloads itself, losing any attendance changes she's made to to the student list. This is not the behavior she wants!
 
 To handle form submissions, and bring the data to the `App` component, we need to lift state up.
 
