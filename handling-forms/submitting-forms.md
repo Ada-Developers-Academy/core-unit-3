@@ -232,7 +232,9 @@ http://localhost:5173/?fullName=Sofia%21&email=sofia%40dev.org
 ```
 when she tests the form using her own information (`%21` is the URL encoding for `!`, while `%40` is an `@`). The app also reloads itself, losing any attendance changes she's made to to the student list. This is not the behavior she wants!
 
-To handle form submissions, and bring the data to the `App` component, we need to lift state up.
+The student data itself lives in state owned by the `App` component. The `NewStudentForm` component is a child of `App`, so it can't directly update the student data. Sofia needs to provide a way for the `NewStudentForm` to communicate with `App` so that it can add a new student.
+
+From the work she did with the `Student` component, she knows that she can pass down event handlers as props, which can then be used to update state that lives higher up in the application. She can use this same approach to pass down a function that adds a new student to the student data.
 
 ## Sofia's Plan
 
