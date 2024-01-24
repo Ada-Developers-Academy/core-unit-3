@@ -238,14 +238,14 @@ From the work she did with the `Student` component, she knows that she can pass 
 
 ## Sofia's Plan
 
-Passing down event handlers and lifting state up follows the exact same process that she's done before in React development. The _only exception_ is she needs to learn how to prevent the form's default submit behavior.
+Passing down event handlers in order to modify state stored higher in the component hierarchy follows the exact same process that she just did to modify the presence information for a student. The _only exception_ is that she needs to learn how to prevent the form's default submit behavior, which she didn't need to worry about when handling a button click.
 
 Sofia's goal is to get the data from the `NewStudentForm` up to the `App` component.
 
 The `App` component is already the single source of truth for her student data, so the remaining steps of her plan are:
 
 1. Pass down event handlers from `App` to the `NewStudentForm`
-1. Configure the form submission in `NewStudentForm` to lift state up
+1. Configure the form submission in `NewStudentForm` to use the received handler to update the student data in `App`.
 
 ## Passing Down New Student Handlers
 
