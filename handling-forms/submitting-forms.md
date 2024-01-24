@@ -222,9 +222,9 @@ export default NewStudentForm;
 
 </details>
 
-The `NewStudentForm` component is all well and good. It follows the controlled component pattern, so its state is in sync with the input fields.
+The `NewStudentForm` component is off to a good start. It follows the controlled component pattern, so its state stays in sync with the input fields.
 
-However, all student data is managed in the `App` component. Our new student form doesn't actually add a student!
+However, since all student data is managed in the `App` component, our new student form doesn't have a way to add an actual student yet!
 
 <!-- TODO: It would be great to have a screenshot here of the aftermath of trying to click the add button, only to have the form submission occur. -->
 
