@@ -469,24 +469,54 @@ We should also take a moment to appreciate how the list of students updated with
 
 ## Check for Understanding
 
-<!-- Question Takeaway -->
-<!-- prettier-ignore-start -->
 ### !challenge
-* type: paragraph
-* id: 90fd1d15
+
+* type: checkbox
+* id: b7391b5d-3719-4cde-8679-8f7253778e6f
 * title: Submitting Forms
+
 ##### !question
 
-What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
+What are the main tasks we should expect to do when handling form submissions?
 
 ##### !end-question
-##### !placeholder
 
-My biggest takeaway from this lesson is...
+##### !options
 
-##### !end-placeholder
+c| Reset the form inputs.
+d| Send the form data to a server.
+b| Notify the rest of the application that a new submission has occurred.
+e| Register an event handler for the form's submit event.
+a| Prevent the default browser form submission behavior.
+
+##### !end-options
+
+##### !answer
+
+a|
+b|
+c|
+
+##### !end-answer
+
+##### !hint
+
+There are 3 main things we should consider. Two are essential, and one is optional.
+
+##### !end-hint
+
+##### !hint
+
+When thinking about the options, consider the following:
+- When should a form get reset? Should we always reset a form?
+- Should a form itself be responsible for sending data to a server?
+- What is a form component's main responsibility?
+- If we are already handling the form submission, do we need to register an event handler for the form's submit event?
+- What happens if we don't prevent the default behavior of the form's submit event?
+
+##### !end-hint
+
 ### !end-challenge
-<!-- prettier-ignore-end -->
 
 <!-- Question 1 -->
 <!-- prettier-ignore-start -->
