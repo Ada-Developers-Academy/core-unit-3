@@ -518,6 +518,41 @@ When thinking about the options, consider the following:
 
 ### !end-challenge
 
+### !challenge
+
+* type: multiple-choice
+* id: 73d2ccc2-0abd-4912-8157-b0a1f385d617
+* title: Submitting Forms
+
+##### !question
+
+What `Event` method do we use to keep the browser from performing the default behavior of a form submission?
+
+##### !end-question
+
+##### !options
+
+d| `cancelBubble`
+c| `preventSubmit`
+a| `preventDefault`
+b| `stopPropagation`
+
+##### !end-options
+
+##### !answer
+
+a|
+
+##### !end-answer
+
+##### !hint
+
+Check out the MDN documentation on the [`Event`](https://developer.mozilla.org/en-US/docs/Web/API/Event) class to see what methods are available.
+
+##### !end-hint
+
+### !end-challenge
+
 <!-- Question 1 -->
 <!-- prettier-ignore-start -->
 ### !challenge
