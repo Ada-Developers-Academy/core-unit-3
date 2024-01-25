@@ -401,9 +401,11 @@ And she sets it as the handler for the `onSubmit` event of the control's form.
 ```
 <!-- prettier-ignore-end -->
 
-She then returns her attention to `handleSubmit`.
+When a form is submitted, it passes a `SubmitEvent` to any registered handler. If the event doesn't get marked as being handled, then it will eventually end up in the browser's default form submit handler. Reloading the page is a side effect of this default behavior. So in her submit handler, Sophia needs to let the browser know that she's handled the event, and that it shouldn't do anything else.
 
-`handleSubmit` is being used as an event handler. This means that an `Event` object will be passed in as the first parameter, which Sofia has named `event`. Since `handleSubmit` is registered for `onSubmit`, the object in `event` will represent the submit event, which if left alone will allow the form's default submit behavior to occur!
+She returns her attention to `handleSubmit`.
+
+`handleSubmit` is being used as an event handler for the submit event. This means that an `Event` object (actually a `SubmitEvent` object) will be passed in as the first parameter, which Sofia has named `event`. Having access to the event object gives her a way to mark the event as handled.
 
 With this in mind, Sofia writes the following implementation for `handleSubmit`:
 
