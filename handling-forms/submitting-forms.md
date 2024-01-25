@@ -338,9 +338,10 @@ Writing things clearly should always be our goal. But as we gain experience, we'
 </details>
 
 ### !end-callout
+
 Now, Sofia needs to actually use her new function. She passes it into an instance of `NewStudentForm`, through a new prop named `onStudentAdd`.
 
-As always, Sofia could have chosen any number of names for the prop, but here, she wishes to maintain the pattern of naming her handler props with the prefix `on` to mirror the typical DOM event handler naming convention. Her intuition is that when the `NewStudentForm` is ready to add a student, it will invoke the function supplied in `onStudentAdd`, just as when a button is clicked, it invokes the function supplied in `onClick`.
+As always, Sofia could have chosen any number of names for the prop, but here, she wishes to maintain the pattern of naming her handler props with the prefix `on` to mirror the typical DOM event handler naming convention. Her intuition is that when the `NewStudentForm` is ready to **add** a **student**, it will invoke the function supplied in `onStudentAdd`, just as when a button is clicked, it invokes the function supplied in `onClick`.
 
 <!-- prettier-ignore-start -->
 ```js
