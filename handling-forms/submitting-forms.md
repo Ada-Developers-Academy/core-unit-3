@@ -302,6 +302,42 @@ We didn't *have* to name the keys of `newStudent` this way. We could have named 
 
 ### !end-callout
 
+### !callout-info
+
+## Other Implementation Possibilities for `addStudentData`
+
+Sofia selected a clear, direct approach to implementing `addStudentData`. But there are many ways to write the same code. Think about some syntax variations she could have used in her own implementation, then expand the section below to see a possible approach.
+
+<br />
+
+<details>
+<summary>Click to see a possible approach</summary>
+
+```js
+    // Use object destructuring on the parameter to make it explicitly clear
+    // what keys are expected in the passed-in object argument. The function
+    // still has only one parameter, but we can tell that the value is expected
+    // to be an object with two keys: nameData, and emailData.
+    const addStudentData = ({ nameData, emailData }) => {
+        setStudentData(studentData => {
+            // Duplicate the student list, adding a new record at the end.
+            return [...studentData, {
+                id: Math.max(0, ...studentData.map(student => student.id)) + 1,
+                nameData,   // using a variable alone in object shorthand uses its 
+                emailData,  // name as the key name, and its value as the value.
+                isPresentData: false,
+            }];
+        });
+    };
+```
+
+<br />
+
+Writing things clearly should always be our goal. But as we gain experience, we'll find that what is "clear" may change, especially as we work with other developers. This version isn't necessarily any "better" than Sofia's original version. There are many ways to write code that is "clear", and we should always be ready to adapt our approach to meet the needs of our team.
+
+</details>
+
+### !end-callout
 Now, Sofia needs to actually use her new function. She passes it into an instance of `NewStudentForm`, through a new prop named `onStudentAdd`.
 
 As always, Sofia could have chosen any number of names for the prop, but here, she wishes to maintain the pattern of naming her handler props with the prefix `on` to mirror the typical DOM event handler naming convention. Her intuition is that when the `NewStudentForm` is ready to add a student, it will invoke the function supplied in `onStudentAdd`, just as when a button is clicked, it invokes the function supplied in `onClick`.
