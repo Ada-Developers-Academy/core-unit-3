@@ -438,7 +438,7 @@ Her implementation of `handleSubmit` works like this:
 
 ## Prevent the Form's Default Behavior
 
-HTML forms have default behavior: when a form receives a "submit" event, it will make an HTTP request. This creates an effect where our web app reloads every time we submit a form! Be sure to include `event.preventDefault();` in any form submission event handler.
+Be sure to include `event.preventDefault();` in any form submission event handler. Failure to do so will result in the browser attempting to submit the form using the default behavior, which will cause the page to reload.
 
 ### !end-callout
 
