@@ -477,7 +477,7 @@ We should also take a moment to appreciate how the list of students updated with
 
 ##### !question
 
-What are the main tasks we should expect to do when handling form submissions?
+What are the main tasks we should expect to do when handling form submissions (in no particular order)?
 
 ##### !end-question
 
