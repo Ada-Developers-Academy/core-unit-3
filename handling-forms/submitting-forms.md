@@ -294,11 +294,11 @@ Consider this implementation of `addStudentData` and how Sofia accessed the name
 
 <br/>
 
-This implementation reaches into `newStudent` and grabs the values of `nameData` and `emailData` specifically... not `name`, or `newName`, or anything else! We should keep in mind that this function expects `newStudent` to have the keys exactly named `nameData` and `emailData`.
+This implementation reaches into `newStudent` and grabs the values of `nameData` and `emailData` specifically... not `name`, or `newName`, or anything else! When we reach the point where we are calling `addStudentData`, we'll keep in mind that this function expects its parameter `newStudent` to have the keys exactly named `nameData` and `emailData`.
 
 <br/>
 
-If we want to change the name of the expected keys, we should refactor `App`'s definition of `addStudentData`.
+We didn't *have* to name the keys of `newStudent` this way. We could have named them anything we wanted! But naming the keys `nameData` and `emailData` matches the shape of our existing student data, and makes it easier to understand what the function expects.
 
 ### !end-callout
 
