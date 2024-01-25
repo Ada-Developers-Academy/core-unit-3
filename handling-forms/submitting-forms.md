@@ -429,10 +429,10 @@ With this in mind, Sofia writes the following implementation for `handleSubmit`:
 
 Her implementation of `handleSubmit` works like this:
 
-1. She uses the passed in `event` object and calls `event.preventDefault()`. This prevents the unwanted default behavior of HTML forms.
-1. She invokes the `onStudentAdd` function, which was passed in as part of the `props`, with `props.onStudentAdd()`. This prop was passed in by `App`, and holds a reference to `App`'s `addStudentData` function.
-1. She knows that `props.onStudentAdd` (really, `App`'s `addStudentData` function) receives an object, `newStudent`. She knows that this object should have the keys `nameData` and `emailData`. She passes in an object literal, where the keys are `nameData` and `emailData`, with the values read from the `formFields` state.
-1. She resets the form by updating the members of `formFields` to empty strings.
+1. She uses the passed in `event` object and calls `event.preventDefault()`. This lets the browser know that the event has been handled, preventing the unwanted default behavior of HTML forms.
+1. She invokes the function that was passed in the `onStudentAdd` part of the `props` as `props.onStudentAdd()`. This prop was passed in by `App`, and holds a reference to `App`'s `addStudentData` function. She thinks of `onStudentAdd` as the way the form tells anyone who's interested that it has new student data available. This is the form control's main responsibility: to notify anyone who's interested when it has new student data ready to be used.
+1. She knows that `props.onStudentAdd` (again, a reference to `App`'s `addStudentData` function) receives an object, `newStudent`. She knows that this object should have the keys `nameData` and `emailData`. She passes in an object literal, where the keys are `nameData` and `emailData`, with the values read from the `formFields` state.
+1. She resets the form by updating the members of `formFields` to empty strings. Since the form inputs read their values from that state, when the component re-renders, the form inputs will be empty.
 
 ### !callout-danger
 
