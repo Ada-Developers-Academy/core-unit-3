@@ -1,6 +1,7 @@
 ## Single Source of Truth
 
-<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=29e18bda-5c3b-488a-a56c-ad510024995e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<!-- VITE-UPDATE -->
+<!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=29e18bda-5c3b-488a-a56c-ad510024995e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
 
 In software, we're reading, moving, and manipulating data all the time. ["Single source of truth"](https://en.wikipedia.org/wiki/Single_source_of_truth) is the practice of structuring our code so that data is managed in one place. All other places that use this data should use the data as read-only.
 

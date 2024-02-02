@@ -1,6 +1,7 @@
 # Inspecting React State
 
-<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=5374b8d4-3d22-4283-8e39-ad51002407cf&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<!-- VITE-UPDATE -->
+<!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=5374b8d4-3d22-4283-8e39-ad51002407cf&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
 
 >As in the previous lesson, all subsequent code examples and screen shots will omit the `ClassInfo` component to focus on the `StudentList` part of the application. However, the `ClassInfo` component will still appear in the reference branches found in GitHub.
 

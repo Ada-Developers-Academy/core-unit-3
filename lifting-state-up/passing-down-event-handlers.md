@@ -1,6 +1,7 @@
 # Passing Down Event Handlers
 
-<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=726ccb3c-77b8-49eb-885b-ad510022c7e4&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<!-- VITE-UPDATE -->
+<!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=726ccb3c-77b8-49eb-885b-ad510022c7e4&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
 
 ## Move `studentData` into State
 
