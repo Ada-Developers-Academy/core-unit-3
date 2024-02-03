@@ -26,6 +26,10 @@ Spend some time cleaning up the Vite template code, removing unnecessary styles,
 
 ## Practice
 
+In this problem set, we will use all of the React and JavaScript skills we've learned so far to create a web app that uses an API to get data.
+
+## Goal
+
 Consider this user story:
 
 > As a curious traveler, I want to type in the name of a location and see its latitude and longitude determined by [the LocationIQ API](https://locationiq.com/docs), so that I get accurate coordinates and avoid getting lost.
@@ -40,6 +44,19 @@ The web app should also display:
 - The search query itself (repeated outside the text field)
 - The latitudinal coordinate of the search result
 - The longitudinal coordinate of the search result
+## Implement
+
+### Wave 1: Implement the Goal User Story
+
+Build and implement the described interface and functionality. We will need to make use of `axios` to make API calls. Note that the API call is to be performed in response to a user action, not on page load.
+
+While it is possible to implement the entire project in a single component, consider breaking the project into smaller components. For example, we could have a `SearchForm` component that handles the form input, and a `SearchResult` component that displays the results. When splitting up the project, consider the following:
+- What data must be tracked by the app?
+- Where should the single source of truth for the data be?
+- What props are needed to pass data between components?
+- How should the data be updated?
+- How can we ensure that data is updated after the API call is complete?
+- What logic must reside in a component, and what logic can be relocated to other locations?
 
 ### !callout-info
 
