@@ -7,12 +7,22 @@ Create a small, practice React app named `react-geocoder`.
 Run this command to create the practice project.
 
 ```
-$ npx create-react-app react-geocoder
+$ npm create -y vite@latest react-geocoder -- --template react
 ```
 
-Change into the `react-geocoder` directory created by `create-react-app`, and run the server.
+As usual, we can follow the prompt when the command completes to start up the default template application.
 
-Keep your work on your local machine. There is no submission for this problem set. Be prepared to share your work in small groups.
+Spend some time cleaning up the Vite template code, removing unnecessary styles, images, etc. It's also a good idea to add the semicolon eslint rule to the `.eslintrc.cjs` file. The resulting `rules` section should look like this:
+
+```js
+  rules: {
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
+    'semi': [ 'warn', 'always'],
+  },
+```
 
 ## Practice
 
