@@ -69,6 +69,22 @@ A `.env.sample` file is provided that can be used to store the API key. Make a c
 
 ## Implement
 
+### !callout-error
+
+## Use Caution When Committing Your Work
+
+This is a front end application that uses an API key. Be careful not to commit the API key to a public repository (such as by hardcoding it into a JavaScript file).
+
+<br />
+
+*Do not deploy this application to a public server.* Even if we use React's version of a `.env` file, the API key will be visible to anyone who views the source code using the browser development tools.
+
+<br />
+
+If we ever accidentally commit an API key, we should immediately revoke the key and generate a new one.
+
+### !end-callout
+
 ### Wave 1: Implement the Goal User Story
 
 Build and implement the described interface and functionality. We will need to make use of `axios` to make API calls. Note that the API call is to be performed in response to a user action, not on page load.
