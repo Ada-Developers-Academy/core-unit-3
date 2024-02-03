@@ -151,3 +151,19 @@ _Fig. Errors should still be handled without crashing_
 
 ![Sample solution user interface with a search history. Displays the following elements: a header, "Get Latitude and Longitude", an input text box with "Seattle" typed in, a button, "Search Now!", a subheader, "Results for: Seattle", 2 list items, "Latitude: 47.6038321", and "Longitude: -122.3300624", a subheader, "Search History", a small header, "Seattle", some result text, "Latitude: 47.6038321 Longitude: -122.3300624", a small header, "Atlanta", some result text, "Latitude: 33.7490987 Longitude: -84.3901849", a small header, "Manila", some result text, "Latitude: 14.5907332 Longitude: 120.9809674", a small header, "Seattle", and some result text, "Latitude: 47.6038321 Longitude: -122.3300624".](../assets/handling-forms_problem-set-forms-and-apis_wave-3-seattle-again.png)  
 _Fig. Searching for the same item adds another entry to the history_
+
+<br />
+
+<details>
+<summary>Here's an example solution for review after completing the problem set
+</summary>
+
+[Forms and APIs Problem Set Solution](https://github.com/AdaAnswers/problem-set-forms-and-apis)
+
+Be sure to select the branch for the solution functionality you want to review. The `main` branch has no solution in it.
+
+It's ok if these solutions look different than what you came up with. Consider discussing your approach with a classmate to see how others tackled this problem set.
+
+Refer to the [Sample Solution Discussion](./problem-set-sample-solution-discussion.md) resource for additional details about the approaches used in this sample solution.
+
+</details>
