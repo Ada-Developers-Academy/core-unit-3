@@ -483,6 +483,10 @@ Standards:
         Type: Lesson
         UID: 2f5670a2
         Path: /handling-forms/problem-set-forms-and-apis.md
+      -
+        Type: Resource
+        UID: 7e49a209-cb35-40a4-8548-8dfcd12c2da3
+        Path: /handling-forms/problem-set-sample-solution-discussion.md
   -
     Title: Unit Wrap Up
     Description: "Activity: Mind Map"
