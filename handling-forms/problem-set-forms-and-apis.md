@@ -4,6 +4,12 @@
 
 Create a small, practice React app named `react-geocoder`.
 
+Decide whether to start entirely from scratch, or whether to use some already scaffolded code.
+
+Keep your work on your local machine. There is no submission for this problem set. Be prepared to share your work in small groups.
+
+### Starting from Scratch
+
 Run this command to create the practice project.
 
 ```
@@ -23,6 +29,10 @@ Spend some time cleaning up the Vite template code, removing unnecessary styles,
     'semi': [ 'warn', 'always'],
   },
 ```
+
+### Using Scaffolded Code
+
+Fork and clone the project files using the link in the **Resources** section below.
 
 ## Practice
 
@@ -44,6 +54,19 @@ The web app should also display:
 - The search query itself (repeated outside the text field)
 - The latitudinal coordinate of the search result
 - The longitudinal coordinate of the search result
+
+## Resources
+
+Scaffold code is available to help you get started quickly.
+
+- [Forms and APIs Problem Set](https://github.com/AdaGold/problem-set-forms-and-apis)
+
+After forking and cloning the project, run `npm install` to install the necessary dependencies. The development server is started with `npm run dev`.
+
+The scaffold code removes a lot of the default Vite template code and simplifies the applied styles. The `App` component renders an empty body.
+
+A `.env.sample` file is provided that can be used to store the API key. Make a copy of the file and name it `.env`. Then update the LocationIQ key in that file. The `.env` file is already added to the `.gitignore` file, so it will not be committed to the repository. We should still avoid attempting to deploy this to any public location, as the API key will still be visible in the source code.
+
 ## Implement
 
 ### Wave 1: Implement the Goal User Story
