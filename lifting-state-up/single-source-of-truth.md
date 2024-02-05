@@ -1,4 +1,4 @@
-## Single Source of Truth
+# Single Source of Truth
 
 <!-- VITE-UPDATE -->
 <!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=29e18bda-5c3b-488a-a56c-ad510024995e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
