@@ -113,3 +113,19 @@ This component should include the following text:
 - 3+ million Organizations
 - 200+ million Repositories
 - 72% Fortune 50
+
+<br />
+
+<details>
+<summary>Here's an example solution for review after completing the problem set
+</summary>
+
+[Recreating Components Problem Set Solution](https://github.com/AdaAnswers/problem-set-recreating-components)
+
+It's ok if this solution looks different than what you came up with. Consider discussing your approach with a classmate to see how others tackled this problem set.
+
+The `main` solution branch focuses on the content of the components. It doesn't look like the GitHub landing page, but it does have the specified content split into the required components.
+
+The [`solution-styled`](https://github.com/AdaAnswers/problem-set-recreating-components/tree/solution-styled) branch adds some styles to the components to make them look more like the GitHub landing page. It's not a perfect match, but it shows a possible approach to get something close to that site. Especially with styling, there are many ways to achieve the same look, so comparing with a classmate can be very interesting.
+
+</details>
