@@ -34,11 +34,9 @@ Spend some time cleaning up the Vite template code, removing unnecessary styles,
 
 Fork and clone the project files using the link in the **Resources** section below.
 
-## Practice
+## Goal
 
 In this problem set, we will use all of the React and JavaScript skills we've learned so far to create a web app that uses an API to get data.
-
-## Goal
 
 Consider this user story:
 

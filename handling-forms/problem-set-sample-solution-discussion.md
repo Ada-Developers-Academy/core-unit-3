@@ -72,12 +72,15 @@ means to evaluate `result` and if it is not *nullish* (`null` or `undefined`), e
 
 ## Conclusion
 
-There are many ways to approach this problem set, so be sure to discuss your own approach with your classmates.
+There are many ways to approach this problem set, so be sure to discuss your own approach with your classmates. Some questions that could aid in those discussions are:
 
-Can you think of pros or cons to the approach you took? What are some other ways you could have approached the problem?
-
-What are some other ways you could refactor the solution? What other decisions could you make about when to hide or show parts of the application.
-
-What are some other features you could add to the application? Could you add a button to clear the search history? Could you add a button to remove a single search result from the history? Could you add a button to re-run a search from the history?
+- Can you think of pros or cons to the approach you took? 
+  - What are some other ways you could have approached the problem?
+- What are some other ways you could refactor the solution? 
+  - What other decisions could you make about when to hide or show parts of the application?
+- What are some other features you could add to the application? 
+  - Could you add a button to clear the search history? 
+  - Could you add a button to remove a single search result from the history? 
+  - Could you add a button to re-run a search from the history?
 
 Building our muscle memory for React patterns comes with writing a lot of React code, so don't be discouraged if you're not yet comfortable with all of the patterns used in the sample solution. Keep practicing and see what else you can build!
