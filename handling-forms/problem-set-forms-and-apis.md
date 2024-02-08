@@ -148,7 +148,7 @@ While it is possible to implement the entire project in a single component, cons
 - What props are needed to pass data between components?
 - How should the data be updated?
 - How can we ensure that data is updated after the API call is complete?
-- What logic must reside in a component, and what logic can be relocated to other locations?
+- What logic must reside in a component? Are there pieces of logic or functions that could be placed in another location or even their own file?
 
 An example implementation may look like this:
 
