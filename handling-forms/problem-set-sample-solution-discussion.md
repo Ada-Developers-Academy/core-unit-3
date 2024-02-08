@@ -83,4 +83,6 @@ There are many ways to approach this problem set, so be sure to discuss your own
   - Could you add a button to remove a single search result from the history? 
   - Could you add a button to re-run a search from the history?
 
+There are always more perspectives to consider, more ways to approach a problem, and more potential features to add. See what other ideas come up in your discussions!
+
 Building our muscle memory for React patterns comes with writing a lot of React code, so don't be discouraged if you're not yet comfortable with all of the patterns used in the sample solution. Keep practicing and see what else you can build!
