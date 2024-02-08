@@ -71,7 +71,7 @@ The web app should also display:
 - The latitudinal coordinate of the search result
 - The longitudinal coordinate of the search result
 
-## Implement
+## API Keys
 
 ### !callout-error
 
@@ -81,13 +81,54 @@ This is a front end application that uses an API key. Be careful not to commit t
 
 <br />
 
-*Do not deploy this application to a public server.* Even if we use React's version of a `.env` file, the API key will be visible to anyone who views the source code using the browser development tools.
+*Do not deploy this application to a public server.* Even if we use React's version of a `.env` file (described below), the API key will be visible to anyone who views the source code using the browser development tools.
 
 <br />
 
 If we ever accidentally commit an API key, we should immediately revoke the key and generate a new one.
 
 ### !end-callout
+
+In this project, we will use the [LocationIQ API](https://locationiq.com/docs) to get latitude and longitude data. To use the API, we must supply our API key with each request. We can reuse any existing LocationIQ API key we have, or we can sign up for a new one at their web site.
+
+Just as when we work with API keys in backend projects, we should avoid committing the API key to a public repository. To do so, we can use a `.env` file to store the key, and ensure that the `.env` file is listed in the `.gitignore` file so that it will not be committed to the repository.
+
+The scaffolded [`.gitignore`](https://raw.githubusercontent.com/AdaGold/problem-set-forms-and-apis/main/.gitignore) file already includes a line for `.env`, but if starting from scratch, we must add it ourselves.
+
+After updating the `.gitignore`, we can use the [`.env.example`](https://raw.githubusercontent.com/AdaGold/problem-set-forms-and-apis/main/.env.example) file included in the scaffold code to make our own `.env` file.
+
+<br />
+
+<details>
+<summary><code>.env.example</code></summary>
+
+```bash
+# Make a copy of this file and name it .env
+
+# DO NOT DEPLOY THIS APPLICATION
+# Values in the .env file ARE NOT private (nor can they be made to be)
+# and can be accessed by anyone using the application
+
+VITE_BASE_URL=https://us1.locationiq.com/v1/
+VITE_API_KEY=YOUR_KEY_HERE
+
+# Seriously. NEVER put an API key in a real front end .env file
+# This is only being done for convenience.
+```
+
+</details>
+
+Copy the contents of the `.env.example` file into a new file named `.env`. Then update the value of `VITE_API_KEY` to the API key to be used by replacing `YOUR_KEY_HERE` with the actual key (quotes are optional).
+
+The `VITE_BASE_URL` value is included for convenience, but feel free to remove it if it is not needed. The sample solution uses it rather than hard-coding the base URL directly in the API call. Though not fully developed in the sample solution, it's usually a good idea to place values we don't control ourselves (such as the locations of external APIs) outside of the code so that they can be more easily updated if the external API changes.
+
+In Python, we would need to install the `python-dotenv` package to use the `.env` file. This lets us read the `.env` variables through the keys of the `os.environ` `dict`-like object, which provides access to all system environment variables.
+
+Vite-created React projects automatically load variables from a `.env` file, but only those that begin with `VITE_`. Vite stores all loaded variables in the `import.meta.env` object. For example, the `VITE_API_KEY` variable can be accessed in the React app using `import.meta.env.VITE_API_KEY`.
+
+By storing the API key in the `.env` file, we can avoid committing it to the repository. *We should still avoid deploying this application to a public server*, as the API key will be visible in the source code.
+
+## Implement
 
 ### Wave 1: Implement the Goal User Story
 
