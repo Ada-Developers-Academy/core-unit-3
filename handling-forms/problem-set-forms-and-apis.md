@@ -30,6 +30,18 @@ Spend some time cleaning up the Vite template code, removing unnecessary styles,
   },
 ```
 
+To avoid noise when running `npm run lint`, we should also add `'vite.config.js'` to the list of files under the `ignorePatterns` key, which should look like this:
+
+```js
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.js'],
+```
+
+It may also be helpful to add a line to the `.gitignore` file to ignore a `.env` file. This is discussed in more detail in the "API Keys" section below. Add the following line to the end of the `.gitignore` file:
+
+```txt
+.env
+```
+
 ### Using Scaffolded Code
 
 Fork and clone the project files using the link in the **Resources** section below.
