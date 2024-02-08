@@ -130,6 +130,14 @@ By storing the API key in the `.env` file, we can avoid committing it to the rep
 
 ## Implement
 
+### !callout-info
+
+## Use the First Result of the Search/Forward Geocoding API
+
+For this assignment, find the latitude and longitude using [the LocationIQ Search/Forward Geocoding API](https://locationiq.com/docs). Always use the first result of the response, if there is a successful response.
+
+### !end-callout
+
 ### Wave 1: Implement the Goal User Story
 
 Build and implement the described interface and functionality. We will need to make use of `axios` to make API calls. Note that the API call is to be performed in response to a user action, not on page load.
@@ -141,14 +149,6 @@ While it is possible to implement the entire project in a single component, cons
 - How should the data be updated?
 - How can we ensure that data is updated after the API call is complete?
 - What logic must reside in a component, and what logic can be relocated to other locations?
-
-### !callout-info
-
-## Use the First Result of the Search/Forward Geocoding API
-
-For this assignment, find the latitude and longitude using [the LocationIQ Search/Forward Geocoding API](https://locationiq.com/docs). Always use the first result of the response, if there is a successful response.
-
-### !end-callout
 
 An example implementation may look like this:
 
