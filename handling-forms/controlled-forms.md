@@ -457,11 +457,11 @@ const NewStudentForm = () => {
     return (
         <form>
             <div>
-                <label htmlFor="fullName">Name:</label>
+                <label htmlFor={`${inputId}-fullName`}>Name:</label>
                 <input id={`${inputId}-fullName`} name="fullName" />
             </div>
             <div>
-                <label htmlFor="email">Email:</label>
+                <label htmlFor={`${inputId}-email`}>Email:</label>
                 <input id={`${inputId}-email`} name="email" />
             </div>
             <input
