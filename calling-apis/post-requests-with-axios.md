@@ -179,7 +179,7 @@ Matteo wants to confirm that his code can handle unsuccessful HTTP requests.
 
 To do so, he will temporarily make an API call with bad trip data on purpose.
 
-He modifies his code to use a new object, `badTripData`, which has a blank `name`. According to [the API documentation](<(https://github.com/AdaGold/trip-api)>), it should not be a successful call.
+He modifies his code to use a new object, `badTripData`, which has a blank `name`. According to [the API documentation](https://github.com/AdaGold/trip-api), it should not be a successful call.
 
 <!-- prettier-ignore-start -->
 ```js
