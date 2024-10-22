@@ -27,10 +27,10 @@ Matteo's first step is to [research the API documentation](https://github.com/Ad
     Here is what Matteo discovers with the documentation and Postman.
   </summary>
 
-1. `get` `https://trektravel.herokuapp.com/trips`
+1. `get` `https://trektravel.onrender.com/trips`
 1. Depends, but Matteo will note the shape of the expected JSON response
-1. `post` `https://trektravel.herokuapp.com/trips`
-1. verb: `POST`, and URL: `https://trektravel.herokuapp.com/trips`
+1. `post` `https://trektravel.onrender.com/trips`
+1. verb: `POST`, and URL: `https://trektravel.onrender.com/trips`
 1. Required: `name`, `continent`, `category`, `weeks`, and `cost`. Optional: `about`
 
 </details>
@@ -92,7 +92,7 @@ Now, with an idea of how he can set the URL endpoint and the request data, Matte
 
 Matteo decides that he is ready to try to make a `POST` request to the back-end service. He [determines from the API documentation](https://github.com/AdaGold/trip-api) that the request he wants to make is:
 
-- `POST` request to `https://trektravel.herokuapp.com/trips`
+- `POST` request to `https://trektravel.onrender.com/trips`
 - Request Body:
   - `name`
   - `continent`
@@ -119,7 +119,7 @@ const tripData = {
 };
 
 axios
-  .post('https://trektravel.herokuapp.com/trips', tripData)
+  .post('https://trektravel.onrender.com/trips', tripData)
   .then((response) => {
     console.log('response:', response);
     console.log('response data:', response.data);
@@ -156,7 +156,7 @@ If we try running Matteo's code, we're likely to get an error! The Trip API requ
 ```js
 const axios = require('axios');
 
-axios.post('https://trektravel.herokuapp.com/trips', {
+axios.post('https://trektravel.onrender.com/trips', {
   name: 'Matteo\'s Chill Trip to Chicago',
   continent: 'North America',
   about: 'A tour around good architecture and hot dogs.',
@@ -195,7 +195,7 @@ const badTripData = {
 };
 
 axios
-  .post('https://trektravel.herokuapp.com/trips', badTripData)
+  .post('https://trektravel.onrender.com/trips', badTripData)
   .then((response) => {
     console.log('response:', response);
     console.log('response data:', response.data);
