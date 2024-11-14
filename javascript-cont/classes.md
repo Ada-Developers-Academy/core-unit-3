@@ -200,7 +200,7 @@ const chefZine = new Zine('So you want to be a pastry chef', 'Julia Child');
     }
   }
 
-  const hyena = Animal('heehehehehe hehehe hehehehe!')
+  const hyena = new Animal('heehehehehe hehehe hehehehe!')
   ```
 </details>
 
@@ -239,6 +239,7 @@ console.log(chefZine.totalPrice());
     constructor(sound) {
       this.sound = sound;
     }
+
     speak() {
       console.log(this.sound);
     }
@@ -291,10 +292,11 @@ Just like a Python class method, the above example calls the static method on th
     constructor(sound) {
       this.sound = sound;
     }
+
     // speak() removed for brevity
     static createAnimals(sounds) {
       const animals = [];
-      for(const s of sounds) {
+      for (const s of sounds) {
         animals.push(new Animal(s));
       }
       return animals;
@@ -319,7 +321,6 @@ class Zine {
   toString() {
     return `${this.title} by ${this.contributor}`;
   }
-
 }
 
 class Fanzine extends Zine {
@@ -327,6 +328,7 @@ class Fanzine extends Zine {
     super(title, contributor);
     this.subject = subject;
   }
+
   toString() {
     return `${super.toString()} about: ${this.subject}`;
   }
