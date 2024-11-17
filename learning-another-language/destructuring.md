@@ -119,7 +119,9 @@ Destructuring is useful for a couple of reasons.
 
 ### !end-callout
 
+<!-- temporarily commented until we can complete this section
 ## Object Shorthand
+-->
 
 ## Summary
 
