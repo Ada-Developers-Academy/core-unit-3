@@ -127,7 +127,7 @@ Standards:
         Path: /layout/problem-set-layout.md
   -
     Title: Learning Another Language
-    Description: "Our Path; Hello, World!; FizzBuzz; Summary, Resources, and Next Steps; Semicolons; Variables; Objects; Intro to Functions; Problem Set: Intro to JavaScript"
+    Description: "Our Path; Writing Javascript Locally; Hello, World!; FizzBuzz; Summary, Resources, and Next Steps"
     UID: 9199ff6adef8940bbdbaa1cc4649bd9b
     SuccessCriteria:
       - success criteria
@@ -136,6 +136,10 @@ Standards:
         Type: Lesson
         UID: b64f715461d8ea07a5090b0e6c6fe4bd
         Path: /learning-another-language/our-path.md
+      -
+        Type: Lesson
+        UID: 71c286a7-12b3-48e3-9e19-816ff8f2d9d4
+        Path: /learning-another-language/vscode-and-style.md
       -
         Type: Lesson
         UID: 347e2fc9fd53b23e7ec4e9f298559a3b
@@ -148,40 +152,32 @@ Standards:
         Type: Lesson
         UID: 474d0d30c7e2b733185f146af5802eaa
         Path: /learning-another-language/summary-resources-and-next-steps.md
-      -
-        Type: Lesson
-        UID: 913f60b4dd20c2aa0b1115227ad4d405
-        Path: /learning-another-language/semicolons.md
-      -
-        Type: Lesson
-        UID: a1aeec36cd644da97ab126357e012e1f
-        Path: /learning-another-language/variables.md
-      -
-        Type: Lesson
-        UID: eeab53fc59a3dc582cd8580253fb9827
-        Path: /learning-another-language/objects.md
-      -
-        Type: Lesson
-        UID: e8db03d5-8db6-4a9b-af37-489d395fc425
-        Path: /learning-another-language/destructuring.md
-      -
-        Type: Lesson
-        UID: 659c7240cc40695d5e429e5c36386fa3
-        Path: /learning-another-language/intro-to-functions.md
-      -
-        Type: Lesson
-        UID: 36e4d945
-        Path: /learning-another-language/problem-set-intro-to-javascript.md
   - Title: Javascript, Cont.
-    Description: "Writing Javascript Locally; Object-Oriented Classes in Javascript; Additional Topics; Activity: Exploring Javascript"
+    Description: "Semicolons; Variables; Objects; Destructuring Objects; Intro to Functions; Object-Oriented Classes in Javascript; Additional Topics; Problem Set: Intro to JavaScript; Activity: Exploring Javascript"
     UID: c044b5e5-3161-47ec-a1a1-cb55f3b902d9
     SuccessCriteria:
       - success criteria
     ContentFiles:
       -
         Type: Lesson
-        UID: 71c286a7-12b3-48e3-9e19-816ff8f2d9d4
-        Path: /javascript-cont/vscode-and-style.md
+        UID: 913f60b4dd20c2aa0b1115227ad4d405
+        Path: /javascript-cont/semicolons.md
+      -
+        Type: Lesson
+        UID: a1aeec36cd644da97ab126357e012e1f
+        Path: /javascript-cont/variables.md
+      -
+        Type: Lesson
+        UID: eeab53fc59a3dc582cd8580253fb9827
+        Path: /javascript-cont/objects.md
+      -
+        Type: Lesson
+        UID: e8db03d5-8db6-4a9b-af37-489d395fc425
+        Path: /javascript-cont/destructuring.md
+      -
+        Type: Lesson
+        UID: 659c7240cc40695d5e429e5c36386fa3
+        Path: /javascript-cont/intro-to-functions.md
       -
         Type: Lesson
         UID: dc804b1c-8bb0-4b72-95f0-080a3b9b9552
@@ -190,6 +186,10 @@ Standards:
         Type: Lesson
         UID: cfd5f597d9a76eaf406cb4125063e0fb
         Path: /javascript-cont/additional-topics.md
+      -
+        Type: Lesson
+        UID: 36e4d945
+        Path: /javascript-cont/problem-set-intro-to-javascript.md
       -
         Type: Lesson
         UID: f29ce62d-1fa4-4e88-93af-fb751e2dbb6d
