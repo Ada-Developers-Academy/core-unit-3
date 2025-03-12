@@ -46,7 +46,7 @@ The REPL continues to run until we exit it. We exit the REPL by typing `Ctrl-D` 
 ### Running JavaScript Files
 
 We can also create and run JavaScript files. For example we can create a new file called `hello.js` and add the code below. 
-- For the moment, read through the code and make a hypothesis about what it is doing. We will explore creating our own "Hello, World" Javascript program in an upcoming lesson!
+- For the moment, read through the code and make a hypothesis about what it is doing. We will explore creating our own "Hello, World" JavaScript program in an upcoming lesson!
 
 ```javascript
 const helloWorld = function (name) {
@@ -204,9 +204,9 @@ Other well-known scripts are `stop`, `restart`, and `test`. If we add a custom s
 
 ### !end-callout
 
-Examine the `eslint.config.mjs` file and look at the key-value pairs in the json file. These are the rules that Eslint enforces along with information about what version of ECMAScript and Javascript file type are used.
+Examine the `eslint.config.mjs` file and look at the key-value pairs in the json file. These are the rules that Eslint enforces along with information about what version of ECMAScript and JavaScript file type are used.
 
-![Example eslint.config.mjs highlighting several areas of the file. "languageOptions" is described as containing "The ECMAScript version of the code being linted and mode of the Javascript file being used". The first line inside the export default block and "plugins" is described as "Pre-made rules to use as a starting point." "rules" is described as "Specific rules to enforce or ignore".](../assets/learning-another-language__vscode-and-style__eslint.config.mjs.png)  
+![Example eslint.config.mjs highlighting several areas of the file. "languageOptions" is described as containing "The ECMAScript version of the code being linted and mode of the JavaScript file being used". The first line inside the export default block and "plugins" is described as "Pre-made rules to use as a starting point." "rules" is described as "Specific rules to enforce or ignore".](../assets/learning-another-language__vscode-and-style__eslint.config.mjs.png)  
 *Fig. Several important areas of the `eslint.config.mjs` file.* [*(Full size image)*](../assets/learning-another-language__vscode-and-style__eslint.config.mjs.png)
 
 ### !callout-warning
