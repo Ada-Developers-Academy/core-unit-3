@@ -254,10 +254,10 @@ Both the `package.json` and `package-lock.json` files _should_ be checked into v
 
 We can also add dependencies that will only be used during development with `npm install <dependency> --save-dev`. Development dependencies typically include things like linters, code formatters, and testing libraries.
 
-For example, we can add the Eslint library, along with a few plugins, with:
+For example, we can add the Eslint library, along with plugins to support linting tests and code written with the React framework, using the command:
 
 ```bash
-$ npm install eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-react --save-dev
+$ npm install eslint eslint-plugin-import eslint-plugin-jest eslint-plugin-node eslint-plugin-promise eslint-plugin-react @eslint/eslintrc @eslint/js globals --save-dev
 ```
 
 Notice the version information for the development dependencies is added to the `package.json` file under the `devDependencies` key.
@@ -267,7 +267,7 @@ To use Eslint, we need to set up a `eslint.config.mjs` file to provide the rules
 In the project directory type:
 
 ```bash
-$ npx -y eslint@latest --init
+$ npm init @eslint/config@latest
 ```
 
 Eslint will take us through several options to set up our project for linting. A basic project setup could respond to the prompts as follows:
@@ -278,7 +278,7 @@ interrupts the flow of the surrounding material. -->
 
 ```text  
 How would you like to use ESLint?
-  > To check syntax, find problems, and enforce code style
+  > To check syntax and find problems
 What type of modules does your project use?
   > JavaScript modules (import/export)
 Which framework does your project use?
@@ -287,13 +287,9 @@ Does your project use TypeScript?
   > No
 Where does your code run?
   > Node
-How would you like to define a style for your project?
-  > Use a popular style guide
-Which style guide do you want to follow?
-  > Standard
-What format do you want your config file to be in?
-  > JSON
-Would you like to install dependencies?
+The config that you've selected requires the following dependencies:
+eslint, globals, @eslint/js
+Would you like to install them now?
   > Yes
 Which package manager do you want to use?
   > npm
@@ -344,4 +340,4 @@ Congratulations! We have created a Node.js project. We can now run our applicati
 
 - [ESLint Rules](https://eslint.org/docs/rules/)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - an opinionated code formatter
-- [Youtube Video Traversy Media on Linting](https://www.youtube.com/watch?v=SydnKbGc7W8)
+- [Youtube Video - The Common Coder: How to Set Up ESLint](https://www.youtube.com/watch?v=eieTlMwCwWU)
