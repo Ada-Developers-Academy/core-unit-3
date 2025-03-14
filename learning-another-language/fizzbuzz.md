@@ -76,7 +76,7 @@ mkdir src
 touch src/index.js
 ```
 
-We could follow prior examples to set up dependencies like ESLint, but for this example, there are no require dependencies we need to install.
+We could follow examples from prior lessons to set up dependencies like ESLint, but for this example, there are no required dependencies we need to install.
 
 At this point we can use `code .` to open our project in VS Code and implement FizzBuzz!
 
