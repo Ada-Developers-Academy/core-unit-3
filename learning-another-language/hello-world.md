@@ -18,11 +18,11 @@ Some examples of runtime environments that can run JavaScript:
 
 - The runtime environment of a web browser like Mozilla Firefox and Google Chrome
 - [Node.js](https://nodejs.org/en/)
-- Online REPLs like [replit.com](https://replit.com/)
+- Online language shells called Read-Eval-Print Loops (REPLs) like [replit.com](https://replit.com/)
 
 Our VS Code environment should be set up from a previous lesson, so we'll continue to practice writing and running code locally to get used to that development flow. 
 
-To kick off our JavaScript journey, we'll take a look at [this example repo containing a Hello World application](https://github.com/AdaGold/hello-world-js).
+To kick off our JavaScript journey, we'll take a look at an example repo containing a Hello World application.
 
 Let's Fork [this project](https://github.com/AdaGold/hello-world-js) and see what that lets us do!
 
