@@ -1,12 +1,16 @@
 # Hello, World!
 
-<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=1273d731-b286-4a6e-9b0c-ad4000f5c3d3&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<!-- REPLIT-REMOVAL-UPDATE  -->
+<!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=1273d731-b286-4a6e-9b0c-ad4000f5c3d3&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
 
 ## Introduction
 
 A well-known exercise to accomplish when learning another programming language is "Hello, World!" We'll know we're successful if we see the text `Hello, World!` appear somewhere after running the code.
 
-## Running Code in the REPL
+![A picture of Grumpy Cat with the text "Hello World" over it](../assets/learning-a-new-language_hello-world_grumpy-cat-hello-world.jpg)  
+_Fig. Grumpy Cat sharing a "Hello World"_
+
+## Running the Example Code
 
 To run JavaScript code, we need to consider its _runtime environment_. A **runtime environment** is a set of technologies that determine _how_ to execute the code.
 
@@ -14,36 +18,22 @@ Some examples of runtime environments that can run JavaScript:
 
 - The runtime environment of a web browser like Mozilla Firefox and Google Chrome
 - [Node.js](https://nodejs.org/en/)
-- REPLs like [replit.com](https://replit.com/)
+- Online language shells called Read-Eval-Print Loops (REPLs) like [replit.com](https://replit.com/)
 
-For this portion of the curriculum, we will use [replit.com](https://replit.com/).
+Our VS Code environment should be set up from a previous lesson, so we'll continue to practice writing and running code locally to get used to that development flow. 
 
-The following steps will let us create and run JavaScript programs with ease:
+To kick off our JavaScript journey, we'll take a look at an example repo containing a Hello World application.
 
-1. Create an account on [replit.com](https://replit.com/) and log-in
-1. Visit [the Hello, World! REPL](https://replit.com/@adacore/hello-world#index.js)
+Let's Fork [this project](https://github.com/AdaGold/hello-world-js) and see what that lets us do!
 
-When we open a REPL that we don't own, we will see a page with the project name, and a play button to run the project. We can toggle the view to show the code. We can also make a copy of the project in our own account by clicking Fork.
-
-![JavaScript readonly REPL. The browser displays the name of the project, hello-world, and a large green button to run the project. A toggle labelled Code and button labelled Fork are also visible.](../assets/learning-a-new-language_hello-world_repl-unowned.png)
-
-Let's Fork this project and see what that lets us do!
-
-Now, on the right side, we see the _console_. We can use this console to execute small, quick JavaScript snippets, such as `2 + 3`, `4 * 5`, or any other valid code.
-
-![JavaScript REPL. In the console on the right-side, the line "2 + 3" is executed, and shows a result of "5." The line "4 * 5" is executed, and shows a result of "20."](../assets/learning-a-new-language_hello-world_repl-console-demo.png)
-
-On the left side, we see a file explorer, and `index.js`. We can write JavaScript code within this file.
-
-Then, we can run this code using the green "Run" button on the top.
-
-![JavaScript REPL. The green "Run" button on the top is highlighted.](../assets/learning-a-new-language_hello-world_repl-run-demo.png)
-
-There are more features in replit.com that are worth exploring! For now, let's begin working on our Hello, World program.
+If we check out the README, we can see a refresher on our steps to run the code. Once we fork and clone the repo we need to:
+1. run `npm install` or `npm i` to install dependencies.
+2. Open up src/index.js to see the "Hello World" code.
+3. Use npm start to run the src/index.js file.
 
 ## Implementation
 
-To print `Hello, World!` in JavaScript, [we can write](https://replit.com/@adacore/hello-world#index.js):
+To print `Hello, World!` in JavaScript, [we can write](https://github.com/AdaGold/hello-world-js/blob/main/src/index.js):
 
 <!-- prettier-ignore-start -->
 ```js
@@ -51,7 +41,7 @@ console.log('Hello, World!');
 ```
 <!-- prettier-ignore-end -->
 
-[When we run our code](https://replit.com/@adacore/hello-world#index.js), we should see `Hello, World!` in the console.
+When we run our code, we should see `Hello, World!` in the console.
 
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                                                             |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -70,7 +60,7 @@ Let's debrief in slightly more detail.
 
 Since we were able to use it without any setup, we might guess that `console` is in scope in our JavaScript file by default.
 
-At this moment, at the beginning of our JavaScript journey, we won't go deeper into this.
+At this moment, at the beginning of our JavaScript journey, we won't go deeper into this, but feel free to check out [`console`'s documentation](https://developer.mozilla.org/en-US/docs/Web/API/console) if you're interested!
 
 ### Calling a Function
 
@@ -79,7 +69,7 @@ At this moment, at the beginning of our JavaScript journey, we won't go deeper i
 We may make guesses that:
 
 1. The function being called here is named `log`
-1. The function `log` is a member of `console` (hence the dot-operator to access it)
+1. The function `log` is a method of `console` (hence the dot-operator to access it)
 1. We use the dot-operator to access members of objects
 1. The parens `()` are how we call and invoke the function
 
@@ -87,7 +77,7 @@ We may make guesses that:
 
 The string literal `'Hello, World!'` is surrounded by single-quotes, instead of double-quotes.
 
-If we experiment and replace it with double-quotes
+If we experiment and replace it with double-quotes...
 
 <!-- prettier-ignore-start -->
 ```js
@@ -95,9 +85,7 @@ console.log("Hello, World!");
 ```
 <!-- prettier-ignore-end -->
 
-we'll see that our code still runs as expected!
-
-In JavaScript, we can create string literals with either syntax.
+...we'll see that the rules set up for ESLint will underline it as an error, but our code still runs as expected! In JavaScript, we are allowed to create string literals with either syntax.
 
 ### !callout-info
 
@@ -133,9 +121,12 @@ We can get deeper into JavaScript's semicolon and Automatic Semicolon Insertion 
 
 ## This Curriculum Will Use Semicolons
 
-The text in this curriculum will prefer to include semicolons at the end of every statement. In the grand scheme of things, the most important thing is consistency within a team.
+The text in this curriculum will prefer to include semicolons at the end of every statement. As with single quotes, in the grand scheme of things, the most important thing is consistency within a team.
 
 ### !end-callout
+
+![A person with glowing fingers and an excited expression with the text "When you just learned how to "Hello World!" in a new language"](../assets/learning-a-new-language_hello-world_new-language-meme.jpg)
+_Fig. Final step: celebrate your success!_
 
 ## Check for Understanding
 
@@ -147,7 +138,7 @@ The text in this curriculum will prefer to include semicolons at the end of ever
 * title: Hello, World!
 ##### !question
 
-True or False: We can use replit.com JavaScript REPLs and other online JavaScript REPLs to run JavaScript.
+True or False: JavaScript can be run in a web browser, in Terminal locally using Node.js, as well as in online JavaScript REPLs.
 
 ##### !end-question
 ##### !options
