@@ -2,6 +2,14 @@
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ad3fad3f-c5e3-482d-8021-ad4000f5e363&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
+### !callout-info
+
+## This video uses an online JavaScript REPL
+
+The video will walk through the same FizzBuzz code that is in the repo linked in this lesson. However, in the video the instructor is walking through the code using an online REPL tool rather than VS Code, so you will see some small differences between how you run the code locally and how the instructor has to run the code in the online tool. 
+
+### !end-callout
+
 ## Introduction
 
 When learning another language, implementing FizzBuzz is a great way to jump into it. This program allows us to explore how to:
@@ -23,9 +31,58 @@ Create a function named `fizzBuzz`. It takes in one parameter, `num`.
 - If `num` is a multiple of 3 _and_ 5, then return `FizzBuzz`.
 - If `num` is not a multiple of 3 or 5, then return the number itself.
 
+## Set Up
+
+We're going to practice creating our own FizzBuzz JavaScript project. Wherever you keep your code, create a folder named `FizzBuzz-JS`.
+
+```bash
+$ mkdir FizzBuzz-JS
+```
+
+To create a `package.json` file, `cd` into the project folder, then run `npm init`.
+
+```bash
+$ cd FizzBuzz-JS
+$ npm init
+```
+
+Follow the prompts from `npm init` to create a `package.json`. 
+- When the prompt `entry point:` comes up, we want to use the path `src/index.js`
+- It's okay to leave most fields empty for this example since we do not have a repo URL and will not be implementing tests in this example.
+
+Once our `package.json` file is generated we want to open the file and make a change to the scripts section. When we start out, the scripts section will likely look like:
+
+```bash
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1"
+}
+```
+
+We need to add a `"start"` entry to tell our project how to run our implementation file. Beneath the `"test"` key, add a new key-value pair using the key `"start"` and the value `"node src/index.js"`:
+
+```bash
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node src/index.js"
+}
+```
+
+Once we create our `src` folder and `index.js` file, we will be able to run our code with the command `npm start`. 
+
+Let's create the `index.js` file so we have a place to put our code!  
+
+```bash
+mkdir src
+touch src/index.js
+```
+
+We could follow prior examples to set up dependencies like ESLint, but for this example, there are no require dependencies we need to install.
+
+At this point we can use `code .` to open our project in VS Code and implement FizzBuzz!
+
 ## Implementation
 
-[To implement FizzBuzz, we can write](https://replit.com/@adacore/FizzBuzz):
+To implement FizzBuzz, we can write:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -48,7 +105,7 @@ console.log(fizzBuzz(15));
 ```
 <!-- prettier-ignore-end -->
 
-[When we run our code](https://replit.com/@adacore/FizzBuzz), we should see this output:
+When we run our code, we should see this output:
 
 ```
 1
