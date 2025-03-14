@@ -2,7 +2,7 @@
 <!-- VITE UPDATE -->
 <!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=a7fe5712-e072-472c-867a-adda011baa7c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
 
-Many of our initial JavaScript examples are either written specifically to run in a browser, or make use of coding exercises on [repl.it](https://replit.com/). However JavaScript can also be written locally, and run using the [Node.js](https://nodejs.org/en/) runtime environment. This is useful for writing code that is not dependent on the browser, such as running backend logic on a server.
+Before we get into Javascript syntax and writing our first programs, we need to set up our development environment! JavaScript was initially created to run in a browser, but it can be written locally and run using the [Node.js](https://nodejs.org/en/) runtime environment. This is useful for writing code that is not dependent on the browser, such as running backend logic on a server.
 
 Even with our focus remaining primarily on front-end web development, we'll eventually make use of tools and libraries that require being processed with Node.js before the browser will be able to run it.
 
@@ -45,7 +45,8 @@ The REPL continues to run until we exit it. We exit the REPL by typing `Ctrl-D` 
 
 ### Running JavaScript Files
 
-We can also create and run JavaScript files. For example we can create a new file called `hello.js` and add the following code:
+We can also create and run JavaScript files. For example we can create a new file called `hello.js` and add the code below. 
+- For the moment, read through the code and make a hypothesis about what it is doing. We will explore creating our own "Hello, World" JavaScript program in an upcoming lesson!
 
 ```javascript
 const helloWorld = function (name) {
@@ -59,7 +60,7 @@ helloWorld(); // Hello World!
 helloWorld("Naya Spence"); // Hello Naya Spence!
 ```
 
-We can then run the file with
+With the content above pasted into our `hello.js` file, we can then run the file with:
 
 ```bash
 $ node hello.js
@@ -163,7 +164,7 @@ A typical Node.js project has the following structure:
 │   ├── index.js
 │   ├── [other files & folders]
 │   └── ...
-├── .eslintrc.json
+├── eslint.config.mjs
 ├── package.json
 ├── package-lock.json
 └── README.md
@@ -173,7 +174,7 @@ The `node_modules` folder contains packages installed with a package manager lik
 
 The `src` directory contains our application code.
 
-The `.eslintrc.json` file contains the linting rules that tell Eslint what code style rules to enforce. Depending on how the linting rules file is created, we may see this called any of the following: `.eslintrc`, `.eslintrc.json`, `.eslintrc.js`, `.eslintrc.cjs`, and potentially others. The `.eslintrc.json` file is among the most common.
+The `eslint.config.mjs` file contains the linting rules that tell Eslint what code style rules to enforce. Depending on the age of the project and how the linting rules file was created, we may see this called any of the following: `.eslintrc`, `.eslintrc.json`, `.eslintrc.js`, `.eslintrc.cjs`, and potentially others. The `eslint.config.mjs` file is the current best practice from ESLint.
 
 The `package.json` file contains information about the project including the dependencies (libraries required) and scripts to run the app.
 
@@ -203,10 +204,10 @@ Other well-known scripts are `stop`, `restart`, and `test`. If we add a custom s
 
 ### !end-callout
 
-Examine the `.eslintrc.json` file and look at the key-value pairs in the json file. These are the rules that Eslint enforces and information about what version of JavaScript to use.
+Examine the `eslint.config.mjs` file and look at the key-value pairs in the json file. These are the rules that Eslint enforces along with information about what version of ECMAScript and JavaScript file type are used.
 
-![Example eslintrc.json highlighting several areas of the file. "env" is described as "The JavaScript environment to use (browser, node, language version)." "extends" is described as "Pre-made rules to use as a starting point." "rules" is described as "Specific rules to enforce or ignore".](../assets/learning-another-language__vscode-and-style__eslintrc.json.png)  
-*Fig. Several important areas of the `.eslintrc.json` file.* [*(Full size image)*](../assets/learning-another-language__vscode-and-style__eslintrc.json.png)
+![Example eslint.config.mjs highlighting several areas of the file. "languageOptions" is described as containing "The ECMAScript version of the code being linted and mode of the JavaScript file being used". The first line inside the export default block and "plugins" is described as "Pre-made rules to use as a starting point." "rules" is described as "Specific rules to enforce or ignore".](../assets/learning-another-language__vscode-and-style__eslint.config.mjs.png)  
+*Fig. Several important areas of the `eslint.config.mjs` file.* [*(Full size image)*](../assets/learning-another-language__vscode-and-style__eslint.config.mjs.png)
 
 ### !callout-warning
 
@@ -253,20 +254,20 @@ Both the `package.json` and `package-lock.json` files _should_ be checked into v
 
 We can also add dependencies that will only be used during development with `npm install <dependency> --save-dev`. Development dependencies typically include things like linters, code formatters, and testing libraries.
 
-For example, we can add the Eslint library, along with a few plugins, with:
+For example, we can add the Eslint library, along with plugins to support linting tests and code written with the React framework, using the command:
 
 ```bash
-$ npm install eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-react --save-dev
+$ npm install eslint eslint-plugin-import eslint-plugin-jest eslint-plugin-node eslint-plugin-promise @eslint/eslintrc @eslint/js globals --save-dev
 ```
 
 Notice the version information for the development dependencies is added to the `package.json` file under the `devDependencies` key.
 
-To use Eslint, we need to set up a `.eslintrc.json` file to provide the rules we want to enforce.
+To use Eslint, we need to set up a `eslint.config.mjs` file to provide the rules we want to enforce.
 
-In the project directory type:
+In your terminal, from the root of your project directory, run the following command:
 
 ```bash
-$ npx -y eslint@latest --init
+$ npm init @eslint/config@latest
 ```
 
 Eslint will take us through several options to set up our project for linting. A basic project setup could respond to the prompts as follows:
@@ -277,7 +278,7 @@ interrupts the flow of the surrounding material. -->
 
 ```text  
 How would you like to use ESLint?
-  > To check syntax, find problems, and enforce code style
+  > To check syntax and find problems
 What type of modules does your project use?
   > JavaScript modules (import/export)
 Which framework does your project use?
@@ -286,19 +287,15 @@ Does your project use TypeScript?
   > No
 Where does your code run?
   > Node
-How would you like to define a style for your project?
-  > Use a popular style guide
-Which style guide do you want to follow?
-  > Standard
-What format do you want your config file to be in?
-  > JSON
-Would you like to install dependencies?
+The config that you've selected requires the following dependencies:
+eslint, globals, @eslint/js
+Would you like to install them now?
   > Yes
 Which package manager do you want to use?
   > npm
 ```
 
-In consultation with the Eslint [rules documentation](https://eslint.org/docs/latest/rules/), we can then edit the `.eslintrc.json` file to add any additional rules we want to enforce.
+In consultation with the Eslint [rules documentation](https://eslint.org/docs/latest/rules/), we can then edit the `eslint.config.mjs` file to add any additional rules we want to enforce.
 
 Now we have the basic building blocks of a Node.js project. We can start working on our project by creating a `src` directory and an `index.js` file. It's due to this project structure (placing our `index.js` within the `src` directory) that we specified `src/index.js` as the entry point when we ran `npm init` earlier.
 
@@ -343,4 +340,4 @@ Congratulations! We have created a Node.js project. We can now run our applicati
 
 - [ESLint Rules](https://eslint.org/docs/rules/)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - an opinionated code formatter
-- [Youtube Video Traversy Media on Linting](https://www.youtube.com/watch?v=SydnKbGc7W8)
+- [Youtube Video - The Common Coder: How to Set Up ESLint](https://www.youtube.com/watch?v=eieTlMwCwWU)
