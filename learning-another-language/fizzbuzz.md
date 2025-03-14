@@ -76,7 +76,17 @@ mkdir src
 touch src/index.js
 ```
 
-We could follow examples from prior lessons to set up dependencies like ESLint, but for this example, there are no required dependencies we need to install.
+### !callout-info
+
+## VS Code will behave differently without ESLint
+
+In prior examples we've looked at, such as the [node-example](https://github.com/AdaGold/node-example) repo, we have seen VS Code behave a particular way by highlighting issues based on rules we set up using ESLint. Without installing and setting up that dependency, we're likely to notice some differences, such as not getting notified if we use double quotes instead of single quotes. 
+
+<br>
+
+We could follow the examples from prior lessons to set up dependencies like ESLint to get that same behavior, but for this example there are no required dependencies we need to install.
+
+### !end-callout
 
 At this point we can use `code .` to open our project in VS Code and implement FizzBuzz!
 
