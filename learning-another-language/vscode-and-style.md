@@ -264,7 +264,7 @@ Notice the version information for the development dependencies is added to the 
 
 To use Eslint, we need to set up a `eslint.config.mjs` file to provide the rules we want to enforce.
 
-In the project directory type:
+In your terminal, from the root of your project directory, run the following command:
 
 ```bash
 $ npm init @eslint/config@latest
