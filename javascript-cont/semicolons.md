@@ -2,6 +2,14 @@
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=14f2b362-da31-42b0-8043-ad40014eb7f1&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
+### !callout-info
+
+## This video uses an online JavaScript REPL
+
+The video will walk through the same FizzBuzz code in this lesson, however, in the video the instructor is walking through the code using an online REPL tool rather than VS Code, so you will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
+
+### !end-callout
+
 ## Introduction: To Use or Not Use
 
 In JavaScript, semicolons are used to mark the end of a statement:
@@ -62,7 +70,9 @@ const shoeCollection = ['Fancy Windsor Shoes', 'TALL boots', 'The Chunkiest Snea
 
 The strongest case for always including semicolons in our code is because the ASI is sometimes _wrong_.
 
-Consider [the following code snippet](https://replit.com/@adacore/ASI-Bug-Example#index.js). This example may not feel realistic, but hopefully illustrates the bug.
+Feel free to clone down [the repository version(https://github.com/AdaGold/ASI-bug-example)] of the code we'll be looking at if you want to follow along locally.
+
+Consider [the following code snippet](https://github.com/AdaGold/ASI-bug-example/blob/main/src/index.js). This example may not feel realistic, but hopefully illustrates the bug.
 
 ```js
 let red
@@ -89,7 +99,7 @@ red = blue + 2(yellow) = 42;
 
 When we look at the variable assignments, ASI did _not_ correctly put a semicolon after `red = blue + 2`.
 
-Now [let's write this code with correct semicolon usage](https://replit.com/@adacore/ASI-Bug-Example#index.js):
+Now let's write this code with correct semicolon usage:
 
 ```js
 let red;
