@@ -2,7 +2,7 @@
 
 ## What We've Discovered So Far
 
-For now, we can run JavaScript programs using a REPL. Eventually, we will have more context about the JavaScript we're writing, and we'll run JavaScript programs based on that.
+We know that JavaScript code can be ran in different environments, and we have the tools to run code locally and set up our own JavaScript projects. Let's refresh ourselves on what we learned from the "Hello, World!" and "FizzBuzz" projects!
 
 ### Hello, World!
 
@@ -86,7 +86,7 @@ We can practice evaluating JavaScript resources with these links:
 
 When learning another language, after taking these notes, it might be wise to pause and consider what subjects of JavaScript are worth diving into.
 
-We've compiled a list of those topics for us:
+We've compiled a list of topics that we will explore together:
 
 - Semicolons
 - Variables
