@@ -254,10 +254,10 @@ Both the `package.json` and `package-lock.json` files _should_ be checked into v
 
 We can also add dependencies that will only be used during development with `npm install <dependency> --save-dev`. Development dependencies typically include things like linters, code formatters, and testing libraries.
 
-For example, we can add the Eslint library, along with plugins to support linting tests and code written with the React framework, using the command:
+For example, we can add the Eslint library, along with plugins to support linting both JavaScript code and Jest tests, using the command:
 
 ```bash
-$ npm install eslint eslint-plugin-import eslint-plugin-jest eslint-plugin-node eslint-plugin-promise @eslint/eslintrc @eslint/js globals --save-dev
+$ npm install eslint eslint-plugin-import eslint-plugin-jest eslint-plugin-node eslint-plugin-promise @eslint/eslintrc @eslint/js @stylistic/eslint-plugin globals --save-dev
 ```
 
 Notice the version information for the development dependencies is added to the `package.json` file under the `devDependencies` key.
