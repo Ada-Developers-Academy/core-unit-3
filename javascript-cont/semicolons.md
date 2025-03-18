@@ -70,7 +70,7 @@ const shoeCollection = ['Fancy Windsor Shoes', 'TALL boots', 'The Chunkiest Snea
 
 The strongest case for always including semicolons in our code is because the ASI is sometimes _wrong_.
 
-Feel free to clone down [the repository version(https://github.com/AdaGold/ASI-bug-example)] of the code we'll be looking at if you want to follow along locally.
+Feel free to clone down [the repository version](https://github.com/AdaGold/ASI-bug-example) of the code we'll be looking at if you want to follow along locally.
 
 Consider [the following code snippet](https://github.com/AdaGold/ASI-bug-example/blob/main/src/index.js). This example may not feel realistic, but hopefully illustrates the bug.
 
