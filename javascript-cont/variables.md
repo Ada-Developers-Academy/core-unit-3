@@ -2,6 +2,14 @@
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ba6bb1e9-6f16-4338-8a78-ad4000f5c3b5&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
+### !callout-info
+
+## This video uses an online JavaScript REPL
+
+The video will walk through the same code in this lesson, however, in the video the instructor is walking through the code using an online REPL tool rather than VS Code, so you will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
+
+### !end-callout
+
 ## Vocabulary and Synonyms
 
 | Vocab            | Definition                                                                                                                 | How to Use in a Sentence                                                                                     |
@@ -58,7 +66,9 @@ Variables are declared as one of three kinds:
 | `const` | A block-scoped variable that is read-only. Reassignment raises a `TypeError`. Actively encouraged. |
 | `var`   | A variable without block scoping. If defined within a function, it will have scope throughout the _entire_ function. If defined outside a function it will have global scope. Actively discouraged.                                                  |
 
-Observe [variable declaration and assignment](https://replit.com/@adacore/Variable-Type-Demonstration#index.js) below:
+Feel free to clone down [the repository version](https://github.com/AdaGold/variable-demo-js) of the code we'll be looking at if you want to follow along locally.
+
+Observe the [variable declarations and assignments](https://github.com/AdaGold/variable-demo-js/blob/main/src/index.js) below:
 
 <!-- prettier-ignore-start -->
 ```javascript
@@ -140,7 +150,7 @@ const definitelyNotANumber = 'or am I?';  // no confusion here!
 
 JavaScript helps us prevent re-assignment by providing the concept of constant variables.
 
-Constants (`const` variables) cannot change their value through reassignment. If we try to re-assign constants, whether intentional or by accident, we'll run into a `TypeError`. Consider [this code](https://replit.com/@adacore/Variable-Type-Demonstration#index.js):
+Constants (`const` variables) cannot change their value through reassignment. If we try to re-assign constants, whether intentional or by accident, we'll run into a `TypeError`. Consider this code:
 
 <!-- prettier-ignore-start -->
 ```js
