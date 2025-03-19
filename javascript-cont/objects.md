@@ -2,6 +2,14 @@
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5c27e408-f21f-4ca2-8076-ad4000f5c359&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
+### !callout-info
+
+## This video uses an online JavaScript REPL
+
+The video will walk through the same code in this lesson, however, in the video the instructor is walking through the code using an online REPL tool rather than VS Code, so you will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
+
+### !end-callout
+
 ## Introduction
 
 Objects are instances of a data type that contains key-value pairs. They're foundational to organizing data and solving problems in JavaScript.
@@ -10,9 +18,11 @@ Object keys can be strings or numbers.
 
 Object values can be any data type, including strings, numbers, booleans, arrays, other objects, and functions.
 
+Feel free to clone down [the repository version](https://github.com/AdaGold/objects-demo-js) of the code we'll be looking at if you want to follow along locally!
+
 ## Object Literals
 
-An object literal is made by placing comma-separated key-value pairs in curly braces `{}`.
+An object literal is made by placing comma-separated key-value pairs in curly braces `{}`.   
 
 <!-- prettier-ignore-start -->
 ```js
@@ -20,7 +30,65 @@ An object literal is made by placing comma-separated key-value pairs in curly br
   breakfast: 'Cereal',
   lunch: 'Sandwich',
   dinner: 'Japchae'
-}
+};
+```
+<!-- prettier-ignore-end -->
+
+Note that the syntax above is not valid on its own. If we place this code as-is in a JavaScript file and try to run it, we will get a SyntaxError. 
+
+```bash
+objects-demo-js % npm start
+
+> objects-demo-js@1.0.0 start
+> node src/index.js
+
+/Users/user_name/Documents/projects/objects-demo-js/src/index.js:8
+  lunch: 'Sandwich',
+       ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1670:18)
+    at Module._compile (node:internal/modules/cjs/loader:1713:20)
+    at Object..js (node:internal/modules/cjs/loader:1904:10)
+    at Module.load (node:internal/modules/cjs/loader:1473:32)
+    at Function._load (node:internal/modules/cjs/loader:1285:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:234:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:151:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v23.6.1
+```
+
+An object literal is not allowed to stand alone, it needs to be part of an expression. Some ways to create an expression are: 
+- wrapping the object literal in parentheses
+- assigning the object literal to a variable
+- placing the object literal in a function call 
+  
+For example:
+
+<!-- prettier-ignore-start -->
+```js
+// An object literal wrapped in parentheses to create an expression
+({
+  breakfast: 'Cereal',
+  lunch: 'Sandwich',
+  dinner: 'Japchae'
+});
+
+// An object literal assigned to a variable
+const myMealsObj = {
+  breakfast: 'Cereal',
+  lunch: 'Sandwich',
+  dinner: 'Japchae'
+};
+
+// An object literal passed as an argument to a function
+console.log('Object literal as a function argument:', {
+  breakfast: 'Cereal',
+  lunch: 'Sandwich',
+  dinner: 'Japchae'
+});
 ```
 <!-- prettier-ignore-end -->
 
@@ -58,7 +126,7 @@ We can describe the object `testObj` with this table:
 
 ### Dot Notation
 
-To get `'this is a test string'` from this object, we access the key `someStr` [using dot notation](https://replit.com/@adacore/Objects-Demo#index.js):
+To get `'this is a test string'` from this object, we access the key `someStr` using dot notation:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -68,14 +136,14 @@ testObj.someStr;
 
 <br/>
 
-[Observe this code](https://replit.com/@adacore/Objects-Demo#index.js).
+Observe this code:
 <details style="max-width: 700px; margin: auto;">
     <summary>
         What do <code>testObj.someNum</code>, <code>testObj.someNestedObj</code>, and <code>testObj.keyDoesNotExist</code> evaluate to?
     </summary>
 
 1. `testObj.someNum` evaluates to `5`
-1. `testObj.someNestedObj` evaluates to
+2. `testObj.someNestedObj` evaluates to
 
    <!-- prettier-ignore-start -->
 
@@ -87,7 +155,7 @@ testObj.someStr;
 
    <!-- prettier-ignore-end -->
 
-1. `testObj.keyDoesNotExist` evaluates to `undefined`
+3. `testObj.keyDoesNotExist` evaluates to `undefined`
 
 </details>
 
@@ -123,7 +191,7 @@ testObj['someStr'];
 ```
 <!-- prettier-ignore-end -->
 
-Note that square bracket notation allows us to pass in a _variable_ for our key. This is because we can put expressions within our square brackets. [Observe this code](https://replit.com/@adacore/Objects-Demo#index.js):
+Note that square bracket notation allows us to pass in a _variable_ for our key. This is because we can put expressions within our square brackets. Observe this code:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -153,7 +221,7 @@ We can nest objects as deep as we like!
 
 In order to access nested objects, we _chain_ our syntax.
 
-To get `4` from within `testObj`, we can use [any of the following approaches](https://replit.com/@adacore/Objects-Demo#index.js):
+To get `4` from within `testObj`, we can use any of the following approaches:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -169,7 +237,7 @@ testObj['someNestedObj'].someOtherNum;
 
 We evaluate these lines from left to right.
 1. First, `testObj.someNestedObj` or `testObj['someNestedObj']` accesses the inner object
-1. Then, we use `.someOtherNum` or `['someOtherNum']` on the inner object to access its own key-value pairs.
+2. Then, we use `.someOtherNum` or `['someOtherNum']` on the inner object to access its own key-value pairs.
 
 Note that we _can_ mix styles in one line. This might be useful in _very_ specific cases, though the rest of the time we should strive for consistency.
 
@@ -186,13 +254,13 @@ Here are some example properties that all functions have:
 
 We won't normally use these properties, but they illustrate a powerful point: we can access these properties using dot notation or square bracket notation, just like any other object.
 
-[Observe this code](https://replit.com/@adacore/Objects-Demo#index.js):
+Observe this code:
 
 <!-- prettier-ignore-start -->
 ```js
 const sayHelloWorld = function() {
     console.log('yeah let\'s goooooooooo!');
-}
+};
 
 console.log(sayHelloWorld.name);
 console.log(sayHelloWorld['name']);
@@ -215,19 +283,19 @@ This additional topic can illustrate one way that we can treat functions as obje
 
 When we make objects, we make key-value pairs, where the value can be any object. Values can be numbers, strings, booleans, `null`, arrays, other objects, and _functions_.
 
-Consider [this code](https://replit.com/@adacore/Objects-Demo#index.js):
+Consider this code:
 
 <!-- prettier-ignore-start -->
 ```js
 const shoutMyName = function() {
   console.log('Kiki!!!');
-}
+};
 
 const employee = {
   name: 'Kiki',
   pronouns: 'they/she',
   greeting: shoutMyName
-}
+};
 ```
 <!-- prettier-ignore-end -->
 
@@ -274,7 +342,7 @@ const fabricBolt = {
       longDescription: 'Beautiful, flowing fabric that reminds you of the ocean',
       shortDescription: 'It doesn\'t have holes in it'
   }
-}
+};
 ```
 
 What do we get back with `fabricBolt.description.shortDescription`?
@@ -315,7 +383,7 @@ const fabricBolt = {
       longDescription: 'Beautiful, flowing fabric that reminds you of the ocean',
       shortDescription: 'It doesn\'t have holes in it'
   }
-}
+};
 
 const descriptionKey = 'color';
 ```
@@ -358,7 +426,7 @@ const fabricBolt = {
       longDescription: 'Beautiful, flowing fabric that reminds you of the ocean',
       shortDescription: 'It doesn\'t have holes in it'
   }
-}
+};
 ```
 
 What do we get back with `fabricBolt.texture`?
