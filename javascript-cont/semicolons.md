@@ -6,7 +6,7 @@
 
 ## This video uses an online JavaScript REPL
 
-The video will walk through the same FizzBuzz code in this lesson, however, in the video the instructor is walking through the code using an online REPL tool rather than VS Code, so you will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
+The video will walk through the same code in this lesson, however, in the video the instructor is walking through the code using an online REPL tool rather than VS Code, so you will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
 
 ### !end-callout
 
