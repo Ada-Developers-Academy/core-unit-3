@@ -94,11 +94,11 @@ We can apply similar destructuring to arrays as well.
 ```javascript
 const dogs = ['Fido', 'Buddy', 'Snoopy', 'Sparky'];
 
-const [ firstDog, secondDog, ...otherDogs ] = dogs;
+const [firstDog, secondDog, ...otherDogs] = dogs;
 
 console.log(firstDog); // Fido
 console.log(secondDog); // Buddy
-console.log(otherDogs); // [ 'Snoopy', 'Sparky' ]
+console.log(otherDogs); // ['Snoopy', 'Sparky']
 ```
 
 This syntax lets us take specific elements from an array and assign them to local variables similar to object destructuring.  We can also use the `...` syntax to take all remaining elements from an array and assign them to another local variable.
@@ -108,7 +108,7 @@ We can also use array destructuring to only take the first element from an array
 ```javascript
 const dogs = ['Fido', 'Buddy', 'Snoopy', 'Sparky'];
 
-const [ firstDog ] = dogs;
+const [firstDog] = dogs;
 
 console.log(firstDog); // Fido
 ```
@@ -118,9 +118,9 @@ And we can use the syntax to create a new array of all the elements from an arra
 ```javascript
 const dogs = ['Fido', 'Buddy', 'Snoopy', 'Sparky'];
 
-const [ , ...otherDogs ] = dogs;
+const [, ...otherDogs ] = dogs;
 
-console.log(otherDogs); // [ 'Buddy', 'Snoopy', 'Sparky' ]
+console.log(otherDogs); // ['Buddy', 'Snoopy', 'Sparky']
 ```
 
 One last trick we'll cover is how we can use this syntax to swap variable's values. Let's say we have a couple variables `x` and `y`. If we want to trade their values, we can do so with syntax like:
