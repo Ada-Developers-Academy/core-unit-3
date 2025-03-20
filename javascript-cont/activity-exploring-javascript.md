@@ -18,7 +18,7 @@ Each group of 3-4 students will investigate **one** of the following features of
 1. [The Array `map` Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
 
-Each team will create a lesson for the larger class on their topics and present the concept in 5-7 minutes. You are encouraged to create Google Slides, and example code in replit.com illustrating the concepts.
+Each team will create a lesson for the larger class on their topics and present the concept in 5-7 minutes. You are encouraged to create slides with any tool you're comfortable with and example code illustrating the concepts.
 
 You may use the linked resource as well as any other documentation you can find. The following sites can be very helpful:
 
