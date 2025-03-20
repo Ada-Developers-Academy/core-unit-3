@@ -123,7 +123,7 @@ const [, ...otherDogs] = dogs;
 console.log(otherDogs); // ['Buddy', 'Snoopy', 'Sparky']
 ```
 
-One last trick we'll cover is how we can use destructuring syntax to swap variable's values. Let's say we have a couple variables `x` and `y`. Without destructuring, a swapping their values might look something like:
+One last trick we'll cover is how we can use destructuring syntax to swap variable's values. Let's say we have a couple variables `x` and `y`. Without destructuring, swapping their values might look something like:
 
 ```javascript
 let x = 'first';
