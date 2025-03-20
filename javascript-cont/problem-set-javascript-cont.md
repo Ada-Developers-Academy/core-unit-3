@@ -1,4 +1,4 @@
-# Problem Set: Intro to JavaScript
+# Problem Set: JavaScript, Cont.
 
 ## Directions
 
@@ -12,7 +12,7 @@ Complete all questions below.
 * type: code-snippet
 * language: javascript
 * id: 3357aa77
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `addFive`. It has one parameter, `num`. The function should add `5` to `num`, and return the sum.
@@ -65,7 +65,7 @@ const addFive = function(num) {
 * type: code-snippet
 * language: javascript
 * id: 8d4e1172
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `doubleAndAddTwo`. It has one parameter, `num`. The function should add `num` + `num` + `2`, and return the sum.
@@ -126,7 +126,7 @@ const doubleAndAddTwo = function(num) {
 * type: code-snippet
 * language: javascript
 * id: f4f46b4e
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Following the current pattern in the code below, modify the function so that invoking `getExampleSentence('they/them')` returns `'They went to the park. I went with them. They brought their frisbee.'`, and doesn't alter the rest of the functionality.
@@ -195,7 +195,7 @@ const getExampleSentence = function(pronouns) {
 * type: code-snippet
 * language: javascript
 * id: 3caa2527
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `getThirdPlace`. It has one parameter, `finalists`. Assuming that the first item in `finalists` is first place and the second item in `finalists` is second place, return the finalist in third place.
@@ -246,7 +246,7 @@ const getThirdPlace = function(finalists) {
 * type: code-snippet
 * language: javascript
 * id: 1646431a
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `getThirdPlace`. It has one parameter, `finalists`. If there are at least three finalists, return the finalist in third place. If there aren't at least three finalists, return `null`.
@@ -294,7 +294,7 @@ const getThirdPlace = function(finalists) {
 * type: code-snippet
 * language: javascript
 * id: a2de94b0
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `compareVotes`. It has two parameters, `candidateA` and `candidateB`. Both `candidateA` and `candidateB` will be objects that look like this:
@@ -349,7 +349,7 @@ const compareVotes = function(candidateA, candidateB) {
 * type: code-snippet
 * language: javascript
 * id: a7339c5b
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `compareIds`. It has two parameters, `candidateA` and `candidateB`. Both `candidateA` and `candidateB` will be objects that look like this:
@@ -405,7 +405,7 @@ const compareIds = function(candidateA, candidateB) {
 * type: code-snippet
 * language: javascript
 * id: 7db0cd35
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `compareAlphabetically`. It has two parameters, `wordA` and `wordB`, which will be strings. Compare `wordA` and `wordB` and determine which one comes first alphabetically. Follow these rules:
@@ -460,7 +460,7 @@ const compareAlphabetically = function(wordA, wordB) {
 * type: code-snippet
 * language: javascript
 * id: d8cc50e2
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `compareValues`. It has two parameters, `a` and `b`, which will be numbers. Compare `a` against `b`. If `a` is less than `b`, return `-1`. If `a` is equal to `b`, return `0`. If `a` is greater than `b`, return `1`.
