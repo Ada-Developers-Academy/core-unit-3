@@ -148,18 +148,26 @@ Assume that each line would be indented correctly.
 <!-- Question Takeaway -->
 <!-- prettier-ignore-start -->
 ### !challenge
-* type: paragraph
+* type: multiple-choice
 * id: 527a2552
 * title: Test Syntax Detail
 ##### !question
 
-What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
+Which of the following Jest matchers should we use to check if an array stored in variable `x` holds a specific value `y`? Choose only one option.
 
 ##### !end-question
-##### !placeholder
+##### !options
 
-My biggest takeaway from this lesson is...
+a| `expect(x).toMatch(y);`
+b| `expect(x).toEqual(y);`
+c| `expect(x).toContain(y);`
+d| `expect(x).toBeLessThan(y);`
 
-##### !end-placeholder
+##### !end-options
+##### !answer
+
+c|
+
+##### !end-answer
 ### !end-challenge
 <!-- prettier-ignore-end -->
