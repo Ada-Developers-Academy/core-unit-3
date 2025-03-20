@@ -115,7 +115,7 @@ console.log(chefZine['title']);
 
 <details style="max-width: 700px; margin: auto;">
   <summary>
-  **Experiment:** What happens if you try to read or write an attribute that isn't set in the constructor?
+  <strong>Experiment:</strong> What happens if you try to read or write an attribute that isn't set in the constructor?
   </summary>
   
   Any attribute not defined in the constructor is `undefined`.
@@ -212,7 +212,7 @@ Try creating an `Animal` class similar to `Zine` above.  The `constructor` shoul
     }
   }
 
-  const hyena = new Animal('heehehehehe hehehe hehehehe!')
+  const hyena = new Animal('heehehehehe hehehe hehehehe!');
   ```
 </details>
 
@@ -260,7 +260,7 @@ For our `Animal` class, create a `speak` method which will print the sound to th
     }
   }
 
-  const hyena = new Animal('heehehehehe hehehe hehehehe!')
+  const hyena = new Animal('heehehehehe hehehe hehehehe!');
   hyena.speak();
   ```
 </details>
@@ -321,7 +321,7 @@ Add a static method to Animal called `createAnimals`, which takes an array of St
     }
   }
 
-  const newAnimals = Animal.createAnimals(['tweet tweet!', 'bark!', 'glub glub', 'meeeow!'])
+  const newAnimals = Animal.createAnimals(['tweet tweet!', 'bark!', 'glub glub', 'meeeow!']);
   ```
 </details>
 
