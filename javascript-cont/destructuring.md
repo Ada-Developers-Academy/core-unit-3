@@ -6,7 +6,7 @@
 
 ## This video uses an online JavaScript REPL
 
-The video will walk through code similar to what is shown in this lesson, however, not all examples exactly match what is in the lesson. Additionally, in the video the instructor is walking through the code using an online REPL tool rather than VS Code. You will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
+The video will walk through code similar to what is shown in this lesson, however, not all examples exactly match what is in the lesson. In this course, the style and content of the code examples in this lesson are preferred over the examples shown in the video. Additionally, in the video the instructor is walking through the code using an online REPL tool rather than VS Code. You will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
 
 ### !end-callout
 
@@ -19,18 +19,18 @@ Let's look at the example below:
 ```javascript
 const isUserAuthorized = function(user) {
   const id = user.id;
-  const userName = user.userName;
+  const fullName = user.fullName;
   const authorized = user.authorized;
   
   if (authorized) {
-    console.log(`${id}: ${userName} is authorized`);
+    console.log(`${id}: ${fullName} is authorized`);
   } else {
-    console.log(`${id}: ${userName} is not authorized`);
+    console.log(`${id}: ${fullName} is not authorized`);
   }
 };
 ```
 
-However, it can be time consuming to individually take elements from one object, like `user.id` in the example above, and store them in local variables.  We _could_ repeatedly type `user.id` and `user.userName` and `user.authorized` when we need to access them instead, but this is time consuming as well. 
+However, it can be time consuming to individually take elements from one object, like `user.id` in the example above, and store them in local variables.  We _could_ repeatedly type `user.id` and `user.fullName` and `user.authorized` when we need to access them instead, but this is time consuming as well. 
 
 Thankfully, JavaScript has a shorthand notation for this known as **destructuring**.
 
@@ -43,32 +43,32 @@ If we want to take specific key-value pairs from a given object, we can use the 
 ```javascript
 const user = {
   id: 1,
-  userName: 'Siobhan Thacker',
+  fullName: 'Siobhan Thacker',
   authorized: true,
   group: 'admin',
 };
 
-const { id, userName, authorized } = user;
+const { id, fullName, authorized } = user;
 ```
 
-By enclosing  `id`, `userName` and `authorized` in curly braces, we can specify which key-value pairs we want to take from the object.  The values of `id`, `userName` and `authorized` will now be assigned to the local variables `id`, `userName` and `authorized` respectively.
+By enclosing  `id`, `fullName` and `authorized` in curly braces, we can specify which key-value pairs we want to take from the object.  The values of `id`, `fullName` and `authorized` will now be assigned to the local variables `id`, `fullName` and `authorized` respectively.
 
-This makes it easier to use specific attributes of an object without having to write the full `user.id` and `user.userName` each time.
+This makes it easier to use specific attributes of an object without having to write the full `user.id` and `user.fullName` each time.
 
 We can even destructure an object when passed as an argument into a function.
 
 ```javascript
-const isUserAuthorized = function({ id, userName, authorized }) {
+const isUserAuthorized = function({ id, fullName, authorized }) {
     if (authorized) {
-        console.log(`${userName} is authorized.`);
+        console.log(`${fullName} is authorized.`);
     } else {
-        console.log(`${userName} is not authorized.`);
+        console.log(`${fullName} is not authorized.`);
     }    
 };
 
 const user = {
     id: 1,
-    userName: 'Siobhan Thacker',
+    fullName: 'Siobhan Thacker',
     authorized: true,
     group: 'admin',
 };
@@ -77,7 +77,7 @@ isUserAuthorized(user); // Siobhan Thacker is authorized.
 
 const unAuthorizedUser = {
     id: 2,
-    userName: 'Chantay Jarrell',
+    fullName: 'Chantay Jarrell',
     authorized: false,
     group: 'guest',
 };
@@ -85,7 +85,7 @@ const unAuthorizedUser = {
 isUserAuthorized(unAuthorizedUser); // Chantay Jarrell is not authorized.
 ```
 
-In the above example `user` and `unAuthorizedUser` are passed into the function as arguments. The function will take the user object's `id`, `userName` and `authorized` fields and assign them to the local variables `id`, `userName` and `authorized`, very much like the prior example.
+In the above example `user` and `unAuthorizedUser` are passed into the function as arguments. The function will take the user object's `id`, `fullName` and `authorized` fields and assign them to the local variables `id`, `fullName` and `authorized`, very much like the prior example.
 
 ## Destructuring Arrays
 
@@ -118,12 +118,27 @@ And we can use the syntax to create a new array of all the elements from an arra
 ```javascript
 const dogs = ['Fido', 'Buddy', 'Snoopy', 'Sparky'];
 
-const [, ...otherDogs ] = dogs;
+const [, ...otherDogs] = dogs;
 
 console.log(otherDogs); // ['Buddy', 'Snoopy', 'Sparky']
 ```
 
-One last trick we'll cover is how we can use this syntax to swap variable's values. Let's say we have a couple variables `x` and `y`. If we want to trade their values, we can do so with syntax like:
+One last trick we'll cover is how we can use destructuring syntax to swap variable's values. Let's say we have a couple variables `x` and `y`. Without destructuring, a swapping their values might look something like:
+
+```javascript
+let x = 'first';
+let y = 'second';
+
+const tmp = x;
+x = y;
+y = tmp;
+
+console.log(x); // second
+console.log(y); // first
+```
+
+We can trade the `x` and `y` values without the `tmp` variable using destructuring with the following code:
+
 ```javascript
 let x = 'first';
 let y = 'second';
