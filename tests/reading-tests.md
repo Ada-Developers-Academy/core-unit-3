@@ -441,7 +441,7 @@ Using your own words, describe one thing that you would watch for while reading 
 * title: Reading Tests
 ##### !question
 
-Arrange the lines of code below in the following order so that they create a Jest test:
+Arrange the lines of code below in the following order so that they create a Jest test. You may assume that the test will include correct indentation and closing braces: 
 
 1. Test function definition
 2. Arrange step
