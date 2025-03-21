@@ -1,4 +1,4 @@
-# Problem Set: Intro to JavaScript
+# Problem Set: JavaScript, Cont.
 
 ## Directions
 
@@ -12,7 +12,7 @@ Complete all questions below.
 * type: code-snippet
 * language: javascript
 * id: 3357aa77
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `addFive`. It has one parameter, `num`. The function should add `5` to `num`, and return the sum.
@@ -28,7 +28,7 @@ Create a function named `addFive`. It has one parameter, `num`. The function sho
 ```js
 const addFive = function(num) {
     
-}
+};
 ```
 
 ##### !end-placeholder
@@ -40,8 +40,8 @@ describe('addFive', function() {
   it('adds five to the argument', function() {
     expect(addFive(22)).to.deep.eq(27);
     expect(addFive(0)).to.deep.eq(5);
-  })
-})
+  });
+});
 ```
 
 ##### !end-tests
@@ -52,7 +52,7 @@ An example of a working implementation:
 ```js
 const addFive = function(num) {
     return num + 5;
-}
+};
 ```
 
 ### !end-explanation
@@ -65,7 +65,7 @@ const addFive = function(num) {
 * type: code-snippet
 * language: javascript
 * id: 8d4e1172
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `doubleAndAddTwo`. It has one parameter, `num`. The function should add `num` + `num` + `2`, and return the sum.
@@ -81,7 +81,7 @@ Create a function named `doubleAndAddTwo`. It has one parameter, `num`. The func
 ```js
 const doubleAndAddTwo = function(num) {
     
-}
+};
 ```
 
 ##### !end-placeholder
@@ -92,8 +92,8 @@ describe('doubleAndAddTwo', function() {
   it('doubles and adds two to num', function() {
     expect(doubleAndAddTwo(50)).to.deep.eq(102);
     expect(doubleAndAddTwo(0)).to.deep.eq(2);
-  })
-})
+  });
+});
 ```
 ##### !end-tests
 ### !explanation
@@ -104,7 +104,7 @@ An example of a working implementation:
 const doubleAndAddTwo = function(num) {
     const sum = num + num + 2;
     return sum;
-}
+};
 ```
 
 Another example of a working implementation:
@@ -112,7 +112,7 @@ Another example of a working implementation:
 ```js
 const doubleAndAddTwo = function(num) {
     return (num * 2) + 2;
-}
+};
 ```
 
 ### !end-explanation
@@ -126,7 +126,7 @@ const doubleAndAddTwo = function(num) {
 * type: code-snippet
 * language: javascript
 * id: f4f46b4e
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Following the current pattern in the code below, modify the function so that invoking `getExampleSentence('they/them')` returns `'They went to the park. I went with them. They brought their frisbee.'`, and doesn't alter the rest of the functionality.
@@ -145,7 +145,7 @@ const getExampleSentence = function(pronouns) {
     } else {
         return 'I\'m not quite sure how to use these pronouns, it\'s best to ask and confirm!';
     }
-}
+};
 ```
 
 ##### !end-placeholder
@@ -159,8 +159,8 @@ describe('getExampleSentence', function() {
     expect(getExampleSentence('ze/hir')).to.deep.eq('Ze went to the park. I went with hir. Ze brought hir frisbee.');
     expect(getExampleSentence('they/them')).to.deep.eq('They went to the park. I went with them. They brought their frisbee.');
     expect(getExampleSentence('other')).to.deep.eq('I\'m not quite sure how to use these pronouns, it\'s best to ask and confirm!');
-  })
-})
+  });
+});
 ```
 ##### !end-tests
 ### !explanation
@@ -180,7 +180,7 @@ const getExampleSentence = function(pronouns) {
     } else {
         return 'I\'m not quite sure how to use these pronouns, it\'s best to ask and confirm!';
     }
-}
+};
 ```
 
 ### !end-explanation
@@ -195,7 +195,7 @@ const getExampleSentence = function(pronouns) {
 * type: code-snippet
 * language: javascript
 * id: 3caa2527
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `getThirdPlace`. It has one parameter, `finalists`. Assuming that the first item in `finalists` is first place and the second item in `finalists` is second place, return the finalist in third place.
@@ -211,7 +211,7 @@ Create a function named `getThirdPlace`. It has one parameter, `finalists`. Assu
 ```js
 const getThirdPlace = function(finalists) {
     
-}
+};
 ```
 
 ##### !end-placeholder
@@ -222,8 +222,8 @@ describe('getThirdPlace', function() {
   it('gets third place, depending on order', function() {
     expect(getThirdPlace(["Pikachu", "Bulbasaur", "Squirtle", "Charizard"])).to.deep.eq("Squirtle");
     expect(getThirdPlace(["Bulbasaur", "Squirtle", "Charizard"])).to.deep.eq("Charizard");
-  })
-})
+  });
+});
 ```
 ##### !end-tests
 ### !explanation
@@ -233,7 +233,7 @@ An example of a working implementation:
 ```js
 const getThirdPlace = function(finalists) {
     return finalists[2];
-}
+};
 ```
 
 ### !end-explanation
@@ -246,7 +246,7 @@ const getThirdPlace = function(finalists) {
 * type: code-snippet
 * language: javascript
 * id: 1646431a
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `getThirdPlace`. It has one parameter, `finalists`. If there are at least three finalists, return the finalist in third place. If there aren't at least three finalists, return `null`.
@@ -266,8 +266,8 @@ describe('getThirdPlace', function() {
     expect(getThirdPlace(["Pikachu", "Bulbasaur", "Squirtle", "Charizard"])).to.deep.eq("Squirtle");
     expect(getThirdPlace(["Squirtle", "Charizard"])).to.be.null;
     expect(getThirdPlace([])).to.be.null;
-  })
-})
+  });
+});
 ```
 ##### !end-tests
 ### !explanation
@@ -281,7 +281,7 @@ const getThirdPlace = function(finalists) {
     } else {
         return finalists[2];
     }
-}
+};
 ```
 
 ### !end-explanation
@@ -294,7 +294,7 @@ const getThirdPlace = function(finalists) {
 * type: code-snippet
 * language: javascript
 * id: a2de94b0
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `compareVotes`. It has two parameters, `candidateA` and `candidateB`. Both `candidateA` and `candidateB` will be objects that look like this:
@@ -321,8 +321,8 @@ describe('compareVotes', function() {
   it('returns candidate name with more votes', function() {
     expect(compareVotes({ name: 'Pikachu', votes: 25 }, { name: 'Bulbasaur', votes: 24 })).to.deep.eq('Pikachu');
     expect(compareVotes({ name: 'Pikachu', votes: 0 }, { name: 'Bulbasaur', votes: 1 })).to.deep.eq('Bulbasaur');
-  })
-})
+  });
+});
 ```
 ##### !end-tests
 ### !explanation
@@ -336,7 +336,7 @@ const compareVotes = function(candidateA, candidateB) {
     } else {
         return candidateB.name;
     }
-}
+};
 ```
 
 ### !end-explanation
@@ -349,7 +349,7 @@ const compareVotes = function(candidateA, candidateB) {
 * type: code-snippet
 * language: javascript
 * id: a7339c5b
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `compareIds`. It has two parameters, `candidateA` and `candidateB`. Both `candidateA` and `candidateB` will be objects that look like this:
@@ -376,8 +376,8 @@ describe('compareIds', function() {
   it('returns candidate object with smaller ID', function() {
     expect(compareIds({ id: 25, name: 'Pikachu'}, { id: 1, name: 'Bulbasaur'})).to.deep.eq({ id: 1, name: 'Bulbasaur'});
     expect(compareIds({ id: 25, name: 'Pikachu'}, { id: 26, name: 'Bulbasaur'})).to.deep.eq({ id: 25, name: 'Pikachu'});
-  })
-})
+  });
+});
 ```
 ##### !end-tests
 ### !explanation
@@ -391,7 +391,7 @@ const compareIds = function(candidateA, candidateB) {
     } else {
         return candidateB;
     }
-}
+};
 ```
 
 ### !end-explanation
@@ -405,7 +405,7 @@ const compareIds = function(candidateA, candidateB) {
 * type: code-snippet
 * language: javascript
 * id: 7db0cd35
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `compareAlphabetically`. It has two parameters, `wordA` and `wordB`, which will be strings. Compare `wordA` and `wordB` and determine which one comes first alphabetically. Follow these rules:
@@ -432,8 +432,8 @@ describe('compareAlphabetically', function() {
     expect(compareAlphabetically('Bulbasaur', 'Pikachu')).to.deep.eq('Bulbasaur');
     expect(compareAlphabetically('Pikachu', 'Pikachu')).to.deep.eq('Pikachu');
     expect(compareAlphabetically('Pikachu', 'pikachu')).to.deep.eq('Pikachu');
-  })
-})
+  });
+});
 ```
 ##### !end-tests
 ### !explanation
@@ -447,7 +447,7 @@ const compareAlphabetically = function(wordA, wordB) {
     } else {
         return wordB;
     }
-}
+};
 ```
 
 ### !end-explanation
@@ -460,7 +460,7 @@ const compareAlphabetically = function(wordA, wordB) {
 * type: code-snippet
 * language: javascript
 * id: d8cc50e2
-* title: Learning Another Language
+* title: JavaScript, Cont.
 ##### !question
 
 Create a function named `compareValues`. It has two parameters, `a` and `b`, which will be numbers. Compare `a` against `b`. If `a` is less than `b`, return `-1`. If `a` is equal to `b`, return `0`. If `a` is greater than `b`, return `1`.
@@ -480,8 +480,8 @@ describe('compareValues', function() {
     expect(compareValues(999, -999)).to.deep.eq(1);
     expect(compareValues(-5, -5)).to.deep.eq(0);
     expect(compareValues(80.5, 80.6)).to.deep.eq(-1);
-  })
-})
+  });
+});
 ```
 ##### !end-tests
 ### !explanation
@@ -497,7 +497,7 @@ const compareValues = function(a, b) {
     } else {
         return 1;
     }
-}
+};
 ```
 
 ### !end-explanation

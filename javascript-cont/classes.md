@@ -2,6 +2,14 @@
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=79449fb4-4505-4ff1-a6a0-ade2015090af&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
+### !callout-info
+
+## This video uses an online JavaScript REPL
+
+The videos will walk through the code and concepts in this lesson, however, in the video the instructors are walking through the code using an online REPL tool rather than VS Code. If you choose to run code examples locally, you will see some differences between how you run the code and how the instructors will run the code in the online tool. 
+
+### !end-callout
+
 ## Learning Goals
 - Understand on a high-level that ES6 introduced classes as syntactical sugar
 - By the end of this you should be able to:
@@ -10,6 +18,7 @@
   - Use `extends` to create subclasses using inheritance
   - Use `super` to access a parent class' attributes & methods
 
+We encourage folks to practice setting up a local project so you can run code examples locally to try concepts out!
 
 ## Introduction: JavaScript uses Prototype-Based Objects
 
@@ -106,7 +115,7 @@ console.log(chefZine['title']);
 
 <details style="max-width: 700px; margin: auto;">
   <summary>
-  **Experiment:** What happens if you try to read or write an attribute that isn't set in the constructor?
+  <strong>Experiment:</strong> What happens if you try to read or write an attribute that isn't set in the constructor?
   </summary>
   
   Any attribute not defined in the constructor is `undefined`.
@@ -187,8 +196,11 @@ const chefZine = new Zine('So you want to be a pastry chef', 'Julia Child');
 // > The constructor ran!
 ```
 
-**Exercise**:  Try creating an `Animal` class similar to `Zine` above.  The `constructor` should take a `sound` parameter and save it in an instance variable.  Then create an instance of the class.  Verify that it works.  
+#### Exercise
 
+Try creating an `Animal` class similar to `Zine` above.  The `constructor` should take a `sound` parameter and save it in an instance variable.  Then create an instance of the class.  Verify that it works.  
+
+<br>
 
 <details style="max-width: 700px; margin: auto;">
   <summary>Click here for a solution</summary>
@@ -200,7 +212,7 @@ const chefZine = new Zine('So you want to be a pastry chef', 'Julia Child');
     }
   }
 
-  const hyena = new Animal('heehehehehe hehehe hehehehe!')
+  const hyena = new Animal('heehehehehe hehehe hehehehe!');
   ```
 </details>
 
@@ -228,8 +240,11 @@ console.log(chefZine.totalPrice());
 // > 1.08
 ```
 
-**Exercise**:  For our `Animal` class, create a `speak` method which will print the sound to the console.  Try it out to verify that the method is working.  
+#### Exercise
 
+For our `Animal` class, create a `speak` method which will print the sound to the console.  Try it out to verify that the method is working.  
+
+<br>
 
 <details style="max-width: 700px; margin: auto;">
   <summary>Click here for a solution</summary>
@@ -245,7 +260,7 @@ console.log(chefZine.totalPrice());
     }
   }
 
-  const hyena = new Animal('heehehehehe hehehe hehehehe!')
+  const hyena = new Animal('heehehehehe hehehe hehehehe!');
   hyena.speak();
   ```
 </details>
@@ -281,8 +296,11 @@ console.log(Zine.lowestPrice(chefZine, linuxZine));
 
 Just like a Python class method, the above example calls the static method on the name of the class as `Zine.lowestPrice`.  Trying to call the method with `chefZine.lowestPrice(chefZine, linuxZine);` will result in a TypeError.
 
-**Exercise**:  Add a static method to Animal called `createAnimals`, which takes an array of Strings (sounds) and returns an array of Animals which make those sounds.  
+#### Exercise
 
+Add a static method to Animal called `createAnimals`, which takes an array of Strings (sounds) and returns an array of Animals which make those sounds.  
+
+<br>
 
 <details style="max-width: 700px; margin: auto;">
   <summary>Click here for a solution</summary>
@@ -303,7 +321,7 @@ Just like a Python class method, the above example calls the static method on th
     }
   }
 
-  const newAnimals = Animal.createAnimals(['tweet tweet!', 'bark!', 'glub glub', 'meeeow!'])
+  const newAnimals = Animal.createAnimals(['tweet tweet!', 'bark!', 'glub glub', 'meeeow!']);
   ```
 </details>
 
@@ -341,8 +359,11 @@ console.log(janusAndAurora.toString());
 
 In the example above we can use the `super` keyword to access the parent class' version of the `toString` method and we overrode the parent class' method to add our own functionality.
 
-**Exercise**:  Create a `Cat` class that extends `Animal` and has a name attribute.  All `Cat` instances should "Meow" when speaking.  
+### Exercise
 
+Create a `Cat` class that extends `Animal` and has a name attribute.  All `Cat` instances should "Meow" when speaking.  
+
+<br>
 
 <details style="max-width: 700px; margin: auto;">
   <summary>Click here for a solution</summary>

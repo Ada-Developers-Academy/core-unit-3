@@ -189,7 +189,7 @@ Standards:
       -
         Type: Lesson
         UID: 36e4d945
-        Path: /javascript-cont/problem-set-intro-to-javascript.md
+        Path: /javascript-cont/problem-set-javascript-cont.md
   -
     Title: Functions
     Description: "Arrow Functions, Callback Functions, Anonymous Functions, Problem Set: Functions"
