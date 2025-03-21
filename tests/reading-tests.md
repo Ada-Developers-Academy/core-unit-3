@@ -40,7 +40,7 @@ They all differ in testing philosophy, strengths, responsibilities, and context.
 This curriculum focuses on Jest additionally because:
 
 - It is widely adopted in modern JavaScript projects
-- It is built into several online editors, including [Replit.com](https://replit.com), which we have used before, as well as [CodeSandbox](https://codesandbox.io), which we'll explore a bit in this lesson.
+- It is built into several online editors, such as [CodeSandbox](https://codesandbox.io), which we'll explore a bit in this lesson
 - It is the default testing framework for the popular JavaScript library, React
 
 ## Vocabulary and Synonyms
@@ -55,8 +55,8 @@ When we run JavaScript programs, including running test suites, we need to consi
 
 For this portion of the curriculum, we will run tests using:
 
-- Replit.com
-- Learn code challenges on this curriculum platform
+- CodeSandbox.com
+- Code challenges on this curriculum platform
 
 When we have bigger projects with different environments, such as React JS projects, we will run tests on our local machines. As we get increasingly comfortable with Jest, we may even start writing our own tests. For now, we can focus on reading tests and building our skills to pass them.
 
@@ -306,7 +306,7 @@ CodeSandbox.io is a platform for creating projects. We'll use this platform to r
 
 ## CodeSandbox Is the Same, but Different
 
-CodeSandbox provides an environment for editing code, just like Replit.com or even VS Code do. We should spend a few minutes looking around to identify where we can find some of the common features in any IDE. Some areas to keep an eye out for include:
+CodeSandbox provides an environment for editing code, just like VS Code does. We should spend a few minutes looking around to identify where we can find some of the common features in any IDE. Some areas to keep an eye out for include:
 - a list of files in the project
 - a file editor view
 - search tools
@@ -319,7 +319,7 @@ We should feel comfortable exploring this environment until we feel like we have
 
 ### !end-callout
 
-These projects need to be configured to use the Jest package. Let's purposely skip over those details in order to focus on the tests. The tests in [this CodeSandbox project](https://codesandbox.io/s/fizzbuzz-with-tests-riytqu?file=/test/fizzbuzz.test.js) are already set up.
+Projects need to be configured to use the Jest package. Let's purposely skip over those details in order to focus on the tests. The tests in [this CodeSandbox project](https://codesandbox.io/s/fizzbuzz-with-tests-riytqu?file=/test/fizzbuzz.test.js) are already set up.
 
 ![CodeSandbox UI that shows the overall structure of the FizzBuzz project, including project files, editing views, and test output](../assets/tests_tests_sandbox-overview.png)  
 _Fig. CodeSandbox UI that shows the overall structure of the FizzBuzz project_
@@ -436,18 +436,26 @@ Using your own words, describe one thing that you would watch for while reading 
 <!-- Question Takeaway -->
 <!-- prettier-ignore-start -->
 ### !challenge
-* type: paragraph
+* type: ordering
 * id: 0c5b9845
 * title: Reading Tests
 ##### !question
 
-What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
+Arrange the lines of code below in the following order so that they create a Jest test. You may assume that the test will include correct indentation and closing braces: 
+
+1. Test function definition
+2. Arrange step
+3. Act step
+4. Assert step
 
 ##### !end-question
-##### !placeholder
+##### !answer
 
-My biggest takeaway from this lesson is...
+1. `test("non-multiples of three or five return the number itself", () => {`
+2. `const num = 4;`
+3. `const result = fizzBuzz(num);`
+4. `expect(result).toEqual(num);`
 
-##### !end-placeholder
+##### !end-answer
 ### !end-challenge
 <!-- prettier-ignore-end -->
