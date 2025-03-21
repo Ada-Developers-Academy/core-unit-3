@@ -2,6 +2,14 @@
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=9e30accc-216b-4a05-8e91-addc015fe713&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
+### !callout-info
+
+## This video uses an online JavaScript REPL
+
+The video will walk through the same code in this lesson, however, in the video the instructor is using an online REPL tool rather than VS Code, so you will see some differences between how you run and view the project locally and how the instructor will run and view the project in the online tool. 
+
+### !end-callout
+
 ## Goals and Introduction
 
 JavaScript is special. It's a language that can run directly within web browsers, letting it access and modify the structure of any HTML being displayed! It is able to do this even for web pages that aren't served by a web server.
@@ -92,9 +100,9 @@ There are more techniques to work with this problem, such as downloading the scr
 
 ## Example: Hello, World!
 
-[Let's make a Hello, World! program](https://replit.com/@adacore/Connecting-HTML-CSS-and-JS-Demo#index.html) that helps us see how HTML, CSS, and JS connect.
+Let's make a "Hello, World!" program that helps us see how HTML, CSS, and JS connect. We have [a scaffolded repo](https://github.com/AdaGold/connecting-html-css-js-demo) with the code for this lesson, but we encourage folks to follow along locally by practicing creating a project and the files necessary.
 
-In a project, we can create this file, `src/index.js`:
+In a project, we can create the file, `src/index.js`:
 
 ```js
 console.log('Hello, World!');
@@ -123,7 +131,7 @@ Then, we can create a minimal `index.html` file. The contents don't matter in th
 
 ### Observing the Console
 
-When we [open our HTML file in our browser](https://replit.com/@adacore/Connecting-HTML-CSS-and-JS-Demo#index.html), we should see our beautiful crab fan site.
+When we [open our HTML file in our browser](https://github.com/AdaGold/connecting-html-css-js-demo/blob/main/index.html), we should see our beautiful crab fan site.
 
 When our HTML page loads the JS file designated in the `<script>` tag, _the browser runs the JS file immediately_. Therefore, our `console.log('Hello, World!');` should have been executed.
 
@@ -158,7 +166,7 @@ For example, we can add in the following code to our `src/index.js` file:
 ```js
 const getRandomNumber = (max) => {
     return Math.floor(Math.random() * (max + 1));
-}
+};
 
 console.log(getRandomNumber(10));
 console.log(getRandomNumber(100));
@@ -182,7 +190,7 @@ We can add the following code to `src/index.js`:
 const getCurrentTime = () => {
     const currentDate = new Date();
     return currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
-}
+};
 
 console.log(`The current time is ${getCurrentTime()}.`);
 ```
