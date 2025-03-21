@@ -111,7 +111,7 @@ Ultimately, to get deeper into Jest syntax, we should dive into the documentatio
 - [Jest's main website](https://jestjs.io/)
 - [Jest's introduction to matchers](https://jestjs.io/docs/using-matchers)
 
-Some Jest resources will be centered around the context that the tests are in. For example, Jest tests in Replit.com will be configured differently compared to Jest tests in React.
+Some Jest resources will be centered around the context that the tests are in. For example, Jest tests in CodeSandbox will be configured differently compared to Jest tests in React.
 
 ## Check for Understanding
 
@@ -148,18 +148,26 @@ Assume that each line would be indented correctly.
 <!-- Question Takeaway -->
 <!-- prettier-ignore-start -->
 ### !challenge
-* type: paragraph
+* type: multiple-choice
 * id: 527a2552
 * title: Test Syntax Detail
 ##### !question
 
-What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
+Which of the following Jest matchers should we use to check if an array stored in variable `x` holds a specific value `y`? Choose only one option.
 
 ##### !end-question
-##### !placeholder
+##### !options
 
-My biggest takeaway from this lesson is...
+a| `expect(x).toMatch(y);`
+b| `expect(x).toEqual(y);`
+c| `expect(x).toContain(y);`
+d| `expect(x).toBeLessThan(y);`
 
-##### !end-placeholder
+##### !end-options
+##### !answer
+
+c|
+
+##### !end-answer
 ### !end-challenge
 <!-- prettier-ignore-end -->
