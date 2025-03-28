@@ -4,7 +4,7 @@
 
 ### !callout-info
 
-## This video uses an online JavaScript REPL
+## These videos use an online JavaScript REPL
 
 The videos will walk through code very similar to what is shown in this lesson, however, not all examples exactly match the style we are following in this curriculum. In this course, the style and content of the code examples in this lesson are preferred over the examples shown in the video. 
 
