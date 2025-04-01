@@ -353,9 +353,9 @@ axios
 
 ## Query Params
 
-As part of Jamel's DogSpotter app, he needs to find the latitude and longitude of Seattle, Washington, USA. He'll use the [LocationIQ Geocoding API](https://locationiq.com/sandbox/geocoding/forward).
+As part of Jamel's DogSpotter app, he needs to find the latitude and longitude of Seattle, Washington, USA. He'll use the [LocationIQ Geocoding API](https://docs.locationiq.com/docs/forward-geocoding-sandbox).
 
-After looking at [the docs for Search/Forward Geocoding](https://locationiq.com/docs), Jamel determines that his request should look like this:
+After looking at [the docs for Search/Forward Geocoding](https://docs.locationiq.com/docs/search-forward-geocoding), Jamel determines that his request should look like this:
 
 - `GET` request to `https://us1.locationiq.com/v1/search.php`
 - Query Params:
@@ -390,20 +390,24 @@ To figure out how to add query params to our `GET` request, Jamel can research t
 
 He learns that to add query params, he utilizes `axios.get()`'s second parameter. This function takes in an optional "config" object.
 
-Within this "config" object, there we can add in a key `params`. The value of `params` should be another object.
-
-This `params` object should contain the key-value pairs we want to send as query params.
+Within this "config" object, we can add in a key `params`. 
+- The value of `params` should be another object.
+- This `params` object should contain the key-value pairs we want to send as query params.
 
 Jamel's code eventually looks like this:
 
 <!-- prettier-ignore-start -->
 ```js
 const axios = require('axios');
+const dotEnv = require('dotenv');
+
+dotEnv.config(); // Load variables from .env
+const apiKey = process.env.API_KEY; // Access the API_KEY declared in .env
 
 axios
   .get('https://us1.locationiq.com/v1/search.php', {
     params: {
-      key: process.env['api_key'],  // discussed below
+      key: apiKey,
       q: 'Seattle, Washington, USA',
       format: 'json',
     },
@@ -417,23 +421,42 @@ axios
 ```
 <!-- prettier-ignore-end -->
 
-Before trying to run this code ourselves, we should examine how Jamel configured his LocationIQ API key.
+Before trying to run this code ourselves, we should examine how Jamel configured his LocationIQ API key. 
+- If we try to run the code now, we should expect to see an error response unless we have already added our API key to the project.
 
-Recall that we should always try to keep our API keys private. During local development, we have created `.env` files to hold these values to help avoid accidentally committing them to Git. Other environments have provided management consoles where we can set secrets so that they are kept safe from prying eyes!
+Recall that we should always try to keep our API keys private. During local development, we have created `.env` files to hold these values to help avoid accidentally committing them to Git. With the use of [a package named `dotenv`](https://www.npmjs.com/package/dotenv) we can do the same in JavaScript and set up a local `.env` file to keep our API key safe. 
 
-Replit.com provides a UI for creating secrets, which we can then access through the `process.env` object.
+Jamel's repo already has the `dotenv` dependency installed, but if we needed to add it to a project, we could with:
 
-To set up our secret in our REPL, we click the Secrets icon (shaped like a padlock).
+```bash
+npm i dotenv
+```
 
-![The Replit.com interface showing the padlock-shaped icon highlighted. The hover text describes the icon as "Secrets (Environment variables)."](./../assets/calling-apis_get-requests-with-axios_secrets.png)  
-_Fig. Locating the Secrets panel in Replit.com_
+Just like with Python projects we've seen, our `.gitignore` file should be set up to exclude `.env` files from the repo. This means we'll need to create our own `.env` file in the root of the project before we can successfully run the request to LocationIQ. 
 
-Then we fill in the key name with an appropriate name (we used `api_key`), paste our LocationIQ API key as the value, then click "Add new secret."
+Once we've made a `.env` file, we need to add our `API_KEY` constant: 
 
-![The Replit.com interface showing the Secrets panel. The key field has "api_key" entered, and a placeholder in the value field of "YOUR_LOCATIONIQ_API_KEY" is displayed.](./../assets/calling-apis_get-requests-with-axios_secrets-api-key.png)  
-_Fig. Filling in our secret API key_
+```bash
+API_KEY=your_api_key_here
+```
 
-Now our API key will be accessible in our code through `process.env['api_key']`!
+Note that you do not need to place quotes around the API key value.
+
+Inside of our source file `src/index.js`, we'll need to:
+1. import the `dotenv` dependency
+2. call `dotenv`'s `config()` method to load any variables we put in our `.env`
+
+```js
+const dotEnv = require('dotenv');
+
+dotEnv.config();
+```
+
+Now our API key will be accessible in our code through `process.env.API_KEY`!
+
+```js
+const apiKey = process.env.API_KEY;
+```
 
 Following these steps, Jamel securely set up his API key. Now when he runs his code, he indeed gets back the successful response he hoped for!
 
