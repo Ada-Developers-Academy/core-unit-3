@@ -2,6 +2,14 @@
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=180e70d4-580d-400b-a1e3-ad41015fdc72&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
+### !callout-info
+
+## These videos use an online JavaScript REPL
+
+The videos will walk through the same code in this lesson, however, in the video the instructor is walking through the code using an online REPL tool rather than VS Code, so you will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
+
+### !end-callout
+
 ## Goals
 
 - Request data from an API to render client-side using JavaScript
@@ -40,7 +48,7 @@ Jamel can read through the [`axios` documentation](https://github.com/axios/axio
 1. How do we determine what to do if the `GET` request fails?
 1. What does "finish successfully" mean to `axios`?
 
-Let's see what answers we can get when we observe [the following code that makes a `GET` request](https://replit.com/@adacore/GET-Requests-With-axios-Demo#index.js):
+Let's take a look at [Jamel's project repo](https://github.com/AdaGold/get-requests-with-axios-demo) and see what answers we can get when we observe the following code from `src/index.js` that makes a `GET` request:
 
 <!-- prettier-ignore-start -->
 ```js
@@ -106,7 +114,7 @@ He expects the response to look like:
 
 First, before Jamel implements his full API call, he wants to prove that he can get _some_ kind of response from the API call! If the response is successful, he'll print to the console, "success!" If it's unsuccessful, he'll print "error!"
 
-We can apply the above pattern to write [this code](https://replit.com/@adacore/GET-Requests-With-axios-Demo#index.js):
+We can apply the above pattern to write [this code](https://github.com/AdaGold/get-requests-with-axios-demo/blob/main/src/index.js):
 
 <!-- prettier-ignore-start -->
 ```js
@@ -386,7 +394,7 @@ Within this "config" object, there we can add in a key `params`. The value of `p
 
 This `params` object should contain the key-value pairs we want to send as query params.
 
-Jamel's code eventually looks [like this](https://replit.com/@adacore/GET-Requests-With-axios-Demo#index.js):
+Jamel's code eventually looks like this:
 
 <!-- prettier-ignore-start -->
 ```js
