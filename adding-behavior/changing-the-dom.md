@@ -2,6 +2,18 @@
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=0caa2a3a-ddfc-4b7a-b97c-addc0160432e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
+### !callout-info
+
+## These videos use an online JavaScript REPL
+
+The videos will walk through code very similar to what is shown in this lesson, however, not all examples exactly match the style we are following in this curriculum. In this course, the style and content of the code examples in this lesson are preferred over the examples shown in the video. 
+
+<br>
+
+Additionally, in the video the instructor is walking through the code using an online REPL tool rather than VS Code. You will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
+
+### !end-callout
+
 ## Goals
 
 The goal for this lesson is to display one of JavaScript's strengths: accessing and changing the DOM.
@@ -49,7 +61,7 @@ The `document` object has a number of methods that allow us to select specific H
 For example, the method `getElementById` will give us back the HTML element with a matching `id` attribute, or `null` if there are no matching elements.
 
 ```js
-const fancyParagraphElement = document.getElementById("fancy-paragraph");
+const fancyParagraphElement = document.getElementById('fancy-paragraph');
 ```
 
 The above line initializes a `const` variable named `fancyParagraphElement`. It's set to the HTML element that has its `id` set to `fancy-paragraph`.
@@ -84,21 +96,23 @@ Here are a few particularly useful built-in members of elements we might use:
 
 ### Example: Reading and Changing Text Content
 
-Keira has [an `index.html` page that contains a heading with an `id` of `facts__heading`](https://replit.com/@adacore/Changing-the-DOM-Demo#index.html).
+Feel free to follow along locally by practicing creating a project from scratch, or by using [the scaffolded repo we've created](https://github.com/AdaGold/changing-the-dom-demo).
+
+Keira has [an `index.html` page](https://github.com/AdaGold/changing-the-dom-demo/blob/main/index.html) that contains a heading with an `id` of `facts__heading`.
 
 The text of this heading is incorrect. Keira knows that she could (and probably should!) simply edit the HTML, but she really wants to try out making changes through the DOM with JavaScript!
 
 In her `index.js`, which she included with a `<script>` tag in her `index.html` file, she adds the following JavaScript to change the text content of the heading like so:
 
 ```js
-const appearanceHeading = document.getElementById("facts__heading");
+const appearanceHeading = document.getElementById('facts__heading');
 
-appearanceHeading.textContent = "Qualities and Traits of a Crab";
+appearanceHeading.textContent = 'Qualities and Traits of a Crab';
 ```
 
 Here, she selects the desired heading element by its `id` using `document.getElementById()`. She stores this element in `appearanceHeading`.
 
-Then, she sets its `textContent` attribute to `"Qualities and Traits of a Crab"`.
+Then, she sets its `textContent` attribute to `'Qualities and Traits of a Crab'`.
 
 ![The Crab Fan Site with the heading "Qualities and Traits of a Crab"](../assets/adding-behavior_changing-the-dom_text-content.png)  
 _Fig. Keira's crab fan site with an updated heading thanks to JavaScript!_
@@ -107,7 +121,7 @@ _Fig. Keira's crab fan site with an updated heading thanks to JavaScript!_
 
 How do we change the appearance of an element using JavaScript? We'll mix in our CSS skills, and add a CSS class to our selected element!
 
-Keira's [`index.html` page](https://replit.com/@adacore/Changing-the-DOM-Demo#index.html) contains a very important fact in one element. This element has an `id` of `facts__fact--important`.
+Keira's `index.html` page contains a very important fact in one element. This element has an `id` of `facts__fact--important`.
 
 Keira wants to highlight this important fact by giving it a nice yellow background color, and making the text bolder.
 
@@ -123,7 +137,7 @@ She can create a new CSS class, `highlight`:
 Then, she can select the important fact element and add this new class to the element:
 
 ```js
-const importantFact = document.getElementById("facts__fact--important");
+const importantFact = document.getElementById('facts__fact--important');
 
 importantFact.className = `${importantFact.className} highlight`;
 ```
@@ -149,19 +163,19 @@ She looks through the documentation for the `document` object and notices:
 1. `document` has a method named `createElement`, which creates a new HTML element.
 1. Every HTML element has a method named `appendChild`. This method adds a new child node to the element as the last child node.
 
-With the `createElement` and `appendChild` methods in hand, now Keira can write [this code](https://replit.com/@adacore/Changing-the-DOM-Demo#scripts/index.js):
+With the `createElement` and `appendChild` methods in hand, now Keira can write [this code](https://github.com/AdaGold/changing-the-dom-demo/blob/main/src/index.js):
 
 ```js
-const newAppearanceFact = document.createElement("li");
+const newAppearanceFact = document.createElement('li');
 
-newAppearanceFact.textContent = "covered in sand (when on a sandy beach)";
+newAppearanceFact.textContent = 'covered in sand (when on a sandy beach)';
 
-const appearanceList = document.getElementById("facts__list");
+const appearanceList = document.getElementById('facts__list');
 
 appearanceList.appendChild(newAppearanceFact);
 ```
 
-In [this example](https://replit.com/@adacore/Changing-the-DOM-Demo#scripts/index.js), after reloading the page, Keira is happy to see her new, sixth crab fact!
+After saving and reloading the page, Keira is happy to see her new, sixth crab fact!
 
 ![The Crab Fan Site with a new fact added to the list, "covered in sand (when on a sandy beach)"](../assets/adding-behavior_changing-the-dom_adding-content.png)  
 _Fig. Keira's crab fan site laying down the facts thanks to JavaScript!_
