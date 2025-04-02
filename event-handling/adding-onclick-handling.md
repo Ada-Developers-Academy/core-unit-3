@@ -20,7 +20,7 @@ Our goal for this lesson is to implement event handling in JavaScript.
 
 ## Introduction
 
-Keira is a web developer creating [a website dedicated to the science and beauty of crabs](https://github.com/AdaGold/adding-onclick-handling-demo). Keira wants to add crabs to her website every time the user clicks a button named "Add Crab."
+Keira is a web developer creating [a website dedicated to the science and beauty of crabs](https://adagold.github.io/adding-onclick-handling-demo/). Keira wants to add crabs to her website every time the user clicks a button named "Add Crab."
 
 Keira will need to do two things every time she wants to handle an event:
 
@@ -34,6 +34,8 @@ Keira will need to do two things every time she wants to handle an event:
 | Event Handler | A function whose responsibility is to perform necessary, required, or desired actions after a certain event is fired | "The function is a click event handler because we expect it to run after the button is clicked," "In order for something to happen after we scroll, we need to make an event handler for what should happen when the user scrolls." |
 
 ## Preparing the Page
+
+We can follow along with Keira's code [in this repo](https://github.com/AdaGold/adding-onclick-handling-demo).
 
 Before we look at how to set up our event handler, we need to have an element that can raise the events we want to receive. We should aso set up any other elements that we will modify in response to the event.
 
