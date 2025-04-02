@@ -21,7 +21,7 @@ He decides to run his experiment using [this repository](https://github.com/AdaG
 
 ## Raffy's LocationIQ API Key
 
-Raffy knows that it's important to keep his API key private, so he set up a .env locally to keep the key out of his code. If we want to try running Raffy's code, we'll need to do the same thing by creating a .env file in the root of the project, and adding a new variable named `API_KEY` with our LocationIQ API key as the value.
+Raffy knows that it's important to keep his API key private, so he set up a `.env` locally to keep the key out of his code. If we want to try running Raffy's code, we'll need to do the same thing by creating a `.env` file in the root of the project, and adding a new variable named `API_KEY` with our LocationIQ API key as the value.
 
 ### !end-callout
 
@@ -30,8 +30,8 @@ Raffy knows that it's important to keep his API key private, so he set up a .env
 const axios = require('axios');
 const dotEnv = require('dotenv');
 
-dotEnv.config(); // Load variables from .env
-const LOCATIONIQ_KEY = process.env.API_KEY; // Access the API_KEY from .env file
+dotEnv.config(); 
+const LOCATIONIQ_KEY = process.env.API_KEY; 
 
 
 const findLatitudeAndLongitude = (query) => {
@@ -186,11 +186,13 @@ const dotEnv = require('dotenv');
 dotEnv.config(); 
 const LOCATIONIQ_KEY = process.env.API_KEY;
 
+
 const getLocationFromQuery = (query) => {
   // Make the first API call to get latitude and longitude
   findLatitudeAndLongitude(query)
     .then((response) => {
       // `response` is the data returned from the findLatitudeAndLongitude promise.
+
       // Make the next API call here, where we can use 
       // the `response` data from the previous call.
       findLocation(response.latitude, response.longitude);
@@ -332,7 +334,7 @@ Which of the following most accurately describes where we print the results from
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-Raffy chose to create a new function `getLocationFromQuery` to manage calling the existing functions `findLatitudeAndLongitude` and `findLocation`. He could have called the second method directly from inside the first, with `.then` chaining, but doing so would have linked these two functions together, making it harder to use one without the other.
+Raffy chose to create a new function `getLocationFromQuery` to manage calling the existing functions `findLatitudeAndLongitude` and `findLocation`. He could have called the second method directly from inside the first with `.then` chaining, but doing so would have linked these two functions together, making it harder to use one without the other.
 
 To use `findLatitudeAndLongitude` from another function and pass on its `response` data to another network call, we needed to make a couple updates in `findLatitudeAndLongitude`: 
 - `return` the result of the `axios` call which returns the promise chain the axios call creates.
