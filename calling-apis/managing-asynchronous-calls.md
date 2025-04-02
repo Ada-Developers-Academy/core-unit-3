@@ -15,77 +15,80 @@ He wants to make two API requests to the [LocationIQ APIs](https://locationiq.co
 1. First, he wants to make a request to the Forward Geocoding API to find the latitude and longitude of "Seattle, Washington, USA."
 1. Then, he wants to make a request to the Reverse Geocoding API with the latitude and longitude he found, and see if the results come back as "Seattle, Washington, USA."
 
-He decides to run his experiment with [this code](https://replit.com/@adacore/Managing-Asynchronous-Requests)!
+He decides to run his experiment using [this repository](https://github.com/AdaGold/managing-asynchronous-calls-demo)!
 
 ### !callout-warning
 
 ## Raffy's LocationIQ API Key
 
-Raffy knows that it's important to keep his API key private, so he set up a secret in his REPL to keep the key out of his code. If we want to try running Raffy's code, we'll need to do the same thing by opening the Secrets panel, and adding a new key named `api_key` with our LocationIQ API key as the value.
+Raffy knows that it's important to keep his API key private, so he set up a .env locally to keep the key out of his code. If we want to try running Raffy's code, we'll need to do the same thing by creating a .env file in the root of the project, and adding a new variable named `API_KEY` with our LocationIQ API key as the value.
 
 ### !end-callout
 
 <!-- prettier-ignore-start -->
 ```js
 const axios = require('axios');
+const dotEnv = require('dotenv');
 
-const LOCATIONIQ_KEY = process.env['api_key'];
+dotEnv.config(); // Load variables from .env
+const LOCATIONIQ_KEY = process.env.API_KEY; // Access the API_KEY from .env file
+
 
 const findLatitudeAndLongitude = (query) => {
   let latitude, longitude;
   axios.get('https://us1.locationiq.com/v1/search.php',
-  {
-    params: {
-      key: LOCATIONIQ_KEY,
-      q: query,
-      format: 'json'
-    }
-  })
-  .then( (response) => {
-    latitude = response.data[0].lat;
-    longitude = response.data[0].lon;
-    console.log('success in findLatitudeAndLongitude!', latitude, longitude);
-  })
-  .catch( (error) => {
-    console.log('error in findLatitudeAndLongitude!');
-  });
+    {
+      params: {
+        key: LOCATIONIQ_KEY,
+        q: query,
+        format: 'json'
+      }
+    })
+    .then( (response) => {
+      latitude = response.data[0].lat;
+      longitude = response.data[0].lon;
+      console.log('success in findLatitudeAndLongitude!', latitude, longitude);
+    })
+    .catch( (error) => {
+      console.log('error in findLatitudeAndLongitude!');
+      // console.log(error); // If we want to see more info about the issue
+    });
 
   return {
-      seattleLat: latitude,
-      seattleLon: longitude
-  }
-}
+    seattleLat: latitude,
+    seattleLon: longitude
+  };
+};
 
 const findLocation = (latitude, longitude) => {
   axios.get('https://us1.locationiq.com/v1/reverse.php',
-  {
-    params: {
-      key: LOCATIONIQ_KEY,
-      format: 'json',
-      lat: latitude,
-      lon: longitude
-    }
-  })
-  .then( (response) => {
-    console.log('success in findLocation!', response.data);
-    return response.data;
-  })
-  .catch( (error) => {
-    console.log('error in findLocation!');
-  });
-}
+    {
+      params: {
+        key: LOCATIONIQ_KEY,
+        format: 'json',
+        lat: latitude,
+        lon: longitude
+      }
+    })
+    .then( (response) => {
+      console.log('success in findLocation!', response.data);
+      return response.data;
+    })
+    .catch( (error) => {
+      console.log('error in findLocation!');
+      // console.log(error); // If we want to see more info about the issue
+    });
+};
 
 const seattleCoordinates = findLatitudeAndLongitude('Seattle, Washington, USA');
-
 const locations = findLocation(seattleCoordinates.seattleLat, seattleCoordinates.seattleLon);
-
 console.log(locations);
 ```
 <!-- prettier-ignore-end -->
 
 This code:
 
-- Defines `findLatitudeAndLongitude`, which searches for the best latitude and longitude coordinates using the given query
+- Defines `findLatitudeAndLongitude`, which searches for the most likely latitude and longitude coordinates using the given query
 - Defines `findLocation`, which searches for location records using the given latitude and longitude
 - Finds the coordinates of Seattle by calling `findLatitudeAndLongitude`, and stores the result in `seattleCoordinates`
 - Finds the location records for the retrieved `seattleCoordinates` by calling `findLocations`, and stores the result in `locations`
@@ -173,56 +176,76 @@ Raffy has a few options:
 
 When working on a smaller JavaScript project, one way we can approach solving this problem is by refactoring our second API call into a `then` block of the first API call.
 
-Raffy could [refactor his code to this](https://replit.com/@adacore/Managing-Asynchronous-Requests):
+Raffy could [refactor his code to this](https://github.com/AdaGold/managing-asynchronous-calls-demo/blob/main/src/index.js):
 
 <!-- prettier-ignore-start -->
 ```js
 const axios = require('axios');
+const dotEnv = require('dotenv');
 
-const LOCATIONIQ_KEY = process.env['api_key'];
+dotEnv.config(); 
+const LOCATIONIQ_KEY = process.env.API_KEY;
+
+const getLocationFromQuery = (query) => {
+  // Make the first API call to get latitude and longitude
+  findLatitudeAndLongitude(query)
+    .then((response) => {
+      // `response` is the data returned from the findLatitudeAndLongitude promise.
+      // Make the next API call here, where we can use 
+      // the `response` data from the previous call.
+      findLocation(response.latitude, response.longitude);
+    })
+    .catch((error) => {
+      console.log('getLocationFromQuery: error fetching location from query!');
+      // console.log(error); // If we want to see more info about the issue
+    });
+};
 
 const findLatitudeAndLongitude = (query) => {
   let latitude, longitude;
-  axios.get('https://us1.locationiq.com/v1/search.php',
-  {
-    params: {
-      key: LOCATIONIQ_KEY,
-      q: 'Seattle, Washington, USA',
-      format: 'json'
-    }
-  })
-  .then( (response) => {
-    latitude = response.data[0].lat;
-    longitude = response.data[0].lon;
-    console.log('success in findLatitudeAndLongitude!', latitude, longitude);
 
-    // make the next API call here!
-    findLocation(latitude, longitude);
-  })
-  .catch( (error) => {
-    console.log('error in findLatitudeAndLongitude!');
-  });
-}
+  // Return the promise chain created by the axios call
+  return axios.get('https://us1.locationiq.com/v1/search.php',
+    {
+      params: {
+        key: LOCATIONIQ_KEY,
+        q: query,
+        format: 'json'
+      }
+    })
+    .then((response) => {
+      latitude = response.data[0].lat;
+      longitude = response.data[0].lon;
+      console.log('success in findLatitudeAndLongitude!', latitude, longitude);
+
+      return {latitude, longitude}; // Return the data we want to pass on
+    })
+    .catch((error) => {
+      console.log('error in findLatitudeAndLongitude!');
+      // console.log(error); // If we want to see more info about the issue
+    });
+};
 
 const findLocation = (latitude, longitude) => {
   axios.get('https://us1.locationiq.com/v1/reverse.php',
-  {
-    params: {
-      key: LOCATIONIQ_KEY,
-      format: 'json',
-      lat: latitude,
-      lon: longitude
-    }
-  })
-  .then( (response) => {
-    console.log('success in findLocation!', response.data);
-  })
-  .catch( (error) => {
-    console.log('error in findLocation!');
-  });
-}
+    {
+      params: {
+        key: LOCATIONIQ_KEY,
+        format: 'json',
+        lat: latitude,
+        lon: longitude
+      }
+    })
+    .then((response) => {
+      console.log('success in findLocation!', response.data);
+    })
+    .catch((error) => {
+      console.log('error in findLocation!', error);
+      // console.log(error); // If we want to see more info about the issue
+    });
+};
 
-findLatitudeAndLongitude('Seattle, Washington, USA');
+getLocationFromQuery('Seattle, Washington, USA');
 ```
 <!-- prettier-ignore-end -->
 
@@ -309,11 +332,17 @@ Which of the following most accurately describes where we print the results from
 ### !end-challenge
 <!-- prettier-ignore-end -->
 
-This solution successfully uses the results of one API call to make another API call, but it has a few drawbacks:
+Raffy chose to create a new function `getLocationFromQuery` to manage calling the existing functions `findLatitudeAndLongitude` and `findLocation`. He could have called the second method directly from inside the first, with `.then` chaining, but doing so would have linked these two functions together, making it harder to use one without the other.
 
-- `findLatitudeAndLongitude` _does_ find the coordinates, but that's not _all_ it does. At the least, we might want to rename the function to more accurately describe what the entire chain of functionality does. In general, we might say this method now violates the Single Responsibility Principle.
-- What if we _do_ only need to get the coordinates? By calling the second method directly from inside the first, we have linked these two functions together, so it's harder to use one without the other.
-- What if there were a third operation we needed to perform using the location result that was looked up by latitude and longitude? Would we call that third method from inside the second? Would that make it difficult to keep track of what this growing chain of function calls is doing?
+To use `findLatitudeAndLongitude` from another function and pass on its `response` data to another network call, we needed to make a couple updates in `findLatitudeAndLongitude`: 
+- `return` the result of the `axios` call which returns the promise chain the axios call creates.
+- Inside the `.then` block, we unpack the `latitude` and `longitude` from the `response` object and return just those values we want in a new Object. This allows us to pass these values to a new `.then` block wherever we invoke the function.
+
+Something else to note: our implementation only prints out the location response. Since we don't take further actions on the location result, the `findLocation` function has not been updated to return its promise chain created by the axios call. 
+
+If we wanted to take the location information and perform some operations or make further network calls, we would likely want to update `findLocation` to:
+- Return the promise chain created by the axios call
+- Return the location information inside of `findLocation`'s `.then` block
 
 ### !callout-info
 
