@@ -2,9 +2,21 @@
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=e0f64352-d368-4717-b47f-ad4100ff3422&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
+### !callout-info
+
+## This video uses an online JavaScript REPL
+
+The video will walk through code very similar to what is shown in this lesson, however, not all examples exactly match the style we are following in this curriculum. In this course, the style and content of the code examples in this lesson are preferred over the examples shown in the video. 
+
+<br>
+
+Additionally, in the video the instructor is walking through the code using an online REPL tool rather than VS Code. You will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
+
+### !end-callout
+
 ## Introduction
 
-Keira wants to build a crab counter feature on [the crab site](https://replit.com/@adacore/Foreshadowing-State-Demo), which will show how many crabs there are.
+Keira wants to build a crab counter feature on [the crab site](https://github.com/AdaGold/foreshadowing-state-demo), which will show how many crabs there are.
 
 ![Crab Fan Site, with a heading titled "Crab Count: 0" and zero crabs](../assets/event-handling_foreshadowing-state_count_0.png)  
 _Fig. The Crab Fan Site devoid of crabs_
@@ -28,8 +40,8 @@ Again, the goal for this section is to observe an interesting problem in front-e
 
 Our strategy to create a crab counter will follow these steps:
 
-- In [our HTML](https://replit.com/@adacore/Foreshadowing-State-Demo), create the HTML element that will hold our crab counter
-- In [our JS](https://replit.com/@adacore/Foreshadowing-State-Demo):
+- In [our HTML](https://github.com/AdaGold/foreshadowing-state-demo/blob/main/index.html), create the HTML element that will hold our crab counter
+- In [our JS](https://github.com/AdaGold/foreshadowing-state-demo/blob/main/src/index.js):
   - Create a `state` object that will hold the number of crabs on our site
   - Modify the `addCrab` event-handler to modify the crab count number on `state`
   - Modify the `addCrab` event-handler to update how we show this content in the DOM
@@ -74,7 +86,7 @@ Now let's update our `addCrab` event-handler function to modify `state`, and the
   // ... other addCrab functionality ...
 
   state.crabCount += 1;
-  const crabCountContainer = document.querySelector("#crabCount")
+  const crabCountContainer = document.querySelector('#crabCount');
   crabCountContainer.textContent = `Crab Count: ${state.crabCount}`;
 };
 ```
