@@ -338,7 +338,7 @@ Raffy chose to create a new function `getLocationFromQuery` to manage calling th
 
 To use `findLatitudeAndLongitude` from another function and pass on its `response` data to another network call, we needed to make a couple updates in `findLatitudeAndLongitude`: 
 - `return` the result of the `axios` call which returns the promise chain the axios call creates.
-- Inside the `.then` block, we unpack the `latitude` and `longitude` from the `response` object and return just those values we want in a new Object. This allows us to pass these values to a new `.then` block wherever we invoke the function.
+- Inside the `.then` block, we unpack the `latitude` and `longitude` from the `response` object and return just those values we want in a new Object. This allows us to pass these values to a new `.then` block wherever we invoke `findLatitudeAndLongitude`.
 
 Something else to note: our implementation only prints out the location response. Since we don't take further actions on the location result, the `findLocation` function has not been updated to return its promise chain created by the axios call. 
 
