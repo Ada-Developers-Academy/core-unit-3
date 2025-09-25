@@ -229,9 +229,9 @@ Sofia wants to make sure that the `App` component is handling and updating the s
 
 To refactor Sofia's attendance feature, we will follow these steps:
 
-1. Create a "single source of truth"
-1. Pass down data and event handlers to presentational components
-1. Ensure that our event handlers "lift state up"
+1. Create a "single source of truth" by "lifting state up" out of the `Student` component
+2. Pass down student data and event handlers to presentational components
+3. Connect the passed down data and event handlers in the component to complete the feature
 
 ### !callout-success
 

@@ -1,4 +1,4 @@
-# Single Source of Truth
+# Lifting State for a Single Source of Truth
 
 <!-- VITE-UPDATE -->
 <!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=29e18bda-5c3b-488a-a56c-ad510024995e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
@@ -29,7 +29,7 @@ These questions highlight problems that are challenging to work with!
 
 ### !end-callout
 
-## Moving `isPresent` From `Student` to `App`
+## Lifting Up `isPresent` From `Student` to `App`
 
 Sofia's first goal is to create a single source of truth for her app. She wants to move all student data to one place.
 
@@ -87,6 +87,134 @@ The data uses the name `isPresentData` rather than simply `isPresent` to match t
 <br />
 
 In a production application, using `isPresent` alone would be more common than having `Data` as part of the name. But for this example, having this distinction may be helpful in keeping track of whether we're working with a data record (`Data` in the name) or `Student` props (lacking `Data` in the name).
+
+### !end-callout
+
+## Move `studentData` into State
+
+In the `App` component, we know we want these two things:
+
+1. We should be able to modify and update `studentData`
+1. Every time `studentData` is updated, it should affect the UI, and the `App` component should re-render so that the UI reflects the updated values from `studentData`
+
+These two qualities make it _perfect_ to turn into state.
+
+<!-- prettier-ignore-start -->
+```js
+function App() {
+  const [studentData, setStudentData] = useState([
+    {
+      id: 1,
+      nameData: 'Ada',
+      emailData: 'ada@dev.org',
+      isPresentData: false,
+    },
+    {
+      id: 2,
+      nameData: 'Soo-ah',
+      emailData: 'sooah@dev.org',
+      isPresentData: false,
+    },
+    {
+      id: 3,
+      nameData: 'Chrissy',
+      emailData: 'chrissy@dev.org',
+      isPresentData: true,
+    }
+  ]);
+
+  return (
+    <main>
+      <h1>Attendance</h1>
+      <StudentList students={studentData}></StudentList>
+    </main>
+  );
+}
+```
+<!-- prettier-ignore-end -->
+
+This code:
+
+- Creates a new piece of state and refers to is as `studentData`
+- Creates a new update function and refers to is as `setStudentData`
+- Sets the initial value of `studentData` to our array of student records
+- Passes the value of `studentData` to `StudentList` in the `prop` `students`
+
+<!-- available callout types: info, success, warning, danger, secondary, star  -->
+### !callout-info
+
+## Refactoring Opportunity: Moving large initial values out of components
+
+In the code above, the largest number of lines is the initial value of `studentData`. This is a great opportunity to refactor our code to make it more readable. By moving large data values out of our components, we can make our code more readable and easier to maintain by keeping more related code closer together.
+
+<br />
+
+In app such as this, it's likely that we would eventually want to fetch the initial student data from a server rather than having it hard coded into the app, as we'll see in later lessons. But for now, we could at least move the initial data out of the component function body.
+
+<br />
+
+Think about how we might do this. Then compare your idea to the possible solution below.
+
+<br />
+
+<details>
+<summary>Click here to see a possible solution</summary>
+
+```js
+const kInitialStudentData = [
+  {
+    id: 1,
+    nameData: 'Ada',
+    emailData: 'ada@dev.org',
+    isPresentData: false,
+  },
+  {
+    id: 2,
+    nameData: 'Soo-ah',
+    emailData: 'sooah@dev.org',
+    isPresentData: false,
+  },
+  {
+    id: 3,
+    nameData: 'Chrissy',
+    emailData: 'chrissy@dev.org',
+    isPresentData: true,
+  }
+];
+
+function App() {
+  const [studentData, setStudentData] = useState(kInitialStudentData);
+
+  return (
+    <main>
+      <h1>Attendance</h1>
+      <StudentList students={studentData}></StudentList>
+    </main>
+  );
+}
+```
+
+<br />
+
+Notice how this allows the logic of the `App` component to be more condensed. Our eyes no longer need to jump over the large array of student data to find the logic of the component. And imagine still how much more difficult it would be to read if there were *multiple* large arrays of data in the component! Much of the art to arranging code is to do so in a way that makes it easy to *ignore* the parts that we don't need to pay attention to at the moment.
+
+<br />
+
+On your own, try moving the `kInitialStudentData` array into a separate file, and importing it into `App`. If moving it to a JavaScript file, Don't forget to export it from the file where you define it! This may resemble the following:
+
+```js
+export const kInitialStudentData = [ /* array contents */ ];
+```
+
+<br />
+
+Assuming that definition were in a file under the `src` folder named `data/studentData.js`, we could import it into `App` like this:
+
+```js
+import { kInitialStudentData } from './data/studentData';
+```
+
+</details>
 
 ### !end-callout
 
