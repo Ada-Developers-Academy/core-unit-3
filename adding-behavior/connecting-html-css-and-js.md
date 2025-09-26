@@ -1,6 +1,7 @@
 # Connecting HTML, CSS, and JS
 
-<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=9e30accc-216b-4a05-8e91-addc015fe713&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<!-- SCRIPT_LOADING_UPDATES -->
+<!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=9e30accc-216b-4a05-8e91-addc015fe713&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
 
 ### !callout-info
 
@@ -42,61 +43,64 @@ In our web projects, generally speaking, we can arrange our HTML, CSS, and JS fi
 
 ## Adding the Script Tag
 
-In order for our website to load HTML, we add a link to our JavaScript file in our HTML, similar to how we've included CSS.
+In order for our website to load HTML, we add a link to our JavaScript file in our HTML using the `<script>` tag, similar to how we've included CSS. Just like CSS links, we can include multiple `<script>`s in one page, and the scripts will be loaded in order.
 
 ```html
 <!-- index.html -->
 ...
-<body>
+<head>
   <!-- ... -->
 
-  <script src="src/index.js" type="text/javascript"></script>
-</body>
+  <script <optional async or defer attribute> src="src/index.js" type="text/javascript"></script>
+</head>
 ```
 
-Let's dive into this line, which we'll place at the end of the body, right before the closing `</body>` tag.
+Let's break down this line, which we'll place inside the head tag, usually right before the closing `</head>` tag.
 
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                              |
 | --------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `<script`                                           | Begins a `<script>` tag, a tag used to embed JavaScript                            |
+| <optional async or defer attribute>                 | We can optionally add the async or defer attributes to help us control how the script will load and execute |
 | `src=`                                              | The `src` attribute holds the relative path to the JavaScript file we want to load |
-| `"src/index.js"`                                | **Replace this** with the relative path from this HTML file to the JS file         |
+| `"src/index.js"`                                    | **Replace this** with the relative path from this HTML file to the JS file         |
 | `type="text/javascript">`                           | An attribute that specifies that we're linking a JS file                           |
 | `</script>`                                         | A closing tag                                                                      |
 
-Just like CSS links, we can include multiple `<script>`s in one page, and the scripts will be loaded in order.
+A new twist with scripts, is that we need to consider how we want to load the script for the best user experience. The `<script>` tag in JavaScript has a couple attributes, `async` and `defer`, that we can use to change how our page will handle loading and then running a script.
 
-### !callout-info
+When a browser encounters a `<script>` tag like in the example above, it stops loading the HTML document. The browser pauses to download the _entire_ script, which might take a long time to load, and then it executes the script. The browser continues rendering the page only after the script has finished downloading and running. This has 2 significant issues:
+- The webpage may only be partially loaded when it pauses for the script, and the site will be unresponsive until the script has finished downloading and running.
+- If the script needs to interact with the DOM, the DOM will not have finished loading and will encounter errors.
 
-## Location of `<script>`
+We don't want an unresponsive site or errors, so let's dive into what `async` and `defer` do and how they can help us.
 
-Where should the script tag go? Believe it or not, people have a lot of opinions on this topic. 
+| Attribute | What is does | When it's useful |
+| --------- | ------------ | ---------------- |
+| `async` | Makes the script download asynchronously alongside the DOM being built, and once the script has finished loading, the DOM will pause for the script to run. If there are multiple `async` scripts, they will run in the order that they finish loading *not* the order that they are listed in the HTML. | When we have a script that might take some time to download, but does not require manipulating the DOM, since the DOM is not guaranteed to be completely loaded when the script runs.
+| `defer` | Will also download the script asynchronously, but then waits until the DOM is complete before executing the script. If there are multiple `async` scripts, they will run in the order that they are listed in the HTML. | When we need a script to interact with the DOM or when we want our scripts execute in a specific order. |
 
-<br />
+```html
+<!-- index.html -->
+...
+<head>
+  <!-- ... -->
 
-<details>
+  <!-- Will download asynchronously, then pause DOM loading to execute. -->
+  <!-- We don't know the order that these scripts will run. -->
+  <!-- If index_2.js finishes loading before index_1.js, then index_2.js will run first.  -->
+  <script async src="src/index_1.js" type="text/javascript"></script> 
+  <script async src="src/index_2.js" type="text/javascript"></script> 
 
-<summary>If you'd like to learn more, click here to expand and see our thoughts.</summary>
+  <!-- Will download asynchronously, then execute once the DOM is complete -->
+  <!-- index_1.js and index_2.js will always run before these scripts with `defer`. -->
+  <!-- index_3.js will always run before index_4.js. -->
+  <script defer src="src/index_3.js" type="text/javascript"></script>
+  <script defer src="src/index_4.js" type="text/javascript"></script>
+</head>
+```
 
-<br />
-
-When the browser encounters a `<script>` tag, it stops loading the HTML document. Instead, the browser pauses to download the _entire_ script, which might take a long time to load. The browser continues rendering the page only after the script has finished downloading.
-
-<br/>
-
-If we put our `<script>` tags before the site's content, the user may be looking at an empty white screen while the scripts load—not a great user experience.
-
-<br/>
-
-If we put our `<script>` tags at the bottom of the `<body>`, then the browser renders the whole page first, before loading the scripts.
-
-<br>
-
-There are more techniques to work with this problem, such as downloading the scripts asynchronously. They're interesting solutions, follow your curiosity!
-
-</details>
-
-### !end-callout
+We will typically use either `async` or `defer` with our script tags, which we choose to use for any given script in our projects will depend on what the script does and the desired experience for users. 
+- Feel free to follow your curiosity if you want to learn more about these attributes and loading scripts! We recommend [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script#async_and_defer) as a great place to start.
 
 ## Example: Hello, World!
 
@@ -118,13 +122,13 @@ Then, we can create a minimal `index.html` file. The contents don't matter in th
     <meta name="viewport" content="width=device-width">
     <title>Connecting HTML, CSS, and JS Demo</title>
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <script async src="src/index.js"></script>
   </head>
   <body>
     <main>
       <h1>🦀 Welcome to my Crab Fan Site 🦀</h1>
       <p>Here is my website where I post interesting facts about crabs.</p>
     </main>
-    <script src="src/index.js"></script>
   </body>
 </html>
 ```
@@ -146,8 +150,8 @@ _Fig. Inspecting the browser console using the browser Dev Tools._
 This experiment proves the following things to us:
 
 1. We can connect our HTML, CSS, and JS files successfully
-1. JS files run immediately after our HTML file loads them using the `<script>` tag
-1. We can access the console through the browser Dev Tools
+2. JS files run immediately after the script loads using the `<script>` tag
+3. We can access the console through the browser Dev Tools
 
 ### !callout-info
 
@@ -204,21 +208,78 @@ As we would expect, we see the time when the script executed printed to the cons
 
 ## Check for Understanding
 
-<!-- Question Takeaway -->
 <!-- prettier-ignore-start -->
 ### !challenge
-* type: paragraph
+* type: multiple-choice
 * id: deff39a1
 * title: Connecting HTML, CSS, and JS
 ##### !question
 
-What was your biggest takeaway from this lesson? Feel free to answer in 1-2 sentences, draw a picture and describe it, or write a poem, an analogy, or a story.
+We are working on a site with a script that will load up some pieces of user data. The retrieved data doesn't need to be shown to the user until the user has interacted with a certain part of the page. 
+
+Would `async` or `defer` be a better fit for the `<script>` tag in this example?
 
 ##### !end-question
-##### !placeholder
+##### !options
 
-My biggest takeaway from this lesson is...
+* `async`
+* `defer`
 
-##### !end-placeholder
+##### !end-options
+##### !hint
+
+If a user needs to interact with the site before the data would be shown anywhere, does the DOM need to exist before the data is loaded?
+
+##### !end-hint
+##### !answer
+
+* `async`
+
+##### !end-answer
+##### !explanation
+
+In this case we can use `async`. The script is fetching data to use later, it doesn't need the DOM to be ready since we aren't trying to display that information anywhere yet.
+
+##### !end-explanation
+### !end-challenge
+<!-- prettier-ignore-end -->
+
+<!-- prettier-ignore-start -->
+### !challenge
+* type: multiple-choice
+* id: deff39a1
+* title: Connecting HTML, CSS, and JS
+##### !question
+
+We are working on a site with 2 scripts:
+- `load_data.js` which handles loading data for the site 
+- `process_data.js` which processes the data from the first script into a format that the website can display
+
+The script tags in the HTML are ordered with `load_data.js` listed first and `process_data.js` listed second.
+
+Would `async` or `defer` be a better fit for the `<script>` tags in this example?
+
+##### !end-question
+##### !options
+
+* `async`
+* `defer`
+
+##### !end-options
+##### !hint
+
+`process_data.js` depends on the data from `load_data.js` to be available. How can we ensure that `load_data.js` executes first?
+
+##### !end-hint
+##### !answer
+
+* `defer`
+
+##### !end-answer
+##### !explanation
+
+We would want to use `defer` here. When we use `async` whichever script downloads first will execute first, so the scripts might not run in the correct order. If we use `defer` then since `load_data.js` is listed first, it will run first, ensuring the data will be available for `process_data.js`.
+
+##### !end-explanation
 ### !end-challenge
 <!-- prettier-ignore-end -->
