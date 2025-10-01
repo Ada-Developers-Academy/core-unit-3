@@ -114,7 +114,7 @@ Then, we can create a minimal `index.html` file. The contents don't matter in th
     <meta name="viewport" content="width=device-width">
     <title>Connecting HTML, CSS, and JS Demo</title>
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
-    <script async src="src/index.js"></script>
+    <script async src="src/index.js" type="text/javascript"></script>
   </head>
   <body>
     <main>
