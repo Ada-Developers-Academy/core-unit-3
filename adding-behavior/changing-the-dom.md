@@ -3,18 +3,6 @@
 <!-- SCRIPT_LOADING_UPDATES -->
 <!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=0caa2a3a-ddfc-4b7a-b97c-addc0160432e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
 
-<!-- ### !callout-info
-
-## These videos use an online JavaScript REPL
-
-The videos will walk through code very similar to what is shown in this lesson, however, not all examples exactly match the style we are following in this curriculum. In this course, the style and content of the code examples in this lesson are preferred over the examples shown in the video. 
-
-<br>
-
-Additionally, in the video the instructor is walking through the code using an online REPL tool rather than VS Code. You will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
-
-### !end-callout -->
-
 ## Goals
 
 The goal for this lesson is to display one of JavaScript's strengths: accessing and changing the DOM.
