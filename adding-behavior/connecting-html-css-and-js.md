@@ -43,7 +43,7 @@ In our web projects, generally speaking, we can arrange our HTML, CSS, and JS fi
 
 ## Adding the Script Tag
 
-In order for our website to load HTML, we add a link to our JavaScript file in our HTML using the `<script>` tag, similar to how we've included CSS. Just like CSS links, we can include multiple `<script>`s in one page, and the scripts will be loaded in order.
+In order for our website to load HTML, we add a link to our JavaScript file in our HTML using the `<script>` tag, similar to how we've included CSS. Just like CSS links, we can include multiple `<script>`s in one page, and by default the scripts will be loaded in order.
 
 ```html
 <!-- index.html -->
@@ -60,19 +60,19 @@ Let's break down this line, which we'll place inside the head tag, usually right
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                              |
 | --------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `<script`                                           | Begins a `<script>` tag, a tag used to embed JavaScript                            |
-| <optional async or defer attribute>                 | We can optionally add the async or defer attributes to help us control how the script will load and execute |
+| <optional async or defer attribute>                 | We can optionally add the `async` or `defer` attributes to help us control how the script will load and execute |
 | `src=`                                              | The `src` attribute holds the relative path to the JavaScript file we want to load |
 | `"src/index.js"`                                    | **Replace this** with the relative path from this HTML file to the JS file         |
 | `type="text/javascript">`                           | An attribute that specifies that we're linking a JS file                           |
 | `</script>`                                         | A closing tag                                                                      |
 
-A new twist with scripts, is that we need to consider how we want to load the script for the best user experience. The `<script>` tag in JavaScript has a couple attributes, `async` and `defer`, that we can use to change how our page will handle loading and then running a script.
+A new twist with scripts, is that we need to consider how we want to load the script for the best user experience. The `<script>` tag in JavaScript has a couple optional attributes, `async` and `defer`, that we can use to change how our page will handle loading and then running a script.
 
-When a browser encounters a `<script>` tag like in the example above, it stops loading the HTML document. The browser pauses to download the _entire_ script, which might take a long time to load, and then it executes the script. The browser continues rendering the page only after the script has finished downloading and running. This has 2 significant issues:
+When a browser encounters a `<script>` tag without `async` or `defer`, it stops loading the HTML document. The browser pauses to download the _entire_ script, which might take a long time to load, and then it executes the script. The browser continues rendering the page only after the script has finished downloading and running. This has 2 significant issues:
 - The webpage may only be partially loaded when it pauses for the script, and the site will be unresponsive until the script has finished downloading and running.
-- If the script needs to interact with the DOM, the DOM will not have finished loading and will encounter errors.
+- If the script needs to interact with the DOM, the DOM will not have finished loading and the script will encounter errors.
 
-We don't want an unresponsive site or errors, so let's dive into what `async` and `defer` do and how they can help us.
+We don't want an unresponsive site or errors, so let's dive into what `async` and `defer` do, and how they can help us.
 
 | Attribute | What is does | When it's useful |
 | --------- | ------------ | ---------------- |
@@ -99,7 +99,7 @@ We don't want an unresponsive site or errors, so let's dive into what `async` an
 </head>
 ```
 
-We will typically use either `async` or `defer` with our script tags, which we choose to use for any given script in our projects will depend on what the script does and the desired experience for users. 
+We will typically use either `async` or `defer` with our script tags. Which attribute we choose to use for any given script in our projects will depend on what the script does and the desired experience for users. 
 - Feel free to follow your curiosity if you want to learn more about these attributes and loading scripts! We recommend [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script#async_and_defer) as a great place to start.
 
 ## Example: Hello, World!
