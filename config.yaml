@@ -176,10 +176,6 @@ Standards:
         Path: /javascript-cont/destructuring.md
       -
         Type: Lesson
-        UID: e8db03d5-8db6-4a9b-af37-489d395fc425
-        Path: /javascript-cont/object-shorthand-and-computed-properties.md
-      -
-        Type: Lesson
         UID: 659c7240cc40695d5e429e5c36386fa3
         Path: /javascript-cont/intro-to-functions.md
       -

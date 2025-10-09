@@ -1,4 +1,4 @@
-# Destructuring Objects
+# Object Syntax
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=451968fb-cee3-408a-b3c8-ade2000e6320&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
@@ -10,9 +10,16 @@ The video will walk through code similar to what is shown in this lesson, howeve
 
 ### !end-callout
 
-## Introduction
+## Goals
 
-In JavaScript we will work with objects regularly. At times we will want to work _directly_ with specific key-value pairs within a larger object.  
+In JavaScript we will work with objects regularly. We will take a look at strategies for accessing values of Objects and creating Objects that can help make our code a little cleaner and use the language to our best benefit. This lesson will explore examples and syntax for:
+- Destructuring Objects to access their properties and values
+- Creating JavaScript Objects using Object Shorthand Notation
+- Creating property names for Objects at run time using Computed Properties
+
+## Destructuring Objects
+
+At times we will want to work _directly_ with specific key-value pairs within a larger object.  
 
 Let's look at the example below:
 
@@ -36,7 +43,7 @@ Thankfully, JavaScript has a shorthand notation for this known as **destructurin
 
 Feel free to clone down [the repository version](https://github.com/AdaGold/destructuring-objects-js) of the code we'll be looking at if you want to follow along locally!
 
-## How To Destructure
+### How To Destructure
 
 If we want to take specific key-value pairs from a given object, we can use the following style of notation.
 
@@ -87,7 +94,7 @@ isUserAuthorized(unAuthorizedUser); // Chantay Jarrell is not authorized.
 
 In the above example `user` and `unAuthorizedUser` are passed into the function as arguments. The function will take the user object's `id`, `fullName` and `authorized` fields and assign them to the local variables `id`, `fullName` and `authorized`, very much like the prior example.
 
-## Destructuring Arrays
+### Destructuring Arrays
 
 We can apply similar destructuring to arrays as well.
 
@@ -152,7 +159,7 @@ console.log(y); // first
 <!-- available callout types: info, success, warning, danger, secondary, star  -->
 ### !callout-info
 
-## Why Is This Useful?
+### Why Is This Useful?
 
 Destructuring is useful for a couple of reasons.  
 
@@ -161,15 +168,48 @@ Destructuring is useful for a couple of reasons.
 
 ### !end-callout
 
-<!-- temporarily commented until we can complete this section
-## Object Shorthand
--->
+## Object Shorthand Notation
+
+Let's say that we are building a collection of trading cards, and we have information in variables about each card such as the card name, the card's ID number, and the name of the release it is from like so:
+```js
+const name = 'Agumon'
+const id = 'ST1-03'
+const releaseSet = 'Digi-Battle Card Game Starter Set'
+```
+
+We want to create an Object to collect this information and make it easy to pass around and manipulate. One option would be to manually write out the keys ourselves:
+```js
+const agumon = {
+    'name': name,
+    'id': id,
+    'releaseSet': releaseSet
+}
+```
+
+This works, but any time we want our properties named after variables that already exist, we have this duplication of the variable name as a string followed by the variable.
+
+## Computed Properties
+
+Imagine that we have CSV files that contain an address book and we want to convert the contents of that file into an Object. Each line in the CSV contains the same kind of information: a name, email, phone number, and an address.
+```
+Name,Email,Phone
+Carla Alves,carla@example.com,555-1234
+Amina Ehsan,amina@example.com,555-5678
+```
+
+There are many ways and libraries that we could use to read a file, but in this case we are reading the file line by line
 
 ## Summary
 
-In this lesson we introduced destructuring in JavaScript.  Destructuring allows us to take specific key-value pairs from an object and assign them to local variables.  We also examined how to use array destructuring to take specific elements from an array and assign them to local variables.
+In this lesson we introduced 3 concepts for working with Objects in JavaScript: Destructuring, Object Shorthand, and Computed Properties.
 
-Destructuring can be a useful tool when working with objects and arrays, and it helps us keep our code compact and readable.
+Destructuring allows us to take specific key-value pairs from an object and assign them to local variables.  We also examined how to use array destructuring to take specific elements from an array and assign them to local variables Destructuring can be a useful tool when working with objects and arrays, and it helps us keep our code compact and readable.
+
+Object Shorthand lets us create and fill Objects using less code and less repetition since we can define a property's name and value at the same time. When creating an Object literal, instead of first defining a property name and then defining the value, we can pass a variable and the name of the variable will become the property and the value of the variable will become the property's value.  
+
+Computed Properties are a useful way to create property names when we don't know in advance what they should be called. We can place an expression in square brackets, and the result of that expression will be used as the name for a property. This allows us to do things like generate sequences, or use the contents of a variable as our property names.
+
+When and how we use these tools will depend on the problem we are solving, but all together they help us write cleaner and more concise Object code!
 
 ## Resources
 
