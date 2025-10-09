@@ -416,7 +416,7 @@ Standards:
         Path: /state-and-event-handling/problem-set-recreate-weather-report.md
   -
     Title: Lifting State Up
-    Description: "Inspecting React State, Single Source of Truth, Passing Down Event Handlers, Lifting State Up, Problem Set: Lifting State Up"
+    Description: "Inspecting React State, Lifting State for a Single Source of Truth, Passing Down Event Handlers, Connecting Passed Down Data & Event Handlers, Problem Set: Lifting State Up"
     UID: ddc232ea
     SuccessCriteria:
       - success criteria
@@ -428,7 +428,7 @@ Standards:
       -
         Type: Lesson
         UID: 32852ddd
-        Path: /lifting-state-up/single-source-of-truth.md
+        Path: /lifting-state-up/lifting-state-and-single-source-of-truth.md
       -
         Type: Lesson
         UID: 589f187c
@@ -436,7 +436,7 @@ Standards:
       -
         Type: Lesson
         UID: 82f81bda
-        Path: /lifting-state-up/lifting-state-up.md
+        Path: /lifting-state-up/connecting-data-and-handlers.md
       -
         Type: Lesson
         UID: abc286b1

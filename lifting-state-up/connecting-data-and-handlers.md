@@ -1,4 +1,4 @@
-# Lifting State Up
+# Connecting Passed Down Data & Event Handlers
 
 We've made `App` manage our student data, and we've passed down some event handlers. Let's make our attendance button do something!
 
