@@ -97,7 +97,7 @@ In the `App` component, we know we want these two things:
 1. We should be able to modify and update `studentData`
 1. Every time `studentData` is updated, it should affect the UI, and the `App` component should re-render so that the UI reflects the updated values from `studentData`
 
-These two qualities make it _perfect_ to turn into state.
+These two qualities make `student_data` _perfect_ to turn into state.
 
 <!-- prettier-ignore-start -->
 ```js
@@ -138,7 +138,7 @@ This code:
 - Creates a new piece of state and refers to is as `studentData`
 - Creates a new update function and refers to is as `setStudentData`
 - Sets the initial value of `studentData` to our array of student records
-- Passes the value of `studentData` to `StudentList` in the `prop` `students`
+- Passes the value of `studentData` to `StudentList` in the `prop` called `students`
 
 <!-- available callout types: info, success, warning, danger, secondary, star  -->
 ### !callout-info
@@ -149,7 +149,7 @@ In the code above, the largest number of lines is the initial value of `studentD
 
 <br />
 
-In app such as this, it's likely that we would eventually want to fetch the initial student data from a server rather than having it hard coded into the app, as we'll see in later lessons. But for now, we could at least move the initial data out of the component function body.
+In an app such as this, it's likely that we would eventually want to fetch the initial student data from a server rather than having it hard coded into the app, as we'll see in later lessons. But for now, we could at least move the initial data out of the component function body.
 
 <br />
 
@@ -200,7 +200,7 @@ Notice how this allows the logic of the `App` component to be more condensed. Ou
 
 <br />
 
-On your own, try moving the `kInitialStudentData` array into a separate file, and importing it into `App`. If moving it to a JavaScript file, Don't forget to export it from the file where you define it! This may resemble the following:
+On your own, try moving the `kInitialStudentData` array into a separate file, and importing it into `App`. If moving it to a JavaScript file, don't forget to export it from the file where you define it! This may resemble the following:
 
 ```js
 export const kInitialStudentData = [ /* array contents */ ];
