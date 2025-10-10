@@ -170,6 +170,8 @@ Destructuring is useful for a couple of reasons.
 
 ## Object Shorthand Notation
 
+Object shorthand is a piece of "syntactic sugar" where, whenever we have a variable with the same name as a property we want to create on an object, we can omit the property name when constructing the object. This allows us to write slightly shorter code, with less repetition.
+
 Let's say that we are building a collection of trading cards, and we have information in variables about each card such as the card name, the card's ID number, and the name of the release it is from like so:
 ```js
 const name = 'Agumon'
@@ -177,7 +179,7 @@ const id = 'ST1-03'
 const releaseSet = 'Digi-Battle Card Game Starter Set'
 ```
 
-We want to create an Object to collect this information and make it easy to pass around and manipulate. One option would be to manually write out the keys ourselves:
+We want to create an Object to collect this information and make the data easy to pass around and manipulate. One option would be to manually write out the keys ourselves:
 ```js
 const agumon = {
     'name': name,
@@ -186,18 +188,61 @@ const agumon = {
 }
 ```
 
-This works, but any time we want our properties named after variables that already exist, we have this duplication of the variable name as a string followed by the variable.
+This works, but we have this duplication of the variable name as a string followed by the variable. By omitting the property name, our code can be a little more concise:
+```js
+const agumon = {
+    name,
+    id,
+    releaseSet
+}
+```
 
 ## Computed Properties
 
-Imagine that we have CSV files that contain an address book and we want to convert the contents of that file into an Object. Each line in the CSV contains the same kind of information: a name, email, phone number, and an address.
-```
-Name,Email,Phone
-Carla Alves,carla@example.com,555-1234
-Amina Ehsan,amina@example.com,555-5678
+Computed properties allow us to define an expression, a piece of code that results in a single value like a variable or function invocation, and use the result of that expression as a property name on an object. To do this we'll use square brackets to surround our expression in the object literal where we would declare the property name. An example with a simple expression could look like:
+
+```js
+const newAnimal = 'Pikachu';
+const electric = 'electric';
+...
+const pokedex = {
+    [newAnimal] : electric
+}
+
+console.log(pokedex) // {'Pikachu': 'electric'}
 ```
 
-There are many ways and libraries that we could use to read a file, but in this case we are reading the file line by line
+In the code above:
+- `newAnimal` is a variable that stores some calculated value that we want to become a property name. 
+    - For the purposes of our example, the value has been hardcoded to 'Pikachu'.
+- `[newAnimal]` is a computed property name of the object literal `pokedex`. 
+    - Inside our square brackets we have a single variable to evaluate in our expression: `newAnimal`.
+    - The property name will be derived from the value of the `newAnimal` variable, becoming `'Pikachu'`.
+- `electric` holds the value for the computed property, which can be any valid JavaScript expression.
+
+We can also have more complicated expressions that do some work inside the square brackets.
+
+Imagine that we have a site that lets people put together ideas for mix tapes by choosing 5 song titles. Once the user has chosen their song titles, to make this data easier to move around, we want to create an object with property names "Track_1" through "Track_5" that map to the song titles in the order the user chose.
+```js
+const songChoices = [
+  'Song Title One',
+  'Song Title Two',
+  'Song Title Three',
+  'Song Title Four',
+  'Song Title Five'
+];
+
+let trackNumber = 0;
+const trackList = {
+  [`Track_${trackNumber + 1}`]: songChoices[trackNumber++],
+  [`Track_${trackNumber + 1}`]: songChoices[trackNumber++],
+  [`Track_${trackNumber + 1}`]: songChoices[trackNumber++],
+  [`Track_${trackNumber + 1}`]: songChoices[trackNumber++],
+  [`Track_${trackNumber + 1}`]: songChoices[trackNumber++],
+};
+```
+
+This example is a bit trivial, we know there are other ways to generate a similar Object with less repetition, but it shows that we can use computed property names to do much more than read a variable's value!
 
 ## Summary
 
@@ -214,3 +259,5 @@ When and how we use these tools will depend on the problem we are solving, but a
 ## Resources
 
 - [MDN on Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- [MDN on Property Definitions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#property_definitions)
+- [MDN on Computed Property Names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names)
