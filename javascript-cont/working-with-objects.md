@@ -14,7 +14,7 @@ The video will walk through code similar to what is shown in this lesson, howeve
 
 In JavaScript we will work with objects regularly. We will take a look at strategies for accessing values of Objects and creating Objects that can help make our code a little cleaner and use the language to our best benefit. This lesson will explore examples and syntax for:
 - Destructuring Objects to access their properties and values
-- Creating JavaScript Objects using Object Shorthand Notation
+- Creating JavaScript Objects using Object Shorthand
 - Creating property names for Objects at run time using Computed Properties
 
 ## Destructuring Objects
@@ -168,7 +168,7 @@ Destructuring is useful for a couple of reasons.
 
 ### !end-callout
 
-## Object Shorthand Notation
+## Object Shorthand
 
 Object shorthand is a piece of "syntactic sugar" where, whenever we have a variable with the same name as a property we want to create on an object, we can omit the property name when constructing the object. This allows us to write slightly shorter code, with less repetition.
 
