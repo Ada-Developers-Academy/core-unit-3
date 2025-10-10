@@ -153,7 +153,7 @@ Standards:
         UID: 474d0d30c7e2b733185f146af5802eaa
         Path: /learning-another-language/summary-resources-and-next-steps.md
   - Title: Javascript, Cont.
-    Description: "Semicolons; Variables; Objects; Working with Objects; Object Shorthand & Computed Properties; Intro to Functions; Object-Oriented Classes in Javascript; Additional Topics; Problem Set: Intro to JavaScript; Activity: Exploring Javascript"
+    Description: "Semicolons; Variables; Objects; Working with Objects; Intro to Functions; Object-Oriented Classes in Javascript; Additional Topics; Problem Set: Intro to JavaScript; Activity: Exploring Javascript"
     UID: c044b5e5-3161-47ec-a1a1-cb55f3b902d9
     SuccessCriteria:
       - success criteria
