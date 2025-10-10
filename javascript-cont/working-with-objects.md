@@ -1,4 +1,4 @@
-# Object Syntax
+# Working with Objects
 
 <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=451968fb-cee3-408a-b3c8-ade2000e6320&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
@@ -224,6 +224,7 @@ We can also have more complicated expressions that do some work inside the squar
 
 Imagine that we have a site that lets people put together ideas for mix tapes by choosing 5 song titles. Once the user has chosen their song titles, to make this data easier to move around, we want to create an object with property names "Track_1" through "Track_5" that map to the song titles in the order the user chose.
 ```js
+// Example data representing the songs the user chose
 const songChoices = [
   'Song Title One',
   'Song Title Two',
@@ -232,15 +233,36 @@ const songChoices = [
   'Song Title Five'
 ];
 
-let trackNumber = 0;
+// Acts as the index for accessing songChoices and for
+// creating the property name with the correct track number
+let songIndex = 0; 
+
+// Since songIndex starts at 0, we need to add 1 to
+// songIndex to create the correct track nmumber
 const trackList = {
-  [`Track_${trackNumber + 1}`]: songChoices[trackNumber++],
-  [`Track_${trackNumber + 1}`]: songChoices[trackNumber++],
-  [`Track_${trackNumber + 1}`]: songChoices[trackNumber++],
-  [`Track_${trackNumber + 1}`]: songChoices[trackNumber++],
-  [`Track_${trackNumber + 1}`]: songChoices[trackNumber++],
+  [`Track_${songIndex + 1}`]: songChoices[songIndex++], // Increment songIndex after fetching the track name
+  [`Track_${songIndex + 1}`]: songChoices[songIndex++],
+  [`Track_${songIndex + 1}`]: songChoices[songIndex++],
+  [`Track_${songIndex + 1}`]: songChoices[songIndex++],
+  [`Track_${songIndex + 1}`]: songChoices[songIndex++],
 };
+
+console.log(trackList);
+// Will print out:
+// {
+//   Track_1: 'Song Title One',
+//   Track_2: 'Song Title Two',
+//   Track_3: 'Song Title Three',
+//   Track_4: 'Song Title Four',
+//   Track_5: 'Song Title Five'
+// }
 ```
+
+In the code above:
+- ```[`Track_${songIndex + 1}`]``` is our computed property. 
+    - Inside the square brackets that denote the computed property, we do string interpolation to dynamically generate the property titles "Track_1" through "Track_5".
+- `songChoices[songIndex++]` will fetch the title at `songIndex` and then increase the value of `songIndex` by 1. 
+    - This is necessary so the next line can properly generate the next property name and fetch the next title in the song list.
 
 This example is a bit trivial, we know there are other ways to generate a similar Object with less repetition, but it shows that we can use computed property names to do much more than read a variable's value!
 
@@ -254,7 +276,7 @@ Object Shorthand lets us create and fill Objects using less code and less repeti
 
 Computed Properties are a useful way to create property names when we don't know in advance what they should be called. We can place an expression in square brackets, and the result of that expression will be used as the name for a property. This allows us to do things like generate sequences, or use the contents of a variable as our property names.
 
-When and how we use these tools will depend on the problem we are solving, but all together they help us write cleaner and more concise Object code!
+When and how we use these tools will depend on the problem we are solving, but all together they help us write cleaner and more concise code!
 
 ## Resources
 
