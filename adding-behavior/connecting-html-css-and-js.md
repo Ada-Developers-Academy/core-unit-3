@@ -47,12 +47,12 @@ In order for our website to load HTML, we add a link to our JavaScript file in o
 </head>
 ```
 
-Let's break down this line, which we'll place inside the head tag, usually right before the closing `</head>` tag.
+Let's break down this line, which we'll place inside the `<head>` tag, usually right before the closing `</head>` tag.
 
 | <div style="min-width:200px;"> Piece of Code </div> | Notes                                                                              |
 | --------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `<script`                                           | Begins a `<script>` tag, a tag used to embed JavaScript                            |
-| <optional async or defer attribute>                 | We can optionally add the `async` or `defer` attributes to help us control how the script will load and execute |
+| `<optional async or defer attribute>`                 | We can optionally add the `async` or `defer` attributes to help us control how the script will load and execute |
 | `src=`                                              | The `src` attribute holds the relative path to the JavaScript file we want to load |
 | `"src/index.js"`                                    | **Replace this** with the relative path from this HTML file to the JS file         |
 | `type="text/javascript">`                           | An attribute that specifies that we're linking a JS file                           |
@@ -69,7 +69,7 @@ We don't want an unresponsive site or errors, so let's dive into what `async` an
 | Attribute | What is does | When it's useful |
 | --------- | ------------ | ---------------- |
 | `async` | Makes the script download asynchronously alongside the DOM being built, and once the script has finished loading, the DOM will pause for the script to run. If there are multiple `async` scripts, they will run in the order that they finish loading *not* the order that they are listed in the HTML. | When we have a script that might take some time to download, but does not require manipulating the DOM, since the DOM is not guaranteed to be completely loaded when the script runs.
-| `defer` | Will also download the script asynchronously, but then waits until the DOM is complete before executing the script. If there are multiple `async` scripts, they will run in the order that they are listed in the HTML. | When we need a script to interact with the DOM or when we want our scripts execute in a specific order. |
+| `defer` | Will also download the script asynchronously, but then waits until the DOM is complete before executing the script. If there are multiple `defer` scripts, they will run in the order that they are listed in the HTML. | When we need a script to interact with the DOM or when we want our scripts execute in a specific order. |
 
 ```html
 <!-- index.html -->
@@ -207,7 +207,7 @@ As we would expect, we see the time when the script executed printed to the cons
 * title: Connecting HTML, CSS, and JS
 ##### !question
 
-We are working on a site with a script that will load up some pieces of user data. The retrieved data doesn't need to be shown to the user until the user has interacted with a certain part of the page. 
+We are working on a site with a script that will load up some pieces of user data. The retrieved data doesn't need to be shown to the user when the page first loads. The data will appear later when the user has interacted with a certain part of the page. 
 
 Would `async` or `defer` be a better fit for the `<script>` tag in this example?
 
