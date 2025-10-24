@@ -12,10 +12,10 @@ The video will walk through code similar to what is shown in this lesson, howeve
 
 ## Goals
 
-In JavaScript we will work with objects regularly. We will take a look at strategies for accessing values of Objects and creating Objects that can help make our code a little cleaner and use the language to our best benefit. This lesson will explore examples and syntax for:
+In JavaScript we will work with objects regularly. We will take a look at strategies for accessing values of objects and creating objects that can help make our code a little cleaner and use the language to our best benefit. This lesson will explore examples and syntax for:
 - Destructuring Objects to access their properties and values
-- Creating JavaScript Objects using Object Shorthand
-- Creating property names for Objects at run time using Computed Properties
+- Creating JavaScript objects using Object Shorthand
+- Creating property names for objects at run time using Computed Properties
 
 ## Destructuring Objects
 
@@ -108,8 +108,7 @@ console.log(secondDog); // Buddy
 console.log(otherDogs); // ['Snoopy', 'Sparky']
 ```
 
-This syntax lets us take specific elements from an array and assign them to local variables similar to object destructuring.  We can also use the `...` syntax to take all remaining elements from an array and assign them to another local variable.
-
+This syntax lets us take specific elements from an array and assign them to local variables similar to object destructuring.  We can also use the `...` syntax, also known as the spread operator, to take all remaining elements from an array and assign them to another local variable.
 We can also use array destructuring to only take the first element from an array.
 
 ```javascript
@@ -156,7 +155,6 @@ console.log(x); // second
 console.log(y); // first
 ```
 
-<!-- available callout types: info, success, warning, danger, secondary, star  -->
 ### !callout-info
 
 ### Why Is This Useful?
@@ -179,7 +177,7 @@ const id = 'ST1-03'
 const releaseSet = 'Digi-Battle Card Game Starter Set'
 ```
 
-We want to create an Object to collect this information and make the data easy to pass around and manipulate. One option would be to manually write out the keys ourselves:
+We want to create an object to collect this information and make the data easy to pass around and manipulate. One option would be to manually write out the keys ourselves:
 ```js
 const agumon = {
     'name': name,
@@ -264,15 +262,15 @@ In the code above:
 - `songChoices[songIndex++]` will fetch the title at `songIndex` and then increase the value of `songIndex` by 1. 
     - This is necessary so the next line can properly generate the next property name and fetch the next title in the song list.
 
-This example is a bit trivial, we know there are other ways to generate a similar Object with less repetition, but it shows that we can use computed property names to do much more than read a variable's value!
+This example is a bit trivial, we know there are other ways to generate a similar object with less repetition, but it shows that we can use computed property names to do much more than read a variable's value!
 
 ## Summary
 
-In this lesson we introduced 3 concepts for working with Objects in JavaScript: Destructuring, Object Shorthand, and Computed Properties.
+In this lesson we introduced 3 concepts for working with objects in JavaScript: Destructuring, Object Shorthand, and Computed Properties.
 
-Destructuring allows us to take specific key-value pairs from an object and assign them to local variables.  We also examined how to use array destructuring to take specific elements from an array and assign them to local variables Destructuring can be a useful tool when working with objects and arrays, and it helps us keep our code compact and readable.
+Destructuring allows us to take specific key-value pairs from an object and assign them to local variables.  We also examined how to use array destructuring to take specific elements from an array and assign them to local variables. Destructuring can be a useful tool when working with objects and arrays, and it helps us keep our code compact and readable.
 
-Object Shorthand lets us create and fill Objects using less code and less repetition since we can define a property's name and value at the same time. When creating an Object literal, instead of first defining a property name and then defining the value, we can pass a variable and the name of the variable will become the property and the value of the variable will become the property's value.  
+Object Shorthand lets us create and fill objects using less code and less repetition since we can define a property's name and value at the same time. When creating an object literal, instead of first defining a property name and then defining the value, we can pass a variable and the name of the variable will become the property and the value of the variable will become the property's value.  
 
 Computed Properties are a useful way to create property names when we don't know in advance what they should be called. We can place an expression in square brackets, and the result of that expression will be used as the name for a property. This allows us to do things like generate sequences, or use the contents of a variable as our property names.
 
