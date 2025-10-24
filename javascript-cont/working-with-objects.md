@@ -204,7 +204,7 @@ const newAnimal = 'Pikachu';
 const electric = 'electric';
 ...
 const pokedex = {
-    [newAnimal] : electric
+    [newAnimal]: electric
 }
 
 console.log(pokedex) // {'Pikachu': 'electric'}
