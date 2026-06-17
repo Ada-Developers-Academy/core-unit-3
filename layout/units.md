@@ -62,7 +62,7 @@ This is distinct but similar to the device screen or browser window, as both aff
 
 One `vw` (`1vw`) is equal to 1% of the viewport width, and `100vw` is 100% of the viewport width. If our `h1` tag above had the styling `width: 25vw`, the _element_ would take up 25% of the viewport's width.
 
-`vh` is relative to the viewport's height. One `1vh` (`1vh`) is equsl to 1% of the viewport height, and `100vh` is 100% of the viewport height. If our `h1` tag above had the styling `font-size: 100vh`, the _font size_ would take up the entire height of the viewport.
+`vh` is relative to the viewport's height. One `1vh` (`1vh`) is equal to 1% of the viewport height, and `100vh` is 100% of the viewport height. If our `h1` tag above had the styling `font-size: 100vh`, the _font size_ would take up the entire height of the viewport.
 
 ### Live Preview
 
