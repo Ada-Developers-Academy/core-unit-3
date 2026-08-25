@@ -1,15 +1,5 @@
 # Working with Objects
 
-<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=451968fb-cee3-408a-b3c8-ade2000e6320&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
-
-### !callout-info
-
-## This video uses an online JavaScript REPL
-
-The video will walk through code similar to what is shown in this lesson, however, not all examples exactly match what is in the lesson. In this course, the style and content of the code examples in this lesson are preferred over the examples shown in the video. Additionally, in the video the instructor is walking through the code using an online REPL tool rather than VS Code. You will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
-
-### !end-callout
-
 ## Goals
 
 In JavaScript we will work with objects regularly. We will take a look at strategies for accessing values of objects and creating objects that can help make our code a little cleaner and use the language to our best benefit. This lesson will explore examples and syntax for:

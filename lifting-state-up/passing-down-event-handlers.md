@@ -1,8 +1,5 @@
 # Passing Down Event Handlers
 
-<!-- VITE-UPDATE -->
-<!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=726ccb3c-77b8-49eb-885b-ad510022c7e4&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
-
 ## Create a Function to Toggle Student Presence in `App`
 
 We can create as many functions and helper functions inside our React components as we want!
