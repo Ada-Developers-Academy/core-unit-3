@@ -1,8 +1,5 @@
 # Testing In Node.js
 
-<!-- VITE-UPDATE -->
-<!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=669a9f30-b65b-47ce-b80d-ade101895c32&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
-
 ## Goal
 
 When writing any software, it is important to have confidence in the quality of the code. Tests can help us verify that our code is working as expected.

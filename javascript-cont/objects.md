@@ -1,15 +1,5 @@
 # Objects
 
-<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5c27e408-f21f-4ca2-8076-ad4000f5c359&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
-
-### !callout-info
-
-## This video uses an online JavaScript REPL
-
-The video will walk through the same code in this lesson, however, in the video the instructor is walking through the code using an online REPL tool rather than VS Code, so you will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
-
-### !end-callout
-
 ## Introduction
 
 Objects are instances of a data type that contains key-value pairs. They're foundational to organizing data and solving problems in JavaScript.

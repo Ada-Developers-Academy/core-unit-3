@@ -1,6 +1,4 @@
 # Writing JavaScript Locally
-<!-- VITE UPDATE -->
-<!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=a7fe5712-e072-472c-867a-adda011baa7c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
 
 Before we get into Javascript syntax and writing our first programs, we need to set up our development environment! JavaScript was initially created to run in a browser, but it can be written locally and run using the [Node.js](https://nodejs.org/en/) runtime environment. This is useful for writing code that is not dependent on the browser, such as running backend logic on a server.
 

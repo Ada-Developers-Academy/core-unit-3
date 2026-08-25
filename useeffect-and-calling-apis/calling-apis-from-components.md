@@ -1,8 +1,5 @@
 # Calling APIs from Components
 
-<!-- VITE-UPDATE -->
-<!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=37d537a4-49d6-449d-8358-ad5100fcde5f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
-
 ## Introduction
 
 Although there are countless variations, in a typical web app, there are three actors:

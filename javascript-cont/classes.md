@@ -1,15 +1,5 @@
 # Object-Oriented Classes in JavaScript
 
-<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=79449fb4-4505-4ff1-a6a0-ade2015090af&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
-
-### !callout-info
-
-## This video uses an online JavaScript REPL
-
-The videos will walk through the code and concepts in this lesson, however, in the video the instructors are walking through the code using an online REPL tool rather than VS Code. If you choose to run code examples locally, you will see some differences between how you run the code and how the instructors will run the code in the online tool. 
-
-### !end-callout
-
 ## Learning Goals
 - Understand on a high-level that ES6 introduced classes as syntactical sugar
 - By the end of this you should be able to:

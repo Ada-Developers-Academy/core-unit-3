@@ -1,19 +1,5 @@
 # Adding onclick Handling
 
-<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=ac2483cc-a37a-4b76-a463-ad4100fee632&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
-
-### !callout-info
-
-## These videos use an online JavaScript REPL
-
-The videos will walk through code very similar to what is shown in this lesson, however, not all examples exactly match the style we are following in this curriculum. In this course, the style and content of the code examples in this lesson are preferred over the examples shown in the video. 
-
-<br>
-
-Additionally, in the video the instructor is walking through the code using an online REPL tool rather than VS Code. You will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
-
-### !end-callout
-
 ## Goals
 
 Our goal for this lesson is to implement event handling in JavaScript. 

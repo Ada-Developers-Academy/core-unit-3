@@ -1,15 +1,5 @@
 # Intro to Functions
 
-<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ef1f5de9-d033-400e-b5ff-ad4000f5c37f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
-
-### !callout-info
-
-## This video uses an online JavaScript REPL
-
-The video will walk through the code examples in this lesson, however, in the video the instructor is walking through the code using an online REPL tool rather than VS Code. If you choose to run code examples locally, you will see some differences between how you run the code and how the instructor will run the code in the online tool. 
-
-### !end-callout
-
 ## Introduction
 
 There are _many_ ways to define functions. For now, we will dive into two ways:

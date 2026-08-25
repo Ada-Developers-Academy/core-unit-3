@@ -1,8 +1,5 @@
 # Props
 
-<!-- VITE-UPDATE -->
-<!-- <iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?pid=9f06fdbf-6f55-48b4-88b6-ad49003c7f4e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
-
 ## Goals
 
 - Define `props`

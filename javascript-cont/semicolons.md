@@ -1,15 +1,5 @@
 # Semicolons
 
-<iframe src="https://adaacademy.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=14f2b362-da31-42b0-8043-ad40014eb7f1&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
-
-### !callout-info
-
-## This video uses an online JavaScript REPL
-
-The video will walk through the same code in this lesson, however, in the video the instructor is walking through the code using an online REPL tool rather than VS Code, so you will see some differences between how you run the code locally and how the instructor will run the code in the online tool. 
-
-### !end-callout
-
 ## Introduction: To Use or Not Use
 
 In JavaScript, semicolons are used to mark the end of a statement:
